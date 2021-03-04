@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Aakash Shah <subs@appsparkler.com>",
   "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": ["packages/*"]
+  },
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@storybook/addon-actions": "^6.1.21",
