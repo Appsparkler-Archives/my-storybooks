@@ -21,6 +21,7 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "sb-react-mark": "start-storybook -p 2000 -c ./.storybook/react-mark.js"
   }
 }
