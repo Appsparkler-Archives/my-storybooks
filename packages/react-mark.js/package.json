@@ -7,18 +7,17 @@
     "build": "babel src --out-dir dist -x *.stories.js"
   },
   "peerDependencies": {
-    "mark.js": "^8.11.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1"
+    "react": "^17.0.1",
+    "mark.js": "^8.11.1"
   },
   "devDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
     "@babel/cli": "^7.13.0",
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
     "@babel/preset-react": "^7.12.13",
-    "mark.js": "^8.11.1"
-  },
-  "dependencies": {
     "mark.js": "^8.11.1"
   }
 }
