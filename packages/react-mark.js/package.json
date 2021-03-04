@@ -4,7 +4,7 @@
   "main": "./dist/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "babel src --out-dir dist -x **/*.stories.js"
+    "build": "babel src --out-dir dist"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
