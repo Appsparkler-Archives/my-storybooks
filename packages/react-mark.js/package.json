@@ -1,0 +1,14 @@
+{
+  "name": "react-mark.js",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "peerDependencies": {
+    "mark.js": "^8.11.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1"
+  },
+  "devDependencies": {
+    "mark.js": "^8.11.1"
+  }
+}
