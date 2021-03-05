@@ -29,6 +29,8 @@
     "build-react-mark": "build-storybook -c ./.storybook/react-mark.js --output-dir storybooks/react-mark",
     "sb-react-redux-firebase-hooks": "NODE_ENV=react-redux-firebse-hooks:production start-storybook -p 2001 -c ./.storybook/react-redux-firebase-hooks",
     "build-react-redux-firebase-hooks": "cross-env NODE_ENV=react-redux-firebse-hooks:production build-storybook -c ./.storybook/react-redux-firebase-hooks --output-dir storybooks/react-redux-firebase-hooks",
+    "sb-clock": "start-storybook -p 2002 -c ./.storybook/clock",
+    "build-clock": "build-storybook -c ./.storybook/clock --output-dir storybooks/clock",
     "serve-storybooks": "yarn build-storybooks && serve storybooks"
   }
 }
