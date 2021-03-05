@@ -11,18 +11,24 @@
     "@storybook/addon-links": "^6.1.21",
     "@storybook/react": "^6.1.21",
     "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "lerna": "^3.22.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "rimraf": "^3.0.2",
+    "serve": "^11.3.2"
   },
   "scripts": {
     "postinstall": "lerna bootstrap",
     "storybook": "start-storybook -p 6006",
+    "clean-storybooks": "rimraf storybooks",
+    "build-storybooks": "yarn clean-storybooks && yarn build-react-redux-firebase-hooks && yarn build-react-mark",
     "build-storybook": "build-storybook",
     "sb-react-mark": "start-storybook -p 2000 -c ./.storybook/react-mark.js",
     "build-react-mark": "build-storybook -c ./.storybook/react-mark.js --output-dir storybooks/react-mark",
-    "sb-react-redux-firebase-hooks": "NODE_ENV=react-mark.js:production start-storybook -p 2001 -c ./.storybook/react-redux-firebase-hooks",
-    "build-react-redux-firebase-hooks": "build-storybook -c ./.storybook/react-redux-firebase-hooks --output-dir storybooks/react-redux-firebase-hooks"
+    "sb-react-redux-firebase-hooks": "NODE_ENV=react-redux-firebse-hooks:production start-storybook -p 2001 -c ./.storybook/react-redux-firebase-hooks",
+    "build-react-redux-firebase-hooks": "cross-env NODE_ENV=react-redux-firebse-hooks:production build-storybook -c ./.storybook/react-redux-firebase-hooks --output-dir storybooks/react-redux-firebase-hooks",
+    "serve-storybooks": "yarn build-storybooks && serve storybooks"
   }
 }
