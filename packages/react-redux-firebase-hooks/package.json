@@ -19,7 +19,9 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dropzone": "^11.3.0",
+    "react-redux-firebase": "*",
     "react-scripts": "4.0.1",
+    "firebase": "*",
     "redux": "*",
     "redux-firestore": "*"
   }

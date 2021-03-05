@@ -21,6 +21,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "sb-react-mark": "start-storybook -p 2000 -c ./.storybook/react-mark.js",
-    "build-react-mark": "build-storybook -c ./.storybook/react-mark.js --output-dir storybooks/react-mark"
+    "build-react-mark": "build-storybook -c ./.storybook/react-mark.js --output-dir storybooks/react-mark",
+    "sb-react-redux-firebase-hooks": "start-storybook -p 2001 -c ./.storybook/react-redux-firebase-hooks",
+    "build-react-redux-firebase-hooks": "build-storybook -c ./.storybook/react-redux-firebase-hooks --output-dir storybooks/react-redux-firebase-hooks"
   }
 }
