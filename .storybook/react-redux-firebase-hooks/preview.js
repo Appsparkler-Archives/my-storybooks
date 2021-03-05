@@ -1,4 +1,4 @@
-import { ReactReduxFirebase, ReduxProvider } from './decorators'
+import { ReactReduxFirebase, ReduxProvider } from '../../packages/react-redux-firebase-hooks/storybbook-decorators'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
