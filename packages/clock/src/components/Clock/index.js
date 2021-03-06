@@ -1,12 +1,16 @@
 import React from 'react'
 import StyledClock from './styled'
 
-const Clock = props => {
-  const styledClock = {
-    hoursDegree: 120,
-    minutesDegree: 120,
-    secondsDegree: 120
-  }
+const Clock = ({timestamp}) => {
+  const styledClock = React.useMemo(() => {
+
+    // alert(new Date(timestamp).getSeconds())
+    return {
+      hoursDegree: 120,
+      minutesDegree: 120,
+      secondsDegree: new Date(timestamp).getSeconds()
+    }
+  }, [timestamp])
   return (
     <StyledClock {...styledClock}/>
   )

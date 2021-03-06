@@ -3,7 +3,7 @@ import Clock from './component'
 
 const transformHourHand = ({hoursDegree = -90}) => `rotate(${hoursDegree}deg)`
 const transformMinuteHand = ({minutesDegree = -90}) => `rotate(${minutesDegree}deg)`
-const transformSecondsHand = ({minutesDegree = -90}) => `rotate(${transformSecondsHand}deg)`
+const transformSecondsHand = ({secondsDegree = -90}) => `rotate(${secondsDegree}deg)`
 
 const StyledClock = styled(Clock)`
   background: url('http://paper-backgrounds.com/textureimages/2012/05/white-concrete-wall-texture-background-hd.jpg');
@@ -121,7 +121,7 @@ const StyledClock = styled(Clock)`
       width: 35vmin;
       height: .5vmin;
       top: 40.75vmin;
-      transform: ${transformMinuteHand};
+      transform: ${transformSecondsHand};
       transform-origin: 11.5%;
       box-shadow: -10px -10px 10px rgba(0,0,0,.4);
   }
