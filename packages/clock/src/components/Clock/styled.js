@@ -1,22 +1,9 @@
-import React from 'react'
 import styled from 'styled-components'
+import Clock from './component'
 
-const Clock = props =>(
-  <div class={props.className}>
-    <section>
-      <div class="label">SEIKO</div>
-      <div class="hourhand"></div>
-      <div class="secondhand"></div>
-      <div class="minutehand"></div>
-      <div class="hour12"></div>
-      <div class="hour1"></div>
-      <div class="hour2"></div>
-      <div class="hour3"></div>
-      <div class="hour4"></div>
-      <div class="hour5"></div>
-    </section>
-  </div>
-)
+const transformHourHand = ({hoursDegree = -90}) => `rotate(${hoursDegree}deg)`
+const transformMinuteHand = ({minutesDegree = -90}) => `rotate(${minutesDegree}deg)`
+const transformSecondsHand = ({minutesDegree = -90}) => `rotate(${transformSecondsHand}deg)`
 
 const StyledClock = styled(Clock)`
   background: url('http://paper-backgrounds.com/textureimages/2012/05/white-concrete-wall-texture-background-hd.jpg');
@@ -100,14 +87,14 @@ const StyledClock = styled(Clock)`
       border-top-right-radius: 20%;
       border-bottom-right-radius: 20%;
       box-shadow: -10px 0px 10px rgba(0,0,0,.4);
-      transform: rotate(-90deg);
+      transform: ${transformHourHand};
   }
 
   .minutehand {
       width: 40vmin;
       height: 1vmin;
       top: 40.5vmin;
-      transform: rotate(-90deg);
+      transform: ${transformMinuteHand};
       transform-origin: 10%;
       border-top-right-radius: 30%;
       border-bottom-right-radius: 30%;
@@ -134,7 +121,7 @@ const StyledClock = styled(Clock)`
       width: 35vmin;
       height: .5vmin;
       top: 40.75vmin;
-      transform: rotate(-90deg);
+      transform: ${transformMinuteHand};
       transform-origin: 11.5%;
       box-shadow: -10px -10px 10px rgba(0,0,0,.4);
   }
@@ -171,14 +158,4 @@ const StyledClock = styled(Clock)`
   .hour5 { transform: rotate(240deg) translate(17vmin, -30vmin); }
 `
 
-const Template = args => <StyledClock {...args}/>
-Template.args = {}
-
-export const MyClock = Template.bind({})
-MyClock.args = Template.args
-
-const Story = {
-  title: 'Clocks/Sieko Analog'
-}
-
-export default Story
+export default StyledClock
