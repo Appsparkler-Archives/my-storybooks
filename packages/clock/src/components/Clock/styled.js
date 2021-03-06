@@ -11,7 +11,7 @@ const StyledClock = styled(Clock)`
       width: 80vmin;
       height: 80vmin;
       margin: auto;
-      background: #fff url('http://travisdarnell.com/wp-content/uploads/2013/12/white-linen-paper-texture1.jpg') center center;
+      background: #fff url('http://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMjA3fDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080') center center;
       border: 3vmin solid #000;
       border-radius: 50%;
       margin-top: 3vmin;
