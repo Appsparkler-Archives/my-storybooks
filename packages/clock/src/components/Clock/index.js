@@ -3,13 +3,16 @@ import StyledClock from './styled'
 
 const Clock = ({timestamp}) => {
   const styledClock = React.useMemo(() => {
-
-    // alert(new Date(timestamp).getSeconds())
-    return {
-      hoursDegree: 120,
-      minutesDegree: 120,
-      secondsDegree: (new Date(timestamp).getSeconds() * 6) - 90
+    const hoursDegree = (new Date(timestamp).getHours() * (360/12)) - 90;
+    const minutesDegree = (new Date(timestamp).getMinutes() * (360/60)) - 90;
+    const extraHoursDegree = minutesDegree % 30;
+    const secondsDegree = (new Date(timestamp).getSeconds() * (360/60)) - 90;
+    const hands = {
+      hoursDegree,
+      minutesDegree,
+      secondsDegree
     }
+    return hands;
   }, [timestamp])
   return (
     <StyledClock {...styledClock}/>

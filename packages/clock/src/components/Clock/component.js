@@ -2,18 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Clock = props =>(
-  <div class={props.className}>
+  <div className={props.className}>
     <section>
-      <div class="label">SEIKO</div>
-      <div class="hourhand"></div>
-      <div class="secondhand"></div>
-      <div class="minutehand"></div>
-      <div class="hour12"></div>
-      <div class="hour1"></div>
-      <div class="hour2"></div>
-      <div class="hour3"></div>
-      <div class="hour4"></div>
-      <div class="hour5"></div>
+      <div className="label">SEIKO</div>
+      <div className="hourhand"></div>
+      <div className="secondhand"></div>
+      <div className="minutehand"></div>
+      <div className="hour12"></div>
+      <div className="hour1"></div>
+      <div className="hour2"></div>
+      <div className="hour3"></div>
+      <div className="hour4"></div>
+      <div className="hour5"></div>
     </section>
   </div>
 )
