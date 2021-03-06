@@ -8,7 +8,7 @@ const Clock = ({timestamp}) => {
     return {
       hoursDegree: 120,
       minutesDegree: 120,
-      secondsDegree: new Date(timestamp).getSeconds()
+      secondsDegree: (new Date(timestamp).getSeconds() * 6) - 90
     }
   }, [timestamp])
   return (
