@@ -1,18 +1,18 @@
-import React from 'react'
-import uuid from 'uuid'
-import { useFirebase } from 'react-redux-firebase'
+import React from "react";
+import uuid from "uuid";
+import { useFirebase } from "react-redux-firebase";
 
 const useFileUploader = ({ storagePath, collectionPath, onError }) => {
   const [state, setState] = React.useState({
     uploadingFileList: [],
-  })
-  const firebase = useFirebase()
+  });
+  const firebase = useFirebase();
   const uploadFiles = React.useCallback(
     async (files) => {
-      const filesWithUUID = [...files].map((file) => ({
-        ...file,
-        name: `${uuid.v4()}-${file.name}`,
-      }))
+      const filesWithUUID = [...files].map(
+        (file) =>
+          new File([file], `${uuid.v4()}-${file.name}`, { type: file.type })
+      );
       setState((currentState) => ({
         ...currentState,
         uploadingFileList: (() => {
@@ -23,13 +23,13 @@ const useFileUploader = ({ storagePath, collectionPath, onError }) => {
               storagePath,
               collectionPath,
             })),
-          ]
+          ];
         })(),
-      }))
+      }));
       await firebase
         .uploadFiles(storagePath, filesWithUUID, collectionPath)
         .catch((error) => {
-          onError(error)
+          onError(error);
         })
         .finally(() => {
           setState((currentState) => ({
@@ -38,18 +38,18 @@ const useFileUploader = ({ storagePath, collectionPath, onError }) => {
               return currentState.uploadingFileList.filter((obj) => {
                 return !filesWithUUID.some(
                   (fileWithUUID) => fileWithUUID.name === obj.file.name
-                )
-              })
+                );
+              });
             })(),
-          }))
-        })
+          }));
+        });
     },
     [firebase, storagePath, onError, collectionPath]
-  )
+  );
   return {
     ...state,
     uploadFiles,
-  }
-}
+  };
+};
 
-export default useFileUploader
+export default useFileUploader;
