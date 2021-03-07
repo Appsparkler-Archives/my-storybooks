@@ -2,27 +2,28 @@
   "name": "react-redux-firebase-hooks",
   "description": "A component library for HFN Gatsby plugin",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist"
   },
   "peerDependencies": {
+    "firebase": "*",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-redux": "*",
-    "react-redux-firebase": "*",
-    "firebase": "*"
+    "react-redux-firebase": "*"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "firebase": "*",
     "my-babel-modules": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-redux": "*",
     "react-dropzone": "^11.3.0",
+    "react-redux": "*",
     "react-redux-firebase": "*",
     "react-scripts": "4.0.1",
-    "firebase": "*",
     "redux": "*",
     "redux-firestore": "*"
   }
