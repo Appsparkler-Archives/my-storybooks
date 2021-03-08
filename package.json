@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "yarn lerna run build",
-    "build-sb-react-clocks": "build-storybook -c ./.storybook/clock --output-dir storybooks/clock",
+    "build-sb-react-clocks": "build-storybook -c ./.storybook/react-clocks --output-dir storybooks/react-clocks",
     "build-sb-react-mark": "build-storybook -c ./.storybook/react-mark.js --output-dir storybooks/react-mark",
     "build-sb-react-redux-firebase-hooks": "cross-env NODE_ENV=react-redux-firebse-hooks:production build-storybook -c ./.storybook/react-redux-firebase-hooks --output-dir storybooks/react-redux-firebase-hooks",
     "build-storybooks": "yarn clean-storybooks && yarn build-sb-react-redux-firebase-hooks && yarn build-sb-react-mark && yarn build-sb-react-clocks",
