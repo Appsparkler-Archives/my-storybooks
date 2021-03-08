@@ -1,5 +1,5 @@
 {
-  "name": "clock",
+  "name": "react-clocks",
   "version": "1.0.1",
   "main": "./dist/index.js",
   "license": "MIT",
