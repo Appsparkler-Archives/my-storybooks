@@ -20,6 +20,7 @@
     "serve": "^11.3.2"
   },
   "scripts": {
+    "build": "yarn lerna run build",
     "postinstall": "lerna bootstrap",
     "storybook": "start-storybook -p 6006",
     "clean-storybooks": "rimraf storybooks",

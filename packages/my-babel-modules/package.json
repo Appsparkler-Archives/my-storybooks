@@ -1,6 +1,6 @@
 {
   "name": "my-babel-modules",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
@@ -8,5 +8,9 @@
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
     "@babel/preset-react": "^7.12.13"
+  },
+  "bin": {
+    "babel": "./bin/babel.js",
+    "babel-external-helpers": "./bin/babel-external-helpers.js"
   }
 }

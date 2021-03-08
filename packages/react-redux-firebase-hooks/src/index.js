@@ -1,8 +1,8 @@
-import useFileUploader from './components/FileUploader/useFileUploader'
-import useFileDownloader from './components/FileDownloader/useFileDownloader'
-import useFileRemover from './components/FileRemover/useFileRemover'
-import useFirestoreCollection from './components/FirestoreCollection/useFirestoreCollection'
-import useFileManager from './components/FileManager/useFileManager'
+import useFileUploader from "./hooks/FileUploader/useFileUploader";
+import useFileDownloader from "./hooks/FileDownloader/useFileDownloader";
+import useFileRemover from "./hooks/FileRemover/useFileRemover";
+import useFirestoreCollection from "./hooks/FirestoreCollection/useFirestoreCollection";
+import useFileManager from "./hooks/FileManager/useFileManager";
 
 export {
   useFileUploader,
@@ -10,4 +10,4 @@ export {
   useFileRemover,
   useFirestoreCollection,
   useFileManager,
-}
+};

@@ -15,7 +15,6 @@
     "react-redux-firebase": "*"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.0",
     "firebase": "*",
     "my-babel-modules": "^1.0.0",
     "prop-types": "^15.7.2",
