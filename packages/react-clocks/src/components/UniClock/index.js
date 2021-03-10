@@ -1,39 +1,20 @@
 import React from "react";
+import StyledUniClock from "./styled";
 
-const UniClock = ({ className }) => {
-  return (
-    <div className={className}>
-      <div className="clock">
-        <div className="clock-circles">
-          <div className="clock-circles__item"></div>
-          <div className="clock-circles__item"></div>
-          <div className="clock-circles__item"></div>
-          <div className="clock-circles__item">
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-            <div className="wave"></div>
-          </div>
-        </div>
-        <div className="clock-indicators">
-          <div className="clock-indicators__item"></div>
-          <div className="clock-indicators__item"></div>
-          <div className="clock-indicators__item"></div>
-          <div className="clock-indicators__item"></div>
-          <div className="clock-indicators__item"></div>
-          <div className="clock-indicators__item"></div>
-          <div className="clock-indicators__item"></div>
-          <div className="clock-indicators__item"></div>
-        </div>
-        <div className="clock-times">
-          <div className="clock-times__second"></div>
-          <div className="clock-times__minute"></div>
-          <div className="clock-times__hour"></div>
-        </div>
-      </div>
-    </div>
-  );
+const UniClock = ({ timestamp }) => {
+  const styledClock = React.useMemo(() => {
+    const hoursDegree = new Date(timestamp).getHours() * (360 / 12);
+    const minutesDegree = new Date(timestamp).getMinutes() * (360 / 60);
+    const extraHoursDegree = minutesDegree % 30;
+    const secondsDegree = new Date(timestamp).getSeconds() * (360 / 60);
+    const hands = {
+      hoursDegree,
+      minutesDegree,
+      secondsDegree,
+    };
+    return hands;
+  }, [timestamp]);
+  return <StyledUniClock {...hands} />;
 };
 
 export default UniClock;

@@ -1,6 +1,12 @@
-import UniClock from ".";
+import UniClock from "./component";
 
 import styled from "styled-components";
+
+const transformHourHand = ({ hoursDegree = 0 }) => `rotate(${hoursDegree}deg)`;
+const transformMinuteHand = ({ minutesDegree = 0 }) =>
+  `rotate(${minutesDegree}deg)`;
+const transformSecondsHand = ({ secondsDegree = 0 }) =>
+  `rotate(${secondsDegree}deg)`;
 
 const StyledUniClock = styled(UniClock)`
   width: 100%;
@@ -350,6 +356,7 @@ const StyledUniClock = styled(UniClock)`
     margin-top: 10px;
     /* animation: time 2s linear infinite; */
     transform: rotateZ(100deg);
+    transform: ${transformSecondsHand};
     z-index: 3;
     background-image: linear-gradient(to top, #e45753 0%, #ca09e8 100%);
     width: 3px;
@@ -360,6 +367,7 @@ const StyledUniClock = styled(UniClock)`
     margin-top: 20px;
     opacity: 0.75;
     transform: rotateZ(20deg);
+    transform: ${transformMinuteHand};
     /* animation: time 20s linear infinite; */
     /* animation-delay: -35s; */
   }
@@ -370,6 +378,7 @@ const StyledUniClock = styled(UniClock)`
     border-radius: 50px;
     box-shadow: 3px 1px 6px -1px rgba(10, 21, 53, 0.45);
     transform: rotateZ(10deg);
+    transform: ${transformHourHand};
     /* animation: time 60s linear infinite; */
     /* animation-delay: -20s; */
   }

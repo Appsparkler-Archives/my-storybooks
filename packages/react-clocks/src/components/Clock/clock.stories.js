@@ -6,50 +6,21 @@ const Template = (args) => <Clock {...args} />;
 const TickingClock = (args) => {
   const [state, setState] = React.useState({
     timestamp: Date.now(),
-    intervalId: null,
-    intervalIds: [],
   });
 
-  const startClock = React.useCallback(() => {
+  React.useEffect(() => {
     const intervalId = setInterval(() => {
+      const timestamp = Date.now();
       console.log("tick");
       setState((currentState) => ({
         ...currentState,
-        timestamp: Date.now(),
+        timestamp,
       }));
     }, 1000);
-    setState((currentState) => ({
-      ...currentState,
-      intervalId,
-      intervalIds: [...currentState.intervalIds, intervalId],
-    }));
+    return () => clearInterval(intervalId);
   }, []);
 
-  const stopClock = React.useCallback(() => {
-    if (state.intervalId) {
-      setState((currentState) => {
-        clearInterval(currentState.intervalId);
-        return {
-          ...currentState,
-          intervalId: null,
-        };
-      });
-    }
-  }, [state.intervalId]);
-
-  React.useEffect(() => {
-    if (!state.intervalId) {
-      startClock();
-    }
-    return () => stopClock();
-  }, [state.intervalId]);
-
-  return (
-    <div>
-      <pre>{JSON.stringify(state, null, 2)}</pre>
-      <Clock timestamp={state.timestamp} />
-    </div>
-  );
+  return <Clock timestamp={state.timestamp} />;
 };
 
 export const Static = Template.bind({});
