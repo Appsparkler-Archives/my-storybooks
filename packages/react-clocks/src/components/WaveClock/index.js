@@ -1,6 +1,13 @@
 import React from "react";
+import "./styles.css";
 
 class WaveClock extends React.Component {
+  state = {
+    date: {},
+  };
+  constructor(man) {
+    super(man);
+  }
   getInitialState() {
     return this.getDate();
   }
@@ -48,7 +55,10 @@ class WaveClock extends React.Component {
   }
 }
 
-class Marker {
+class Marker extends React.Component {
+  constructor(man) {
+    super(man);
+  }
   render() {
     switch (this.props.type) {
       case "hours":
@@ -78,7 +88,10 @@ class Marker {
   }
 }
 
-class Timer {
+class Timer extends React.Component {
+  constructor(man) {
+    super(man);
+  }
   render() {
     if (this.props.time < 10) {
       var time = "0" + this.props.time;

@@ -1,7 +1,7 @@
 import React from "react";
 import WaveClock from "./";
 
-const Template = () => <br />;
+const Template = () => <WaveClock />;
 
 export const Default = Template.bind({});
 Default.args = {};
