@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-const Clock = props =>(
+const Clock = (props) => (
   <div className={props.className}>
     <section>
       <div className="label">SEIKO</div>
@@ -16,11 +16,10 @@ const Clock = props =>(
       <div className="hour5"></div>
     </section>
   </div>
-)
+);
 
 Clock.propTypes = {
-  className: PropTypes.string
-}
-
+  className: PropTypes.string,
+};
 
 export default React.memo(Clock);

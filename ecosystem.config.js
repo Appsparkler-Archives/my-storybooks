@@ -6,6 +6,9 @@ module.exports = {
     {
       script: "yarn sb-react-redux-firebase-hooks",
     },
+    {
+      script: "yarn sb-react-clocks",
+    },
   ],
 
   deploy: {

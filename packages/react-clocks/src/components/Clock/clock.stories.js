@@ -1,66 +1,70 @@
-import React from 'react'
-import Clock from './index'
+import React from "react";
+import Clock from "./index";
 
-const Template = args => {
+const Template = (args) => <Clock {...args} />;
+
+const TickingClock = (args) => {
   const [state, setState] = React.useState({
     timestamp: Date.now(),
     intervalId: null,
-    intervalIds: []
+    intervalIds: [],
   });
 
   const startClock = React.useCallback(() => {
     const intervalId = setInterval(() => {
-      console.log('tick')
+      console.log("tick");
       setState((currentState) => ({
         ...currentState,
         timestamp: Date.now(),
-      }))
-    }, 1000)
-    setState(currentState => ({
+      }));
+    }, 1000);
+    setState((currentState) => ({
       ...currentState,
       intervalId,
-      intervalIds: [...currentState.intervalIds, intervalId]
-    }))
-  }, [])
+      intervalIds: [...currentState.intervalIds, intervalId],
+    }));
+  }, []);
 
   const stopClock = React.useCallback(() => {
-    if(state.intervalId) {
-      setState(currentState => {
+    if (state.intervalId) {
+      setState((currentState) => {
         clearInterval(currentState.intervalId);
         return {
           ...currentState,
-          intervalId: null
-        }
-      })
+          intervalId: null,
+        };
+      });
     }
-  }, [state.intervalId])
+  }, [state.intervalId]);
 
   React.useEffect(() => {
-    if(!state.intervalId) {
+    if (!state.intervalId) {
       startClock();
     }
-    return () => stopClock()
-  }, [state.intervalId])
+    return () => stopClock();
+  }, [state.intervalId]);
 
   return (
     <div>
       <pre>{JSON.stringify(state, null, 2)}</pre>
       <Clock timestamp={state.timestamp} />
     </div>
-  )
-}
+  );
+};
 
-Template.args = {}
+export const Static = Template.bind({});
+Static.args = {
+  timestamp: 1615384885000,
+};
 
-export const clock = Template.bind({})
-clock.args = Template.args
-
-export const abcd = Template.bind({})
-abcd.args = Template.args
+export const Ticking = (args) => <TickingClock {...args} />;
+Ticking.args = {
+  ...Static.args,
+};
 
 const Story = {
-  title: 'Clocks/Sieko Analog 123 ',
-  component: Clock
-}
+  title: "Clocks/Sieko Analog 123 ",
+  component: Clock,
+};
 
-export default Story
+export default Story;
