@@ -9,13 +9,14 @@ const transformSecondsHand = ({ secondsDegree = -90 }) =>
   `rotate(${secondsDegree}deg)`;
 
 const StyledClock = styled(Clock)`
-  background: url("http://paper-backgrounds.com/textureimages/2012/05/white-concrete-wall-texture-background-hd.jpg");
+  padding: 30px 0;
+  background: url("https://www.photohdx.com/images/2014/11/blue-wall-texture-background.jpg");
   section {
     width: 80vmin;
     height: 80vmin;
     margin: auto;
     background: #fff
-      url("http://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMjA3fDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080")
+      url("https://tritownregistries.com/wp-content/uploads/2016/04/white-linen-paper-texture-whiter-1024x683.jpg")
       center center;
     border: 3vmin solid #000;
     border-radius: 50%;
