@@ -1,5 +1,4 @@
 import UniClock from "./component";
-
 import styled from "styled-components";
 
 const transformHourHand = ({ hoursDegree = 0 }) => `rotate(${hoursDegree}deg)`;
@@ -14,7 +13,7 @@ const StyledUniClock = styled(UniClock)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f3fbff;
+  background: #bbb;
   box-sizing: border-box;
   * {
     box-sizing: border-box;

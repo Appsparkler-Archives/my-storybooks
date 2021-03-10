@@ -14,7 +14,11 @@ const UniClock = ({ timestamp }) => {
     };
     return hands;
   }, [timestamp]);
-  return <StyledUniClock {...hands} />;
+  return (
+    <div>
+      <StyledUniClock {...styledClock} />
+    </div>
+  );
 };
 
 export default UniClock;

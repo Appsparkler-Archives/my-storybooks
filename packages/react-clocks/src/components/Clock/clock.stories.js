@@ -11,7 +11,6 @@ const TickingClock = (args) => {
   React.useEffect(() => {
     const intervalId = setInterval(() => {
       const timestamp = Date.now();
-      console.log("tick");
       setState((currentState) => ({
         ...currentState,
         timestamp,
