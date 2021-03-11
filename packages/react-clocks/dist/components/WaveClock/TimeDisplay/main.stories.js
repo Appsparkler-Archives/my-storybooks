@@ -27,7 +27,7 @@ var Ticking = function Ticking(_ref) {
       showSeconds = _ref.showSeconds;
   var tickingTimestamp = (0, _reactClocksHooks.useTickingTimestamp)({
     timestamp: timestamp,
-    interval: 1000 * 5
+    interval: 1000
   });
   return /*#__PURE__*/React.createElement(_["default"], {
     timestamp: tickingTimestamp,

@@ -31,7 +31,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var useTickingTimestamp = function useTickingTimestamp() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
       _ref$timestamp = _ref.timestamp,
-      timestamp = _ref$timestamp === void 0 ? Date.now : _ref$timestamp,
+      timestamp = _ref$timestamp === void 0 ? Date.now() : _ref$timestamp,
       _ref$interval = _ref.interval,
       interval = _ref$interval === void 0 ? 1000 : _ref$interval;
 
