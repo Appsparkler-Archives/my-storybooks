@@ -1,18 +1,16 @@
 import React from "react";
-import StyledCubeClock from "./styled";
+import CubeClock from ".";
 
-const Template = (args) => <StyledCubeClock {...args} />;
+const Template = (args) => <CubeClock {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  seconds: 22,
-  minutes: 11,
-  hours: 10,
+  timestamp: Date.now(),
 };
 
 const Story = {
   title: "Clocks/Digital/Cube Clock",
-  component: StyledCubeClock,
+  component: CubeClock,
 };
 
 export default Story;
