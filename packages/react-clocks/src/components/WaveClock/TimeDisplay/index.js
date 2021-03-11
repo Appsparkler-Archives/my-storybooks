@@ -1,6 +1,7 @@
 import { useMemo, memo } from "react";
+import PropTypes from "prop-types";
 
-const DisplayedTime = ({ hours, minutes, seconds }) => {
+const DisplayedTime = ({ hours, minutes, seconds, showSeconds }) => {
   const {
     hoursWaveHeightPercent,
     displayHours,
@@ -33,19 +34,28 @@ const DisplayedTime = ({ hours, minutes, seconds }) => {
           style={{ height: minutesWaveHeightPercent, opacity: "abcd" }}
         ></div>
       </div>
-      <div className="Column">
-        <div
-          className="Marker Marker--seconds"
-          style={{ height: secondsWaveHeightPercent, opacity: "abcd" }}
-        ></div>
-      </div>
+      {showSeconds && (
+        <div className="Column">
+          <div
+            className="Marker Marker--seconds"
+            style={{ height: secondsWaveHeightPercent, opacity: "abcd" }}
+          ></div>
+        </div>
+      )}
       <div className="text-overlay">
         <div>{displayHours}</div>
         <div>{displayMinutes}</div>
-        <div>{displaySeconds}</div>
+        {showSeconds && <div>{displaySeconds}</div>}
       </div>
     </div>
   );
+};
+
+DisplayedTime.propTypes = {
+  showSeconds: PropTypes.bool,
+  hours: PropTypes.number.isRequired,
+  minutes: PropTypes.number.isRequired,
+  seconds: PropTypes.number.isRequired,
 };
 
 export default memo(DisplayedTime);
