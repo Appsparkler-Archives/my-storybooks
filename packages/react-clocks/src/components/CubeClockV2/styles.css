@@ -76,6 +76,16 @@ p {
   transform: rotateX(90deg) translate3d(0, 0, 105px);
   background: #222;
 }
+.face.top.v2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.face.top.v2 p {
+  font-size: 65px !important;
+  line-height: 65px;
+  margin: 0;
+}
 
 @keyframes color {
   0% {
