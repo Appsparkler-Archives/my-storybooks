@@ -16,7 +16,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var Story = {
-  title: 'Mark.js/Marker',
+  title: "Mark.js/Marker",
   component: _["default"]
 };
 
@@ -25,8 +25,8 @@ var Template = function Template(args) {
 };
 
 Template.args = {
-  mark: 'oo',
-  children: 'Foo Boo Koo'
+  mark: "oo",
+  children: "Foo Boo Koo"
 };
 var WithoutOtions = Template.bind({});
 exports.WithoutOtions = WithoutOtions;
@@ -34,11 +34,11 @@ WithoutOtions.args = Template.args;
 var WithMarkOptions = Template.bind({});
 exports.WithMarkOptions = WithMarkOptions;
 WithMarkOptions.args = _objectSpread(_objectSpread({}, Template.args), {}, {
-  mark: 'orl',
+  mark: "orl",
   children: /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Hello World"), /*#__PURE__*/React.createElement("p", null, "Hello World")),
   options: {
-    exclude: ['h3'],
-    accuracy: 'complementary'
+    exclude: ["h3"],
+    accuracy: "complementary"
   }
 });
 var _default = Story;

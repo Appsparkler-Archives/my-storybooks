@@ -7,20 +7,18 @@ exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
 var _styled = _interopRequireDefault(require("./styled"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var Clock = function Clock(_ref) {
+var UniClock = function UniClock(_ref) {
   var timestamp = _ref.timestamp;
 
   var styledClock = _react["default"].useMemo(function () {
-    var hoursDegree = new Date(timestamp).getHours() * (360 / 12) - 90;
-    var minutesDegree = new Date(timestamp).getMinutes() * (360 / 60) - 90;
+    var hoursDegree = new Date(timestamp).getHours() * (360 / 12);
+    var minutesDegree = new Date(timestamp).getMinutes() * (360 / 60);
     var extraHoursDegree = minutesDegree % 30;
-    var secondsDegree = new Date(timestamp).getSeconds() * (360 / 60) - 90;
+    var secondsDegree = new Date(timestamp).getSeconds() * (360 / 60);
     var hands = {
       hoursDegree: hoursDegree,
       minutesDegree: minutesDegree,
@@ -29,11 +27,8 @@ var Clock = function Clock(_ref) {
     return hands;
   }, [timestamp]);
 
-  return /*#__PURE__*/_react["default"].createElement(_styled["default"], styledClock);
+  return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(_styled["default"], styledClock));
 };
 
-Clock.propTypes = {
-  timestamp: _propTypes["default"].number.isRequired
-};
-var _default = Clock;
+var _default = UniClock;
 exports["default"] = _default;

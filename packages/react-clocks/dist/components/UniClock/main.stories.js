@@ -7,7 +7,7 @@ exports["default"] = exports.Ticking = exports.Static = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _index = _interopRequireDefault(require("./index"));
+var _ = _interopRequireDefault(require("."));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -30,7 +30,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var Template = function Template(args) {
-  return /*#__PURE__*/_react["default"].createElement(_index["default"], args);
+  return /*#__PURE__*/_react["default"].createElement(_["default"], args);
 };
 
 var TickingClock = function TickingClock(args) {
@@ -55,7 +55,7 @@ var TickingClock = function TickingClock(args) {
     };
   }, []);
 
-  return /*#__PURE__*/_react["default"].createElement(_index["default"], {
+  return /*#__PURE__*/_react["default"].createElement(_["default"], {
     timestamp: state.timestamp
   });
 };
@@ -73,8 +73,8 @@ var Ticking = function Ticking(args) {
 exports.Ticking = Ticking;
 Ticking.args = _objectSpread({}, Static.args);
 var Story = {
-  title: "Clocks/Sieko Analog 123 ",
-  component: _index["default"]
+  title: "Clocks/Uni(corn)Clock",
+  component: _["default"]
 };
 var _default = Story;
 exports["default"] = _default;

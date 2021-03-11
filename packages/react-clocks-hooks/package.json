@@ -1,0 +1,16 @@
+{
+  "name": "react-clocks-hooks",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src --out-dir dist"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1"
+  },
+  "devDependencies": {
+    "react": "^17.0.1",
+    "my-babel-modules": "^1.0.0"
+  }
+}
