@@ -3,9 +3,8 @@ const Template = (args) => <DisplayedTime {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  hours: 10,
-  minutes: 10,
-  seconds: 10,
+  timestamp: 0,
+  showSeconds: true,
 };
 
 const Story = {

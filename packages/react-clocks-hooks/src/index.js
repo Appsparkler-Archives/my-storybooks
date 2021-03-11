@@ -1,3 +1,4 @@
 import useTickingTimestamp from "./hooks/useTickingTimestamp";
+import useTimestampConverter from "./hooks/useTimestampConverter";
 
-export { useTickingTimestamp };
+export { useTickingTimestamp, useTimestampConverter };
