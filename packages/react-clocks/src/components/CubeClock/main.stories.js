@@ -11,7 +11,7 @@ Default.args = {
 };
 
 const Story = {
-  title: "Clocks/Cube Clock",
+  title: "Clocks/Digital/Cube Clock",
   component: StyledCubeClock,
 };
 

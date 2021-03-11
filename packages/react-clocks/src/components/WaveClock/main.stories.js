@@ -7,7 +7,7 @@ export const Default = Template.bind({});
 Default.args = {};
 
 const Story = {
-  title: "clocks/Wave Clock",
+  title: "clocks/Digital/Wave Clock",
   componennt: WaveClock,
 };
 
