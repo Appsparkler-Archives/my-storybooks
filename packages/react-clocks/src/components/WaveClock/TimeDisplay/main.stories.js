@@ -12,7 +12,7 @@ Default.args = {
 export const Ticking = ({ timestamp, showSeconds }) => {
   const tickingTimestamp = useTickingTimestamp({
     timestamp,
-    interval: 1000 * 5,
+    interval: 1000,
   });
   return (
     <DisplayedTime timestamp={tickingTimestamp} showSeconds={showSeconds} />

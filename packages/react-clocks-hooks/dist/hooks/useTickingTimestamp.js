@@ -25,6 +25,9 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+/**
+  returns a (ticking) timestamp every interval
+*/
 var useTickingTimestamp = function useTickingTimestamp() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
       _ref$timestamp = _ref.timestamp,
@@ -39,9 +42,8 @@ var useTickingTimestamp = function useTickingTimestamp() {
 
   (0, _react.useEffect)(function () {
     var intervalId = setInterval(function () {
-      var timestamp = Date.now();
-      setTickingTimestamp(function (timestamp) {
-        return timestamp + interval;
+      setTickingTimestamp(function (currentTickingTimestamp) {
+        return currentTickingTimestamp + interval;
       });
     }, interval);
     return function () {
