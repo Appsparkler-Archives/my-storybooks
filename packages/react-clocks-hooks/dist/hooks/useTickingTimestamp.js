@@ -25,8 +25,12 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var useTickingTimestamp = function useTickingTimestamp(_ref) {
-  var timestamp = _ref.timestamp;
+var useTickingTimestamp = function useTickingTimestamp() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$timestamp = _ref.timestamp,
+      timestamp = _ref$timestamp === void 0 ? Date.now : _ref$timestamp,
+      _ref$interval = _ref.interval,
+      interval = _ref$interval === void 0 ? 1000 : _ref$interval;
 
   var _useState = (0, _react.useState)(timestamp),
       _useState2 = _slicedToArray(_useState, 2),
@@ -37,9 +41,9 @@ var useTickingTimestamp = function useTickingTimestamp(_ref) {
     var intervalId = setInterval(function () {
       var timestamp = Date.now();
       setTickingTimestamp(function (timestamp) {
-        return timestamp + 1000;
+        return timestamp + interval;
       });
-    }, 1000);
+    }, interval);
     return function () {
       return clearInterval(intervalId);
     };

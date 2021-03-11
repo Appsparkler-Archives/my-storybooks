@@ -9,7 +9,9 @@ var _react = require("react");
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _reactClocksHooks = require("react-clocks-hooks");
+var _useTimestampConverter = _interopRequireDefault(require("react-clocks-hooks/dist/hooks/useTimestampConverter"));
+
+require("./styles.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -17,25 +19,23 @@ var DisplayedTime = function DisplayedTime(_ref) {
   var timestamp = _ref.timestamp,
       showSeconds = _ref.showSeconds;
 
-  var _useMemo = (0, _react.useMemo)(function () {
-    return function () {
-      var _useTimestampConverte = (0, _reactClocksHooks.useTimestampConverter)(timestamp),
-          hours = _useTimestampConverte.hours,
-          minutes = _useTimestampConverte.minutes,
-          seconds = _useTimestampConverte.seconds;
+  var _useTimestampConverte = (0, _useTimestampConverter["default"])(timestamp),
+      hours = _useTimestampConverte.hours,
+      minutes = _useTimestampConverte.minutes,
+      seconds = _useTimestampConverte.seconds;
 
-      return {
-        hoursOpacity: "".concat(hours / 24),
-        minutesOpacity: "".concat(minutes / 60),
-        secondsOpacity: "".concat(seconds / 60),
-        secondsWaveHeightPercent: "".concat(seconds / 60 * 100, "%"),
-        minutesWaveHeightPercent: "".concat(minutes / 60 * 100, "%"),
-        hoursWaveHeightPercent: "".concat(hours / 24 * 100, "%"),
-        displayHours: hours < 10 ? "0".concat(hours) : hours,
-        displayMinutes: minutes < 10 ? "0".concat(minutes) : minutes,
-        displaySeconds: seconds < 10 ? "0".concat(seconds) : seconds
-      };
-    }();
+  var _useMemo = (0, _react.useMemo)(function () {
+    return {
+      hoursOpacity: "".concat(hours / 24),
+      minutesOpacity: "".concat(minutes / 60),
+      secondsOpacity: "".concat(seconds / 60),
+      secondsWaveHeightPercent: "".concat(seconds / 60 * 100, "%"),
+      minutesWaveHeightPercent: "".concat(minutes / 60 * 100, "%"),
+      hoursWaveHeightPercent: "".concat(hours / 24 * 100, "%"),
+      displayHours: hours < 10 ? "0".concat(hours) : hours,
+      displayMinutes: minutes < 10 ? "0".concat(minutes) : minutes,
+      displaySeconds: seconds < 10 ? "0".concat(seconds) : seconds
+    };
   }, [timestamp]),
       displayHours = _useMemo.displayHours,
       displayMinutes = _useMemo.displayMinutes,
