@@ -1,25 +1,12 @@
 import React from "react";
 import UniClock from ".";
+import { useTickingTimestamp } from "react-clocks-hooks";
 
 const Template = (args) => <UniClock {...args} />;
 
 const TickingClock = (args) => {
-  const [state, setState] = React.useState({
-    timestamp: Date.now(),
-  });
-
-  React.useEffect(() => {
-    const intervalId = setInterval(() => {
-      const timestamp = Date.now();
-      setState((currentState) => ({
-        ...currentState,
-        timestamp,
-      }));
-    }, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
-
-  return <UniClock timestamp={state.timestamp} />;
+  const tickingTimestamp = useTickingTimestamp({ timestamp: args.timestamp });
+  return <UniClock timestamp={tickingTimestamp} />;
 };
 
 export const Static = Template.bind({});
@@ -33,7 +20,7 @@ Ticking.args = {
 };
 
 const Story = {
-  title: "Clocks/Uni(corn)Clock",
+  title: "Clocks/Analog/Uni(corn)Clock",
   component: UniClock,
 };
 
