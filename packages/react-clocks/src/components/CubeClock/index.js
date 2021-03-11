@@ -1,4 +1,5 @@
 import { useMemo, memo } from "react";
+import PropTypes from "prop-types";
 import StyledCubeClock from "./styled";
 
 const CubeClock = ({ timestamp }) => {
@@ -23,6 +24,10 @@ const CubeClock = ({ timestamp }) => {
     };
   }, [timestamp]);
   return <StyledCubeClock {...cubeClock} />;
+};
+
+CubeClock.propTypes = {
+  timestamp: PropTypes.number,
 };
 
 export default memo(CubeClock);
