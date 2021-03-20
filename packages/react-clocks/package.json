@@ -16,7 +16,7 @@
     "react-clocks-hooks": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "my-babel-modules": "^1.0.3",
+    "my-babel-modules": "^1.0.0",
     "styled-components": "^5.2.1"
   }
 }
