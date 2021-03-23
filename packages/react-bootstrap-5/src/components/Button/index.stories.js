@@ -2,17 +2,34 @@ import React from "react";
 import Button from "./index";
 
 const Template = (args) => (
-  <div>
-    <Button {...args} size="sm" className="mx-1">
-      Bootstrap Button
-    </Button>
-    <Button {...args} size="md" className="mx-1">
-      Bootstrap Button
-    </Button>
-    <Button {...args} size="lg" className="mx-1">
-      Bootstrap Button
-    </Button>
-  </div>
+  <table className="table">
+    <thead>
+      <tr>
+        <th>Small (sm)</th>
+        <th>Medium (md</th>
+        <th>Large (lg)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <Button {...args} size="sm" className="mx-1">
+            Bootstrap Button
+          </Button>
+        </td>
+        <td>
+          <Button {...args} size="md" className="mx-1">
+            Bootstrap Button
+          </Button>
+        </td>
+        <td>
+          <Button {...args} size="lg" className="mx-1">
+            Bootstrap Button
+          </Button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 );
 Template.args = {};
 
@@ -41,6 +58,15 @@ Info.args = {
 export const InfoAndOutline = Template.bind({});
 InfoAndOutline.args = {
   ...Info.args,
+  outline: true,
+};
+export const Success = Template.bind({});
+Success.args = {
+  type: "success",
+};
+export const SuccessAndOutline = Template.bind({});
+SuccessAndOutline.args = {
+  ...Success.args,
   outline: true,
 };
 
