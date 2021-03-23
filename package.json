@@ -14,6 +14,7 @@
     "postinstall": "lerna bootstrap",
     "sb-react-clocks": "yarn lerna run build && start-storybook -p 2002 -c ./.storybook/react-clocks",
     "sb-react-mark": "start-storybook -p 2000 -c ./.storybook/react-mark.js",
+    "sb-bs-5": "start-storybook -p 2002 -c ./.storybook/react-bootstrap-5",
     "sb-react-redux-firebase-hooks": "NODE_ENV=react-redux-firebse-hooks:production start-storybook -p 2001 -c ./.storybook/react-redux-firebase-hooks",
     "serve-storybooks": "yarn build-storybooks && serve storybooks",
     "storybook": "start-storybook -p 6006"
