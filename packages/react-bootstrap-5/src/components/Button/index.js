@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 
-const Button = ({ type, size, children, className, ...props }) => (
+const Button = ({ outline, type, size, children, className, ...props }) => (
   <button
     type="button"
-    class={`btn btn-${size} btn-${type} ${className}`}
+    class={`btn btn-${size} btn${
+      outline ? "-outline" : ""
+    }-${type} ${className}`}
     {...props}
   >
     {children}
@@ -11,6 +13,7 @@ const Button = ({ type, size, children, className, ...props }) => (
 );
 
 Button.propTypes = {
+  outline: PropTypes.bool,
   type: PropTypes.oneOf([
     "primary",
     "secondary",
@@ -26,6 +29,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
+  outline: false,
   type: "primary",
   className: "",
   size: "md",
