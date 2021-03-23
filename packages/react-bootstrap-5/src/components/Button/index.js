@@ -23,14 +23,17 @@ Button.propTypes = {
     "danger",
     "dark",
     "light",
+    "link",
   ]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
   className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
   outline: false,
   type: "primary",
+  disabled: false,
   className: "",
   size: "md",
 };
