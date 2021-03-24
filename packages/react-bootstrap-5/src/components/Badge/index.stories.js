@@ -1,6 +1,5 @@
 import React from "react";
 import Badge from "./";
-import "bootstrap/dist/css/bootstrap.css";
 
 const Template = (args) => <Badge {...args} />;
 Template.args = {
