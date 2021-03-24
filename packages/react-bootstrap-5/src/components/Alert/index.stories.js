@@ -46,6 +46,20 @@ Warning.args = {
   children: getChildren("warning"),
 };
 
+export const Light = Template.bind({});
+Light.args = {
+  ...Light.args,
+  bg: "light",
+  children: getChildren("light"),
+};
+Light.decorators = [
+  (Story) => (
+    <div className="bg-dark p-5">
+      <Story />
+    </div>
+  ),
+];
+
 // export const Light = Template.bind({});
 // Light.args = {
 //   ...Primary.args,
