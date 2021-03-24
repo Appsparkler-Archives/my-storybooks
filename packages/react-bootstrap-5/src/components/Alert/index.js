@@ -1,7 +1,11 @@
-const Alert = () => (
-  <div className="alert alert-primary" role="alert">
-    A simple primary alert—check it out!
+const Alert = ({ bg, children }) => (
+  <div className={`alert alert-${bg}`} role="alert">
+    {children}
   </div>
 );
+
+Alert.defaultProps = {
+  bg: "primary",
+};
 
 export default Alert;
