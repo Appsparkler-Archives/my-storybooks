@@ -26,6 +26,11 @@ Success.args = {
   ...Primary.args,
   bg: "success",
 };
+export const Info = Template.bind({});
+Info.args = {
+  ...Primary.args,
+  bg: "info",
+};
 
 export const Danger = Template.bind({});
 Danger.args = {
@@ -53,32 +58,16 @@ Dark.args = {
 };
 
 export const All = () => (
-  <div className="flex">
-    <Badge className="mx-1">Default</Badge>
-    <Badge bg="primary" className="mx-1">
-      Primary
-    </Badge>
-    <Badge bg="secondary" className="mx-1">
-      Secondary
-    </Badge>
-    <Badge bg="success" className="mx-1 bg-gradient">
-      Success
-    </Badge>
-    <Badge bg="info" className="mx-1">
-      Info
-    </Badge>
-    <Badge bg="danger" className="mx-1">
-      Danger
-    </Badge>
-    <Badge bg="warning" className="mx-1">
-      Warning
-    </Badge>
-    <Badge bg="light" className="mx-1 text-dark">
-      Light
-    </Badge>
-    <Badge bg="dark" className="mx-1">
-      Dark
-    </Badge>
+  <div className="d-flex gap-2">
+    <Badge {...Template.args}>default</Badge>
+    <Badge {...Primary.args}>primary</Badge>
+    <Badge {...Secondary.args}>secondary</Badge>
+    <Badge {...Success.args}>success</Badge>
+    <Badge {...Info.args}>info</Badge>
+    <Badge {...Warning.args}>warning</Badge>
+    <Badge {...Danger.args}>danger</Badge>
+    <Badge {...Light.args}>light</Badge>
+    <Badge {...Dark.args}>dark</Badge>
   </div>
 );
 
