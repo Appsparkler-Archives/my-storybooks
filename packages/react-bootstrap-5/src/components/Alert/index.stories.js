@@ -1,9 +1,12 @@
 import React from "react";
 import Alert from "./";
+import AlertDecorator from "../../hoc/Alert/decorator";
+
 const getChildren = (type) => `A simple ${type} alert—check it out!`;
 const Template = (args) => <Alert {...args} />;
 Template.args = {
   children: getChildren("primary"),
+  dismissable: true,
 };
 
 export const Primary = Template.bind({});
@@ -60,52 +63,30 @@ Light.decorators = [
   ),
 ];
 
-// export const Light = Template.bind({});
-// Light.args = {
-//   ...Primary.args,
-//   bg: "light",
-//   className: "text-dark",
-// };
+export const Dark = Template.bind({});
+Dark.args = {
+  ...Dark.args,
+  bg: "dark",
+  children: getChildren("dark"),
+};
 
-// export const Dark = Template.bind({});
-// Dark.args = {
-//   ...Primary.args,
-//   bg: "dark",
-// };
-
-// export const All = () => (
-//   <div className="flex">
-//     <Badge className="mx-1">Default</Badge>
-//     <Badge bg="primary" className="mx-1">
-//       Primary
-//     </Badge>
-//     <Badge bg="secondary" className="mx-1">
-//       Secondary
-//     </Badge>
-//     <Badge bg="success" className="mx-1 bg-gradient">
-//       Success
-//     </Badge>
-//     <Badge bg="info" className="mx-1">
-//       Info
-//     </Badge>
-//     <Badge bg="danger" className="mx-1">
-//       Danger
-//     </Badge>
-//     <Badge bg="warning" className="mx-1">
-//       Warning
-//     </Badge>
-//     <Badge bg="light" className="mx-1 text-dark">
-//       Light
-//     </Badge>
-//     <Badge bg="dark" className="mx-1">
-//       Dark
-//     </Badge>
-//   </div>
-// );
+export const All = () => (
+  <div>
+    <Alert {...Primary.args} />
+    <Alert {...Secondary.args} />
+    <Alert {...Info.args} />
+    <Alert {...Success.args} />
+    <Alert {...Warning.args} />
+    <Alert {...Danger.args} />
+    <Alert {...Light.args} />
+    <Alert {...Dark.args} />
+  </div>
+);
 
 const Story = {
   title: "Components/Alert",
   component: Alert,
+  decorators: [AlertDecorator],
 };
 
 export default Story;
