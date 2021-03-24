@@ -1,4 +1,5 @@
 import Carousel from "./index";
+import CarouselDecorator from "../../hoc/Carousel/decorator.js";
 
 const Template = () => <Carousel />;
 
@@ -8,6 +9,7 @@ Default.args = {};
 const Story = {
   title: "Components/Carousel",
   component: Carousel,
+  decorators: [CarouselDecorator],
 };
 
 export default Story;
