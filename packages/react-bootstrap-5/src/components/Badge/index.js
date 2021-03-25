@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Badge = ({ bg, pill, className, children }) => (
-  <span
-    className={`badge bg-${bg} ${pill ? "rounded-pill" : null} ${className}`}
-  >
+  <span className={`badge bg-${bg} ${pill ? "rounded-pill" : ""} ${className}`}>
     {children}
   </span>
 );

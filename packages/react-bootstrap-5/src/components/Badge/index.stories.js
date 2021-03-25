@@ -5,7 +5,6 @@ const Template = (args) => <Badge {...args} />;
 Template.args = {
   bg: "primary",
   pill: false,
-  className: "p-2",
   children: "Primary",
 };
 
