@@ -1,3 +1,3 @@
-import Div from "./Div";
+import Badge from "./Badge";
 
-export { Div };
+export { Badge };
