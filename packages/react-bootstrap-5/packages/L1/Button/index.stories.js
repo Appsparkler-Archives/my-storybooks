@@ -71,156 +71,34 @@ const PlainButton = (props, ref) => {
 
 const Button = React.forwardRef(PlainButton);
 
-export const All = () => {
+export const Small = () => {
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th>SM</th>
-          <th>MD</th>
-          <th>LG</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <Button primary sm>
-              Primary
-            </Button>
-          </td>
-          <td>
-            <Button primary md>
-              Primary
-            </Button>
-          </td>
-          <td>
-            <Button primary lg>
-              Primary
-            </Button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <button className="btn btn-secondary btn-sm">Secondary</button>
-          </td>
-          <td>
-            <button className="btn btn-secondary btn-md">Secondary</button>
-          </td>
-          <td>
-            <button className="btn btn-secondary btn-lg">Secondary</button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <Button info sm>
-              Info Info
-            </Button>
-          </td>
-          <td>
-            <Button info md>
-              Info Info
-            </Button>
-          </td>
-          <td>
-            <Button info lg>
-              Info Info
-            </Button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <Button success sm>
-              Success
-            </Button>
-          </td>
-          <td>
-            <Button success md>
-              Success
-            </Button>
-          </td>
-          <td>
-            <Button success lg>
-              Success
-            </Button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <Button warning sm>
-              Warning
-            </Button>
-          </td>
-          <td>
-            <Button warning md>
-              Warning
-            </Button>
-          </td>
-          <td>
-            <Button warning lg>
-              Warning
-            </Button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <Button danger sm>
-              Danger
-            </Button>
-          </td>
-          <td>
-            <Button danger md>
-              Danger
-            </Button>
-          </td>
-          <td>
-            <Button danger lg>
-              Danger
-            </Button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <Button light sm>
-              Light
-            </Button>
-          </td>
-          <td>
-            <Button light md>
-              Light
-            </Button>
-          </td>
-          <td>
-            <Button light lg>
-              Light
-            </Button>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <Button dark sm>
-              Dark
-            </Button>
-          </td>
-          <td>
-            <Button dark md>
-              Dark
-            </Button>
-          </td>
-          <td>
-            <Button dark lg>
-              Dark
-            </Button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div className="d-flex flex-row gap-2 flex-wrap">
+      <Button primary sm>
+        Primary
+      </Button>
+      <Button secondary sm>
+        Secondary
+      </Button>
+      <Button success sm>
+        Success
+      </Button>
+      <Button danger sm>
+        Danger
+      </Button>
+      <Button warning sm>
+        Warning
+      </Button>
+      <Button info sm>
+        Info
+      </Button>
+      <Button light sm>
+        Light
+      </Button>
+      <Button dark sm>
+        Dark
+      </Button>
+    </div>
   );
 };
 

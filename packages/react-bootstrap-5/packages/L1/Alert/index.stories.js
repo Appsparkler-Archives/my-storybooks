@@ -63,11 +63,6 @@ export const DismissableWithEvents = () => {
     const instance = new AlertJS(alertRef.current);
     instance.close();
   }, []);
-  const onClickOpen = React.useCallback(() => {
-    const instance = new AlertJS(alertRef.current);
-    console.log(alertRef.current);
-    instance.open();
-  }, []);
   return (
     <div className="d-flex flex-column bg-dark p-2">
       <Alert primary dismissable ref={alertRef}>
@@ -75,11 +70,11 @@ export const DismissableWithEvents = () => {
       </Alert>
       <div>
         <button
-          className="btn btn-warning btn-sm d-inline"
+          title="Close from outside the alert"
+          type="button"
+          className="btn-close bg-warning"
           onClick={onClickClose}
-        >
-          Close
-        </button>
+        ></button>
       </div>
     </div>
   );
