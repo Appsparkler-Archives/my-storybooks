@@ -8,5 +8,11 @@
   "private": true,
   "dependencies": {
     "@react-bootstrap-5/hooks": "^1.0.0"
+  },
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.21"
   }
 }

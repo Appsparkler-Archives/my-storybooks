@@ -1,7 +1,7 @@
 import React from "react";
 import Alert from ".";
-import AlertDecorator from "./decorator";
-
+import AlertDecorator, { AlertJS } from "./decorator";
+import noop from "lodash/noop";
 export const Basic = () => (
   <div className="d-flex flex-column bg-dark p-2">
     <Alert primary>A simple primary alert—check it out!</Alert>
@@ -39,6 +39,51 @@ export const Dismissable = () => (
     </Alert>
   </div>
 );
+const useAlert = (args = {}) => {
+  const { onClose = noop, onClosed = noop } = args;
+  const alertRef = React.useRef();
+  React.useEffect(() => {
+    alertRef.current.addEventListener("closed.bs.alert", onClosed);
+    alertRef.current.addEventListener("close.bs.alert", onClose);
+  }, [onClose, onClosed]);
+  React.useEffect(() => {}, []);
+  return alertRef;
+};
+export const DismissableWithEvents = () => {
+  const alertRef = useAlert({
+    onClose: (evt) => {
+      alert("gonna close");
+    },
+    onClosed: (evt) => {
+      alert("closed");
+      alertRef.current = null;
+    },
+  });
+  const onClickClose = React.useCallback(() => {
+    const instance = new AlertJS(alertRef.current);
+    instance.close();
+  }, []);
+  const onClickOpen = React.useCallback(() => {
+    const instance = new AlertJS(alertRef.current);
+    console.log(alertRef.current);
+    instance.open();
+  }, []);
+  return (
+    <div className="d-flex flex-column bg-dark p-2">
+      <Alert primary dismissable ref={alertRef}>
+        A simple primary alert—check it out!
+      </Alert>
+      <div>
+        <button
+          className="btn btn-warning btn-sm d-inline"
+          onClick={onClickClose}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const Story = {
   title: "L1/Alerts",
