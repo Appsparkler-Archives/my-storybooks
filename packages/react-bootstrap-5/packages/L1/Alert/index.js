@@ -1,44 +1,31 @@
 import React from "react";
+import { useVariantExtractor } from "@react-bootstrap-5/hooks";
 
 const Alert = React.forwardRef((props, ref) => {
+  const { variant, restProps: propsAfterVariant } = useVariantExtractor(props);
   const {
     children,
     className = "",
-
-    // variants:
-    primary,
-    secondary,
-    info,
-    success,
-    warning,
-    danger,
-    light,
-    dark,
-
-    // other variations
     pill,
     dismissable,
     ...restProps
-  } = props;
+  } = propsAfterVariant;
+
   const alertDismissable = React.useMemo(() => {
     if (dismissable) {
       return `alert-dismissible fade show`;
     }
     return "";
   }, [dismissable]);
-  const bg = React.useMemo(() => {
-    if (primary) return "primary";
-    if (secondary) return "secondary";
-    if (info) return "info";
-    if (success) return "success";
-    if (warning) return "warning";
-    if (danger) return "danger";
-    if (light) return "light";
-    if (dark) return "dark";
-  }, [primary, secondary, info, success, warning, danger, light, dark]);
+
+  const alertVariant = React.useMemo(() => {
+    if (variant) return `alert-${variant}`;
+    return "";
+  }, [variant]);
+
   return (
     <div
-      className={`alert alert-${bg} ${alertDismissable}`}
+      className={`alert ${alertVariant} ${alertDismissable}`}
       role="alert"
       {...restProps}
       ref={ref}
