@@ -1,7 +1,7 @@
 import React from "react";
 import Badge from "./index";
 
-export const All = () => (
+export const Simple = () => (
   <div className="d-inline-flex gap-2 flex-wrap">
     <Badge primary>primary</Badge>
     <Badge secondary>secondary</Badge>
@@ -13,6 +13,35 @@ export const All = () => (
       light
     </Badge>
     <Badge dark>dark</Badge>
+  </div>
+);
+
+export const Pill = () => (
+  <div className="d-inline-flex gap-2 flex-wrap">
+    <Badge primary pill>
+      primary
+    </Badge>
+    <Badge secondary pill>
+      secondary
+    </Badge>
+    <Badge info pill>
+      info
+    </Badge>
+    <Badge success pill>
+      success
+    </Badge>
+    <Badge warning pill>
+      warning
+    </Badge>
+    <Badge danger pill>
+      danger
+    </Badge>
+    <Badge light className="text-dark" pill>
+      light
+    </Badge>
+    <Badge dark pill>
+      dark
+    </Badge>
   </div>
 );
 

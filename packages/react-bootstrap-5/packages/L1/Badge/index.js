@@ -11,6 +11,7 @@ const Badge = React.forwardRef(({ children, ...props }, ref) => {
     danger,
     light,
     dark,
+    pill,
     ...restProps
   } = props;
   const bg = React.useMemo(() => {
@@ -23,9 +24,17 @@ const Badge = React.forwardRef(({ children, ...props }, ref) => {
     if (light) return "light";
     if (dark) return "dark";
   }, [primary, secondary, info, success, warning, danger, light, dark]);
+  const roundedPill = React.useMemo(() => {
+    if (pill) return "rounded-pill";
+    return "";
+  }, []);
 
   return (
-    <span className={`badge bg-${bg} ${className}`} {...restProps} ref={ref}>
+    <span
+      className={`badge bg-${bg} ${roundedPill} ${className}`}
+      {...restProps}
+      ref={ref}
+    >
       {children}
     </span>
   );
