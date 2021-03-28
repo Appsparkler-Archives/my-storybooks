@@ -1,9 +1,11 @@
 import React from "react";
 
-const Badge = ({ children, ...props }, ref) => {
+const Alert = (props, ref) => {
   const {
+    children,
     className,
     primary,
+    dismissable,
     secondary,
     info,
     success,
@@ -14,7 +16,12 @@ const Badge = ({ children, ...props }, ref) => {
     pill,
     ...restProps
   } = props;
-
+  const alertDismissable = React.useMemo(() => {
+    if (dismissable) {
+      return `alert-dismissible fade show`;
+    }
+    return "";
+  }, [dismissable]);
   const bg = React.useMemo(() => {
     if (primary) return "primary";
     if (secondary) return "secondary";
@@ -25,21 +32,24 @@ const Badge = ({ children, ...props }, ref) => {
     if (light) return "light";
     if (dark) return "dark";
   }, [primary, secondary, info, success, warning, danger, light, dark]);
-
-  const roundedPill = React.useMemo(() => {
-    if (pill) return "rounded-pill";
-    return "";
-  }, []);
-
   return (
-    <span
-      className={`badge bg-${bg} ${roundedPill} ${className}`}
+    <div
+      className={`alert alert-${bg} ${alertDismissable}`}
+      role="alert"
       {...restProps}
       ref={ref}
     >
       {children}
-    </span>
+      {dismissable && (
+        <button
+          type="button"
+          className="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      )}
+    </div>
   );
 };
 
-export default React.forwardRef(Badge);
+export default React.forwardRef(Alert);
