@@ -32,13 +32,36 @@ const useVariant = (props = {}) => {
   };
 };
 
+const useSize = (props = {}) => {
+  const { sm, md, lg, ...restProps } = props;
+  const size = React.useMemo(() => {
+    if (sm) return "sm";
+    if (md) return "md";
+    if (lg) return "lg";
+  }, [sm, md, lg]);
+
+  return {
+    restProps,
+    size,
+  };
+};
+
 const PlainButton = (props, ref) => {
-  const { variant, restProps } = useVariant(props);
-  const { children, className, ...restProps2 } = restProps;
+  const { variant, restProps: restProps0 } = useVariant(props);
+  const { size, restProps: restProps1 } = useSize(restProps0);
+  const { children, className, ...restProps2 } = restProps1;
+  const variantClass = React.useMemo(() => {
+    if (variant) return `btn-${variant}`;
+    return "";
+  }, [variant]);
+  const sizeClass = React.useMemo(() => {
+    if (size) return `btn-${size}`;
+    return "";
+  }, [size]);
   return (
     <button
       ref={ref}
-      className={`btn btn-${variant} ${className}`}
+      className={`btn ${variantClass} ${sizeClass} ${className}`}
       {...restProps2}
     >
       {children}
@@ -61,17 +84,22 @@ export const All = () => {
       <tbody>
         <tr>
           <td>
-            <Button primary className="btn-sm">
+            <Button primary sm>
               Primary
             </Button>
           </td>
           <td>
-            <button className="btn btn-primary btn-md">Primary</button>
+            <Button primary md>
+              Primary
+            </Button>
           </td>
           <td>
-            <button className="btn btn-primary btn-lg">Primary</button>
+            <Button primary lg>
+              Primary
+            </Button>
           </td>
         </tr>
+
         <tr>
           <td>
             <button className="btn btn-secondary btn-sm">Secondary</button>
@@ -81,6 +109,114 @@ export const All = () => {
           </td>
           <td>
             <button className="btn btn-secondary btn-lg">Secondary</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <Button info sm>
+              Info Info
+            </Button>
+          </td>
+          <td>
+            <Button info md>
+              Info Info
+            </Button>
+          </td>
+          <td>
+            <Button info lg>
+              Info Info
+            </Button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <Button success sm>
+              Success
+            </Button>
+          </td>
+          <td>
+            <Button success md>
+              Success
+            </Button>
+          </td>
+          <td>
+            <Button success lg>
+              Success
+            </Button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <Button warning sm>
+              Warning
+            </Button>
+          </td>
+          <td>
+            <Button warning md>
+              Warning
+            </Button>
+          </td>
+          <td>
+            <Button warning lg>
+              Warning
+            </Button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <Button danger sm>
+              Danger
+            </Button>
+          </td>
+          <td>
+            <Button danger md>
+              Danger
+            </Button>
+          </td>
+          <td>
+            <Button danger lg>
+              Danger
+            </Button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <Button light sm>
+              Light
+            </Button>
+          </td>
+          <td>
+            <Button light md>
+              Light
+            </Button>
+          </td>
+          <td>
+            <Button light lg>
+              Light
+            </Button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <Button dark sm>
+              Dark
+            </Button>
+          </td>
+          <td>
+            <Button dark md>
+              Dark
+            </Button>
+          </td>
+          <td>
+            <Button dark lg>
+              Dark
+            </Button>
           </td>
         </tr>
       </tbody>
