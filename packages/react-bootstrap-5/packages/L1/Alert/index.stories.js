@@ -2,8 +2,9 @@ import React from "react";
 import Alert from ".";
 import AlertDecorator, { AlertJS } from "./decorator";
 import noop from "lodash/noop";
+
 export const Basic = () => (
-  <div className="d-flex flex-column bg-dark p-2">
+  <div className="d-flex flex-column p-2">
     <Alert primary>A simple primary alert—check it out!</Alert>
     <Alert secondary>A simple secondary alert—check it out!</Alert>
     <Alert success>A simple success alert—check it out!</Alert>
@@ -15,7 +16,7 @@ export const Basic = () => (
 );
 
 export const Dismissable = () => (
-  <div className="d-flex flex-column bg-dark p-2">
+  <div className="d-flex flex-column p-2">
     <Alert primary dismissable>
       A simple primary alert—check it out!
     </Alert>
@@ -39,6 +40,7 @@ export const Dismissable = () => (
     </Alert>
   </div>
 );
+
 const useAlert = (args = {}) => {
   const { onClose = noop, onClosed = noop } = args;
   const alertRef = React.useRef();
@@ -49,6 +51,7 @@ const useAlert = (args = {}) => {
   React.useEffect(() => {}, []);
   return alertRef;
 };
+
 export const DismissableWithEvents = () => {
   const alertRef = useAlert({
     onClose: (evt) => {
@@ -64,7 +67,7 @@ export const DismissableWithEvents = () => {
     instance.close();
   }, []);
   return (
-    <div className="d-flex flex-column bg-dark p-2">
+    <div className="d-flex flex-column p-2">
       <Alert primary dismissable ref={alertRef}>
         A simple primary alert—check it out!
       </Alert>
