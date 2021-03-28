@@ -1,0 +1,9 @@
+{
+  "name": "@react-bootstrap-5/hooks",
+  "version": "1.0.0",
+  "description": "A supporting package for react-bootstrap-5",
+  "main": "index.js",
+  "author": "Aakash Shah",
+  "license": "MIT",
+  "private": true
+}

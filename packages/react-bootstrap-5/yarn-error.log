@@ -2,7 +2,7 @@ Arguments:
   /usr/local/bin/node /usr/local/bin/yarn install --mutex network:42424 --non-interactive
 
 PATH: 
-  /Users/aakashshah/Desktop/projects/my-storybooks/packages/react-bootstrap-5/node_modules/.bin:/Users/aakashshah/Desktop/projects/my-storybooks/packages/node_modules/.bin:/Users/aakashshah/Desktop/projects/my-storybooks/node_modules/.bin:/Users/aakashshah/Desktop/projects/node_modules/.bin:/Users/aakashshah/Desktop/node_modules/.bin:/Users/aakashshah/node_modules/.bin:/Users/node_modules/.bin:/node_modules/.bin:/usr/local/bin:/var/folders/nx/m62x1n6j7jg2v3x29f5hzb440000gn/T/yarn--1616915820865-0.7679911771157033:/Users/aakashshah/Desktop/projects/my-storybooks/node_modules/.bin:/Users/aakashshah/.config/yarn/link/node_modules/.bin:/Users/aakashshah/.yarn/bin:/usr/local/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  /Users/aakashshah/Desktop/projects/my-storybooks/packages/react-bootstrap-5/node_modules/.bin:/Users/aakashshah/Desktop/projects/my-storybooks/packages/node_modules/.bin:/Users/aakashshah/Desktop/projects/my-storybooks/node_modules/.bin:/Users/aakashshah/Desktop/projects/node_modules/.bin:/Users/aakashshah/Desktop/node_modules/.bin:/Users/aakashshah/node_modules/.bin:/Users/node_modules/.bin:/node_modules/.bin:/usr/local/bin:/var/folders/nx/m62x1n6j7jg2v3x29f5hzb440000gn/T/yarn--1616916505861-0.35970746763508776:/Users/aakashshah/Desktop/projects/my-storybooks/node_modules/.bin:/Users/aakashshah/.config/yarn/link/node_modules/.bin:/Users/aakashshah/.yarn/bin:/usr/local/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/bin/node_modules/npm/bin/node-gyp-bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 Yarn version: 
   1.22.10
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@react-bootstrap-5%2fL1: Not found
+  Error: https://registry.yarnpkg.com/@react-bootstrap-5%2fhooks: Not found
       at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66988:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140662:22)
       at Request.emit (node:events:378:20)
@@ -39,7 +39,7 @@ npm manifest:
   		"styled-components": "^5.2.1"
   	},
   	"devDependencies": {
-  		"@react-bootstrap-5/L1": "^1.0.0",
+  		"@react-bootstrap-5/hooks": "^1.0.0",
   		"bootstrap": "5.0.0-beta2",
   		"my-babel-modules": "^1.0.0",
   		"prop-types": "^15.7.2",
