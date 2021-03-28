@@ -1,6 +1,6 @@
 import React from "react";
 
-const Badge = ({ children, ...props }, ref) => {
+const Badge = React.forwardRef(({ children, ...props }, ref) => {
   const {
     className,
     primary,
@@ -40,6 +40,9 @@ const Badge = ({ children, ...props }, ref) => {
       {children}
     </span>
   );
+});
+Badge.defaultProps = {
+  className: "",
 };
 
-export default React.forwardRef(Badge);
+export default Badge;
