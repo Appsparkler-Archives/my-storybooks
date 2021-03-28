@@ -17,6 +17,7 @@
     "react": "^17.0.1",
     "my-babel-modules": "^1.0.0",
     "styled-components": "^5.2.1",
-    "bootstrap": "5.0.0-beta2"
+    "bootstrap": "5.0.0-beta2",
+    "@react-bootstrap-5/l1": "^1.0.0"
   }
 }
