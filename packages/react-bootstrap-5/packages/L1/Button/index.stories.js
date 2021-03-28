@@ -46,11 +46,19 @@ const useSize = (props = {}) => {
   };
 };
 
+const useOutlineExtractor = (props = {}) => {
+  const { outline, ...restProps } = props;
+  React.useMemo(() => {}, [outline]);
+  return {};
+};
+
 const PlainButton = (props, ref) => {
   const { variant, restProps: restProps0 } = useVariant(props);
   const { size, restProps: restProps1 } = useSize(restProps0);
-  const { children, className, ...restProps2 } = restProps1;
+  const { outline, ...restPropsAfterOutline } = restProps1;
+  const { children, className, ...restProps2 } = restPropsAfterOutline;
   const variantClass = React.useMemo(() => {
+    if (outline && variant) return `btn-outline-${variant}`;
     if (variant) return `btn-${variant}`;
     return "";
   }, [variant]);
@@ -70,6 +78,10 @@ const PlainButton = (props, ref) => {
 };
 
 const Button = React.forwardRef(PlainButton);
+
+Button.defaultProps = {
+  className: "",
+};
 
 export const Small = () => {
   return (
@@ -158,6 +170,37 @@ export const Large = () => {
         Light
       </Button>
       <Button dark lg>
+        Dark
+      </Button>
+    </div>
+  );
+};
+
+export const SmallAndOutline = () => {
+  return (
+    <div className="d-flex flex-row gap-2 flex-wrap">
+      <Button primary sm outline>
+        Primary
+      </Button>
+      <Button secondary sm outline>
+        Secondary
+      </Button>
+      <Button success sm outline>
+        Success
+      </Button>
+      <Button danger sm outline>
+        Danger
+      </Button>
+      <Button warning sm outline>
+        Warning
+      </Button>
+      <Button info sm outline>
+        Info
+      </Button>
+      <Button light sm outline>
+        Light
+      </Button>
+      <Button dark sm outline>
         Dark
       </Button>
     </div>
