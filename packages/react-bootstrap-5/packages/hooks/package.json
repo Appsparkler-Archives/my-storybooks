@@ -5,5 +5,8 @@
   "main": "index.js",
   "author": "Aakash Shah",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "peerDependencies": {
+    "react": "17.0.1"
+  }
 }
