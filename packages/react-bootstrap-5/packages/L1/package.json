@@ -6,7 +6,7 @@
   "author": "Aakash Shah",
   "license": "MIT",
   "private": true,
-  "devDependencies": {
+  "dependencies": {
     "@react-bootstrap-5/hooks": "^1.0.0"
   }
 }
