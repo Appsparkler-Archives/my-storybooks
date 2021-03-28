@@ -1,14 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Badge = ({ bg, pill, className, children }) => (
-  <span className={`badge bg-${bg} ${pill ? "rounded-pill" : ""} ${className}`}>
-    {children}
-  </span>
-);
+const getBadge = ({ badge }) => (badge ? "badge" : "");
+const getRoundedPill = ({ roundedPill }) => (roundedPill ? "rounded-pill" : "");
+
+const Badge = ({ bg, pill, className, children, ...props }) => {
+  const utilitiyClasses = useBootstrapUtilities(props);
+  return <span className={`${utilitiyClasses} ${className}`}>{children}</span>;
+};
 
 Badge.defaultProps = {
-  bg: "primary",
   pill: false,
   className: "",
   children: "",

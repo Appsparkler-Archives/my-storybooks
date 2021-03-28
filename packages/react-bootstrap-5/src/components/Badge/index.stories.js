@@ -1,58 +1,78 @@
 import React from "react";
-import Badge from "./";
-
-const Template = (args) => <Badge {...args} />;
+import useBootstrapUtilities from "./useBootstrapUtilities";
+const Div = ({ children, className, ...props }) => {
+  const utilitiyClasses = useBootstrapUtilities(props);
+  return <div className={`${utilitiyClasses} ${className}`}>{children}</div>;
+};
+const Badge = ({ children, className, ...props }) => {
+  return (
+    <Div {...props} className={`badge ${className}`}>
+      {children}
+    </Div>
+  );
+};
+const RoundedPillBadge = ({ children, className, ...props }) => {
+  return (
+    <Badge {...props} className={`rounded-pill ${className}`}>
+      {children}
+    </Badge>
+  );
+};
+const Template = ({ children, ...args }) => (
+  <RoundedPillBadge {...args}>{children}</RoundedPillBadge>
+);
 Template.args = {
-  bg: "primary",
   pill: false,
   children: "Primary",
+  className: "",
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
   ...Template.args,
+  bgPrimary: true,
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  ...Primary.args,
-  bg: "secondary",
+  ...Template.args,
+  bgSecondary: true,
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  ...Primary.args,
-  bg: "success",
+  ...Template.args,
+  bgSuccess: true,
 };
 export const Info = Template.bind({});
 Info.args = {
-  ...Primary.args,
-  bg: "info",
+  ...Template.args,
+  bgInfo: true,
 };
 
 export const Danger = Template.bind({});
 Danger.args = {
-  ...Primary.args,
-  bg: "danger",
+  ...Template.args,
+  bgDanger: true,
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-  ...Primary.args,
-  bg: "warning",
+  ...Template.args,
+  bgWarning: true,
 };
 
 export const Light = Template.bind({});
 Light.args = {
-  ...Primary.args,
-  bg: "light",
+  ...Template.args,
+  bgLight: true,
   className: "text-dark",
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-  ...Primary.args,
-  bg: "dark",
+  ...Template.args,
+  bgDark: true,
 };
 
 export const All = () => (
