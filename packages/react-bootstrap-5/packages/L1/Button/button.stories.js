@@ -98,6 +98,37 @@ export const Large = () => {
   );
 };
 
+export const Disabled = () => {
+  return (
+    <div className="d-flex flex-row gap-2 flex-wrap">
+      <Button primary lg outline disabled>
+        Primary
+      </Button>
+      <Button secondary lg outline disabled>
+        Secondary
+      </Button>
+      <Button success lg outline disabled>
+        Success
+      </Button>
+      <Button danger lg outline disabled>
+        Danger
+      </Button>
+      <Button warning lg outline disabled>
+        Warning
+      </Button>
+      <Button info lg outline disabled>
+        Info
+      </Button>
+      <Button light lg outline disabled>
+        Light
+      </Button>
+      <Button dark lg outline disabled>
+        Dark
+      </Button>
+    </div>
+  );
+};
+
 const Story = {
   title: "L1/Buttons (With Outline)",
   component: Button,

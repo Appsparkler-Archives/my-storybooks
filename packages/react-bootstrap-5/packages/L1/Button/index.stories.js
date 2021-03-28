@@ -7,31 +7,59 @@ Button.defaultProps = {
 
 export const Small = () => {
   return (
-    <div className="d-flex flex-row gap-2 flex-wrap">
-      <Button primary sm>
-        Primary
-      </Button>
-      <Button secondary sm>
-        Secondary
-      </Button>
-      <Button success sm>
-        Success
-      </Button>
-      <Button danger sm>
-        Danger
-      </Button>
-      <Button warning sm>
-        Warning
-      </Button>
-      <Button info sm>
-        Info
-      </Button>
-      <Button light sm>
-        Light
-      </Button>
-      <Button dark sm>
-        Dark
-      </Button>
+    <div className="d-flex flex-column gap-2 flex-wrap">
+      <div className="d-flex flex-row gap-2 flex-wrap">
+        <Button primary sm>
+          Primary
+        </Button>
+        <Button secondary sm>
+          Secondary
+        </Button>
+        <Button success sm>
+          Success
+        </Button>
+        <Button danger sm>
+          Danger
+        </Button>
+        <Button warning sm>
+          Warning
+        </Button>
+        <Button info sm>
+          Info
+        </Button>
+        <Button light sm>
+          Light
+        </Button>
+        <Button dark sm>
+          Dark
+        </Button>
+      </div>
+      <div className="d-flex flex-row gap-2 flex-wrap">
+        <Button primary sm disabled>
+          Primary
+        </Button>
+        <Button secondary sm disabled>
+          Secondary
+        </Button>
+        <Button success sm disabled>
+          Success
+        </Button>
+        <Button danger sm disabled>
+          Danger
+        </Button>
+        <Button warning sm disabled>
+          Warning
+        </Button>
+        <Button info sm disabled>
+          Info
+        </Button>
+        <Button light sm disabled>
+          Light
+        </Button>
+        <Button dark sm disabled>
+          Dark
+        </Button>
+      </div>
     </div>
   );
 };
@@ -98,31 +126,31 @@ export const Large = () => {
   );
 };
 
-export const SmallAndOutline = () => {
+export const Disabled = () => {
   return (
     <div className="d-flex flex-row gap-2 flex-wrap">
-      <Button primary sm outline>
+      <Button primary sm outline disabled>
         Primary
       </Button>
-      <Button secondary sm outline>
+      <Button secondary sm outline disabled>
         Secondary
       </Button>
-      <Button success sm outline>
+      <Button success sm outline disabled>
         Success
       </Button>
-      <Button danger sm outline>
+      <Button danger sm outline disabled>
         Danger
       </Button>
-      <Button warning sm outline>
+      <Button warning sm outline disabled>
         Warning
       </Button>
-      <Button info sm outline>
+      <Button info sm outline disabled>
         Info
       </Button>
-      <Button light sm outline>
+      <Button light sm outline disabled>
         Light
       </Button>
-      <Button dark sm outline>
+      <Button dark sm outline disabled>
         Dark
       </Button>
     </div>
