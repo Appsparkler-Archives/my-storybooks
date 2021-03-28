@@ -1,12 +1,12 @@
 import React from "react";
-import { AlertJS } from "./decorator";
 
-const Alert = (props, ref) => {
+const Alert = React.forwardRef((props, ref) => {
   const {
     children,
-    className,
+    className = "",
+
+    // variants:
     primary,
-    dismissable,
     secondary,
     info,
     success,
@@ -14,7 +14,10 @@ const Alert = (props, ref) => {
     danger,
     light,
     dark,
+
+    // other variations
     pill,
+    dismissable,
     ...restProps
   } = props;
   const alertDismissable = React.useMemo(() => {
@@ -51,6 +54,20 @@ const Alert = (props, ref) => {
       )}
     </div>
   );
+});
+Alert.defaultProps = {
+  className: "",
 };
 
-export default React.forwardRef(Alert);
+export const AlertLink = React.forwardRef(
+  ({ children, className, ...restProps }, ref) => (
+    <a className={`alert-link ${className}`} ref={ref} {...restProps}>
+      {children}
+    </a>
+  )
+);
+AlertLink.defaultProps = {
+  className: "",
+};
+
+export default Alert;

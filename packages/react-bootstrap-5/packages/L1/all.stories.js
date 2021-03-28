@@ -60,6 +60,8 @@ export const Everything = () => (
         <AlertStories.Basic />
         <h3>Alerts - Dismissable</h3>
         <AlertStories.Dismissable />
+        <h3>Alerts - Dismissable - With Alert Links</h3>
+        <AlertStories.WithAlertLink />
       </div>
     </div>
     <div className="p-3 shadow shadow-md bg-dark">
@@ -68,6 +70,8 @@ export const Everything = () => (
         <AlertStories.Basic />
         <h3 className="text-light">Alerts - Dismissable</h3>
         <AlertStories.Dismissable />
+        <h3 className="text-light">Alerts - Dismissable - With Alert Links</h3>
+        <AlertStories.WithAlertLink />
       </div>
     </div>
   </div>

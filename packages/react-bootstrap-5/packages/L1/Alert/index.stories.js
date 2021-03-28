@@ -1,5 +1,5 @@
 import React from "react";
-import Alert from ".";
+import Alert, { AlertLink } from ".";
 import AlertDecorator, { AlertJS } from "./decorator";
 import noop from "lodash/noop";
 
@@ -37,6 +37,46 @@ export const Dismissable = () => (
     </Alert>
     <Alert dark dismissable>
       A simple dark alert—check it out!
+    </Alert>
+  </div>
+);
+
+export const WithAlertLink = () => (
+  <div className="d-flex flex-column p-2">
+    <Alert primary dismissable>
+      A simple primary alert with{" "}
+      <AlertLink href="#">an example link</AlertLink>. Give it a click if you
+      like.
+    </Alert>
+    <Alert secondary dismissable>
+      A simple secondary alert with{" "}
+      <AlertLink href="#">an example link</AlertLink>. Give it a click if you
+      like.
+    </Alert>
+    <Alert success dismissable>
+      A simple success alert with{" "}
+      <AlertLink href="#">an example link</AlertLink>. Give it a click if you
+      like.
+    </Alert>
+    <Alert danger dismissable>
+      A simple danger alert with <AlertLink href="#">an example link</AlertLink>
+      . Give it a click if you like.
+    </Alert>
+    <Alert warning dismissable>
+      A simple warning alert with{" "}
+      <AlertLink href="#">an example link</AlertLink>. Give it a click if you
+      like.
+    </Alert>
+    <Alert light dismissable>
+      A simple light alert with <AlertLink href="#">an example link</AlertLink>.
+      Give it a click if you like.{" "}
+    </Alert>
+    <Alert dark dismissable>
+      A simple dark alert with{" "}
+      <AlertLink href="#" as="button">
+        an example link
+      </AlertLink>
+      . Give it a click if you like.{" "}
     </Alert>
   </div>
 );
