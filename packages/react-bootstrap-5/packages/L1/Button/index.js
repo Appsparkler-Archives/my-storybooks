@@ -1,4 +1,8 @@
 import React from "react";
+import {
+  useVariantExtractor,
+  useSizeExtractor,
+} from "@react-bootstrap-5/hooks";
 
 const useVariant = (props = {}) => {
   const {
@@ -46,14 +50,8 @@ const useSize = (props = {}) => {
   };
 };
 
-const useOutlineExtractor = (props = {}) => {
-  const { outline, ...restProps } = props;
-  React.useMemo(() => {}, [outline]);
-  return {};
-};
-
 const Button = (props, ref) => {
-  const { variant, restProps: restProps0 } = useVariant(props);
+  const { variant, restProps: restProps0 } = useVariantExtractor(props);
   const { size, restProps: restProps1 } = useSize(restProps0);
   const { outline, ...restPropsAfterOutline } = restProps1;
   const { children, className, ...restProps2 } = restPropsAfterOutline;

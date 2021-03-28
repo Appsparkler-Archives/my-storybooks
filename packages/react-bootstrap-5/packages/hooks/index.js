@@ -1,3 +1,4 @@
-import useBootstrapUtilities from "./useBoostrapUtilities";
+import useVariantExtractor from "./useVariantExtractor";
+import useSizeExtractor from "./useSizeExtractor";
 
-export { useBootstrapUtilities };
+export { useVariantExtractor, useSizeExtractor };
