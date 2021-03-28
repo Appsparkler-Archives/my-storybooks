@@ -1,5 +1,6 @@
 import React from "react";
 import Alert from ".";
+import AlertDecorator from "./decorator";
 
 export const Basic = () => (
   <div className="d-flex flex-column bg-dark p-2">
@@ -42,6 +43,7 @@ export const Dismissable = () => (
 const Story = {
   title: "L1/Alerts",
   component: Alert,
+  decorators: [AlertDecorator],
 };
 
 export default Story;

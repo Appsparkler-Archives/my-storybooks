@@ -1,4 +1,5 @@
 import React from "react";
+import { AlertJS } from "./decorator";
 
 const Alert = (props, ref) => {
   const {
