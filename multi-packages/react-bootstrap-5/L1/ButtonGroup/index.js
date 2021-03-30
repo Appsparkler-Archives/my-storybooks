@@ -2,8 +2,8 @@ import React from "react";
 import { useSizeExtractor } from "@react-bootstrap-5/hooks";
 
 const ButtonGroup = (props, ref) => {
-  const { className, children } = props;
-  const { size, restProps: propsAfterSize } = useSizeExtractor(props);
+  const { className, children, ...restProps } = props;
+  const { size, restProps: propsAfterSize } = useSizeExtractor(restProps);
   const btnGroupSizeClass = React.useMemo(() => {
     if (size) return `btn-group-${size}`;
     return "";

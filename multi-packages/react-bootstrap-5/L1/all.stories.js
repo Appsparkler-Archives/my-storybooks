@@ -77,21 +77,23 @@ export const Everything = () => (
     </div>
     {/* Button Group Stories */}
     <div className="p-3 shadow shadow-md bg-light">
-      <div className="d-flex flex-column gap-3">
+      <div className="d-flex flex-column gap-3 align-items-start">
         <h3>Button Groups</h3>
         <ButtonGroupStories.Small />
         <ButtonGroupStories.Medium />
         <ButtonGroupStories.Large />
         <ButtonGroupStories.Dropdown />
+        <ButtonGroupStories.Nesting />
       </div>
     </div>
     <div className="p-3 shadow shadow-md bg-dark">
-      <div className="d-flex flex-column gap-3">
+      <div className="d-flex flex-column gap-3 align-items-start">
         <h3 className="text-light">Button Groups</h3>
         <ButtonGroupStories.Small />
         <ButtonGroupStories.Medium />
         <ButtonGroupStories.Large />
         <ButtonGroupStories.Dropdown />
+        <ButtonGroupStories.Nesting />
       </div>
     </div>
   </div>
