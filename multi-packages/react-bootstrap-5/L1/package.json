@@ -10,9 +10,11 @@
     "@react-bootstrap-5/hooks": "^1.0.0"
   },
   "peerDependencies": {
-    "bootstrap": "5.0.0-beta2"
+    "bootstrap": "5.0.0-beta2",
+    "popper.js": "^1.16.1"
   },
   "devDependencies": {
-    "bootstrap": "5.0.0-beta2"
+    "bootstrap": "5.0.0-beta2",
+    "popper.js": "^1.16.1"
   }
 }

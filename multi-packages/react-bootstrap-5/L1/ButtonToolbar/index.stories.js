@@ -1,24 +1,26 @@
 import React from "react";
 import Button from "../Button";
 import ButtonToolbar from ".";
-import * as ButtonGroupStories from "../ButtonGroup/index.stories";
 
-export const Small = () => (
-  <div className="d-flex gap-2 flex-column align-items-start">
-    <ButtonToolbar sm className="d-flex me-3">
+import "popper.js/dist/esm/popper";
+import "bootstrap/js/dist/dropdown";
+
+export const MixedComponents = () => (
+  <div className="d-flex flex-column gap-2">
+    <ButtonToolbar aria-label="Toolbar with button groups">
       <div className="btn-group me-2" role="group" aria-label="First group">
-        <Button secondary outline>
+        <button type="button" className="btn btn-outline-secondary">
           1
-        </Button>
-        <Button secondary outline>
+        </button>
+        <button type="button" className="btn btn-outline-secondary">
           2
-        </Button>
-        <Button secondary outline>
+        </button>
+        <button type="button" className="btn btn-outline-secondary">
           3
-        </Button>
-        <Button secondary outline>
+        </button>
+        <button type="button" className="btn btn-outline-secondary">
           4
-        </Button>
+        </button>
       </div>
       <div className="input-group">
         <div className="input-group-text" id="btnGroupAddon">
@@ -33,58 +35,100 @@ export const Small = () => (
         />
       </div>
     </ButtonToolbar>
+
+    <div
+      className="btn-toolbar justify-content-between"
+      role="toolbar"
+      aria-label="Toolbar with button groups"
+    >
+      <div className="btn-group" role="group" aria-label="First group">
+        <button type="button" className="btn btn-outline-secondary">
+          1
+        </button>
+        <button type="button" className="btn btn-outline-secondary">
+          2
+        </button>
+        <button type="button" className="btn btn-outline-secondary">
+          3
+        </button>
+        <button type="button" className="btn btn-outline-secondary">
+          4
+        </button>
+      </div>
+      <div className="input-group">
+        <div className="input-group-text" id="btnGroupAddon2">
+          @
+        </div>
+        <input
+          type="text"
+          className="form-control"
+          placeholder="Input group example"
+          aria-label="Input group example"
+          aria-describedby="btnGroupAddon2"
+        />
+      </div>
+    </div>
   </div>
 );
 
-export const Medium = () => (
-  <div className="d-flex gap-2 flex-column align-items-start">
-    <ButtonToolbar md>
-      <Button primary>Button 1</Button>
-      <Button primary>Button 2</Button>
-      <Button primary>Button 3</Button>
-    </ButtonToolbar>
-    <ButtonToolbar md>
-      <Button primary outline>
-        Button 1
-      </Button>
-      <Button primary outline>
-        Button 2
-      </Button>
-      <Button primary outline>
-        Button 3
-      </Button>
-    </ButtonToolbar>
-    <ButtonToolbar md>
-      <Button warning>Button 1</Button>
-      <Button success>Button 2</Button>
-      <Button danger>Button 3</Button>
-    </ButtonToolbar>
-  </div>
+export const Basic = () => (
+  <ButtonToolbar role="toolbar" aria-label="Toolbar with button groups">
+    <div className="btn-group me-2" role="group" aria-label="First group">
+      <button type="button" className="btn btn-primary">
+        1
+      </button>
+      <button type="button" className="btn btn-primary">
+        2
+      </button>
+      <button type="button" className="btn btn-primary">
+        3
+      </button>
+      <button type="button" className="btn btn-primary">
+        4
+      </button>
+    </div>
+    <div className="btn-group me-2" role="group" aria-label="Second group">
+      <button type="button" className="btn btn-secondary">
+        5
+      </button>
+      <button type="button" className="btn btn-secondary">
+        6
+      </button>
+      <button type="button" className="btn btn-secondary">
+        7
+      </button>
+    </div>
+    <div className="btn-group" role="group" aria-label="Third group">
+      <button type="button" className="btn btn-info">
+        8
+      </button>
+    </div>
+  </ButtonToolbar>
 );
 
-export const Large = () => (
-  <div className="d-flex gap-2 flex-column align-items-start">
-    <ButtonToolbar lg>
-      <Button primary>Button 1</Button>
-      <Button primary>Button 2</Button>
-      <Button primary>Button 3</Button>
-    </ButtonToolbar>
-    <ButtonToolbar lg>
-      <Button primary outline>
-        Button 1
-      </Button>
-      <Button primary outline>
-        Button 2
-      </Button>
-      <Button primary outline>
-        Button 3
-      </Button>
-    </ButtonToolbar>
-    <ButtonToolbar lg>
-      <Button warning>Button 1</Button>
-      <Button success>Button 2</Button>
-      <Button danger>Button 3</Button>
-    </ButtonToolbar>
+export const Dropdown = () => (
+  <div className="btn-group" role="group">
+    <button
+      id="btnGroupDrop1"
+      type="button"
+      className="btn btn-primary dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Dropdown
+    </button>
+    <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <li>
+        <a className="dropdown-item" href="#">
+          Dropdown link
+        </a>
+      </li>
+      <li>
+        <a className="dropdown-item" href="#">
+          Dropdown link
+        </a>
+      </li>
+    </ul>
   </div>
 );
 
