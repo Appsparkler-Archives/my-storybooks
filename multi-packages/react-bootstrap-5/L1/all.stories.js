@@ -1,6 +1,6 @@
 import React from "react";
 import * as ButtonStories from "./Button/index.stories";
-import * as ButtonOutlineStories from "./Button/button.stories";
+import * as ButtonOutlineStories from "./Button/outline-button.stories";
 import * as BadgeStories from "./Badge/index.stories";
 import * as AlertStories from "./Alert/index.stories";
 import * as ButtonGroupStories from "./ButtonGroup/index.stories";
