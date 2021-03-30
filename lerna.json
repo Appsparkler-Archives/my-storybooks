@@ -1,5 +1,5 @@
 {
   "npmClient": "yarn",
-  "packages": ["packages/*", "packages/react-bootstrap-5/packages/*"],
+  "packages": ["packages/*", "multi-packages/**/*"],
   "version": "0.0.0"
 }
