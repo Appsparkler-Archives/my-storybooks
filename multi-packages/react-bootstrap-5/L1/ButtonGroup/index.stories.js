@@ -1,20 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import { useSizeExtractor } from "@react-bootstrap-5/hooks";
-
-const ButtonGroup = (props) => {
-  const { className, children } = props;
-  const { size, restProps: propsAfterSize } = useSizeExtractor(props);
-  const btnGroupSizeClass = React.useMemo(() => {
-    if (size) return `btn-group-${size}`;
-    return "";
-  }, [size]);
-  return (
-    <div className={`btn-group ${btnGroupSizeClass} ${className}`} {...props}>
-      {children}
-    </div>
-  );
-};
+import ButtonGroup from "./";
 
 export const Small = () => (
   <div className="d-flex gap-2 flex-column align-items-start">
