@@ -3,6 +3,7 @@ import * as ButtonStories from "./Button/index.stories";
 import * as ButtonOutlineStories from "./Button/button.stories";
 import * as BadgeStories from "./Badge/index.stories";
 import * as AlertStories from "./Alert/index.stories";
+import * as ButtonGroupStories from "./ButtonGroup/index.stories";
 
 export const Everything = () => (
   <div className="d-flex flex-column gap-4">
@@ -72,6 +73,23 @@ export const Everything = () => (
         <AlertStories.Dismissable />
         <h3 className="text-light">Alerts - Dismissable - With Alert Links</h3>
         <AlertStories.WithAlertLink />
+      </div>
+    </div>
+    {/* Button Group Stories */}
+    <div className="p-3 shadow shadow-md bg-light">
+      <div className="d-flex flex-column gap-3">
+        <h3>Button Groups</h3>
+        <ButtonGroupStories.Small />
+        <ButtonGroupStories.Medium />
+        <ButtonGroupStories.Large />
+      </div>
+    </div>
+    <div className="p-3 shadow shadow-md bg-dark">
+      <div className="d-flex flex-column gap-3">
+        <h3 className="text-light">Button Groups</h3>
+        <ButtonGroupStories.Small />
+        <ButtonGroupStories.Medium />
+        <ButtonGroupStories.Large />
       </div>
     </div>
   </div>

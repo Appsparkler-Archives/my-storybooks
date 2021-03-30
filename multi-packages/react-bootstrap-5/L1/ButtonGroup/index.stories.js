@@ -77,7 +77,7 @@ export const Large = () => (
     </ButtonGroup>
     <ButtonGroup lg>
       <Button primary outline>
-        Button 1s
+        Button 1
       </Button>
       <Button primary outline>
         Button 2
