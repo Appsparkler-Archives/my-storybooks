@@ -1,22 +1,17 @@
 import React from "react";
-import { useSizeExtractor } from "@react-bootstrap-5/hooks";
+// import { useSizeExtractor } from "@react-bootstrap-5/hooks";
 
 const ButtonToolbar = (props, ref) => {
-  const { className, children } = props;
-  const { size, restProps: propsAfterSize } = useSizeExtractor(props);
-  const btnGroupSizeClass = React.useMemo(() => {
-    if (size) return `btn-group-${size}`;
-    return "";
-  }, [size]);
+  const { className, children, ...restProps } = props;
   return (
-    <div
-      className={`btn-toolbar ${btnGroupSizeClass} ${className}`}
-      {...propsAfterSize}
-      ref={ref}
-    >
+    <div className={`btn-toolbar ${className}`} ref={ref} {...restProps}>
       {children}
     </div>
   );
+};
+
+ButtonToolbar.defaultProps = {
+  className: "",
 };
 
 export default React.forwardRef(ButtonToolbar);

@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "../Button";
-import ButtonToolbar from ".";
+import ButtonToolbar from "./index";
 
 import "popper.js/dist/esm/popper";
 import "bootstrap/js/dist/dropdown";
