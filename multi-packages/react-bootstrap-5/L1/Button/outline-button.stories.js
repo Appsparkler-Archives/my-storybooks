@@ -186,7 +186,7 @@ export const ToggleStatesSmall = () => (
   <div className="d-flex flex-column align-start gap-2">
     <div className="d-flex gap-2 flex-row">
       <Button sm outline light data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -212,7 +212,7 @@ export const ToggleStatesSmall = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button sm outline primary data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -238,7 +238,7 @@ export const ToggleStatesSmall = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button sm outline info data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -264,7 +264,7 @@ export const ToggleStatesSmall = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button sm outline success data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -290,7 +290,7 @@ export const ToggleStatesSmall = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button sm outline warning data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -316,7 +316,7 @@ export const ToggleStatesSmall = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button sm outline danger data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -342,7 +342,7 @@ export const ToggleStatesSmall = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button sm outline secondary data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -368,7 +368,7 @@ export const ToggleStatesSmall = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button sm outline dark data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -400,7 +400,7 @@ export const ToggleStateMedium = () => (
   <div className="d-flex flex-column align-start gap-2">
     <div className="d-flex gap-2 flex-row">
       <Button md outline light data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -426,7 +426,7 @@ export const ToggleStateMedium = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button md outline primary data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -452,7 +452,7 @@ export const ToggleStateMedium = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button md outline info data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -478,7 +478,7 @@ export const ToggleStateMedium = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button md outline success data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -504,7 +504,7 @@ export const ToggleStateMedium = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button md outline warning data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -530,7 +530,7 @@ export const ToggleStateMedium = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button md outline danger data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -556,7 +556,7 @@ export const ToggleStateMedium = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button md outline secondary data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -582,7 +582,7 @@ export const ToggleStateMedium = () => (
     </div>
     <div className="d-flex gap-2 flex-row">
       <Button md outline dark data-bs-toggle="button" autocomplete="off">
-        Default
+        Idle
       </Button>
       <Button
         outline
@@ -609,6 +609,220 @@ export const ToggleStateMedium = () => (
   </div>
 );
 ToggleStateMedium.storyName = "Toggle States - Medium";
+
+export const ToggleStateLarge = () => (
+  <div className="d-flex flex-column align-start gap-2">
+    <div className="d-flex gap-2 flex-row">
+      <Button lg outline light data-bs-toggle="button" autocomplete="off">
+        Idle
+      </Button>
+      <Button
+        outline
+        light
+        lg
+        className="active"
+        data-bs-toggle="button"
+        autocomplete="off"
+        aria-pressed="true"
+      >
+        Active
+      </Button>
+      <Button
+        outline
+        light
+        lg
+        disabled
+        data-bs-toggle="button"
+        autocomplete="off"
+      >
+        Disabled
+      </Button>
+    </div>
+    <div className="d-flex gap-2 flex-row">
+      <Button lg outline primary data-bs-toggle="button" autocomplete="off">
+        Idle
+      </Button>
+      <Button
+        outline
+        primary
+        lg
+        className="active"
+        data-bs-toggle="button"
+        autocomplete="off"
+        aria-pressed="true"
+      >
+        Active
+      </Button>
+      <Button
+        outline
+        primary
+        lg
+        disabled
+        data-bs-toggle="button"
+        autocomplete="off"
+      >
+        Disabled
+      </Button>
+    </div>
+    <div className="d-flex gap-2 flex-row">
+      <Button lg outline info data-bs-toggle="button" autocomplete="off">
+        Idle
+      </Button>
+      <Button
+        outline
+        info
+        lg
+        className="active"
+        data-bs-toggle="button"
+        autocomplete="off"
+        aria-pressed="true"
+      >
+        Active
+      </Button>
+      <Button
+        outline
+        info
+        lg
+        disabled
+        data-bs-toggle="button"
+        autocomplete="off"
+      >
+        Disabled
+      </Button>
+    </div>
+    <div className="d-flex gap-2 flex-row">
+      <Button lg outline success data-bs-toggle="button" autocomplete="off">
+        Idle
+      </Button>
+      <Button
+        outline
+        success
+        lg
+        className="active"
+        data-bs-toggle="button"
+        autocomplete="off"
+        aria-pressed="true"
+      >
+        Active
+      </Button>
+      <Button
+        outline
+        success
+        lg
+        disabled
+        data-bs-toggle="button"
+        autocomplete="off"
+      >
+        Disabled
+      </Button>
+    </div>
+    <div className="d-flex gap-2 flex-row">
+      <Button lg outline warning data-bs-toggle="button" autocomplete="off">
+        Idle
+      </Button>
+      <Button
+        outline
+        warning
+        lg
+        className="active"
+        data-bs-toggle="button"
+        autocomplete="off"
+        aria-pressed="true"
+      >
+        Active
+      </Button>
+      <Button
+        outline
+        warning
+        lg
+        disabled
+        data-bs-toggle="button"
+        autocomplete="off"
+      >
+        Disabled
+      </Button>
+    </div>
+    <div className="d-flex gap-2 flex-row">
+      <Button lg outline danger data-bs-toggle="button" autocomplete="off">
+        Idle
+      </Button>
+      <Button
+        outline
+        danger
+        lg
+        className="active"
+        data-bs-toggle="button"
+        autocomplete="off"
+        aria-pressed="true"
+      >
+        Active
+      </Button>
+      <Button
+        outline
+        danger
+        lg
+        disabled
+        data-bs-toggle="button"
+        autocomplete="off"
+      >
+        Disabled
+      </Button>
+    </div>
+    <div className="d-flex gap-2 flex-row">
+      <Button lg outline secondary data-bs-toggle="button" autocomplete="off">
+        Idle
+      </Button>
+      <Button
+        outline
+        secondary
+        lg
+        className="active"
+        data-bs-toggle="button"
+        autocomplete="off"
+        aria-pressed="true"
+      >
+        Active
+      </Button>
+      <Button
+        outline
+        secondary
+        lg
+        disabled
+        data-bs-toggle="button"
+        autocomplete="off"
+      >
+        Disabled
+      </Button>
+    </div>
+    <div className="d-flex gap-2 flex-row">
+      <Button lg outline dark data-bs-toggle="button" autocomplete="off">
+        Idle
+      </Button>
+      <Button
+        outline
+        dark
+        lg
+        className="active"
+        data-bs-toggle="button"
+        autocomplete="off"
+        aria-pressed="true"
+      >
+        Active
+      </Button>
+      <Button
+        outline
+        dark
+        lg
+        disabled
+        data-bs-toggle="button"
+        autocomplete="off"
+      >
+        Disabled
+      </Button>
+    </div>
+  </div>
+);
+ToggleStateLarge.storyName = "Toggle States - Large";
 
 const Story = {
   title: "L1/Buttons (Outline)",
