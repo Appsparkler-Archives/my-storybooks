@@ -82,6 +82,7 @@ export const Everything = () => (
         <ButtonGroupStories.Small />
         <ButtonGroupStories.Medium />
         <ButtonGroupStories.Large />
+        <ButtonGroupStories.Dropdown />
       </div>
     </div>
     <div className="p-3 shadow shadow-md bg-dark">
@@ -90,6 +91,7 @@ export const Everything = () => (
         <ButtonGroupStories.Small />
         <ButtonGroupStories.Medium />
         <ButtonGroupStories.Large />
+        <ButtonGroupStories.Dropdown />
       </div>
     </div>
   </div>

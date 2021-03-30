@@ -80,8 +80,82 @@ export const Large = () => (
   </div>
 );
 
+export const Dropdown = () => (
+  <div className="d-flex flex-column gap-2 align-items-start">
+    <ButtonGroup role="group" sm>
+      <button
+        id="btnGroupDrop1"
+        type="button"
+        className="btn btn-primary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Dropdown
+      </button>
+      <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <li>
+          <a className="dropdown-item" href="#">
+            Dropdown link
+          </a>
+        </li>
+        <li>
+          <a className="dropdown-item" href="#">
+            Dropdown link
+          </a>
+        </li>
+      </ul>
+    </ButtonGroup>
+    <ButtonGroup role="group" md>
+      <button
+        id="btnGroupDrop1"
+        type="button"
+        className="btn btn-primary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Dropdown
+      </button>
+      <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <li>
+          <a className="dropdown-item" href="#">
+            Dropdown link
+          </a>
+        </li>
+        <li>
+          <a className="dropdown-item" href="#">
+            Dropdown link
+          </a>
+        </li>
+      </ul>
+    </ButtonGroup>
+    <ButtonGroup role="group" lg>
+      <button
+        id="btnGroupDrop1"
+        type="button"
+        className="btn btn-primary dropdown-toggle"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Dropdown
+      </button>
+      <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <li>
+          <a className="dropdown-item" href="#">
+            Dropdown link
+          </a>
+        </li>
+        <li>
+          <a className="dropdown-item" href="#">
+            Dropdown link
+          </a>
+        </li>
+      </ul>
+    </ButtonGroup>
+  </div>
+);
+
 const Story = {
-  title: "l1/Button Group",
+  title: "l1/Button Groups",
   component: ButtonGroup,
 };
 

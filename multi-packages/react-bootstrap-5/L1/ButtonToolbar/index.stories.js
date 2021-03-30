@@ -106,32 +106,6 @@ export const Basic = () => (
   </ButtonToolbar>
 );
 
-export const Dropdown = () => (
-  <div className="btn-group" role="group">
-    <button
-      id="btnGroupDrop1"
-      type="button"
-      className="btn btn-primary dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-expanded="false"
-    >
-      Dropdown
-    </button>
-    <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <li>
-        <a className="dropdown-item" href="#">
-          Dropdown link
-        </a>
-      </li>
-      <li>
-        <a className="dropdown-item" href="#">
-          Dropdown link
-        </a>
-      </li>
-    </ul>
-  </div>
-);
-
 const Story = {
   title: "l1/Button Toolbar",
   component: ButtonToolbar,
