@@ -5,7 +5,7 @@ import {
 } from "@react-bootstrap-5/hooks";
 
 const Button = (props, ref) => {
-  const { active, ...afterActiveProps } = props;
+  const { as: As = "button", active, ...afterActiveProps } = props;
   const { variant, restProps: afterVariantProps } = useVariantExtractor(
     afterActiveProps
   );
@@ -28,13 +28,13 @@ const Button = (props, ref) => {
     return "";
   }, []);
   return (
-    <button
+    <As
       ref={ref}
       className={`btn ${variantClass} ${sizeClass} ${activeClass} ${className}`}
       {...restProps}
     >
       {children}
-    </button>
+    </As>
   );
 };
 

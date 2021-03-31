@@ -914,6 +914,12 @@ export const ToggleStatesLarge = () => (
 );
 ToggleStatesLarge.storyName = "Toggle States - Large";
 
+export const LinkButton = () => (
+  <Button as="a" primary href="https://www.google.com" target="__blank">
+    www.google.com
+  </Button>
+);
+
 const Story = {
   title: "L1/Buttons",
   component: Button,
