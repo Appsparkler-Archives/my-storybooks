@@ -192,7 +192,7 @@ export const ToggleStatesSmall = () => (
         type="button"
         light
         sm
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -224,7 +224,7 @@ export const ToggleStatesSmall = () => (
         type="button"
         primary
         sm
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -250,7 +250,7 @@ export const ToggleStatesSmall = () => (
         type="button"
         info
         sm
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -282,7 +282,7 @@ export const ToggleStatesSmall = () => (
         type="button"
         success
         sm
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -314,7 +314,7 @@ export const ToggleStatesSmall = () => (
         type="button"
         warning
         sm
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -346,7 +346,7 @@ export const ToggleStatesSmall = () => (
         type="button"
         danger
         sm
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -378,7 +378,7 @@ export const ToggleStatesSmall = () => (
         type="button"
         secondary
         sm
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -404,7 +404,7 @@ export const ToggleStatesSmall = () => (
         type="button"
         dark
         sm
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -436,7 +436,7 @@ export const ToggleStatesMedium = () => (
         type="button"
         light
         md
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -468,7 +468,7 @@ export const ToggleStatesMedium = () => (
         type="button"
         primary
         md
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -494,7 +494,7 @@ export const ToggleStatesMedium = () => (
         type="button"
         info
         md
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -526,7 +526,7 @@ export const ToggleStatesMedium = () => (
         type="button"
         success
         md
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -558,7 +558,7 @@ export const ToggleStatesMedium = () => (
         type="button"
         warning
         md
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -590,7 +590,7 @@ export const ToggleStatesMedium = () => (
         type="button"
         danger
         md
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -622,7 +622,7 @@ export const ToggleStatesMedium = () => (
         type="button"
         secondary
         md
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -648,7 +648,7 @@ export const ToggleStatesMedium = () => (
         type="button"
         dark
         md
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -680,7 +680,7 @@ export const ToggleStatesLarge = () => (
         type="button"
         light
         lg
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -712,7 +712,7 @@ export const ToggleStatesLarge = () => (
         type="button"
         primary
         lg
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -738,7 +738,7 @@ export const ToggleStatesLarge = () => (
         type="button"
         info
         lg
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -770,7 +770,7 @@ export const ToggleStatesLarge = () => (
         type="button"
         success
         lg
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -802,7 +802,7 @@ export const ToggleStatesLarge = () => (
         type="button"
         warning
         lg
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -834,7 +834,7 @@ export const ToggleStatesLarge = () => (
         type="button"
         danger
         lg
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -866,7 +866,7 @@ export const ToggleStatesLarge = () => (
         type="button"
         secondary
         lg
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"
@@ -892,7 +892,7 @@ export const ToggleStatesLarge = () => (
         type="button"
         dark
         lg
-        className="active"
+        active
         data-bs-toggle="button"
         autocomplete="off"
         aria-pressed="true"

@@ -51,10 +51,15 @@ const useSize = (props = {}) => {
 };
 
 const Button = (props, ref) => {
-  const { variant, restProps: restProps0 } = useVariantExtractor(props);
-  const { size, restProps: restProps1 } = useSize(restProps0);
-  const { outline, ...restPropsAfterOutline } = restProps1;
-  const { children, className, ...restProps2 } = restPropsAfterOutline;
+  const { active, ...afterActiveProps } = props;
+  const { variant, restProps: afterVariantProps } = useVariantExtractor(
+    afterActiveProps
+  );
+  const { size, restProps: afterSizeProps } = useSizeExtractor(
+    afterVariantProps
+  );
+  const { outline, ...restPropsAfterOutline } = afterSizeProps;
+  const { children, className, ...restProps } = restPropsAfterOutline;
   const variantClass = React.useMemo(() => {
     if (outline && variant) return `btn-outline-${variant}`;
     if (variant) return `btn-${variant}`;
@@ -64,11 +69,16 @@ const Button = (props, ref) => {
     if (size) return `btn-${size}`;
     return "";
   }, [size]);
+
+  const activeClass = React.useMemo(() => {
+    if (active) return "active";
+    return "";
+  }, []);
   return (
     <button
       ref={ref}
-      className={`btn ${variantClass} ${sizeClass} ${className}`}
-      {...restProps2}
+      className={`btn ${variantClass} ${sizeClass} ${activeClass} ${className}`}
+      {...restProps}
     >
       {children}
     </button>
