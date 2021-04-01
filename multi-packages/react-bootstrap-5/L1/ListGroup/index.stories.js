@@ -1,50 +1,8 @@
 import React from "react";
+import ListGroup, { ListGroupItem } from "./index";
 
-const ListGroup = ({ children, className, flush, as: As }) => {
-  const flushClass = React.useMemo(() => {
-    if (flush) return `list-group-flush`;
-    return "";
-  }, []);
-  return (
-    <As className={`list-group ${flushClass} ${className}`}>{children}</As>
-  );
-};
-
-ListGroup.defaultProps = {
-  as: "ul",
-};
-
-const ListGroupItem = (props) => {
-  const { children, as: As, active, disabled, ...restProps } = props;
-  const activeClass = React.useMemo(() => {
-    return active ? `active` : "";
-  }, [active]);
-  const actionClass = React.useMemo(() => {
-    const isLink = As === "a";
-    const isButton = As === "button";
-    if (isLink || isButton) return "list-group-item-action";
-    return "";
-  }, [As]);
-  const disabledClass = React.useMemo(() => {
-    return disabled ? "disabled" : "";
-  }, [disabled]);
-  return (
-    <As
-      className={`list-group-item ${activeClass} ${actionClass} ${disabledClass} `}
-      {...restProps}
-    >
-      {children}
-    </As>
-  );
-};
-
-ListGroupItem.defaultProps = {
-  as: "li",
-  active: false,
-};
-
-export const Basic = () => (
-  <ListGroup>
+const Template = (args) => (
+  <ListGroup {...args}>
     <ListGroupItem>An item</ListGroupItem>
     <ListGroupItem>A second item</ListGroupItem>
     <ListGroupItem>An third item</ListGroupItem>
@@ -52,6 +10,12 @@ export const Basic = () => (
     <ListGroupItem>And a fifth one</ListGroupItem>
   </ListGroup>
 );
+Template.args = {};
+
+export const Basic = Template.bind({});
+Basic.args = {
+  flush: false,
+};
 
 export const WithActiveItem = () => (
   <ListGroup>
