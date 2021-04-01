@@ -8,11 +8,22 @@ ListGroup.defaultProps = {
   as: "ul",
 };
 
-const ListGroupItem = ({ children, as: As, active }) => {
+const ListGroupItem = (props) => {
+  const { children, as: As, active, disabled, ...restProps } = props;
   const activeClass = React.useMemo(() => {
     return active ? `active` : "";
   }, [active]);
-  return <As class={`list-group-item ${activeClass} `}>{children}</As>;
+  const disabledClass = React.useMemo(() => {
+    return disabled ? "disabled" : "";
+  }, [disabled]);
+  return (
+    <As
+      class={`list-group-item ${activeClass} ${disabledClass} `}
+      {...restProps}
+    >
+      {children}
+    </As>
+  );
 };
 
 ListGroupItem.defaultProps = {
@@ -22,7 +33,27 @@ ListGroupItem.defaultProps = {
 
 export const Basic = () => (
   <ListGroup>
+    <ListGroupItem>An item</ListGroupItem>
+    <ListGroupItem>A second item</ListGroupItem>
+    <ListGroupItem>An third item</ListGroupItem>
+    <ListGroupItem>A fourth item</ListGroupItem>
+    <ListGroupItem>And a fifth one</ListGroupItem>
+  </ListGroup>
+);
+
+export const WithActiveItem = () => (
+  <ListGroup>
     <ListGroupItem active>An item</ListGroupItem>
+    <ListGroupItem>A second item</ListGroupItem>
+    <ListGroupItem>An third item</ListGroupItem>
+    <ListGroupItem>A fourth item</ListGroupItem>
+    <ListGroupItem>And a fifth one</ListGroupItem>
+  </ListGroup>
+);
+
+export const WithDisabledItem = () => (
+  <ListGroup>
+    <ListGroupItem disabled>An item</ListGroupItem>
     <ListGroupItem>A second item</ListGroupItem>
     <ListGroupItem>An third item</ListGroupItem>
     <ListGroupItem>A fourth item</ListGroupItem>
