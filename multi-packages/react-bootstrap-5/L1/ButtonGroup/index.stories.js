@@ -156,10 +156,10 @@ export const Dropdown = () => (
 
 export const Nesting = () => (
   <ButtonGroup role="group" aria-label="Button group with nested dropdown">
-    <button type="button" class="btn btn-primary">
+    <button type="button" className="btn btn-primary">
       1
     </button>
-    <button type="button" class="btn btn-primary">
+    <button type="button" className="btn btn-primary">
       2
     </button>
 
@@ -167,20 +167,20 @@ export const Nesting = () => (
       <button
         id="btnGroupDrop1"
         type="button"
-        class="btn btn-primary dropdown-toggle"
+        className="btn btn-primary dropdown-toggle"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
         Dropdown
       </button>
-      <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <ul className="dropdown-menu" aria-labelledby="btnGroupDrop1">
         <li>
-          <a class="dropdown-item" href="#">
+          <a className="dropdown-item" href="#">
             Dropdown link
           </a>
         </li>
         <li>
-          <a class="dropdown-item" href="#">
+          <a className="dropdown-item" href="#">
             Dropdown link
           </a>
         </li>

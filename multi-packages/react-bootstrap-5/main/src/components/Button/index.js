@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const Button = ({ outline, type, size, children, className, ...props }) => (
   <button
     type="button"
-    class={`btn btn-${size} btn${
+    className={`btn btn-${size} btn${
       outline ? "-outline" : ""
     }-${type} ${className}`}
     {...props}

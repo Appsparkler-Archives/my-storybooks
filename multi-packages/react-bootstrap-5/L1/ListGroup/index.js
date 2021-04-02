@@ -17,7 +17,7 @@ const getListGroupHorizontalClass = ({ horizontal, size }) => {
 };
 const getVariantClass = ({ variant }) =>
   variant ? `list-group-item-${variant}` : "";
-export const ListGroupItem = React.forwardRef((props) => {
+export const ListGroupItem = React.forwardRef((props, ref) => {
   const {
     children,
     className,
@@ -41,6 +41,7 @@ export const ListGroupItem = React.forwardRef((props) => {
   return (
     <As
       className={`list-group-item ${activeClass} ${actionClass} ${variantClass} ${disabledClass} ${className}`}
+      ref={ref}
       {...propsAfterVariant}
     >
       {children}
@@ -81,6 +82,7 @@ const ListGroup = React.forwardRef((props, ref) => {
   return (
     <As
       className={`list-group ${listGroupHorizontalClass} ${flushClass} ${className}`}
+      ref={ref}
     >
       {children}
     </As>

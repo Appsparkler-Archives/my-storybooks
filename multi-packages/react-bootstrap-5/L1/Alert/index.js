@@ -1,12 +1,11 @@
 import React from "react";
 import { useVariantExtractor } from "@react-bootstrap-5/hooks";
 
-const Alert = React.forwardRef((props, ref) => {
+const AlertMain = (props, ref) => {
   const { variant, restProps: propsAfterVariant } = useVariantExtractor(props);
   const {
     children,
     className = "",
-    pill,
     dismissable,
     ...restProps
   } = propsAfterVariant;
@@ -25,7 +24,7 @@ const Alert = React.forwardRef((props, ref) => {
 
   return (
     <div
-      className={`alert ${alertVariant} ${alertDismissable}`}
+      className={`alert ${alertVariant} ${alertDismissable} ${className}`}
       role="alert"
       {...restProps}
       ref={ref}
@@ -41,20 +40,31 @@ const Alert = React.forwardRef((props, ref) => {
       )}
     </div>
   );
-});
+};
+const Alert = React.forwardRef(AlertMain);
+
 Alert.defaultProps = {
   className: "",
 };
 
-export const AlertLink = React.forwardRef(
-  ({ children, className, ...restProps }, ref) => (
-    <a className={`alert-link ${className}`} ref={ref} {...restProps}>
-      {children}
-    </a>
-  )
+Alert.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
+const AlertLinkMain = ({ children, className, ...restProps }, ref) => (
+  <a className={`alert-link ${className}`} ref={ref} {...restProps}>
+    {children}
+  </a>
 );
+
+export const AlertLink = React.forwardRef(AlertLinkMain);
 AlertLink.defaultProps = {
   className: "",
+};
+AlertLink.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
 };
 
 export default Alert;

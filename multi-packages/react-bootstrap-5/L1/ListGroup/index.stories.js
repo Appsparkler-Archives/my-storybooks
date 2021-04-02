@@ -248,28 +248,28 @@ export const CustomContent2 = () => (
 export const CustomContent3 = () => (
   <ListGroup as="div">
     <ListGroupItem as="a" active href="#" aria-current="true">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
+      <div className="d-flex w-100 justify-content-between">
+        <h5 className="mb-1">List group item heading</h5>
         <small>3 days ago</small>
       </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
+      <p className="mb-1">Some placeholder content in a paragraph.</p>
       <small>And some small print.</small>
     </ListGroupItem>
     <ListGroupItem as="a" href="#">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small class="text-muted">3 days ago</small>
+      <div className="d-flex w-100 justify-content-between">
+        <h5 className="mb-1">List group item heading</h5>
+        <small className="text-muted">3 days ago</small>
       </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
-      <small class="text-muted">And some muted small print.</small>
+      <p className="mb-1">Some placeholder content in a paragraph.</p>
+      <small className="text-muted">And some muted small print.</small>
     </ListGroupItem>
     <ListGroupItem as="a" href="#">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small class="text-muted">3 days ago</small>
+      <div className="d-flex w-100 justify-content-between">
+        <h5 className="mb-1">List group item heading</h5>
+        <small className="text-muted">3 days ago</small>
       </div>
-      <p class="mb-1">Some placeholder content in a paragraph.</p>
-      <small class="text-muted">And some muted small print.</small>
+      <p className="mb-1">Some placeholder content in a paragraph.</p>
+      <small className="text-muted">And some muted small print.</small>
     </ListGroupItem>
   </ListGroup>
 );
@@ -278,7 +278,7 @@ export const Checkboxes = () => (
   <ListGroup>
     <ListGroupItem>
       <input
-        class="form-check-input me-1"
+        className="form-check-input me-1"
         type="checkbox"
         value=""
         aria-label="..."
@@ -287,7 +287,7 @@ export const Checkboxes = () => (
     </ListGroupItem>
     <ListGroupItem>
       <input
-        class="form-check-input me-1"
+        className="form-check-input me-1"
         type="checkbox"
         value=""
         aria-label="..."
@@ -296,7 +296,7 @@ export const Checkboxes = () => (
     </ListGroupItem>
     <ListGroupItem>
       <input
-        class="form-check-input me-1"
+        className="form-check-input me-1"
         type="checkbox"
         value=""
         aria-label="..."
@@ -305,7 +305,7 @@ export const Checkboxes = () => (
     </ListGroupItem>
     <ListGroupItem>
       <input
-        class="form-check-input me-1"
+        className="form-check-input me-1"
         type="checkbox"
         value=""
         aria-label="..."
@@ -314,7 +314,7 @@ export const Checkboxes = () => (
     </ListGroupItem>
     <ListGroupItem>
       <input
-        class="form-check-input me-1"
+        className="form-check-input me-1"
         type="checkbox"
         value=""
         aria-label="..."
@@ -327,23 +327,23 @@ export const Checkboxes = () => (
 export const CheckboxesWithLargeHitArea = () => (
   <ListGroup as="div">
     <ListGroupItem as="label">
-      <input class="form-check-input me-1" type="checkbox" value="" />
+      <input className="form-check-input me-1" type="checkbox" value="" />
       First checkbox
     </ListGroupItem>
     <ListGroupItem as="label">
-      <input class="form-check-input me-1" type="checkbox" value="" />
+      <input className="form-check-input me-1" type="checkbox" value="" />
       Second checkbox
     </ListGroupItem>
     <ListGroupItem as="label">
-      <input class="form-check-input me-1" type="checkbox" value="" />
+      <input className="form-check-input me-1" type="checkbox" value="" />
       Third checkbox
     </ListGroupItem>
     <ListGroupItem as="label">
-      <input class="form-check-input me-1" type="checkbox" value="" />
+      <input className="form-check-input me-1" type="checkbox" value="" />
       Fourth checkbox
     </ListGroupItem>
     <ListGroupItem as="label">
-      <input class="form-check-input me-1" type="checkbox" value="" />
+      <input className="form-check-input me-1" type="checkbox" value="" />
       Fifth checkbox
     </ListGroupItem>
   </ListGroup>
