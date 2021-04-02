@@ -274,7 +274,7 @@ export const CustomContent3 = () => (
   </ListGroup>
 );
 
-export const CheckboxesAndRadios = () => (
+export const Checkboxes = () => (
   <ListGroup>
     <ListGroupItem>
       <input
@@ -324,6 +324,30 @@ export const CheckboxesAndRadios = () => (
   </ListGroup>
 );
 
+export const CheckboxesWithLargeHitArea = () => (
+  <ListGroup as="div">
+    <ListGroupItem as="label">
+      <input class="form-check-input me-1" type="checkbox" value="" />
+      First checkbox
+    </ListGroupItem>
+    <ListGroupItem as="label">
+      <input class="form-check-input me-1" type="checkbox" value="" />
+      Second checkbox
+    </ListGroupItem>
+    <ListGroupItem as="label">
+      <input class="form-check-input me-1" type="checkbox" value="" />
+      Third checkbox
+    </ListGroupItem>
+    <ListGroupItem as="label">
+      <input class="form-check-input me-1" type="checkbox" value="" />
+      Fourth checkbox
+    </ListGroupItem>
+    <ListGroupItem as="label">
+      <input class="form-check-input me-1" type="checkbox" value="" />
+      Fifth checkbox
+    </ListGroupItem>
+  </ListGroup>
+);
 const Story = {
   title: "L1/List Group",
   component: ListGroup,
