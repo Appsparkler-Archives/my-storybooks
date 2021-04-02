@@ -96,20 +96,20 @@ export const CustomContent = () => (
       </div>
       <span className="badge bg-primary rounded-pill">14</span>
     </ListGroupItem>
-    <li className="list-group-item d-flex justify-content-between align-items-start">
+    <ListGroupItem className="list-group-item d-flex justify-content-between align-items-start">
       <div className="ms-2 me-auto">
         <div className="fw-bold">Subheading</div>
         Cras justo odio
       </div>
       <span className="badge bg-primary rounded-pill">14</span>
-    </li>
-    <li className="list-group-item d-flex justify-content-between align-items-start">
+    </ListGroupItem>
+    <ListGroupItem className="list-group-item d-flex justify-content-between align-items-start">
       <div className="ms-2 me-auto">
         <div className="fw-bold">Subheading</div>
         Cras justo odio
       </div>
       <span className="badge bg-primary rounded-pill">14</span>
-    </li>
+    </ListGroupItem>
   </ListGroup>
 );
 
@@ -224,6 +224,23 @@ export const ContextualClassesWithButtons = () => (
     </ListGroupItem>
     <ListGroupItem dark as="button" href="#">
       A simple dark list group item
+    </ListGroupItem>
+  </ListGroup>
+);
+
+export const CustomContent2 = () => (
+  <ListGroup>
+    <ListGroupItem className="d-flex justify-content-between align-items-center">
+      A list item
+      <span className="badge bg-primary rounded-pill">14</span>
+    </ListGroupItem>
+    <ListGroupItem className="d-flex justify-content-between align-items-center">
+      A second list item
+      <span className="badge bg-primary rounded-pill">2</span>
+    </ListGroupItem>
+    <ListGroupItem className="d-flex justify-content-between align-items-center">
+      A third list item
+      <span className="badge bg-primary rounded-pill">1</span>
     </ListGroupItem>
   </ListGroup>
 );
