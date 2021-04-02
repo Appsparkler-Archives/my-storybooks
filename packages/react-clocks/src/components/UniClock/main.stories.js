@@ -1,11 +1,11 @@
-import React from 'react';
-import UniClock from '.';
-import {useTickingTimestamp} from 'react-clocks-hooks';
+import React from "react";
+import UniClock from ".";
+import { useTickingTimestamp } from "react-clocks-hooks";
 
 const Template = (args) => <UniClock {...args} />;
 
 const TickingClock = (args) => {
-  const tickingTimestamp = useTickingTimestamp({timestamp: args.timestamp});
+  const tickingTimestamp = useTickingTimestamp({ timestamp: args.timestamp });
   return <UniClock timestamp={tickingTimestamp} />;
 };
 
@@ -20,7 +20,7 @@ Ticking.args = {
 };
 
 const Story = {
-  title: 'Clocks/Analog/Uni(corn)Clock',
+  title: "Clocks/Analog/Uni(corn)Clock",
   component: UniClock,
 };
 

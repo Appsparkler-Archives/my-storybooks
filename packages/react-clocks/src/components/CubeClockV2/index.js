@@ -1,8 +1,8 @@
-import {useMemo, memo} from 'react';
-import PropTypes from 'prop-types';
-import StyledCubeClock from './styled';
+import { useMemo, memo } from "react";
+import PropTypes from "prop-types";
+import StyledCubeClock from "./styled";
 
-const CubeClock = ({timestamp}) => {
+const CubeClock = ({ timestamp }) => {
   const cubeClock = useMemo(() => {
     const date = new Date(timestamp);
     const hours = (() => {

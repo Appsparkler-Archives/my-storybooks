@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import Clock from './component';
+import styled from "styled-components";
+import Clock from "./component";
 
-const transformHourHand = ({hoursDegree = -90}) =>
+const transformHourHand = ({ hoursDegree = -90 }) =>
   `rotate(${hoursDegree}deg)`;
-const transformMinuteHand = ({minutesDegree = -90}) =>
+const transformMinuteHand = ({ minutesDegree = -90 }) =>
   `rotate(${minutesDegree}deg)`;
-const transformSecondsHand = ({secondsDegree = -90}) =>
+const transformSecondsHand = ({ secondsDegree = -90 }) =>
   `rotate(${secondsDegree}deg)`;
 
 const StyledClock = styled(Clock)`

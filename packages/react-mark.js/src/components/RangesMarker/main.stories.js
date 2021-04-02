@@ -1,11 +1,11 @@
-import RegExpMarker from './';
+import RegExpMarker from "./";
 
 const Story = {
-  title: 'Mark.js/RangesMarker',
+  title: "Mark.js/RangesMarker",
   component: RegExpMarker,
 };
 
-const Template = ({children, ...args}) => (
+const Template = ({ children, ...args }) => (
   <RegExpMarker {...args}>{children}</RegExpMarker>
 );
 Template.args = {
@@ -31,7 +31,7 @@ WithMarkOptions.args = {
     </div>
   ),
   options: {
-    exclude: ['h1'],
+    exclude: ["h1"],
   },
 };
 

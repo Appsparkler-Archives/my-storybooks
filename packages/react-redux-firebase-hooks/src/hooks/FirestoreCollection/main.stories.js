@@ -1,13 +1,13 @@
-import React from 'react';
-import useFirestoreCollection from './useFirestoreCollection';
+import React from "react";
+import useFirestoreCollection from "./useFirestoreCollection";
 
 const Story = {
-  title: 'Hooks/File Manager/useFirestoreCollection',
+  title: "Hooks/File Manager/useFirestoreCollection",
 };
 
 export default Story;
 
-const Template = ({collectionPath}) => {
+const Template = ({ collectionPath }) => {
   const collection = useFirestoreCollection({
     collectionPath,
     onError: console.error,
@@ -18,7 +18,7 @@ const Template = ({collectionPath}) => {
   ));
 };
 Template.args = {
-  collectionPath: 'uploadedFiles',
+  collectionPath: "uploadedFiles",
 };
 
 export const Example = Template.bind({});

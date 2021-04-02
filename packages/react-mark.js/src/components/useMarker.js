@@ -1,5 +1,5 @@
-import React from 'react';
-import MarkJS from 'mark.js/dist/mark.es6.min';
+import React from "react";
+import MarkJS from "mark.js/dist/mark.es6.min";
 
 const unmark = (markJsInstance) =>
   new Promise((done) => {
@@ -12,7 +12,7 @@ const useMarker = ({
   mark = new RegExp(),
   options = {},
   unmarkOptions = {},
-  type = 'mark',
+  type = "mark",
 }) => {
   const markerRef = React.useRef();
 
@@ -37,7 +37,7 @@ const useMarker = ({
     }
   }, [mark, options, markerState.markJsInstance, type, unmarkOptions]);
 
-  return {markerRef};
+  return { markerRef };
 };
 
 export default useMarker;

@@ -1,14 +1,14 @@
-import Marker from './';
+import Marker from "./";
 
 const Story = {
-  title: 'Mark.js/Marker',
+  title: "Mark.js/Marker",
   component: Marker,
 };
 
 const Template = (args) => <Marker {...args} />;
 Template.args = {
-  mark: 'oo',
-  children: 'Foo Boo Koo',
+  mark: "oo",
+  children: "Foo Boo Koo",
 };
 
 export const WithoutOtions = Template.bind({});
@@ -17,7 +17,7 @@ WithoutOtions.args = Template.args;
 export const WithMarkOptions = Template.bind({});
 WithMarkOptions.args = {
   ...Template.args,
-  mark: 'orl',
+  mark: "orl",
   children: (
     <div>
       <h3>Hello World</h3>
@@ -25,8 +25,8 @@ WithMarkOptions.args = {
     </div>
   ),
   options: {
-    exclude: ['h3'],
-    accuracy: 'complementary',
+    exclude: ["h3"],
+    accuracy: "complementary",
   },
 };
 

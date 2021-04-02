@@ -3,7 +3,11 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["plugin:react/recommended", "prettier"],
+  extends: [
+    "google",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -12,5 +16,8 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "prettier"],
-  rules: {},
+  rules: {
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "error",
+  },
 };

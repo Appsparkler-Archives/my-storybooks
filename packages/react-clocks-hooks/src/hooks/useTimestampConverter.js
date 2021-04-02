@@ -1,4 +1,4 @@
-import {useMemo} from 'react';
+import { useMemo } from "react";
 /**
   Converts a given timestamp into hours, minutes and seconds
 */
@@ -8,7 +8,7 @@ const useTimestampConverter = (timestamp) => {
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
-    return {hours, minutes, seconds, date};
+    return { hours, minutes, seconds, date };
   }, [timestamp]);
   return details;
 };
