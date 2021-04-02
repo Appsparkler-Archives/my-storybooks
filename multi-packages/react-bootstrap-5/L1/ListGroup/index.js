@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import useSizeExtractor from "../../hooks/useSizeExtractor";
 
 const getActionClass = ({ As }) => {
   const isLink = As === "a";
@@ -9,9 +10,21 @@ const getActionClass = ({ As }) => {
 };
 const getActiveClass = ({ active }) => (active ? `active` : "");
 const getDisabledClass = ({ disabled }) => (disabled ? "disabled" : "");
-
+const getListGroupHorizontalClass = ({ horizontal, size }) => {
+  if (size && horizontal) return `list-group-horizontal-${size}`;
+  if (horizontal) return "list-group-horizontal";
+  return "";
+};
 export const ListGroupItem = React.forwardRef((props) => {
-  const { children, className, as: As, active, disabled, ...restProps } = props;
+  const {
+    children,
+    className,
+    as: As,
+    horizontal,
+    active,
+    disabled,
+    ...restProps
+  } = props;
   const activeClass = React.useMemo(() => getActiveClass({ active }), [active]);
   const actionClass = React.useMemo(() => getActionClass({ As }), [As]);
   const disabledClass = React.useMemo(() => getDisabledClass({ disabled }), [
@@ -39,13 +52,30 @@ ListGroupItem.propTypes = {
   className: PropTypes.string,
 };
 
-const ListGroup = React.forwardRef(({ children, className, flush, as: As }) => {
+const ListGroup = React.forwardRef((props, ref) => {
+  const {
+    children,
+    className,
+    horizontal,
+    flush,
+    as: As,
+    ...restProps
+  } = props;
   const flushClass = React.useMemo(() => {
     if (flush) return `list-group-flush`;
     return "";
   }, [flush]);
+  const { size, restProps: propsAfterSize } = useSizeExtractor(restProps);
+  const listGroupHorizontalClass = React.useMemo(
+    () => getListGroupHorizontalClass({ size, horizontal }),
+    [size, horizontal]
+  );
   return (
-    <As className={`list-group ${flushClass} ${className}`}>{children}</As>
+    <As
+      className={`list-group ${listGroupHorizontalClass} ${flushClass} ${className}`}
+    >
+      {children}
+    </As>
   );
 });
 

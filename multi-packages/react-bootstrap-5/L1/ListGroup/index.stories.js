@@ -115,11 +115,11 @@ export const CustomContent = () => (
 
 export const Horizontal = () => (
   <div>
-    <ul className="list-group list-group-horizontal">
-      <li className="list-group-item">An item</li>
+    <ListGroup horizontal>
+      <ListGroupItem>An item</ListGroupItem>
       <li className="list-group-item">A second item</li>
       <li className="list-group-item">A third item</li>
-    </ul>
+    </ListGroup>
     <ul className="list-group list-group-horizontal-sm">
       <li className="list-group-item">An item</li>
       <li className="list-group-item">A second item</li>
