@@ -245,6 +245,35 @@ export const CustomContent2 = () => (
   </ListGroup>
 );
 
+export const CustomContent3 = () => (
+  <ListGroup as="div">
+    <ListGroupItem as="a" active href="#" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small>3 days ago</small>
+      </div>
+      <p class="mb-1">Some placeholder content in a paragraph.</p>
+      <small>And some small print.</small>
+    </ListGroupItem>
+    <ListGroupItem as="a" href="#">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+      <p class="mb-1">Some placeholder content in a paragraph.</p>
+      <small class="text-muted">And some muted small print.</small>
+    </ListGroupItem>
+    <ListGroupItem as="a" href="#">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+      <p class="mb-1">Some placeholder content in a paragraph.</p>
+      <small class="text-muted">And some muted small print.</small>
+    </ListGroupItem>
+  </ListGroup>
+);
+
 const Story = {
   title: "L1/List Group",
   component: ListGroup,
