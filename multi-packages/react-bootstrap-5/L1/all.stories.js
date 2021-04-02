@@ -71,28 +71,6 @@ export const AllComponentsCombo = () => (
       </div>
     </div>
 
-    {/* Alert Stories */}
-    <div className="p-3 shadow shadow-md bg-light">
-      <div className="d-flex flex-column gap-3">
-        <h3>Alerts</h3>
-        <AlertStories.Basic />
-        <h3>Alerts - Dismissable</h3>
-        <AlertStories.Dismissable />
-        <h3>Alerts - Dismissable - With Alert Links</h3>
-        <AlertStories.WithAlertLink />
-      </div>
-    </div>
-    <div className="p-3 shadow shadow-md bg-dark">
-      <div className="d-flex flex-column gap-3">
-        <h3 className="text-light">Alerts</h3>
-        <AlertStories.Basic />
-        <h3 className="text-light">Alerts - Dismissable</h3>
-        <AlertStories.Dismissable />
-        <h3 className="text-light">Alerts - Dismissable - With Alert Links</h3>
-        <AlertStories.WithAlertLink />
-      </div>
-    </div>
-
     {/* Button Group Stories */}
     <div className="p-3 shadow shadow-md bg-light">
       <div className="d-flex flex-column gap-3 align-items-start">
@@ -116,6 +94,28 @@ export const AllComponentsCombo = () => (
     </div>
   </div>
 );
+
+//   {/* Alert Stories */}
+//   <div className="p-3 shadow shadow-md bg-light">
+//   <div className="d-flex flex-column gap-3">
+//     <h3>Alerts</h3>
+//     <AlertStories.Basic />
+//     <h3>Alerts - Dismissable</h3>
+//     <AlertStories.Dismissable />
+//     <h3>Alerts - Dismissable - With Alert Links</h3>
+//     <AlertStories.WithAlertLink />
+//   </div>
+// </div>
+// <div className="p-3 shadow shadow-md bg-dark">
+//   <div className="d-flex flex-column gap-3">
+//     <h3 className="text-light">Alerts</h3>
+//     <AlertStories.Basic />
+//     <h3 className="text-light">Alerts - Dismissable</h3>
+//     <AlertStories.Dismissable />
+//     <h3 className="text-light">Alerts - Dismissable - With Alert Links</h3>
+//     <AlertStories.WithAlertLink />
+//   </div>
+// </div>
 
 const Story = {
   title: "L1",
