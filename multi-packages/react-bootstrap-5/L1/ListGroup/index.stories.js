@@ -162,6 +162,72 @@ export const ContextualClasses = () => (
   </ListGroup>
 );
 
+export const ContextualClassesWithLinks = () => (
+  <ListGroup as="div">
+    <ListGroupItem as="a" href="#">
+      A simple default list group item
+    </ListGroupItem>
+    <ListGroupItem primary as="a" href="#">
+      A simple primary list group item
+    </ListGroupItem>
+    <ListGroupItem secondary as="a" href="#">
+      A simple secondary list group item
+    </ListGroupItem>
+    <ListGroupItem success as="a" href="#">
+      A simple success list group item
+    </ListGroupItem>
+    <ListGroupItem danger as="a" href="#">
+      {" "}
+      A simple danger list group item
+    </ListGroupItem>
+    <ListGroupItem warning as="a" href="#">
+      A simple warning list group item
+    </ListGroupItem>
+    <ListGroupItem info as="a" href="#">
+      A simple info list group item
+    </ListGroupItem>
+    <ListGroupItem light as="a" href="#">
+      A simple light list group item
+    </ListGroupItem>
+    <ListGroupItem dark as="a" href="#">
+      A simple dark list group item
+    </ListGroupItem>
+  </ListGroup>
+);
+
+export const ContextualClassesWithButtons = () => (
+  <ListGroup as="div">
+    <ListGroupItem as="button" href="#">
+      A simple default list group item
+    </ListGroupItem>
+    <ListGroupItem primary as="button" href="#">
+      A simple primary list group item
+    </ListGroupItem>
+    <ListGroupItem secondary as="button" href="#">
+      A simple secondary list group item
+    </ListGroupItem>
+    <ListGroupItem success as="button" href="#">
+      A simple success list group item
+    </ListGroupItem>
+    <ListGroupItem danger as="button" href="#">
+      {" "}
+      A simple danger list group item
+    </ListGroupItem>
+    <ListGroupItem warning as="button" href="#">
+      A simple warning list group item
+    </ListGroupItem>
+    <ListGroupItem info as="button" href="#">
+      A simple info list group item
+    </ListGroupItem>
+    <ListGroupItem light as="button" href="#">
+      A simple light list group item
+    </ListGroupItem>
+    <ListGroupItem dark as="button" href="#">
+      A simple dark list group item
+    </ListGroupItem>
+  </ListGroup>
+);
+
 const Story = {
   title: "L1/List Group",
   component: ListGroup,
