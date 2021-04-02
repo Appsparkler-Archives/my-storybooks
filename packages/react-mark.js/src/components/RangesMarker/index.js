@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import useMarker from "../useMarker";
+import React from 'react';
+import PropTypes from 'prop-types';
+import useMarker from '../useMarker';
 
-const RangesMarker = ({ children, mark, options, unmarkOptions }) => {
-  const { markerRef } = useMarker({
+const RangesMarker = ({children, mark, options, unmarkOptions}) => {
+  const {markerRef} = useMarker({
     mark,
     options,
     unmarkOptions,
-    type: "markRanges",
+    type: 'markRanges',
   });
   return <div ref={markerRef}>{children}</div>;
 };
@@ -17,10 +17,10 @@ RangesMarker.propTypes = {
   options: PropTypes.object,
   /** An array */
   mark: PropTypes.arrayOf(
-    PropTypes.shape({
-      start: PropTypes.number,
-      length: PropTypes.number,
-    })
+      PropTypes.shape({
+        start: PropTypes.number,
+        length: PropTypes.number,
+      }),
   ).isRequired,
   /** un-mark options as documented [in the options section](https://markjs.io/#unmark)*/
   unmarkOptions: PropTypes.object,

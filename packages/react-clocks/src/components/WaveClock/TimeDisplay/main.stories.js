@@ -1,5 +1,5 @@
-import DisplayedTime from ".";
-import { useTickingTimestamp } from "react-clocks-hooks";
+import DisplayedTime from '.';
+import {useTickingTimestamp} from 'react-clocks-hooks';
 
 const Template = (args) => <DisplayedTime {...args} />;
 
@@ -9,7 +9,7 @@ Default.args = {
   showSeconds: true,
 };
 
-export const Ticking = ({ timestamp, showSeconds }) => {
+export const Ticking = ({timestamp, showSeconds}) => {
   const tickingTimestamp = useTickingTimestamp({
     timestamp,
     interval: 1000,
@@ -24,7 +24,7 @@ Ticking.args = {
 };
 
 const Story = {
-  title: "Clocks/Digital/Wave Clock",
+  title: 'Clocks/Digital/Wave Clock',
   component: DisplayedTime,
 };
 

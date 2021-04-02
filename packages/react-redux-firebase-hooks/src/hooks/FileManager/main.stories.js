@@ -1,13 +1,13 @@
-import React from "react";
-import useFileManager from "./useFileManager";
+import React from 'react';
+import useFileManager from './useFileManager';
 
 const Story = {
-  title: "Hooks/File Manager/useFileManager",
+  title: 'Hooks/File Manager/useFileManager',
 };
 
 export default Story;
 
-const Template = ({ collectionPath, storagePath }) => {
+const Template = ({collectionPath, storagePath}) => {
   const {
     // list of files that are/will-be uploaded
     files,
@@ -34,32 +34,32 @@ const Template = ({ collectionPath, storagePath }) => {
 
   // When user uploads a file with the file input
   const onChangeFileInput = React.useCallback(
-    async (evt) => {
-      const { files } = evt.target;
-      await uploadFiles(files);
-    },
-    [uploadFiles]
+      async (evt) => {
+        const {files} = evt.target;
+        await uploadFiles(files);
+      },
+      [uploadFiles],
   );
 
   // When user click on CTA to download a single file
   const onClickDownloadFile = React.useCallback(
-    async (evt) => {
-      const { key: fileKey } = evt.target.dataset;
-      await downloadFile(files[fileKey].fullPath);
-    },
-    [downloadFile, files]
+      async (evt) => {
+        const {key: fileKey} = evt.target.dataset;
+        await downloadFile(files[fileKey].fullPath);
+      },
+      [downloadFile, files],
   );
 
   // When use clicks on CTA to delete the file
   const onClickDeleteFile = React.useCallback(
-    async (evt) => {
-      const { key: fileKey } = evt.target.dataset;
-      await removeFile({
-        filePath: files[fileKey].fullPath,
-        docPath: `${collectionPath}/${fileKey}`,
-      });
-    },
-    [files, removeFile, collectionPath]
+      async (evt) => {
+        const {key: fileKey} = evt.target.dataset;
+        await removeFile({
+          filePath: files[fileKey].fullPath,
+          docPath: `${collectionPath}/${fileKey}`,
+        });
+      },
+      [files, removeFile, collectionPath],
   );
   return (
     <div>
@@ -72,23 +72,23 @@ const Template = ({ collectionPath, storagePath }) => {
       {
         <pre
           style={{
-            position: "fixed",
+            position: 'fixed',
             padding: 10,
             right: 0,
             top: 0,
-            background: "black",
-            color: "yellow",
+            background: 'black',
+            color: 'yellow',
           }}
         >
-          {uploadingFileList.length
-            ? `Uploading ${uploadingFileList.length} file(s)..`
-            : null}
-          {downloadingFileList.length
-            ? `Downloading ${downloadingFileList.length} file(s)...`
-            : null}
-          {removingFileList.length
-            ? `Removing ${removingFileList.length} file(s)...`
-            : null}
+          {uploadingFileList.length ?
+            `Uploading ${uploadingFileList.length} file(s)..` :
+            null}
+          {downloadingFileList.length ?
+            `Downloading ${downloadingFileList.length} file(s)...` :
+            null}
+          {removingFileList.length ?
+            `Removing ${removingFileList.length} file(s)...` :
+            null}
         </pre>
       }
 
@@ -112,7 +112,7 @@ const Template = ({ collectionPath, storagePath }) => {
                       type="button"
                       data-key={key}
                       disabled={downloadingFileList.some(
-                        (filePath) => filePath === file.fullPath
+                          (filePath) => filePath === file.fullPath,
                       )}
                       onClick={onClickDownloadFile}
                     >
@@ -124,28 +124,28 @@ const Template = ({ collectionPath, storagePath }) => {
                       data-key={key}
                       onClick={onClickDeleteFile}
                       disabled={removingFileList.some(
-                        (rFile) => rFile.filePath === file.fullPath
+                          (rFile) => rFile.filePath === file.fullPath,
                       )}
                     >
                       Delete File
                     </button>
                   </td>
                 </tr>
-              ) : null
+              ) : null,
             )}
         </tbody>
       </table>
 
-      <pre>{JSON.stringify({ uploadingFileList }, null, 2)}</pre>
-      <pre>{JSON.stringify({ downloadingFileList }, null, 2)}</pre>
-      <pre>{JSON.stringify({ removingFileList }, null, 2)}</pre>
+      <pre>{JSON.stringify({uploadingFileList}, null, 2)}</pre>
+      <pre>{JSON.stringify({downloadingFileList}, null, 2)}</pre>
+      <pre>{JSON.stringify({removingFileList}, null, 2)}</pre>
     </div>
   );
 };
 
 Template.args = {
-  collectionPath: "my-uploaded-files",
-  storagePath: "",
+  collectionPath: 'my-uploaded-files',
+  storagePath: '',
 };
 
 export const Example = Template.bind({});

@@ -1,48 +1,50 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+Object.defineProperty(exports, '__esModule', {
+  value: true,
 });
-exports["default"] = exports.Ticking = exports.Default = void 0;
+exports['default'] = exports.Ticking = exports.Default = void 0;
 
-var _ = _interopRequireDefault(require("."));
+const _ = _interopRequireDefault(require('.'));
 
-var _reactClocksHooks = require("react-clocks-hooks");
+const _reactClocksHooks = require('react-clocks-hooks');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {'default': obj};
+}
 
-var Template = function Template(args) {
-  return /*#__PURE__*/React.createElement(_["default"], args);
+const Template = function Template(args) {
+  return /* #__PURE__*/React.createElement(_['default'], args);
 };
 
-var Default = Template.bind({});
+const Default = Template.bind({});
 exports.Default = Default;
 Default.args = {
   timestamp: 1615445823539,
-  showSeconds: true
+  showSeconds: true,
 };
 
-var Ticking = function Ticking(_ref) {
-  var timestamp = _ref.timestamp,
-      showSeconds = _ref.showSeconds;
-  var tickingTimestamp = (0, _reactClocksHooks.useTickingTimestamp)({
+const Ticking = function Ticking(_ref) {
+  const timestamp = _ref.timestamp;
+  const showSeconds = _ref.showSeconds;
+  const tickingTimestamp = (0, _reactClocksHooks.useTickingTimestamp)({
     timestamp: timestamp,
-    interval: 1000
+    interval: 1000,
   });
-  return /*#__PURE__*/React.createElement(_["default"], {
+  return /* #__PURE__*/React.createElement(_['default'], {
     timestamp: tickingTimestamp,
-    showSeconds: showSeconds
+    showSeconds: showSeconds,
   });
 };
 
 exports.Ticking = Ticking;
 Ticking.args = {
   timestamp: Date.now(),
-  showSeconds: false
+  showSeconds: false,
 };
-var Story = {
-  title: "Clocks/Digital/Wave Clock",
-  component: _["default"]
+const Story = {
+  title: 'Clocks/Digital/Wave Clock',
+  component: _['default'],
 };
-var _default = Story;
-exports["default"] = _default;
+const _default = Story;
+exports['default'] = _default;

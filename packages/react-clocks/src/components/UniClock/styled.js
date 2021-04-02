@@ -1,10 +1,10 @@
-import UniClock from "./component";
-import styled from "styled-components";
+import UniClock from './component';
+import styled from 'styled-components';
 
-const transformHourHand = ({ hoursDegree = 0 }) => `rotate(${hoursDegree}deg)`;
-const transformMinuteHand = ({ minutesDegree = 0 }) =>
+const transformHourHand = ({hoursDegree = 0}) => `rotate(${hoursDegree}deg)`;
+const transformMinuteHand = ({minutesDegree = 0}) =>
   `rotate(${minutesDegree}deg)`;
-const transformSecondsHand = ({ secondsDegree = 0 }) =>
+const transformSecondsHand = ({secondsDegree = 0}) =>
   `rotate(${secondsDegree}deg)`;
 
 const StyledUniClock = styled(UniClock)`

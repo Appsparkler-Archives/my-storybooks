@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from 'react';
 
 /**
   returns a (ticking) timestamp every interval
@@ -12,7 +12,7 @@ const useTickingTimestamp = ({
   useEffect(() => {
     const intervalId = setInterval(() => {
       setTickingTimestamp(
-        (currentTickingTimestamp) => currentTickingTimestamp + interval
+          (currentTickingTimestamp) => currentTickingTimestamp + interval,
       );
     }, interval);
     return () => clearInterval(intervalId);

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import useFileDownloader from "./useFileDownloader";
 
 const Story = {
@@ -27,6 +28,9 @@ const Template = ({ filePath }) => {
 };
 Template.args = {
   filePath: "uploadedFiles/522d2ac7-8e30-4c48-8747-41ca37bb76d7-env-with-auth",
+};
+Template.propTypes = {
+  filePath: PropTypes.string,
 };
 
 export const Example = Template.bind({});

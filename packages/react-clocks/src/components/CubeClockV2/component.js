@@ -1,6 +1,6 @@
-import "./styles.css";
+import './styles.css';
 
-const CubeClock = ({ className, seconds, minutes, hours }) => (
+const CubeClock = ({className, seconds, minutes, hours}) => (
   <figure className={className}>
     <div className="face top v2">
       <p id="s">WED</p>

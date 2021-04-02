@@ -1,40 +1,40 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+Object.defineProperty(exports, '__esModule', {
+  value: true,
 });
-exports["default"] = void 0;
+exports['default'] = void 0;
 
-var _reactRedux = require("react-redux");
+const _reactRedux = require('react-redux');
 
-var _reactReduxFirebase = require("react-redux-firebase");
+const _reactReduxFirebase = require('react-redux-firebase');
 
-var useFirestoreCollection = function useFirestoreCollection(_ref) {
-  var collectionPath = _ref.collectionPath,
-      onError = _ref.onError;
-  var numberOfSegments = collectionPath.split('/').filter(Boolean).length;
-  var isEven = numberOfSegments % 2 === 0;
+const useFirestoreCollection = function useFirestoreCollection(_ref) {
+  const collectionPath = _ref.collectionPath;
+  const onError = _ref.onError;
+  const numberOfSegments = collectionPath.split('/').filter(Boolean).length;
+  const isEven = numberOfSegments % 2 === 0;
 
   if (isEven) {
-    var error = new Error('Collection path segments should be odd!');
+    const error = new Error('Collection path segments should be odd!');
     onError(error);
     throw error;
   }
 
-  (0, _reactReduxFirebase.useFirestoreConnect)(function () {
+  (0, _reactReduxFirebase.useFirestoreConnect)(function() {
     return [{
-      collection: collectionPath
+      collection: collectionPath,
     }];
   });
 
-  var selector = function selector(_ref2) {
-    var data = _ref2.firestore.data;
+  const selector = function selector(_ref2) {
+    const data = _ref2.firestore.data;
     return data[collectionPath];
   };
 
-  var collection = (0, _reactRedux.useSelector)(selector);
+  const collection = (0, _reactRedux.useSelector)(selector);
   return collection;
 };
 
-var _default = useFirestoreCollection;
-exports["default"] = _default;
+const _default = useFirestoreCollection;
+exports['default'] = _default;

@@ -1,7 +1,7 @@
-import React from "react";
-import StyledUniClock from "./styled";
+import React from 'react';
+import StyledUniClock from './styled';
 
-const UniClock = ({ timestamp }) => {
+const UniClock = ({timestamp}) => {
   const styledClock = React.useMemo(() => {
     const hoursDegree = new Date(timestamp).getHours() * (360 / 12);
     const minutesDegree = new Date(timestamp).getMinutes() * (360 / 60);
