@@ -7,7 +7,6 @@ const getActionClass = ({ As }) => {
   if (isLink || isButton) return "list-group-item-action";
   return "";
 };
-
 const getActiveClass = ({ active }) => (active ? `active` : "");
 const getDisabledClass = ({ disabled }) => (disabled ? "disabled" : "");
 
@@ -34,7 +33,7 @@ ListGroupItem.defaultProps = {
 };
 
 ListGroupItem.propTypes = {
-  as: PropTypes.string,
+  as: PropTypes.oneOf(["li", "button", "a"]),
   active: PropTypes.bool,
 };
 
