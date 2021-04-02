@@ -1,4 +1,4 @@
-import ReactReduxFirebase from './ReactReduxFirebase'
-import ReduxProvider from './ReduxProvider'
+import ReactReduxFirebase from "./ReactReduxFirebase";
+import ReduxProvider from "./ReduxProvider";
 
-export { ReactReduxFirebase, ReduxProvider }
+export { ReactReduxFirebase, ReduxProvider };

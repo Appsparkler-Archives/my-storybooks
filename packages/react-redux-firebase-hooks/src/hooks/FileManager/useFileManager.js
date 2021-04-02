@@ -1,7 +1,7 @@
-import useFileUploader from '../FileUploader/useFileUploader'
-import useFirestoreCollection from '../FirestoreCollection/useFirestoreCollection'
-import useFileRemover from '../FileRemover/useFileRemover'
-import useFileDownloader from '../FileDownloader/useFileDownloader'
+import useFileUploader from "../FileUploader/useFileUploader";
+import useFirestoreCollection from "../FirestoreCollection/useFirestoreCollection";
+import useFileRemover from "../FileRemover/useFileRemover";
+import useFileDownloader from "../FileDownloader/useFileDownloader";
 
 const useFileManager = ({
   collectionPath,
@@ -15,20 +15,20 @@ const useFileManager = ({
     collectionPath,
     storagePath,
     onError: onUploadError,
-  })
+  });
 
   const files = useFirestoreCollection({
     collectionPath,
     onError: onCollectionPathError,
-  })
+  });
 
   const { downloadFile, downloadingFileList } = useFileDownloader(
     onDownloadError
-  )
+  );
 
   const { removeFile, removingFileList } = useFileRemover({
     onError: onRemoveError,
-  })
+  });
 
   return {
     // list of files in database
@@ -45,7 +45,7 @@ const useFileManager = ({
     // removing files
     removeFile,
     removingFileList,
-  }
-}
+  };
+};
 
-export default useFileManager
+export default useFileManager;

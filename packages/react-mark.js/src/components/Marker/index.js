@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import useMarker from '../useMarker'
+import React from "react";
+import PropTypes from "prop-types";
+import useMarker from "../useMarker";
 
 const Marker = ({ children, mark, options, unmarkOptions }) => {
   const { markerRef } = useMarker({
     mark,
     options,
     unmarkOptions,
-    type: 'mark',
-  })
-  return <div ref={markerRef}>{children}</div>
-}
+    type: "mark",
+  });
+  return <div ref={markerRef}>{children}</div>;
+};
 
 Marker.propTypes = {
   /** mark options as documented [in the options section](https://markjs.io/#mark)*/
@@ -26,12 +26,12 @@ Marker.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
-}
+};
 
 Marker.defaultProps = {
   /** For a full list of options; visit **[markregexp](https://markjs.io/#markregexp)** */
   options: {},
   unmarkOptions: {},
-}
+};
 
-export default React.memo(Marker)
+export default React.memo(Marker);

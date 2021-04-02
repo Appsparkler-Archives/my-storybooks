@@ -17,25 +17,25 @@ This objective of this module; `react-redux-firebase-hooks`, is to simplify the 
 
 ```js
 // additional configuration (if not already setup)
-import { createFirestoreInstance, firestoreReducer } from 'redux-firestore' // since we need Firestore
-import 'firebase/firestore' // we need firestore
-import 'firebase/storage' // we need storage
+import { createFirestoreInstance, firestoreReducer } from "redux-firestore"; // since we need Firestore
+import "firebase/firestore"; // we need firestore
+import "firebase/storage"; // we need storage
 //...
-firebase.firestore() // initialize firestore
+firebase.firestore(); // initialize firestore
 //..
 const rrfConfig = {
   useFirestoreForStorageMeta: true, // we will store meta in Firestore
-}
+};
 //..
 const rootReducer = combineReducers({
   //..
   firestore: firestoreReducer, // since we need Firestore
-})
+});
 //...
 const rrfProps = {
   //...
   createFirestoreInstance, // since we need Firestore
-}
+};
 ```
 
 Here is the full configuration of the React-Redux-Firebase-Provider:
@@ -104,11 +104,14 @@ render(<App />, document.getElementById('root'))
 ```
 
 ## Managing files with `useFileManager` - A complete file-management solution
-When we call the `useFileManager` hook; as shown in the full-example, it returns a bunch of utilities such as `files, uploadFiles, uploadingFileList, etc.` which can help us manage our FileManager.  The example below doesn't have much CSS; however, it renders a very basic `Firebase File Manager`.
+
+When we call the `useFileManager` hook; as shown in the full-example, it returns a bunch of utilities such as `files, uploadFiles, uploadingFileList, etc.` which can help us manage our FileManager. The example below doesn't have much CSS; however, it renders a very basic `Firebase File Manager`.
+
 ### Full example:
+
 ```js
-import React from 'react'
-import useFileManager from 'react-redux-firebase-hooks'
+import React from "react";
+import useFileManager from "react-redux-firebase-hooks";
 
 const FileManager = ({ collectionPath, storagePath }) => {
   const {
@@ -131,39 +134,39 @@ const FileManager = ({ collectionPath, storagePath }) => {
     storagePath, // the storage path
     onCollectionPathError: console.error, // firestore-collection-path error callback (called in case there is an error in the collectionPath - it needs to have odd-segments)
     onUploadError: console.error, // triggered when there an error during upload
-    onDownloadError: console.error,  // triggered when there an error during download
-    onRemoveError: console.error,  // triggered when there an error during remove/delete
-  }) // The Hook in action
+    onDownloadError: console.error, // triggered when there an error during download
+    onRemoveError: console.error, // triggered when there an error during remove/delete
+  }); // The Hook in action
 
   // When user uploads a file with the file input
   const onChangeFileInput = React.useCallback(
     async (evt) => {
-      const { files } = evt.target
-      await uploadFiles(files) // we need to pass it an array of files directly from the file-input
+      const { files } = evt.target;
+      await uploadFiles(files); // we need to pass it an array of files directly from the file-input
     },
     [uploadFiles]
-  )
+  );
 
   // When user click on CTA to download a single file
   const onClickDownloadFile = React.useCallback(
     async (evt) => {
-      const { key: fileKey } = evt.target.dataset
-      await downloadFile(files[fileKey].fullPath) // we need to pass the storage's fullPath for the file.
+      const { key: fileKey } = evt.target.dataset;
+      await downloadFile(files[fileKey].fullPath); // we need to pass the storage's fullPath for the file.
     },
     [downloadFile, files]
-  )
+  );
 
   // When use clicks on CTA to delete the file
   const onClickDeleteFile = React.useCallback(
     async (evt) => {
-      const { key: fileKey } = evt.target.dataset
+      const { key: fileKey } = evt.target.dataset;
       await removeFile({
         filePath: files[fileKey].fullPath, // path to the file in storage
         docPath: `${collectionPath}/${fileKey}`, // path to the document that contains the file's meta
-      })
+      });
     },
     [files, removeFile, collectionPath]
-  )
+  );
   return (
     <div>
       <label>
@@ -175,12 +178,12 @@ const FileManager = ({ collectionPath, storagePath }) => {
       {
         <pre
           style={{
-            position: 'fixed',
+            position: "fixed",
             padding: 10,
             right: 0,
             top: 0,
-            background: 'black',
-            color: 'yellow',
+            background: "black",
+            color: "yellow",
           }}
         >
           {uploadingFileList.length
@@ -243,8 +246,8 @@ const FileManager = ({ collectionPath, storagePath }) => {
       <pre>{JSON.stringify({ downloadingFileList }, null, 2)}</pre>
       <pre>{JSON.stringify({ removingFileList }, null, 2)}</pre>
     </div>
-  )
-}
+  );
+};
 
-export default React.memo(FileManager)
+export default React.memo(FileManager);
 ```

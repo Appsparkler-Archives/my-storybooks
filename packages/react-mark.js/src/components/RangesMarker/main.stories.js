@@ -1,13 +1,13 @@
-import RegExpMarker from './'
+import RegExpMarker from "./";
 
 const Story = {
-  title: 'Mark.js/RangesMarker',
+  title: "Mark.js/RangesMarker",
   component: RegExpMarker,
-}
+};
 
 const Template = ({ children, ...args }) => (
   <RegExpMarker {...args}>{children}</RegExpMarker>
-)
+);
 Template.args = {
   mark: [
     {
@@ -16,12 +16,12 @@ Template.args = {
     },
   ],
   children: <h1>0123456789</h1>,
-}
+};
 
-export const WithoutOtions = Template.bind({})
-WithoutOtions.args = Template.args
+export const WithoutOtions = Template.bind({});
+WithoutOtions.args = Template.args;
 
-export const WithMarkOptions = Template.bind({})
+export const WithMarkOptions = Template.bind({});
 WithMarkOptions.args = {
   ...Template.args,
   children: (
@@ -31,8 +31,8 @@ WithMarkOptions.args = {
     </div>
   ),
   options: {
-    exclude: ['h1'],
+    exclude: ["h1"],
   },
-}
+};
 
-export default Story
+export default Story;
