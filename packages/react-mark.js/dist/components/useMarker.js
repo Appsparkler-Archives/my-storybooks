@@ -1,139 +1,83 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-exports['default'] = void 0;
+exports["default"] = void 0;
 
-const _react = _interopRequireDefault(require('react'));
+var _react = _interopRequireDefault(require("react"));
 
-const _markEs = _interopRequireDefault(require('mark.js/dist/mark.es6.min'));
+var _markEs = _interopRequireDefault(require("mark.js/dist/mark.es6.min"));
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {'default': obj};
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function ownKeys(object, enumerableOnly) {
-  const keys = Object.keys(object); if (Object.getOwnPropertySymbols) {
-    let symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) {
-      symbols = symbols.filter(function(sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-    } keys.push.apply(keys, symbols);
-  } return keys;
-}
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) {
-  for (let i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) {
-      ownKeys(Object(source), true).forEach(function(key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function(key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  } return target;
-}
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {value: value, enumerable: true, configurable: true, writable: true});
-  } else {
-    obj[key] = value;
-  } return obj;
-}
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-}
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
-function _nonIterableRest() {
-  throw new TypeError('Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.');
-}
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return; if (typeof o === 'string') return _arrayLikeToArray(o, minLen); let n = Object.prototype.toString.call(o).slice(8, -1); if (n === 'Object' && o.constructor) n = o.constructor.name; if (n === 'Map' || n === 'Set') return Array.from(o); if (n === 'Arguments' || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  } return arr2;
-}
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === 'undefined' || !(Symbol.iterator in Object(arr))) return; const _arr = []; let _n = true; let _d = false; let _e = undefined; try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value); if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true; _e = err;
-  } finally {
-    try {
-      if (!_n && _i['return'] != null) _i['return']();
-    } finally {
-      if (_d) throw _e;
-    }
-  } return _arr;
-}
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-const unmark = function unmark(markJsInstance) {
-  return new Promise(function(done) {
+var unmark = function unmark(markJsInstance) {
+  return new Promise(function (done) {
     markJsInstance.unmark({
-      done: done,
+      done: done
     });
   });
 };
 
-const useMarker = function useMarker(_ref) {
-  const _ref$mark = _ref.mark;
-  const mark = _ref$mark === void 0 ? new RegExp() : _ref$mark;
-  const _ref$options = _ref.options;
-  const options = _ref$options === void 0 ? {} : _ref$options;
-  const _ref$unmarkOptions = _ref.unmarkOptions;
-  const unmarkOptions = _ref$unmarkOptions === void 0 ? {} : _ref$unmarkOptions;
-  const _ref$type = _ref.type;
-  const type = _ref$type === void 0 ? 'mark' : _ref$type;
+var useMarker = function useMarker(_ref) {
+  var _ref$mark = _ref.mark,
+      mark = _ref$mark === void 0 ? new RegExp() : _ref$mark,
+      _ref$options = _ref.options,
+      options = _ref$options === void 0 ? {} : _ref$options,
+      _ref$unmarkOptions = _ref.unmarkOptions,
+      unmarkOptions = _ref$unmarkOptions === void 0 ? {} : _ref$unmarkOptions,
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? "mark" : _ref$type;
 
-  const markerRef = _react['default'].useRef();
+  var markerRef = _react["default"].useRef();
 
-  const _React$useState = _react['default'].useState({
-    markJsInstance: null,
-  });
-  const _React$useState2 = _slicedToArray(_React$useState, 2);
-  const markerState = _React$useState2[0];
-  const setMarkerState = _React$useState2[1];
+  var _React$useState = _react["default"].useState({
+    markJsInstance: null
+  }),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      markerState = _React$useState2[0],
+      setMarkerState = _React$useState2[1];
 
-  _react['default'].useEffect(function() {
+  _react["default"].useEffect(function () {
     if (markerRef.current) {
-      setMarkerState(function(currentState) {
+      setMarkerState(function (currentState) {
         return _objectSpread(_objectSpread({}, currentState), {}, {
-          markJsInstance: new _markEs['default'](markerRef.current),
+          markJsInstance: new _markEs["default"](markerRef.current)
         });
       });
     }
   }, []);
 
-  _react['default'].useEffect(function() {
+  _react["default"].useEffect(function () {
     if (markerState.markJsInstance) {
-      unmark(markerState.markJsInstance, unmarkOptions).then(function() {
+      unmark(markerState.markJsInstance, unmarkOptions).then(function () {
         markerState.markJsInstance[type](mark, options);
       });
     }
   }, [mark, options, markerState.markJsInstance, type, unmarkOptions]);
 
   return {
-    markerRef: markerRef,
+    markerRef: markerRef
   };
 };
 
-const _default = useMarker;
-exports['default'] = _default;
+var _default = useMarker;
+exports["default"] = _default;

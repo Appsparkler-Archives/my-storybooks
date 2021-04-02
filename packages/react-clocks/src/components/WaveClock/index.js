@@ -2,18 +2,18 @@ import React from "react";
 import "./styles.css";
 
 class WaveClock extends React.Component {
-  state = {
-    date: {},
-  };
   constructor(man) {
     super(man);
+    this.state = {
+      date: {},
+    };
   }
   getInitialState() {
     return this.getDate();
   }
   getDate() {
-    var newdate = new Date();
-    var date = {};
+    const newdate = new Date();
+    const date = {};
 
     date.hours = newdate.getHours();
     date.minutes = newdate.getMinutes();
@@ -24,17 +24,8 @@ class WaveClock extends React.Component {
   updateDate() {
     this.setState(this.getDate());
   }
-  renderDate() {
-    var secondOffset = (date.seconds / 60) * 100 + "%";
-    var minuteOffset = (date.minutes / 60) * 100 + "%";
-    var hourOffset = (date.hours / 24) * 100 + "%";
-
-    var secondopacity = ((date.seconds / 60) * 100) / 100;
-    var minuteopacity = ((date.minutes / 60) * 100) / 100;
-    var houropacity = ((date.hours / 24) * 100) / 100;
-  }
   componentDidMount() {
-    var that = this;
+    const that = this;
     setInterval(function () {
       that.updateDate();
     }, 1000);
@@ -60,23 +51,24 @@ class Marker extends React.Component {
     super(man);
   }
   render() {
+    let measurement = 24;
     switch (this.props.type) {
       case "hours":
-        var measurement = 24;
+        measurement = 24;
         break;
       case "minutes":
-        var measurement = 60;
+        measurement = 60;
         break;
       case "seconds":
-        var measurement = 60;
+        measurement = 60;
         break;
     }
 
-    var offset = (this.props.time / measurement) * 100 + "%";
-    var opacity = ((this.props.time / measurement) * 100) / 100;
+    const offset = (this.props.time / measurement) * 100 + "%";
+    const opacity = ((this.props.time / measurement) * 100) / 100;
 
-    var columnClasses = "Column Column--" + this.props.type;
-    var typeClasses = "Marker Marker--" + this.props.type;
+    const columnClasses = "Column Column--" + this.props.type;
+    const typeClasses = "Marker Marker--" + this.props.type;
     return (
       <div className={columnClasses}>
         <div
@@ -93,13 +85,24 @@ class Timer extends React.Component {
     super(man);
   }
   render() {
+    let time;
     if (this.props.time < 10) {
-      var time = "0" + this.props.time;
+      time = "0" + this.props.time;
     } else {
-      var time = this.props.time;
+      time = this.props.time;
     }
     return <div className={this.props.type}>{time}</div>;
   }
 }
+
+Marker.propTypes = {
+  time: PropTypes.number,
+  type: PropTypes.string,
+};
+
+Timer.propTypes = {
+  time: PropTypes.number,
+  type: PropTypes.string,
+};
 
 export default WaveClock;

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import DisplayedTime from ".";
 import { useTickingTimestamp } from "react-clocks-hooks";
 

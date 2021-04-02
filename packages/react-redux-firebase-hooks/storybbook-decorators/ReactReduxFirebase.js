@@ -1,7 +1,5 @@
+/* eslint-disable react/prop-types */
 // http://react-redux-firebase.com/docs/getting_started.html
-import React from "react";
-import { render } from "react-dom";
-import { Provider } from "react-redux";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/storage";
@@ -29,8 +27,10 @@ const rrfProps = {
   createFirestoreInstance,
 };
 
-export default (Story) => (
+const ReactReduxFirebaseDecorator = (Story) => (
   <ReactReduxFirebaseProvider {...rrfProps}>
     <Story />
   </ReactReduxFirebaseProvider>
 );
+
+export default ReactReduxFirebaseDecorator;

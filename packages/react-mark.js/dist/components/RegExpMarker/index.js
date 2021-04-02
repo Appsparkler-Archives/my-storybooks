@@ -1,56 +1,54 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-exports['default'] = void 0;
+exports["default"] = void 0;
 
-const _react = _interopRequireDefault(require('react'));
+var _react = _interopRequireDefault(require("react"));
 
-const _propTypes = _interopRequireDefault(require('prop-types'));
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
-const _useMarker2 = _interopRequireDefault(require('../useMarker'));
+var _useMarker2 = _interopRequireDefault(require("../useMarker"));
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {'default': obj};
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-const RegExpMarker = function RegExpMarker(_ref) {
-  const children = _ref.children;
-  const mark = _ref.mark;
-  const options = _ref.options;
-  const unmarkOptions = _ref.unmarkOptions;
+var RegExpMarker = function RegExpMarker(_ref) {
+  var children = _ref.children,
+      mark = _ref.mark,
+      options = _ref.options,
+      unmarkOptions = _ref.unmarkOptions;
 
-  const _useMarker = (0, _useMarker2['default'])({
+  var _useMarker = (0, _useMarker2["default"])({
     mark: mark,
     options: options,
     unmarkOptions: unmarkOptions,
-    type: 'markRegExp',
-  });
-  const markerRef = _useMarker.markerRef;
+    type: "markRegExp"
+  }),
+      markerRef = _useMarker.markerRef;
 
-  return /* #__PURE__*/_react['default'].createElement('div', {
-    ref: markerRef,
+  return /*#__PURE__*/_react["default"].createElement("div", {
+    ref: markerRef
   }, children);
 };
 
 RegExpMarker.propTypes = {
   /** mark options as documented [in the options section](https://markjs.io/#markregexp)*/
-  options: _propTypes['default'].object,
+  options: _propTypes["default"].object,
 
   /** A Regular Expression - for ex `/\.js/g` */
-  mark: _propTypes['default'].instanceOf(RegExp).isRequired,
+  mark: _propTypes["default"].instanceOf(RegExp).isRequired,
 
   /** un-mark options as documented [in the options section](https://markjs.io/#unmark)*/
-  unmarkOptions: _propTypes['default'].object,
-  children: _propTypes['default'].oneOfType([_propTypes['default'].arrayOf(_propTypes['default'].node), _propTypes['default'].node]),
+  unmarkOptions: _propTypes["default"].object,
+  children: _propTypes["default"].oneOfType([_propTypes["default"].arrayOf(_propTypes["default"].node), _propTypes["default"].node])
 };
 RegExpMarker.defaultProps = {
   /** For a full list of options; visit **[markregexp](https://markjs.io/#markregexp)** */
   options: {},
-  unmarkOptions: {},
+  unmarkOptions: {}
 };
 
-const _default = /* #__PURE__*/_react['default'].memo(RegExpMarker);
+var _default = /*#__PURE__*/_react["default"].memo(RegExpMarker);
 
-exports['default'] = _default;
+exports["default"] = _default;

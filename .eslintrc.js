@@ -19,5 +19,7 @@ module.exports = {
   rules: {
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "error",
+    "require-jsdoc": "off",
+    "valid-jsdoc": 0,
   },
 };

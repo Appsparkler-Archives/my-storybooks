@@ -1,30 +1,30 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-exports['default'] = void 0;
+exports["default"] = void 0;
 
-const _react = require('react');
+var _react = require("react");
 
 /**
   Converts a given timestamp into hours, minutes and seconds
 */
-const useTimestampConverter = function useTimestampConverter(timestamp) {
-  const details = (0, _react.useMemo)(function() {
-    const date = new Date(timestamp);
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const seconds = date.getSeconds();
+var useTimestampConverter = function useTimestampConverter(timestamp) {
+  var details = (0, _react.useMemo)(function () {
+    var date = new Date(timestamp);
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
     return {
       hours: hours,
       minutes: minutes,
       seconds: seconds,
-      date: date,
+      date: date
     };
   }, [timestamp]);
   return details;
 };
 
-const _default = useTimestampConverter;
-exports['default'] = _default;
+var _default = useTimestampConverter;
+exports["default"] = _default;

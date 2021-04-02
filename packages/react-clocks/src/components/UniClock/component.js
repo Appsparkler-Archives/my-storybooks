@@ -36,4 +36,8 @@ const UniClock = ({ className }) => {
   );
 };
 
+UniClock.propTypes = {
+  className: PropTypes.string,
+};
+
 export default UniClock;

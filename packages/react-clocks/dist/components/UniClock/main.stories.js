@@ -1,82 +1,52 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
-  value: true,
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
-exports['default'] = exports.Ticking = exports.Static = void 0;
+exports["default"] = exports.Ticking = exports.Static = void 0;
 
-const _react = _interopRequireDefault(require('react'));
+var _react = _interopRequireDefault(require("react"));
 
-const _ = _interopRequireDefault(require('.'));
+var _ = _interopRequireDefault(require("."));
 
-const _reactClocksHooks = require('react-clocks-hooks');
+var _reactClocksHooks = require("react-clocks-hooks");
 
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {'default': obj};
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function ownKeys(object, enumerableOnly) {
-  const keys = Object.keys(object); if (Object.getOwnPropertySymbols) {
-    let symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) {
-      symbols = symbols.filter(function(sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-    } keys.push.apply(keys, symbols);
-  } return keys;
-}
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) {
-  for (let i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) {
-      ownKeys(Object(source), true).forEach(function(key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function(key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  } return target;
-}
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {value: value, enumerable: true, configurable: true, writable: true});
-  } else {
-    obj[key] = value;
-  } return obj;
-}
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-const Template = function Template(args) {
-  return /* #__PURE__*/_react['default'].createElement(_['default'], args);
+var Template = function Template(args) {
+  return /*#__PURE__*/_react["default"].createElement(_["default"], args);
 };
 
-const TickingClock = function TickingClock(args) {
-  const tickingTimestamp = (0, _reactClocksHooks.useTickingTimestamp)({
-    timestamp: args.timestamp,
+var TickingClock = function TickingClock(args) {
+  var tickingTimestamp = (0, _reactClocksHooks.useTickingTimestamp)({
+    timestamp: args.timestamp
   });
-  return /* #__PURE__*/_react['default'].createElement(_['default'], {
-    timestamp: tickingTimestamp,
+  return /*#__PURE__*/_react["default"].createElement(_["default"], {
+    timestamp: tickingTimestamp
   });
 };
 
-const Static = Template.bind({});
+var Static = Template.bind({});
 exports.Static = Static;
 Static.args = {
-  timestamp: 1615384885000,
+  timestamp: 1615384885000
 };
 
-const Ticking = function Ticking(args) {
-  return /* #__PURE__*/_react['default'].createElement(TickingClock, args);
+var Ticking = function Ticking(args) {
+  return /*#__PURE__*/_react["default"].createElement(TickingClock, args);
 };
 
 exports.Ticking = Ticking;
 Ticking.args = _objectSpread({}, Static.args);
-const Story = {
-  title: 'Clocks/Analog/Uni(corn)Clock',
-  component: _['default'],
+var Story = {
+  title: "Clocks/Analog/Uni(corn)Clock",
+  component: _["default"]
 };
-const _default = Story;
-exports['default'] = _default;
+var _default = Story;
+exports["default"] = _default;

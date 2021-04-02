@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import "./styles.css";
 
-const CubeClock = ({ className, seconds, minutes, hours }) => (
+const CubeClock = ({ className, minutes, hours }) => (
   <figure className={className}>
     <div className="face top v2">
       <p id="s">WED</p>
@@ -15,5 +16,11 @@ const CubeClock = ({ className, seconds, minutes, hours }) => (
     </div>
   </figure>
 );
+
+CubeClock.propTypes = {
+  className: PropTypes.string,
+  minutes: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+  hours: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+};
 
 export default CubeClock;

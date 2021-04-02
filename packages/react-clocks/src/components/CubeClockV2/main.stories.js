@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react/prop-types */
 import { useTickingTimestamp } from "react-clocks-hooks";
 import CubeClock from ".";
 
