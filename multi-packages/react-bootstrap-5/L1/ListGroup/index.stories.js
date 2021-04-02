@@ -87,32 +87,6 @@ export const Flush = () => (
   </ListGroup>
 );
 
-export const CustomContent = () => (
-  <ListGroup>
-    <ListGroupItem className="d-flex justify-content-between align-items-start">
-      <div className="ms-2 me-auto">
-        <div className="fw-bold">Subheading</div>
-        Cras justo odio
-      </div>
-      <span className="badge bg-primary rounded-pill">14</span>
-    </ListGroupItem>
-    <ListGroupItem className="list-group-item d-flex justify-content-between align-items-start">
-      <div className="ms-2 me-auto">
-        <div className="fw-bold">Subheading</div>
-        Cras justo odio
-      </div>
-      <span className="badge bg-primary rounded-pill">14</span>
-    </ListGroupItem>
-    <ListGroupItem className="list-group-item d-flex justify-content-between align-items-start">
-      <div className="ms-2 me-auto">
-        <div className="fw-bold">Subheading</div>
-        Cras justo odio
-      </div>
-      <span className="badge bg-primary rounded-pill">14</span>
-    </ListGroupItem>
-  </ListGroup>
-);
-
 export const Horizontal = () => (
   <>
     <ListGroup horizontal>
@@ -224,6 +198,32 @@ export const ContextualClassesWithButtons = () => (
     </ListGroupItem>
     <ListGroupItem dark as="button" href="#">
       A simple dark list group item
+    </ListGroupItem>
+  </ListGroup>
+);
+
+export const CustomContent1 = () => (
+  <ListGroup>
+    <ListGroupItem className="d-flex justify-content-between align-items-start">
+      <div className="ms-2 me-auto">
+        <div className="fw-bold">Subheading</div>
+        Cras justo odio
+      </div>
+      <span className="badge bg-primary rounded-pill">14</span>
+    </ListGroupItem>
+    <ListGroupItem className="list-group-item d-flex justify-content-between align-items-start">
+      <div className="ms-2 me-auto">
+        <div className="fw-bold">Subheading</div>
+        Cras justo odio
+      </div>
+      <span className="badge bg-primary rounded-pill">14</span>
+    </ListGroupItem>
+    <ListGroupItem className="list-group-item d-flex justify-content-between align-items-start">
+      <div className="ms-2 me-auto">
+        <div className="fw-bold">Subheading</div>
+        Cras justo odio
+      </div>
+      <span className="badge bg-primary rounded-pill">14</span>
     </ListGroupItem>
   </ListGroup>
 );
