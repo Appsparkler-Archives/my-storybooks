@@ -11,7 +11,7 @@ const getActiveClass = ({ active }) => (active ? `active` : "");
 const getDisabledClass = ({ disabled }) => (disabled ? "disabled" : "");
 
 export const ListGroupItem = React.forwardRef((props) => {
-  const { children, as: As, active, disabled, ...restProps } = props;
+  const { children, className, as: As, active, disabled, ...restProps } = props;
   const activeClass = React.useMemo(() => getActiveClass({ active }), [active]);
   const actionClass = React.useMemo(() => getActionClass({ As }), [As]);
   const disabledClass = React.useMemo(() => getDisabledClass({ disabled }), [
@@ -19,7 +19,7 @@ export const ListGroupItem = React.forwardRef((props) => {
   ]);
   return (
     <As
-      className={`list-group-item ${activeClass} ${actionClass} ${disabledClass} `}
+      className={`list-group-item ${activeClass} ${actionClass} ${disabledClass} ${className}`}
       {...restProps}
     >
       {children}
@@ -30,11 +30,13 @@ export const ListGroupItem = React.forwardRef((props) => {
 ListGroupItem.defaultProps = {
   as: "li",
   active: false,
+  className: "",
 };
 
 ListGroupItem.propTypes = {
   as: PropTypes.oneOf(["li", "button", "a"]),
   active: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 const ListGroup = React.forwardRef(({ children, className, flush, as: As }) => {
