@@ -114,38 +114,38 @@ export const CustomContent = () => (
 );
 
 export const Horizontal = () => (
-  <div>
+  <>
     <ListGroup horizontal>
       <ListGroupItem>An item</ListGroupItem>
-      <li className="list-group-item">A second item</li>
-      <li className="list-group-item">A third item</li>
+      <ListGroupItem>A second item</ListGroupItem>
+      <ListGroupItem>A third item</ListGroupItem>
     </ListGroup>
-    <ul className="list-group list-group-horizontal-sm">
-      <li className="list-group-item">An item</li>
-      <li className="list-group-item">A second item</li>
-      <li className="list-group-item">A third item</li>
-    </ul>
-    <ul className="list-group list-group-horizontal-md">
-      <li className="list-group-item">An item</li>
-      <li className="list-group-item">A second item</li>
-      <li className="list-group-item">A third item</li>
-    </ul>
-    <ul className="list-group list-group-horizontal-lg">
-      <li className="list-group-item">An item</li>
-      <li className="list-group-item">A second item</li>
-      <li className="list-group-item">A third item</li>
-    </ul>
-    <ul className="list-group list-group-horizontal list-group-horizontal-xl">
-      <li className="list-group-item">An item</li>
-      <li className="list-group-item">A second item</li>
-      <li className="list-group-item">A third item</li>
-    </ul>
-    <ul className="list-group list-group-horizontal list-group-horizontal-xxl">
-      <li className="list-group-item">An item</li>
-      <li className="list-group-item">A second item</li>
-      <li className="list-group-item">A third item</li>
-    </ul>
-  </div>
+    <ListGroup horizontal sm>
+      <ListGroupItem>An item</ListGroupItem>
+      <ListGroupItem>A second item</ListGroupItem>
+      <ListGroupItem>A third item</ListGroupItem>
+    </ListGroup>
+    <ListGroup horizontal md>
+      <ListGroupItem>An item</ListGroupItem>
+      <ListGroupItem>A second item</ListGroupItem>
+      <ListGroupItem>A third item</ListGroupItem>
+    </ListGroup>
+    <ListGroup horizontal lg>
+      <ListGroupItem>An item</ListGroupItem>
+      <ListGroupItem>A second item</ListGroupItem>
+      <ListGroupItem>A third item</ListGroupItem>
+    </ListGroup>
+    <ListGroup horizontal xl>
+      <ListGroupItem>An item</ListGroupItem>
+      <ListGroupItem>A second item</ListGroupItem>
+      <ListGroupItem>A third item</ListGroupItem>
+    </ListGroup>
+    <ListGroup horizontal xxl>
+      <ListGroupItem>An item</ListGroupItem>
+      <ListGroupItem>A second item</ListGroupItem>
+      <ListGroupItem>A third item</ListGroupItem>
+    </ListGroup>
+  </>
 );
 
 const Story = {
