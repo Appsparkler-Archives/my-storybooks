@@ -148,6 +148,20 @@ export const Horizontal = () => (
   </>
 );
 
+export const ContextualClasses = () => (
+  <ListGroup>
+    <ListGroupItem>A simple default list group item</ListGroupItem>
+    <ListGroupItem primary>A simple primary list group item</ListGroupItem>
+    <ListGroupItem secondary>A simple secondary list group item</ListGroupItem>
+    <ListGroupItem success>A simple success list group item</ListGroupItem>
+    <ListGroupItem danger> A simple danger list group item</ListGroupItem>
+    <ListGroupItem warning>A simple warning list group item</ListGroupItem>
+    <ListGroupItem info>A simple info list group item</ListGroupItem>
+    <ListGroupItem light>A simple light list group item</ListGroupItem>
+    <ListGroupItem dark>A simple dark list group item</ListGroupItem>
+  </ListGroup>
+);
+
 const Story = {
   title: "L1/List Group",
   component: ListGroup,

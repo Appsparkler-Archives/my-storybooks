@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import useSizeExtractor from "../../hooks/useSizeExtractor";
+import { useSizeExtractor, useVariantExtractor } from "../../hooks";
 
 const getActionClass = ({ As }) => {
   const isLink = As === "a";
@@ -15,6 +15,8 @@ const getListGroupHorizontalClass = ({ horizontal, size }) => {
   if (horizontal) return "list-group-horizontal";
   return "";
 };
+const getVariantClass = ({ variant }) =>
+  variant ? `list-group-item-${variant}` : "";
 export const ListGroupItem = React.forwardRef((props) => {
   const {
     children,
@@ -30,10 +32,16 @@ export const ListGroupItem = React.forwardRef((props) => {
   const disabledClass = React.useMemo(() => getDisabledClass({ disabled }), [
     disabled,
   ]);
+  const { variant, restProps: propsAfterVariant } = useVariantExtractor(
+    restProps
+  );
+  const variantClass = React.useMemo(() => getVariantClass({ variant }), [
+    variant,
+  ]);
   return (
     <As
-      className={`list-group-item ${activeClass} ${actionClass} ${disabledClass} ${className}`}
-      {...restProps}
+      className={`list-group-item ${activeClass} ${actionClass} ${variantClass} ${disabledClass} ${className}`}
+      {...propsAfterVariant}
     >
       {children}
     </As>
