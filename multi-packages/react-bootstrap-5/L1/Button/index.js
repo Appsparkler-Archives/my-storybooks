@@ -3,30 +3,31 @@ import {
   useVariantExtractor,
   useSizeExtractor,
 } from "@react-bootstrap-5/hooks";
+import PropTypes from "prop-types";
+
+const getVariantClass = ({ variant, outline }) => {
+  if (outline && variant) return `btn-outline-${variant}`;
+  if (variant) return `btn-${variant}`;
+  return "";
+};
+const getSizeClass = ({ size }) => (size ? `btn-${size}` : "");
+const getActiveClass = ({ active }) => (active ? "active" : "");
 
 const Button = (props, ref) => {
   const { as: As = "button", active, ...afterActiveProps } = props;
   const { variant, restProps: afterVariantProps } = useVariantExtractor(
     afterActiveProps
   );
-  const { size, restProps: afterSizeProps } = useSizeExtractor(
+  const { size, restProps: propsAfterSize } = useSizeExtractor(
     afterVariantProps
   );
-  const { outline, ...restPropsAfterOutline } = afterSizeProps;
-  const { children, className, ...restProps } = restPropsAfterOutline;
-  const variantClass = React.useMemo(() => {
-    if (outline && variant) return `btn-outline-${variant}`;
-    if (variant) return `btn-${variant}`;
-    return "";
-  }, [variant]);
-  const sizeClass = React.useMemo(() => {
-    if (size) return `btn-${size}`;
-    return "";
-  }, [size]);
-  const activeClass = React.useMemo(() => {
-    if (active) return "active";
-    return "";
-  }, []);
+  const { children, outline, className, ...restProps } = propsAfterSize;
+  const variantClass = React.useMemo(
+    () => getVariantClass({ variant, outline }),
+    [variant, outline]
+  );
+  const sizeClass = React.useMemo(() => getSizeClass({ size }), [size]);
+  const activeClass = React.useMemo(() => getActiveClass({ active }), [active]);
   return (
     <As
       ref={ref}
@@ -36,6 +37,12 @@ const Button = (props, ref) => {
       {children}
     </As>
   );
+};
+
+Button.propTypes = {
+  as: PropTypes.string,
+  children: PropTypes.node,
+  active: PropTypes.bool,
 };
 
 export default React.forwardRef(Button);

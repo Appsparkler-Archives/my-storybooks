@@ -18,15 +18,7 @@ const getListGroupHorizontalClass = ({ horizontal, size }) => {
 const getVariantClass = ({ variant }) =>
   variant ? `list-group-item-${variant}` : "";
 export const ListGroupItem = React.forwardRef((props, ref) => {
-  const {
-    children,
-    className,
-    as: As,
-    horizontal,
-    active,
-    disabled,
-    ...restProps
-  } = props;
+  const { children, className, as: As, active, disabled, ...restProps } = props;
   const activeClass = React.useMemo(() => getActiveClass({ active }), [active]);
   const actionClass = React.useMemo(() => getActionClass({ As }), [As]);
   const disabledClass = React.useMemo(() => getDisabledClass({ disabled }), [
@@ -53,12 +45,15 @@ ListGroupItem.defaultProps = {
   as: "li",
   active: false,
   className: "",
+  disabled: false,
 };
 
 ListGroupItem.propTypes = {
+  children: PropTypes.node,
   as: PropTypes.oneOf(["li", "button", "a"]),
   active: PropTypes.bool,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 const ListGroup = React.forwardRef((props, ref) => {
@@ -82,6 +77,7 @@ const ListGroup = React.forwardRef((props, ref) => {
   return (
     <As
       className={`list-group ${listGroupHorizontalClass} ${flushClass} ${className}`}
+      {...propsAfterSize}
       ref={ref}
     >
       {children}
@@ -93,6 +89,8 @@ ListGroup.propTypes = {
   as: PropTypes.oneOf(["ol", "ul"]),
   children: PropTypes.node,
   flush: PropTypes.bool,
+  className: PropTypes.string,
+  horizontal: PropTypes.bool,
 };
 
 ListGroup.defaultProps = {

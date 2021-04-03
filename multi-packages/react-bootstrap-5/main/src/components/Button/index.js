@@ -13,6 +13,7 @@ const Button = ({ outline, type, size, children, className, ...props }) => (
 );
 
 Button.propTypes = {
+  children: PropTypes.node,
   outline: PropTypes.bool,
   type: PropTypes.oneOf([
     "primary",

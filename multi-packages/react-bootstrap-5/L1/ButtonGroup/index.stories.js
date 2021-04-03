@@ -27,7 +27,6 @@ export const Small = () => (
     </ButtonGroup>
   </div>
 );
-
 export const Medium = () => (
   <div className="d-flex gap-2 flex-column align-items-start">
     <ButtonGroup md>

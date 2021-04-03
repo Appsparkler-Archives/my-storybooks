@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Accordian = () => (
   <div className="accordion" id="accordionExample">
     <div className="accordion-item">
