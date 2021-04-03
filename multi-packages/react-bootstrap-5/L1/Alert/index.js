@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useVariantExtractor } from "@react-bootstrap-5/hooks";
 
 const AlertMain = (props, ref) => {

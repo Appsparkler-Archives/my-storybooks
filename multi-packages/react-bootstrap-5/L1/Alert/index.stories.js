@@ -2,7 +2,6 @@ import React from "react";
 import Alert, { AlertLink } from ".";
 import AlertDecorator, { AlertJS } from "./decorator";
 import noop from "lodash/noop";
-
 export const Basic = () => (
   <div className="d-flex flex-column p-2">
     <Alert primary>A simple primary alert—check it out!</Alert>
@@ -14,7 +13,6 @@ export const Basic = () => (
     <Alert dark>A simple dark alert—check it out!</Alert>
   </div>
 );
-
 export const Dismissable = () => (
   <div className="d-flex flex-column p-2">
     <Alert primary dismissable>
@@ -88,7 +86,6 @@ const useAlert = (args = {}) => {
     alertRef.current.addEventListener("closed.bs.alert", onClosed);
     alertRef.current.addEventListener("close.bs.alert", onClose);
   }, [onClose, onClosed]);
-  React.useEffect(() => {}, []);
   return alertRef;
 };
 
