@@ -34,4 +34,4 @@ Marker.defaultProps = {
   // unmarkOptions: {},
 };
 
-export default React.memo(Marker);
+export default Marker;
