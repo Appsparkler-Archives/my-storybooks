@@ -53,13 +53,13 @@ Alert.propTypes = {
   children: PropTypes.node,
 };
 
-const AlertLinkMain = ({ children, className, ...restProps }, ref) => (
-  <a className={`alert-link ${className}`} ref={ref} {...restProps}>
-    {children}
-  </a>
+export const AlertLink = React.forwardRef(
+  ({ children, className, ...restProps }, ref) => (
+    <a className={`alert-link ${className}`} ref={ref} {...restProps}>
+      {children}
+    </a>
+  )
 );
-
-export const AlertLink = React.forwardRef(AlertLinkMain);
 AlertLink.defaultProps = {
   className: "",
 };

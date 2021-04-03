@@ -21,5 +21,6 @@ module.exports = {
     "no-unused-vars": "error",
     "require-jsdoc": "off",
     "valid-jsdoc": 0,
+    "react/display-name": "off",
   },
 };
