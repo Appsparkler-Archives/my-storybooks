@@ -17,7 +17,8 @@
     "sb-bs-5": "start-storybook -p 2002 -c ./.storybook/react-bootstrap-5",
     "sb-react-redux-firebase-hooks": "NODE_ENV=react-redux-firebse-hooks:production start-storybook -p 2001 -c ./.storybook/react-redux-firebase-hooks",
     "serve-storybooks": "yarn build-storybooks && serve storybooks",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
@@ -42,17 +43,13 @@
     "rimraf": "^3.0.2",
     "serve": "^11.3.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,ts,tsx}": [
       "eslint --quiet --fix"
     ],
     "*.{json,md,html}": [
       "prettier --write"
-    ]
+    ],
+    "*.js": "eslint --cache --fix"
   }
 }
