@@ -1,0 +1,11 @@
+{
+  "name": "@react-mark.js/docs",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-mark.js": "^1.0.0",
+    "mark.js": "^8.11.1"
+  }
+}
