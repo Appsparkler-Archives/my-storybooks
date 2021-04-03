@@ -1,0 +1,25 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+// import { Checkbox } from './Checkbox';
+import Marker from "./";
+
+<Meta title="MDX/Checkbox" />
+
+export const Template = (args) => (
+  <Marker {...args}>
+    Eiusmod aute sunt magna minim incididunt. Ullamco non anim velit dolore nisi
+    aliquip est qui. Ullamco et officia non amet velit fugiat.
+  </Marker>
+);
+
+# Checkbox
+
+<Canvas>
+  <Story
+    name="Unchecked"
+    args={{
+      mark: "non",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
