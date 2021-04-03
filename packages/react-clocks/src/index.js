@@ -1,2 +1,2 @@
-var x = y;
-s;
+const x = y;
+console.log(x);
