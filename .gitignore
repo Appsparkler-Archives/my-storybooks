@@ -1,4 +1,4 @@
 node_modules
 storybooks
 .env*
-.eslintcache@commitlint/{config-conventional,cli}
+.eslintcache
