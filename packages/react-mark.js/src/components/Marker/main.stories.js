@@ -1,7 +1,7 @@
 import Marker from "./";
 
 const Story = {
-  title: "Mark.js/Marker",
+  title: "Components/Marker",
   component: Marker,
 };
 

@@ -2,7 +2,7 @@
 import RegExpMarker from "./";
 
 const Story = {
-  title: "Mark.js/RangesMarker",
+  title: "Components/RangesMarker",
   component: RegExpMarker,
 };
 
