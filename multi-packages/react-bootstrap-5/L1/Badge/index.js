@@ -1,39 +1,22 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { useVariantExtractor } from "@react-bootstrap-5/hooks";
+
+const getBgClass = ({ variant }) => (variant ? `bg-${variant}` : "");
+
+const getPillClass = ({ pill }) => (pill ? "rounded-pill" : "");
 
 const Badge = React.forwardRef(({ children, ...props }, ref) => {
-  const {
-    className,
-    primary,
-    secondary,
-    info,
-    success,
-    warning,
-    danger,
-    light,
-    dark,
-    pill,
-    ...restProps
-  } = props;
+  const { variant, restProps: propsAfterVariant } = useVariantExtractor(props);
+  const { className, pill, ...restProps } = propsAfterVariant;
 
-  const bg = React.useMemo(() => {
-    if (primary) return "primary";
-    if (secondary) return "secondary";
-    if (info) return "info";
-    if (success) return "success";
-    if (warning) return "warning";
-    if (danger) return "danger";
-    if (light) return "light";
-    if (dark) return "dark";
-  }, [primary, secondary, info, success, warning, danger, light, dark]);
+  const bgClass = React.useMemo(() => getBgClass({ variant }), [variant]);
 
-  const roundedPill = React.useMemo(() => {
-    if (pill) return "rounded-pill";
-    return "";
-  }, []);
+  const roundedPill = React.useMemo(() => getPillClass({ pill }), [pill]);
 
   return (
     <span
-      className={`badge bg-${bg} ${roundedPill} ${className}`}
+      className={`badge ${bgClass} ${roundedPill} ${className}`}
       {...restProps}
       ref={ref}
     >
@@ -41,6 +24,10 @@ const Badge = React.forwardRef(({ children, ...props }, ref) => {
     </span>
   );
 });
+Badge.propTypes = {
+  children: PropTypes.node,
+  pill: PropTypes.bool,
+};
 Badge.defaultProps = {
   className: "",
 };
