@@ -30,8 +30,8 @@ Marker.propTypes = {
 
 Marker.defaultProps = {
   /** For a full list of options; visit **[markregexp](https://markjs.io/#markregexp)** */
-  options: {},
-  unmarkOptions: {},
+  // options: {},
+  // unmarkOptions: {},
 };
 
 export default React.memo(Marker);
