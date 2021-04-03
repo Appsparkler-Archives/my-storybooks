@@ -37,7 +37,7 @@ const useMarker = ({
     }
   }, [mark, options, markerState.markJsInstance, type, unmarkOptions]);
 
-  return { markerRef };
+  return markerRef;
 };
 
 export default useMarker;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import useMarker from "../useMarker";
 
 const RangesMarker = ({ children, mark, options, unmarkOptions }) => {
-  const { markerRef } = useMarker({
+  const markerRef = useMarker({
     mark,
     options,
     unmarkOptions,
