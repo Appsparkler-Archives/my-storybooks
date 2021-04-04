@@ -71,16 +71,6 @@ var WaveClock = /*#__PURE__*/function (_React$Component) {
       this.setState(this.getDate());
     }
   }, {
-    key: "renderDate",
-    value: function renderDate() {
-      var secondOffset = date.seconds / 60 * 100 + "%";
-      var minuteOffset = date.minutes / 60 * 100 + "%";
-      var hourOffset = date.hours / 24 * 100 + "%";
-      var secondopacity = date.seconds / 60 * 100 / 100;
-      var minuteopacity = date.minutes / 60 * 100 / 100;
-      var houropacity = date.hours / 24 * 100 / 100;
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var that = this;
@@ -134,17 +124,19 @@ var Marker = /*#__PURE__*/function (_React$Component2) {
   _createClass(Marker, [{
     key: "render",
     value: function render() {
+      var measurement = 24;
+
       switch (this.props.type) {
         case "hours":
-          var measurement = 24;
+          measurement = 24;
           break;
 
         case "minutes":
-          var measurement = 60;
+          measurement = 60;
           break;
 
         case "seconds":
-          var measurement = 60;
+          measurement = 60;
           break;
       }
 
@@ -181,10 +173,12 @@ var Timer = /*#__PURE__*/function (_React$Component3) {
   _createClass(Timer, [{
     key: "render",
     value: function render() {
+      var time;
+
       if (this.props.time < 10) {
-        var time = "0" + this.props.time;
+        time = "0" + this.props.time;
       } else {
-        var time = this.props.time;
+        time = this.props.time;
       }
 
       return /*#__PURE__*/_react["default"].createElement("div", {
@@ -196,5 +190,13 @@ var Timer = /*#__PURE__*/function (_React$Component3) {
   return Timer;
 }(_react["default"].Component);
 
+Marker.propTypes = {
+  time: PropTypes.number,
+  type: PropTypes.string
+};
+Timer.propTypes = {
+  time: PropTypes.number,
+  type: PropTypes.string
+};
 var _default = WaveClock;
 exports["default"] = _default;

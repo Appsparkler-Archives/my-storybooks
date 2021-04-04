@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
+/* eslint-disable */
 var Accordian = function Accordian() {
   return /*#__PURE__*/React.createElement("div", {
     className: "accordion",

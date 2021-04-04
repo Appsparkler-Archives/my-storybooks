@@ -1,4 +1,5 @@
-import RegExpMarker from "./components/RegExpMarker";
-import Marker from "./components/Marker";
-import RangesMarker from "./components/RangesMarker";
-export { RegExpMarker, Marker, RangesMarker };
+import RegExpMarker from "./RegExpMarker";
+import Marker from "./Marker";
+import RangesMarker from "./RangesMarker";
+import useMarker from "./useMarker";
+export { RegExpMarker, Marker, RangesMarker, useMarker };

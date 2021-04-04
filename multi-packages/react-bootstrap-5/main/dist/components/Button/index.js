@@ -25,11 +25,12 @@ var Button = function Button(_ref) {
 
   return /*#__PURE__*/React.createElement("button", _extends({
     type: "button",
-    "class": "btn btn-".concat(size, " btn").concat(outline ? "-outline" : "", "-").concat(type, " ").concat(className)
+    className: "btn btn-".concat(size, " btn").concat(outline ? "-outline" : "", "-").concat(type, " ").concat(className)
   }, props), children);
 };
 
 Button.propTypes = {
+  children: _propTypes["default"].node,
   outline: _propTypes["default"].bool,
   type: _propTypes["default"].oneOf(["primary", "secondary", "success", "info", "warning", "danger", "dark", "light", "link"]),
   size: _propTypes["default"].oneOf(["sm", "md", "lg"]),

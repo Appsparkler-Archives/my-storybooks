@@ -21,11 +21,19 @@ Object.defineProperty(exports, "RangesMarker", {
     return _RangesMarker["default"];
   }
 });
+Object.defineProperty(exports, "useMarker", {
+  enumerable: true,
+  get: function get() {
+    return _useMarker["default"];
+  }
+});
 
-var _RegExpMarker = _interopRequireDefault(require("./components/RegExpMarker"));
+var _RegExpMarker = _interopRequireDefault(require("./RegExpMarker"));
 
-var _Marker = _interopRequireDefault(require("./components/Marker"));
+var _Marker = _interopRequireDefault(require("./Marker"));
 
-var _RangesMarker = _interopRequireDefault(require("./components/RangesMarker"));
+var _RangesMarker = _interopRequireDefault(require("./RangesMarker"));
+
+var _useMarker = _interopRequireDefault(require("./useMarker"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

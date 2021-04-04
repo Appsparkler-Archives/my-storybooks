@@ -2,14 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import useMarker from "../useMarker";
 
-const RangesMarker = ({ children, mark, options, unmarkOptions }) => {
+const RangesMarker = ({
+  as: As,
+  children,
+  mark,
+  options,
+  unmarkOptions,
+  ...props
+}) => {
   const markerRef = useMarker({
     mark,
     options,
     unmarkOptions,
     type: "markRanges",
   });
-  return <div ref={markerRef}>{children}</div>;
+  return (
+    <As ref={markerRef} {...props}>
+      {children}
+    </As>
+  );
 };
 
 RangesMarker.propTypes = {
@@ -22,6 +33,7 @@ RangesMarker.propTypes = {
       length: PropTypes.number,
     })
   ).isRequired,
+  as: PropTypes.oneOf([PropTypes.element, PropTypes.string]),
   /** un-mark options as documented [in the options section](https://markjs.io/#unmark)*/
   unmarkOptions: PropTypes.object,
   children: PropTypes.oneOfType([
@@ -33,6 +45,7 @@ RangesMarker.propTypes = {
 RangesMarker.defaultProps = {
   /** For a full list of options; visit **[markregexp](https://markjs.io/#markregexp)** */
   options: {},
+  as: "div",
   unmarkOptions: {},
 };
 
