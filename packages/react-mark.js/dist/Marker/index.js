@@ -20,11 +20,12 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 var Marker = function Marker(_ref) {
-  var children = _ref.children,
+  var As = _ref.as,
+      children = _ref.children,
       mark = _ref.mark,
       options = _ref.options,
       unmarkOptions = _ref.unmarkOptions,
-      props = _objectWithoutProperties(_ref, ["children", "mark", "options", "unmarkOptions"]);
+      props = _objectWithoutProperties(_ref, ["as", "children", "mark", "options", "unmarkOptions"]);
 
   var markerRef = (0, _useMarker["default"])({
     mark: mark,
@@ -32,7 +33,7 @@ var Marker = function Marker(_ref) {
     unmarkOptions: unmarkOptions,
     type: "mark"
   });
-  return /*#__PURE__*/_react["default"].createElement("div", _extends({
+  return /*#__PURE__*/_react["default"].createElement(As, _extends({
     ref: markerRef
   }, props), children);
 };
@@ -52,6 +53,7 @@ Marker.defaultProps = {
   /** For a full list of options; visit **[markregexp](https://markjs.io/#markregexp)** */
   // options: {},
   // unmarkOptions: {},
+  as: "div"
 };
 var _default = Marker;
 exports["default"] = _default;

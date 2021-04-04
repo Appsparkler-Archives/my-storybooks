@@ -2,14 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import useMarker from "../useMarker";
 
-const RegExpMarker = ({ children, mark, options, unmarkOptions }) => {
+const RegExpMarker = ({
+  as: As,
+  children,
+  mark,
+  options,
+  unmarkOptions,
+  ...props
+}) => {
   const markerRef = useMarker({
     mark,
     options,
     unmarkOptions,
     type: "markRegExp",
   });
-  return <div ref={markerRef}>{children}</div>;
+  return (
+    <As ref={markerRef} {...props}>
+      {children}
+    </As>
+  );
 };
 
 RegExpMarker.propTypes = {
@@ -23,12 +34,14 @@ RegExpMarker.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 RegExpMarker.defaultProps = {
   /** For a full list of options; visit **[markregexp](https://markjs.io/#markregexp)** */
   options: {},
   unmarkOptions: {},
+  as: "div",
 };
 
-export default React.memo(RegExpMarker);
+export default RegExpMarker;

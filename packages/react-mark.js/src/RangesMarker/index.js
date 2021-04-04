@@ -33,7 +33,7 @@ RangesMarker.propTypes = {
       length: PropTypes.number,
     })
   ).isRequired,
-  as: PropTypes.oneOf([PropTypes.element, PropTypes.string]),
+  as: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   /** un-mark options as documented [in the options section](https://markjs.io/#unmark)*/
   unmarkOptions: PropTypes.object,
   children: PropTypes.oneOfType([
@@ -49,4 +49,4 @@ RangesMarker.defaultProps = {
   unmarkOptions: {},
 };
 
-export default React.memo(RangesMarker);
+export default RangesMarker;

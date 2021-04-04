@@ -2,7 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import useMarker from "../useMarker";
 
-const Marker = ({ children, mark, options, unmarkOptions, ...props }) => {
+const Marker = ({
+  as: As,
+  children,
+  mark,
+  options,
+  unmarkOptions,
+  ...props
+}) => {
   const markerRef = useMarker({
     mark,
     options,
@@ -10,9 +17,9 @@ const Marker = ({ children, mark, options, unmarkOptions, ...props }) => {
     type: "mark",
   });
   return (
-    <div ref={markerRef} {...props}>
+    <As ref={markerRef} {...props}>
       {children}
-    </div>
+    </As>
   );
 };
 
@@ -30,12 +37,14 @@ Marker.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
 };
 
 Marker.defaultProps = {
   /** For a full list of options; visit **[markregexp](https://markjs.io/#markregexp)** */
   // options: {},
   // unmarkOptions: {},
+  as: "div",
 };
 
 export default Marker;
