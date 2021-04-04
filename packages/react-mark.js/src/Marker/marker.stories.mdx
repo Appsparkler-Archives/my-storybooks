@@ -17,6 +17,8 @@ const args = {
     mark: "Ullamco qui deserunt ut reprehenderit"
 }
 
+## [Stack Blitz Demo](https://stackblitz.com/edit/react-mark-js?file=src/examples/MarkerExamples/index.js)
+
 ## ‣ Mark A Text String
 
 <Canvas>
@@ -49,7 +51,7 @@ const args = {
     </Story>
 </Canvas>
 
-## ‣ With extra configuration
+## ‣ With Options
 
 [mark.js](https://markjs.io/) has quite a few options
 to configure marking and un-marking of content. 
@@ -59,10 +61,10 @@ to configure marking and un-marking of content.
         name="With Options" 
         args={{
             ...args, 
+            mark: "nisi non occaecat",
             as: "section",
             options: {
                 className: 'custom-marker-1',
-                element: 'span',
             }
         }}
     >
