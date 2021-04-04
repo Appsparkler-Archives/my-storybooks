@@ -2,14 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import useMarker from "../useMarker";
 
-const Marker = ({ children, mark, options, unmarkOptions }) => {
+const Marker = ({ children, mark, options, unmarkOptions, ...props }) => {
   const markerRef = useMarker({
     mark,
     options,
     unmarkOptions,
     type: "mark",
   });
-  return <div ref={markerRef}>{children}</div>;
+  return (
+    <div ref={markerRef} {...props}>
+      {children}
+    </div>
+  );
 };
 
 Marker.propTypes = {
