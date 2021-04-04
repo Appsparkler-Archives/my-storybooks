@@ -1,5 +1,4 @@
-import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
-// import { Checkbox } from './Checkbox';
+import { Meta, Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import Marker from "../Marker/index";
 
 <Meta title="Introduction" component={Marker}/>
@@ -26,11 +25,11 @@ yarn add mark.js react-mark.js
 
 # ↘️ Importing Components 
 
-You can choose to import single components like `react-mark.js/dist/components/Marker` rather
+You can choose to import single components like `react-mark.js/Marker` rather
 than the entire component library.
 
 ```jsx
-import Marker from 'react-marker.js/dist/components/Marker'
+import Marker from 'react-marker.js/Marker'
 // or; if you prefer
 import { Marker } from 'react-marker.js'
 ```
@@ -64,9 +63,12 @@ export const Template = (args) => (
         Officia Lorem veniam est cillum.
     </Marker>
 )
+const args = {mark: 'reprehenderit', children: "Cillum proident eu eiusmod incididunt pariatur. Ullamco qui deserunt ut reprehenderit cupidatat cupidatat nisi non occaecat non commodo. Magna incididunt eu laboris laboris labore. Sit duis ullamco qui nostrud aliqua do consectetur do incididunt eiusmod nulla consectetur.  Sint reprehenderit culpa consectetur irure commodo magna. Officia Lorem veniam est cillum."}
 
 <Canvas>
-    <Story name="singleString" args={{mark: 'reprehenderit'}}>
-        {Template.bind({})}
+    <Story name="singleString" args={{...args, mark: "rit"}}>
+        {(args) => (
+            <Marker {...args} />
+        )}
     </Story>
 </Canvas>

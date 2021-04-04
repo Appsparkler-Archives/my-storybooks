@@ -11,7 +11,7 @@ with default styles and that may be enough for some use cases.
 Custom configuration for this inline `<mark />` element depends on
 the style-framework that is integrated in your application.
 
-## CSS - Single Element
+## CSS - Single Element [🔗](https://stackblitz.com/edit/react-mark-js?file=src/examples/CSSExample/index.js)
 If you have your styles in a CSS file; you can simply add styles for 
 the `mark element` in your CSS stylesheet:
 
@@ -24,11 +24,13 @@ mark {
 If you multiple markers on your page and want to style each one 
 differently that too is possible. 
 
-## CSS - Multiple Elements
+## CSS - Multiple Elements [🔗](https://stackblitz.com/edit/react-mark-js?file=src/examples/CSSExample/index.js)
 If you want to mark each element differently you need 
 to pass a `className` in the options object to 
 `<Marker />` element and then add the styles for 
 each class.
+
+<div id="react-mark-js-css-example"></div>
 
 ```jsx
 <Marker 
@@ -59,18 +61,24 @@ mark.custom-marker-2 {
 }
 ```
 
-## Styled Components
+## Styled Components [🔗](https://stackblitz.com/edit/react-mark-js?file=src/examples/StyledComponentsExample/index.js)
 You can simply pass the `Marker` to the styled component 
 and style it.  For ex:
 
 ```jsx
-import {styled} from 'styled-components'
+import styled from 'styled-components'
 
 export const OrangeMarker = styled(Marker)`
-    background-color: orange;
+  mark {
+    background-color: orange !important;
+  }
 `;
 
 export const LightGreenMarker = styled(Marker)`
+  mark {
     background-color: lightgreen;
+  }
+`;
+
 `;
 ```
