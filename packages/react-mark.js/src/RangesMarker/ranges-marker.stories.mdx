@@ -1,0 +1,76 @@
+import {Meta, Canvas, Story} from '@storybook/addon-docs/blocks'
+import RangesMarker from "./index";
+
+<Meta 
+    title="Components/Ranges Marker"  
+    component={RangesMarker} 
+/>
+
+# ⚡️ `<RangesMarker />`
+Sometimes you may want to mark text-content based on the
+position in the text content instead of a string.  For ex.
+you would like to mark text between the 5th and 8th 
+characted of a text string.  
+
+export const args = {
+  mark: [
+    {
+      start: 3,
+      length: 4,
+    },
+  ],
+  children: <h1>0123456789</h1>,
+};
+
+## ‣ Basic Example
+In this example, we mark 4 letters starting 
+from the 3rd letters.
+
+<Canvas>
+    <Story name="String121212" args={{
+        ...args,
+        mark: [
+            {
+            start: 3,
+            length: 4,
+            },
+        ]
+    }}>
+        {args => <RangesMarker {...args} />}
+    </Story>
+</Canvas>
+
+
+## ‣ Multiple Ranges Example
+In this example, we mark 5 letters starting 
+from the 3rd letters and 15 letters starting 
+from the 10th letter
+
+<Canvas>
+    <Story name="String1212123" args={{
+        ...args,
+        mark: [
+            {
+            start: 3,
+            length: 5,
+            },
+            {
+            start: 20,
+            length: 15,
+            },
+        ],
+        children: [
+            <h1>
+                0123456789<br />
+                0123456789<br />
+                0123456789<br />
+                0123456789<br />
+                0123456789<br />
+            </h1>
+        ]
+    }}>
+        {args => <RangesMarker {...args} />}
+    </Story>
+</Canvas>
+
+> 
