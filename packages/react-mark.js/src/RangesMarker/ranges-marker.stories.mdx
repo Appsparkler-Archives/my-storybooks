@@ -1,4 +1,6 @@
 import {Meta, Canvas, Story} from '@storybook/addon-docs/blocks'
+import {linkTo} from '@storybook/addon-links'
+import LinkTo from '@storybook/addon-links/react'
 import RangesMarker from "./index";
 
 <Meta 
@@ -64,3 +66,31 @@ from the 10th letter
 </Canvas>
 
 > 
+
+export const linkFn = linkTo('Options/Mark Options')
+export const style = {cursor: 'pointer'}
+
+## ‣ With Options
+Check <LinkTo kind="Options/Mark Options">this link</LinkTo> for all options.
+
+<Canvas>
+    <Story name="with options" args={{
+        ...args,
+        mark: [
+            {
+            start: 3,
+            length: 5,
+            },{
+            start: 11,
+            length: 15
+            }
+        ],
+        children: [`0123456789 123456789 123456789 123456789`],
+        options: {
+            className: 'custom-marker-1'
+        }
+        
+    }}>
+        {args => <RangesMarker {...args} />}
+    </Story>
+</Canvas>
