@@ -1,9 +1,9 @@
 import Marker from "./";
 
-const Story = {
-  title: "Components/Marker",
-  component: Marker,
-};
+// const Story = {
+//   title: "Components/Marker",
+//   component: Marker,
+// };
 
 const Template = (args) => <Marker {...args} />;
 Template.args = {
@@ -44,4 +44,4 @@ WithMarkOptions.args = {
   },
 };
 
-export default Story;
+// export default Story;

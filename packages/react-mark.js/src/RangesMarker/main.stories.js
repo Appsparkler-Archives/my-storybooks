@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import RegExpMarker from "./";
 
-const Story = {
-  title: "Components/Ranges Marker",
-  component: RegExpMarker,
-};
+// const Story = {
+//   title: "Components/Ranges Marker",
+//   component: RegExpMarker,
+// };
 
 const Template = ({ children, ...args }) => (
   <RegExpMarker {...args}>{children}</RegExpMarker>
@@ -36,4 +36,4 @@ WithMarkOptions.args = {
   },
 };
 
-export default Story;
+// export default Story;
