@@ -5,13 +5,14 @@ import {Meta} from '@storybook/addon-docs/blocks'
 # 💇‍♂️ Styling
 When you wrap a component with `<Marker />`; the text-content
 that you are trying to highlight will automatically be wrapped
-with `<mark /> HTML Element`.   <mark>Mark usual</mark>ly comes 
+with `<mark /> HTML Element`.   
+<mark>Mark Elements usual</mark>ly comes 
 with default styles and that may be enough for some use cases.
 
 Custom configuration for this inline `<mark />` element depends on
 the style-framework that is integrated in your application.
 
-## CSS - Single Element [🔗](https://stackblitz.com/edit/react-mark-js?file=src/examples/CSSExample/index.js)
+## CSS - Single Element [(demo ↗)](https://stackblitz.com/edit/react-mark-js?file=src/examples/CSSExample/index.js)
 If you have your styles in a CSS file; you can simply add styles for 
 the `mark element` in your CSS stylesheet:
 
@@ -24,7 +25,7 @@ mark {
 If you multiple markers on your page and want to style each one 
 differently that too is possible. 
 
-## CSS - Multiple Elements [🔗](https://stackblitz.com/edit/react-mark-js?file=src/examples/CSSExample/index.js)
+## CSS - Multiple Elements [(demo ↗)](https://stackblitz.com/edit/react-mark-js?file=src/examples/CSSExample/index.js)
 If you want to mark each element differently you need 
 to pass a `className` in the options object to 
 `<Marker />` element and then add the styles for 
@@ -48,7 +49,7 @@ each class.
 </Marker>
 ```
 
-Now, add the CSS
+Now, add the CSS styles for each class
 ```css
 mark.custom-marker-1 {
     background-color: orange;
@@ -61,7 +62,7 @@ mark.custom-marker-2 {
 }
 ```
 
-## Styled Components [🔗](https://stackblitz.com/edit/react-mark-js?file=src/examples/StyledComponentsExample/index.js)
+## Styled Components [(demo ↗)](https://stackblitz.com/edit/react-mark-js?file=src/examples/StyledComponentsExample/index.js)
 You can simply pass the `Marker` to the styled component 
 and style it.  For ex:
 
@@ -78,7 +79,5 @@ export const LightGreenMarker = styled(Marker)`
   mark {
     background-color: lightgreen;
   }
-`;
-
 `;
 ```
