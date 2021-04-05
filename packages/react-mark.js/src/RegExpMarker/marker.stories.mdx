@@ -1,0 +1,69 @@
+import {Meta, Canvas, Story} from '@storybook/addon-docs/blocks'
+import LinkTo from '@storybook/addon-links/react'
+import RegExpMarker from '.'
+
+<Meta title="Components/RegEx Marker" component={RegExpMarker} />
+
+# ⚡️ `<RegExpMarker />`
+A wrapper component to higlight strings matching a regular expression.
+
+export const Template = (args) => <RegExpMarker {...args} />
+const args = {
+    children: [
+        "Cillum proident eu eiusmod incididunt pariatur. ",
+        "Ullamco qui deserunt ut reprehenderit cupidatat ",
+        "cupidatat nisi non occaecat non commodo. ",
+        "Magna incididunt eu laboris laboris labore. "
+    ],
+    mark: /qui/
+}
+
+## [Stack Blitz Demo ↗](https://stackblitz.com/edit/react-mark-js?file=src/examples/RegExpMarkerExamples/index.js)
+
+## ‣ Marking With RegExp
+
+<Canvas>
+    <Story name="String" args={args}>
+        {args => <RegExpMarker {...args} />}
+    </Story>
+</Canvas>
+
+## ‣ Configure Wrapper Element
+This will render the wrapper element as a section instead
+of the default `<div />`.
+<Canvas>
+    <Story 
+        name="Section Element Wrapper" 
+        args={{
+            ...args, 
+            as: "section"
+        }}
+    >
+        {args => <RegExpMarker {...args} />}
+    </Story>
+</Canvas>
+
+## ‣ With Options
+
+[mark.js](https://markjs.io/) has quite a few options
+to configure marking and un-marking of content. 
+For a full list of options check <LinkTo kind="Options/Mark Options">this page.</LinkTo>
+
+<Canvas>
+    <Story 
+        name="With Options" 
+        args={{
+            ...args, 
+            mark: /ni\si/,
+            as: "section",
+            options: {
+                className: 'custom-marker-1',
+            }
+        }}
+    >
+        {args => <RegExpMarker {...args} />}
+    </Story>
+</Canvas>
+
+
+
