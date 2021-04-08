@@ -10,7 +10,7 @@ const Marker = ({
   unmarkOptions,
   ...props
 }) => {
-  const markerRef = useMarker({
+  const { markerRef } = useMarker({
     mark,
     options,
     unmarkOptions,

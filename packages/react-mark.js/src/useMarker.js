@@ -1,43 +1,43 @@
 import React from "react";
 import MarkJS from "mark.js/dist/mark.es6.min";
 
-const unmark = (markJsInstance) =>
+const unmark = (marker) =>
   new Promise((done) => {
-    markJsInstance.unmark({
+    marker.unmark({
       done,
     });
   });
 
 const useMarker = ({
-  mark = new RegExp(),
+  mark = "",
   options = {},
   unmarkOptions = {},
   type = "mark",
-}) => {
+} = {}) => {
   const markerRef = React.useRef();
 
   const [markerState, setMarkerState] = React.useState({
-    markJsInstance: null,
+    marker: null,
   });
 
   React.useEffect(() => {
     if (markerRef.current) {
       setMarkerState((currentState) => ({
         ...currentState,
-        markJsInstance: new MarkJS(markerRef.current),
+        marker: new MarkJS(markerRef.current),
       }));
     }
   }, []);
 
   React.useEffect(() => {
-    if (markerState.markJsInstance) {
-      unmark(markerState.markJsInstance, unmarkOptions).then((...args) => {
-        markerState.markJsInstance[type](mark, options);
+    if (markerState.marker) {
+      unmark(markerState.marker, unmarkOptions).then((...args) => {
+        markerState.marker[type](mark, options);
       });
     }
-  }, [mark, options, markerState.markJsInstance, type, unmarkOptions]);
+  }, [mark, options, markerState.marker, type, unmarkOptions]);
 
-  return markerRef;
+  return { markerRef, ...markerState };
 };
 
 export default useMarker;

@@ -1,7 +1,7 @@
 {
   "name": "react-mark.js",
-  "version": "3.0.3",
-  "main": "./index.js",
+  "version": "3.0.5",
+  "main": "./dist/index.js",
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist",

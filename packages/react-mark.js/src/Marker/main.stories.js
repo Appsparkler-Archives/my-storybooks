@@ -1,9 +1,39 @@
+import React from "react";
 import Marker from "./";
+import useMarker from "../useMarker";
+// import Mark from "mark.js";
 
-// const Story = {
-//   title: "Components/Marker",
-//   component: Marker,
-// };
+const Story = {
+  title: "Components/Marker-2",
+  component: Marker,
+};
+
+export const hookStory = () => {
+  const { markerRef, marker } = useMarker();
+  // const ref = React.useRef();
+  // const [marker, setMarker] = React.useState(null);
+  // React.useEffect(() => {
+  //   setMarker(() => {
+  //     return new Mark(ref.current);
+  //   });
+  // }, []);
+  const handleClick = React.useCallback(() => {
+    marker.unmark();
+  }, [marker]);
+  const markIt = React.useCallback(() => {
+    marker.mark("ea aute");
+  }, [marker]);
+  return (
+    <div ref={markerRef}>
+      Laboris voluptate nostrud sunt consequat est exercitation labore occaecat
+      incididunt velit duis. Laborum duis eiusmod dolore qui duis ad Lorem nisi
+      velit qui. Nostrud esse proident ullamco ad elit aliqua reprehenderit ea
+      aute. Anim aute sint occaecat sint.
+      <button onClick={handleClick}>Unmark {typeof markJsInstance}</button>
+      <button onClick={markIt}>Mark</button>
+    </div>
+  );
+};
 
 const Template = (args) => <Marker {...args} />;
 Template.args = {
@@ -44,4 +74,4 @@ WithMarkOptions.args = {
   },
 };
 
-// export default Story;
+export default Story;

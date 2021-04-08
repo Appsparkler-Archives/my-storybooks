@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _useMarker = _interopRequireDefault(require("../useMarker"));
+var _useMarker2 = _interopRequireDefault(require("../useMarker"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -27,12 +27,14 @@ var Marker = function Marker(_ref) {
       unmarkOptions = _ref.unmarkOptions,
       props = _objectWithoutProperties(_ref, ["as", "children", "mark", "options", "unmarkOptions"]);
 
-  var markerRef = (0, _useMarker["default"])({
+  var _useMarker = (0, _useMarker2["default"])({
     mark: mark,
     options: options,
     unmarkOptions: unmarkOptions,
     type: "mark"
-  });
+  }),
+      markerRef = _useMarker.markerRef;
+
   return /*#__PURE__*/_react["default"].createElement(As, _extends({
     ref: markerRef
   }, props), children);
@@ -47,7 +49,8 @@ Marker.propTypes = {
 
   /** un-mark options as documented [in the options section](https://markjs.io/#unmark)*/
   unmarkOptions: _propTypes["default"].object,
-  children: _propTypes["default"].oneOfType([_propTypes["default"].arrayOf(_propTypes["default"].node), _propTypes["default"].node])
+  children: _propTypes["default"].oneOfType([_propTypes["default"].arrayOf(_propTypes["default"].node), _propTypes["default"].node]),
+  as: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element])
 };
 Marker.defaultProps = {
   /** For a full list of options; visit **[markregexp](https://markjs.io/#markregexp)** */

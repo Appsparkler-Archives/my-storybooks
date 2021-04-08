@@ -29,17 +29,18 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var unmark = function unmark(markJsInstance) {
+var unmark = function unmark(marker) {
   return new Promise(function (done) {
-    markJsInstance.unmark({
+    marker.unmark({
       done: done
     });
   });
 };
 
-var useMarker = function useMarker(_ref) {
-  var _ref$mark = _ref.mark,
-      mark = _ref$mark === void 0 ? new RegExp() : _ref$mark,
+var useMarker = function useMarker() {
+  var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+      _ref$mark = _ref.mark,
+      mark = _ref$mark === void 0 ? "" : _ref$mark,
       _ref$options = _ref.options,
       options = _ref$options === void 0 ? {} : _ref$options,
       _ref$unmarkOptions = _ref.unmarkOptions,
@@ -50,7 +51,7 @@ var useMarker = function useMarker(_ref) {
   var markerRef = _react["default"].useRef();
 
   var _React$useState = _react["default"].useState({
-    markJsInstance: null
+    marker: null
   }),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       markerState = _React$useState2[0],
@@ -60,21 +61,23 @@ var useMarker = function useMarker(_ref) {
     if (markerRef.current) {
       setMarkerState(function (currentState) {
         return _objectSpread(_objectSpread({}, currentState), {}, {
-          markJsInstance: new _markEs["default"](markerRef.current)
+          marker: new _markEs["default"](markerRef.current)
         });
       });
     }
   }, []);
 
   _react["default"].useEffect(function () {
-    if (markerState.markJsInstance) {
-      unmark(markerState.markJsInstance, unmarkOptions).then(function () {
-        markerState.markJsInstance[type](mark, options);
+    if (markerState.marker) {
+      unmark(markerState.marker, unmarkOptions).then(function () {
+        markerState.marker[type](mark, options);
       });
     }
-  }, [mark, options, markerState.markJsInstance, type, unmarkOptions]);
+  }, [mark, options, markerState.marker, type, unmarkOptions]);
 
-  return markerRef;
+  return _objectSpread({
+    markerRef: markerRef
+  }, markerState);
 };
 
 var _default = useMarker;
