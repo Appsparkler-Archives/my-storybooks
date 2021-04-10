@@ -1,8 +1,9 @@
 {
   "name": "react-mark.js",
-  "version": "3.0.10",
+  "version": "3.0.12",
   "main": "./index.js",
   "license": "MIT",
+  "module": "./src/index.js",
   "scripts": {
     "clean": "rimraf dist",
     "build": "yarn clean && babel src --out-dir ./dist"

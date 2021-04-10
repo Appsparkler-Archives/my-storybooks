@@ -6552,13 +6552,6 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-mark.js@*:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/react-mark.js/-/react-mark.js-3.0.3.tgz#2d6ec17be3a4e01e21e5a70cc2d9d837a39dc87f"
-  integrity sha512-xlcyg7k6/nUeB75n1IfdOxyZKHiBYIaKIf4p6vzB3+Bm7jffkzdzEyKK8HWo3Q/1avv0wXPOcXbEHy/Fmlef4g==
-  dependencies:
-    rimraf "^3.0.2"
-
 react-popper-tooltip@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/react-popper-tooltip/-/react-popper-tooltip-3.1.1.tgz#329569eb7b287008f04fcbddb6370452ad3f9eac"

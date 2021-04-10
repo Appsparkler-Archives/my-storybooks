@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "devDependencies": {
-    "react-mark.js": "",
+    "react-mark.js": "^3.0.12",
     "react": "^17.0.2",
     "mark.js": "^8.11.1",
     "@storybook/addon-links": "^6.2.2",

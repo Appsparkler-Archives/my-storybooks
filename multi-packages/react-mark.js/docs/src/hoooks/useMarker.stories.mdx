@@ -1,31 +1,50 @@
-import {Meta} from '@storybook/addon-docs/blocks'
+import { Meta, Canvas, Story } from "@storybook/addon-docs/blocks";
 
 <Meta title="Hooks/useMarker" />
 
-# ⚡️ `useMarker` 
-This recipe is for more custom configuration as you can 
-access the `ref` itself.  We can pass the `options`
-and `un-mark` options directly to this hook which will 
-return a `markerRef` which can be passed to the wrapper 
-element.
+# ⚡️ `useMarker`
+
+This recipe is for more custom configuration as you can
+access the `markerRef` and `marker` (which is a [MarkJS](https://markjs.io) instance).
+
+- `markerRef` - you would pass this to the component wrapping your element.
+- `marker` - a [MarkJS](https://markjs.io) instance which has an [API](https://markjs.io/#api)
+  for marking and un-marking.
+
+Lets dive into an example which will make things more clearer.
 
 ## [Stack Blitz Demo ↗️](https://stackblitz.com/edit/react-mark-js?file=src/examples/HookExample/index.js)
 
 ```js
-import {useMarker} from 'react-mark.js'
+import React from "react";
+import { useMarker } from "react-mark.js";
 
 const MyContent = () => {
-    const markerRef = useMarker({
-        options: {},
-        unMarkOptions: {},
-        type: 'mark' // or "markRanges" or "markRegExp",
-        mark: "orl" // the text you want to mark
-    })
+  const { markerRef, marker } = useMarker();
 
-    return (
-        <div ref={markerRef}>
-            Hello World
-        </div>
-    )
-}
+  React.useEffect(() => {
+    if (marker) {
+      marker.mark("orl");
+    }
+  }, [marker]);
+
+  const mark = React.useCallback(() => {
+    marker.mark("Hello"); // https://markjs.io#mark
+  }, [marker]);
+
+  const unmark = React.useCallback(() => {
+    marker.unmark(); // https://markjs.io#unmark
+  }, [marker]);
+
+  return (
+    <div ref={markerRef}>
+      Hello World
+      <button onClick={mark}>Mark</button>
+      &nbsp;
+      <button onClick={unmark}>Unmark</button>
+    </div>
+  );
+};
+
+export default MyContent;
 ```
