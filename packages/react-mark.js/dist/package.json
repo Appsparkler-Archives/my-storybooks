@@ -1,6 +1,6 @@
 {
   "name": "react-mark.js",
-  "version": "3.0.10",
+  "version": "3.0.11",
   "main": "./index.js",
   "license": "MIT",
   "scripts": {
@@ -16,8 +16,9 @@
     "mark.js": "^8.11.1",
     "my-babel-modules": "^1.0.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "rimraf": "^3.0.2"
+    "react": "^17.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  }
 }
