@@ -1,6 +1,6 @@
 {
   "name": "react-clocks",
-  "version": "3.0.13",
+  "version": "3.0.22",
   "main": "./dist/index.js",
   "license": "MIT",
   "private": true,

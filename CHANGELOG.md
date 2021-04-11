@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.22](https://github.com/appsparkler/my-storybooks/compare/v3.0.21...v3.0.22) (2021-04-11)
+
+### Bug Fixes
+
+- abc ([5347e3d](https://github.com/appsparkler/my-storybooks/commit/5347e3dcbe39b35e5f22cffad26230c91c70f80a))
+- build-pipeline ([acdfddb](https://github.com/appsparkler/my-storybooks/commit/acdfddb13a2d3b3a1ff629d4cdfd467741d4e843))
+- build-pipeline fix ([2e4e5b9](https://github.com/appsparkler/my-storybooks/commit/2e4e5b953544a2133a97e18015d89a860e88ebe5))
+- disabling cache ([050b8b1](https://github.com/appsparkler/my-storybooks/commit/050b8b19f54a8316c82dca685f49bef44eee21c6))
+- disabling jobs ([4e1085c](https://github.com/appsparkler/my-storybooks/commit/4e1085c2fcc46573a011739cdde620b0c5134991))
+- pipeline ([f825367](https://github.com/appsparkler/my-storybooks/commit/f825367e77be7e4b268069c36c81d8e63c8520ff))
+- pipeline testing ([ccb0c62](https://github.com/appsparkler/my-storybooks/commit/ccb0c62e509f73caad3292011cd4e8584f4004ba))
+- pipleline testing ([84ae31b](https://github.com/appsparkler/my-storybooks/commit/84ae31bb5aceaf8bdf32cb67fa9b8341445b828f))
+- re-attaching HEAD ([c08026f](https://github.com/appsparkler/my-storybooks/commit/c08026fe6e0f615c7c60af5d6e0e7274ee6b9fa2))
+- setting node-version ([dd687ea](https://github.com/appsparkler/my-storybooks/commit/dd687ea99eda4360c9820534d8741cb78882fa50))
+- testing build pipeline ([6ef11ac](https://github.com/appsparkler/my-storybooks/commit/6ef11acce4f50086f1166dad49861ef6d3321ce8))
+- testing build pipeline ([4c485ed](https://github.com/appsparkler/my-storybooks/commit/4c485edfe62275227820b4d073f215e5f0229304))
+- testing build-piepline ([ab60def](https://github.com/appsparkler/my-storybooks/commit/ab60defca2f12b668ab8d375808fc5540aa97b93))
+- testing build-pipeline ([858b16b](https://github.com/appsparkler/my-storybooks/commit/858b16b2d68bab0ca86f1e38e48b6df5b6914e14))
+- updated build pipeline ([2c1d4c5](https://github.com/appsparkler/my-storybooks/commit/2c1d4c54f7393db881e001e7e7c63df0fb84cf5d))
+
 ## [3.0.21](https://github.com/appsparkler/my-storybooks/compare/v3.0.20...v3.0.21) (2021-04-11)
 
 ### Bug Fixes
