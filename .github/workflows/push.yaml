@@ -35,10 +35,14 @@ jobs:
 
       # CREATE RELEASE
       - name: Create Release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
           yarn install
           yarn lerna run build --scope react-mark.js
           yarn lerna publish --conventional-commits -y
+
       # - uses: chromaui/action@v1
       #   # options required to the GitHub chromatic action
       #   with:
