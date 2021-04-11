@@ -53,7 +53,8 @@ jobs:
           git status
           git update-index --assume-unchanged .npmrc
           yarn lerna run build --scope @react-mark.js/lib
-          git commit -am "ci: added after build [skip ci]" --force
+          git add .
+          git commit -m "ci: added after build [skip ci]" --force
           yarn lerna publish --conventional-commits --no-verify-access -y
 
       # - uses: chromaui/action@v1
