@@ -37,7 +37,7 @@ jobs:
       - name: Create Release
         run: |
           yarn install
-          yarn lerna build --scope react-mark.js
+          yarn lerna run build --scope react-mark.js
       # - uses: chromaui/action@v1
       #   # options required to the GitHub chromatic action
       #   with:
