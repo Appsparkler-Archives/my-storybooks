@@ -20,6 +20,7 @@
     "react": "^17.0.1"
   },
   "dependencies": {
+    "auto": "^10.24.3",
     "rimraf": "^3.0.2"
   }
 }
