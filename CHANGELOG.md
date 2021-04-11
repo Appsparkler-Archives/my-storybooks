@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.92](https://github.com/appsparkler/my-storybooks/compare/v3.0.91...v3.0.92) (2021-04-11)
+
+**Note:** Version bump only for package @appsparkler/my-storybook
+
 ## [3.0.91](https://github.com/appsparkler/my-storybooks/compare/v3.0.90...v3.0.91) (2021-04-11)
 
 **Note:** Version bump only for package @appsparkler/my-storybook
