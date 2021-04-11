@@ -18,7 +18,10 @@ jobs:
 
       # CHECKOUT
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_API_TOKEN }}
 
       # PREPARE REPOSITORY
       - name: Prepare repository
