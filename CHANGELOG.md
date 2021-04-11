@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.16](https://github.com/appsparkler/my-storybooks/compare/v3.0.15...v3.0.16) (2021-04-11)
+
+### Bug Fixes
+
+- testing build pipeline ([cd14d83](https://github.com/appsparkler/my-storybooks/commit/cd14d83445adfc770cb97966953f2dd58c3543a3))
+
 ## [3.0.15](https://github.com/appsparkler/my-storybooks/compare/v3.0.14...v3.0.15) (2021-04-11)
 
 ### Bug Fixes
