@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-5",
-  "version": "3.0.30",
+  "version": "3.0.33",
   "main": "./dist/index.js",
   "license": "MIT",
   "private": true,
@@ -14,8 +14,8 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "@react-bootstrap-5/hooks": "^3.0.30",
-    "@react-bootstrap-5/l1": "^3.0.30",
+    "@react-bootstrap-5/hooks": "^3.0.33",
+    "@react-bootstrap-5/l1": "^3.0.33",
     "bootstrap": "5.0.0-beta2",
     "lodash": "^4.17.21",
     "my-babel-modules": "^1.0.0",
