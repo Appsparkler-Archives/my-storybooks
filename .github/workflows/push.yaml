@@ -1,0 +1,26 @@
+# name of our action
+name: "Push"
+# the event that will trigger the action
+on: push
+
+# what the action will do
+jobs:
+  test:
+    # the operating system it will run on
+    runs-on: ubuntu-latest
+    # the list of steps that the action will go through
+    steps:
+      - name: Use Node.js 15.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+          NODE_ENV: production
+          SKIP_PREFLIGHT_CHECK: true
+      - uses: actions/checkout@v1
+      - run: yarn
+      - run: yarn cross-env SKIP_PREFLIGHT_CHECK=true yarn test
+      # - uses: chromaui/action@v1
+      #   # options required to the GitHub chromatic action
+      #   with:
+      #     projectToken: ${{ secrets.CHROMATIC_TOKEN }}
+      #     token: ${{ secrets.GITHUB_TOKEN }}
