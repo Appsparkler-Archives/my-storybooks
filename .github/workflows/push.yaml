@@ -18,7 +18,6 @@ jobs:
           SKIP_PREFLIGHT_CHECK: true
       - uses: actions/checkout@v1
       - run: yarn
-      - run: yarn cross-env SKIP_PREFLIGHT_CHECK=true yarn test
       # - uses: chromaui/action@v1
       #   # options required to the GitHub chromatic action
       #   with:
