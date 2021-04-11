@@ -14,6 +14,7 @@ const clean = async ({ glob, ignored }) => {
   const ignoredFiles = [
     "../react-mark.js/package.json",
     "../react-mark.js/README.md",
+    "../react-mark.js/LICENSE.md",
   ];
 
   clean({ glob: filesToDelete, ignored: ignoredFiles });
