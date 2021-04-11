@@ -56,6 +56,8 @@ jobs:
           yarn lerna run build --scope @react-mark.js/lib
           git add .
           git commit -m "ci: added after build [skip ci]"
+          git config --global user.name "appsparkler"
+          git config --global user.email "subs@appsparkler.com"
           yarn lerna publish --conventional-commits --no-verify-access -y
 
       # - uses: chromaui/action@v1
