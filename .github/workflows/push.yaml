@@ -23,6 +23,16 @@ jobs:
       # PREPARE REPOSITORY
       - name: Prepare repository
         run: git fetch --tags
+      
+      # REATTACH HEAD TO HEAD REF
+       - name: reattach HEAD to Head Ref
+        run: git checkout "$(echo ${{ github.head_ref }} | sed -E 's|refs/[a-zA-Z]+/||')"
+        if: github.head_ref != ''
+      
+      # REATTACH HEAD TO REF
+      - name: reattach HEAD to Ref
+        run: git checkout "$(echo ${{ github.ref }} | sed -E 's|refs/[a-zA-Z]+/||')"
+        if: github.head_ref == ''
 
       # CACHE NODE MODULES
       - name: Cache node modules
