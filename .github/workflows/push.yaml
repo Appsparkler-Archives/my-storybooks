@@ -35,13 +35,13 @@ jobs:
         if: github.head_ref == ''
 
       # CACHE NODE MODULES
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: yarn-deps-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            yarn-deps-${{ hashFiles('yarn.lock') }}
+      # - name: Cache node modules
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: node_modules
+      #     key: yarn-deps-${{ hashFiles('yarn.lock') }}
+      #     restore-keys: |
+      #       yarn-deps-${{ hashFiles('yarn.lock') }}
 
       # CREATE RELEASE
       - name: Create Release
