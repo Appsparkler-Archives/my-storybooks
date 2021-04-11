@@ -22,6 +22,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GH_TOKEN }}
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       # PREPARE REPOSITORY
       - name: Prepare repository
