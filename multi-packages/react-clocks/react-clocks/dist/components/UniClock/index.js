@@ -5,13 +5,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
+var _react = _interopRequireDefault(require("react"));
+
 var _styled = _interopRequireDefault(require("./styled"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var UniClock = function UniClock(_ref) {
   var timestamp = _ref.timestamp;
-  var styledClock = React.useMemo(function () {
+
+  var styledClock = _react["default"].useMemo(function () {
     var hoursDegree = new Date(timestamp).getHours() * (360 / 12);
     var minutesDegree = new Date(timestamp).getMinutes() * (360 / 60);
     var secondsDegree = new Date(timestamp).getSeconds() * (360 / 60);
@@ -22,11 +27,12 @@ var UniClock = function UniClock(_ref) {
     };
     return hands;
   }, [timestamp]);
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_styled["default"], styledClock));
+
+  return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(_styled["default"], styledClock));
 };
 
 UniClock.propTypes = {
-  timestamp: PropTypes.number
+  timestamp: _propTypes["default"].number
 };
 var _default = UniClock;
 exports["default"] = _default;

@@ -11,6 +11,8 @@ var _react = _interopRequireDefault(require("react"));
 
 require("./styles.css");
 
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -191,12 +193,12 @@ var Timer = /*#__PURE__*/function (_React$Component3) {
 }(_react["default"].Component);
 
 Marker.propTypes = {
-  time: PropTypes.number,
-  type: PropTypes.string
+  time: _propTypes["default"].number,
+  type: _propTypes["default"].string
 };
 Timer.propTypes = {
-  time: PropTypes.number,
-  type: PropTypes.string
+  time: _propTypes["default"].number,
+  type: _propTypes["default"].string
 };
 var _default = WaveClock;
 exports["default"] = _default;
