@@ -1,6 +1,6 @@
 {
   "name": "react-mark.js",
-  "version": "3.0.107",
+  "version": "3.0.108",
   "main": "./index.js",
   "license": "MIT",
   "peerDependencies": {
