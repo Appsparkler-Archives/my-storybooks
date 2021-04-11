@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      PREPARE REPOSITORY
+      # PREPARE REPOSITORY
       - name: Prepare repository
         run: git fetch --tags
 
