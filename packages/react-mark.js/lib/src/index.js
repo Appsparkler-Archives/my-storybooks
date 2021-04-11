@@ -5,6 +5,6 @@ import setupMarker from "./setupMarker";
 
 export { RegExpMarker, Marker, RangesMarker, setupMarker as useMarker };
 
-// (() => {
-//   // the test run
-// })();
+(() => {
+  // the test run
+})();
