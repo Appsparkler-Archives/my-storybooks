@@ -47,6 +47,7 @@ jobs:
       - name: Create Release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
           yarn install
@@ -54,7 +55,7 @@ jobs:
           git update-index --assume-unchanged .npmrc
           yarn lerna run build --scope @react-mark.js/lib
           git add .
-          git commit -m "ci: added after build [skip ci]" --force
+          git commit -m "ci: added after build [skip ci]"
           yarn lerna publish --conventional-commits --no-verify-access -y
 
       # - uses: chromaui/action@v1
