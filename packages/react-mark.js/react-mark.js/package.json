@@ -8,5 +8,6 @@
     "mark.js": "^8.11.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1"
-  }
+  },
+  "gitHead": "48299ad54715c2c18e57d091c7f4d740f3afe89e"
 }
