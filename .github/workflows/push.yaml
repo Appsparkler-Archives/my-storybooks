@@ -39,6 +39,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+          git update-index --assume-unchanged .npmrc
           yarn install
           yarn lerna run build --scope react-mark.js
           yarn lerna publish --conventional-commits -y
