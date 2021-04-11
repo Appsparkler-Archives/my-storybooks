@@ -3,7 +3,6 @@
   "version": "3.0.29",
   "main": "./index.js",
   "license": "MIT",
-  "module": "./src/index.js",
   "peerDependencies": {
     "mark.js": "^8.11.1",
     "prop-types": "^15.7.2",
