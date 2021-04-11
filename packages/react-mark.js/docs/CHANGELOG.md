@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.73](https://github.com/appsparkler/my-storybooks/compare/v3.0.72...v3.0.73) (2021-04-11)
+
+**Note:** Version bump only for package @react-mark.js/docs
+
 ## [3.0.72](https://github.com/appsparkler/my-storybooks/compare/v3.0.71...v3.0.72) (2021-04-11)
 
 **Note:** Version bump only for package @react-mark.js/docs
