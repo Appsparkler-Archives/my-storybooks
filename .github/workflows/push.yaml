@@ -11,7 +11,7 @@ jobs:
     # the list of steps that the action will go through
     steps:
       # NODE JS SETUP
-      - name: Use Node.js 15.x
+      - name: Use Node.js 15.11.0
         uses: actions/setup-node@v1
         with:
           node-version: "15.11.0"
@@ -44,12 +44,13 @@ jobs:
       #       yarn-deps-${{ hashFiles('yarn.lock') }}
 
       # CREATE RELEASE
-      # - name: Create Release
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #   run: |
-      #     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-      #     yarn install
+      - name: Create Release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+          yarn install
+          git status
       #     git update-index --assume-unchanged .npmrc
       #     yarn lerna run build --scope @react-mark.js/lib
       #     yarn lerna publish --conventional-commits -y --no-verify-access
