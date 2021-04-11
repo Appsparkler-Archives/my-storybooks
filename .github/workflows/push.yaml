@@ -10,14 +10,31 @@ jobs:
     runs-on: ubuntu-latest
     # the list of steps that the action will go through
     steps:
+      # NODE JS SETUP
       - name: Use Node.js 15.x
         uses: actions/setup-node@v1
         with:
           node-version: 15.x
-          NODE_ENV: production
-          SKIP_PREFLIGHT_CHECK: true
-      - uses: actions/checkout@v1
-      - run: yarn
+
+      # PREPARE REPOSITORY
+      - name: Prepare repository
+        uses: actions/checkout@v1
+        run: git fetch --unshallow --tags
+
+      # CACHE NODE MODULES
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: yarn-deps-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn-deps-${{ hashFiles('yarn.lock') }}
+
+      # CREATE RELEASE
+      - name: Create Release
+        run: |
+          yarn install
+          yarn lerna build --scope react-mark.js
       # - uses: chromaui/action@v1
       #   # options required to the GitHub chromatic action
       #   with:
