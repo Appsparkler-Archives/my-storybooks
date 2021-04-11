@@ -50,6 +50,7 @@ jobs:
         run: |
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
           yarn install
+          git update-index --assume-unchanged .npmrc
           yarn lerna run build --scope @react-mark.js/lib
           yarn lerna publish --conventional-commits -y --no-verify-access
 
