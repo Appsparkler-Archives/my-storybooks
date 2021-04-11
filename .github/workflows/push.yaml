@@ -16,9 +16,12 @@ jobs:
         with:
           node-version: 15.x
 
+      # CHECKOUT
+      - name: Checkout
+        uses: actions/checkout@v1
+
       # PREPARE REPOSITORY
       - name: Prepare repository
-        uses: actions/checkout@v1
         run: git fetch --unshallow --tags
 
       # CACHE NODE MODULES
