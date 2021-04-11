@@ -1,6 +1,6 @@
 {
   "name": "@react-mark.js/docs",
-  "version": "3.0.103",
+  "version": "3.0.104",
   "license": "MIT",
   "private": true,
   "devDependencies": {
@@ -8,6 +8,6 @@
     "@storybook/react": "^6.2.2",
     "mark.js": "^8.11.1",
     "react": "^17.0.2",
-    "react-mark.js": "^3.0.103"
+    "react-mark.js": "^3.0.104"
   }
 }
