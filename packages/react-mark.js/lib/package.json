@@ -4,6 +4,7 @@
   "main": "./index.js",
   "license": "MIT",
   "module": "./src/index.js",
+  "private": true,
   "scripts": {
     "clean": "node scripts/clean",
     "build": "yarn clean && babel src --out-dir ../react-mark.js"
