@@ -44,15 +44,15 @@ jobs:
       #       yarn-deps-${{ hashFiles('yarn.lock') }}
 
       # CREATE RELEASE
-      - name: Create Release
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-          yarn install
-          git update-index --assume-unchanged .npmrc
-          yarn lerna run build --scope @react-mark.js/lib
-          yarn lerna publish --conventional-commits -y --no-verify-access
+      # - name: Create Release
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #   run: |
+      #     echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+      #     yarn install
+      #     git update-index --assume-unchanged .npmrc
+      #     yarn lerna run build --scope @react-mark.js/lib
+      #     yarn lerna publish --conventional-commits -y --no-verify-access
 
       # - uses: chromaui/action@v1
       #   # options required to the GitHub chromatic action
