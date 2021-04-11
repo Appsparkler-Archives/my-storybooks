@@ -51,9 +51,9 @@ jobs:
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
           yarn install
           git status
-      #     git update-index --assume-unchanged .npmrc
-      #     yarn lerna run build --scope @react-mark.js/lib
-      #     yarn lerna publish --conventional-commits -y --no-verify-access
+          git update-index --assume-unchanged .npmrc
+          yarn lerna run build --scope @react-mark.js/lib
+          yarn lerna publish --conventional-commits -y --no-verify-access
 
       # - uses: chromaui/action@v1
       #   # options required to the GitHub chromatic action
