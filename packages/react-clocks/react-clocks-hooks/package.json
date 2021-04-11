@@ -1,6 +1,6 @@
 {
   "name": "react-clocks-hooks",
-  "version": "1.0.0",
+  "version": "3.0.13",
   "main": "./dist/index.js",
   "license": "MIT",
   "private": true,
@@ -11,7 +11,7 @@
     "react": "^17.0.1"
   },
   "devDependencies": {
-    "react": "^17.0.1",
-    "my-babel-modules": "^1.0.0"
+    "my-babel-modules": "^1.0.0",
+    "react": "^17.0.1"
   }
 }

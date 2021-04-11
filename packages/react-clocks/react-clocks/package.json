@@ -1,6 +1,6 @@
 {
   "name": "react-clocks",
-  "version": "1.0.1",
+  "version": "3.0.13",
   "main": "./dist/index.js",
   "license": "MIT",
   "private": true,
@@ -10,14 +10,14 @@
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "styled-components": "^5.2.1",
-    "react-clocks-hooks": "^1.0.0"
+    "react-clocks-hooks": "^1.0.0",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "react-clocks-hooks": "^1.0.0",
+    "my-babel-modules": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "my-babel-modules": "^1.0.0",
+    "react-clocks-hooks": "^3.0.13",
     "styled-components": "^5.2.1"
   }
 }

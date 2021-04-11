@@ -1,13 +1,13 @@
 {
   "name": "@react-mark.js/docs",
-  "version": "1.0.0",
+  "version": "3.0.13",
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "react-mark.js": "^3.0.12",
-    "react": "^17.0.2",
-    "mark.js": "^8.11.1",
     "@storybook/addon-links": "^6.2.2",
-    "@storybook/react": "^6.2.2"
+    "@storybook/react": "^6.2.2",
+    "mark.js": "^8.11.1",
+    "react": "^17.0.2",
+    "react-mark.js": "^3.0.13"
   }
 }
