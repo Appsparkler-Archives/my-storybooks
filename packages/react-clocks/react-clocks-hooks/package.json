@@ -1,6 +1,6 @@
 {
   "name": "react-clocks-hooks",
-  "version": "3.0.30",
+  "version": "3.0.33",
   "main": "./dist/index.js",
   "license": "MIT",
   "private": true,
