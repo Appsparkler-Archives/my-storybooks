@@ -5,7 +5,7 @@ on: push
 
 # what the action will do
 jobs:
-  install:
+  publish:
     # the operating system it will run on
     runs-on: ubuntu-latest
     # the list of steps that the action will go through
@@ -20,9 +20,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
-      # PREPARE REPOSITORY
-      # - name: Prepare repository
-      # run: git fetch --unshallow --tags
+      PREPARE REPOSITORY
+      - name: Prepare repository
+        run: git fetch --tags
 
       # CACHE NODE MODULES
       - name: Cache node modules
@@ -41,7 +41,7 @@ jobs:
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
           yarn install
           yarn lerna run build --scope @react-mark.js/lib
-          yarn lerna publish --conventional-commits -y
+          yarn lerna publish --conventional-commits -y --no-verify-access
 
       # - uses: chromaui/action@v1
       #   # options required to the GitHub chromatic action
