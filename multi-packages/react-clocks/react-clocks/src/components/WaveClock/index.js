@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles.css";
+import PropTypes from "prop-types";
 
 class WaveClock extends React.Component {
   constructor(man) {

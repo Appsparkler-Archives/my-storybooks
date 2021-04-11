@@ -1,4 +1,6 @@
+import React from "react";
 import StyledUniClock from "./styled";
+import PropTypes from "prop-types";
 
 const UniClock = ({ timestamp }) => {
   const styledClock = React.useMemo(() => {
