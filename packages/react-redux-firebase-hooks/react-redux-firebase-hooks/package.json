@@ -2,7 +2,7 @@
   "name": "react-redux-firebase-hooks",
   "description": "A component library for HFN Gatsby plugin",
   "license": "MIT",
-  "version": "3.0.111",
+  "version": "3.0.113",
   "main": "./dist/index.js",
   "private": true,
   "scripts": {
