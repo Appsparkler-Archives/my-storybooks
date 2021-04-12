@@ -37,6 +37,3 @@ var _RangesMarker = _interopRequireDefault(require("./RangesMarker"));
 var _setupMarker = _interopRequireDefault(require("./setupMarker"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-(function () {// the test run
-})();
