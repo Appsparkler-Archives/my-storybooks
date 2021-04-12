@@ -26,7 +26,7 @@ jobs:
       # INSTALL PACKAGES
       - name: Install Packages
         run: |
-          yarn install
+          yarn install --prefer-offline --frozen-lockfile
           git status
 
       # NPM AUTHENTICATION
@@ -38,6 +38,12 @@ jobs:
           npm whoami
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # AVOID COMMITTING .npmrc file
+      - name: Avoid committing .npmrc file
+        run: |
+          git status
+          git update-index --assume-unchanged .npmrc
 
       # - name: Publish package
       #   run: lerna publish --yes --message 'chore: release new versions'
