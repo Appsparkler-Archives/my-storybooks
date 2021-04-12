@@ -24,6 +24,9 @@ jobs:
       # CHECKOUT AND PULL CURRENT BRANCH
       - name: Checkout and pull branch
         run: git checkout "${GITHUB_REF:11}" && git pull
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       # INSTALL PACKAGES
       - name: Install Packages
