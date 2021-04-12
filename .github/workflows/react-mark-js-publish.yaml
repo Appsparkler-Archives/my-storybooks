@@ -46,7 +46,9 @@ jobs:
           git update-index --assume-unchanged .npmrc
 
       - name: Publish package
-        run: lerna publish --yes --message 'chore: release new versions'
+        # run: lerna publish --yes --message 'chore: release new versions'
+        run: yarn lerna publish --conventional-commits --no-verify-access -y
+
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
