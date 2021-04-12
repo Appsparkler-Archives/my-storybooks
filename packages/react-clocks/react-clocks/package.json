@@ -1,6 +1,6 @@
 {
   "name": "react-clocks",
-  "version": "3.0.34",
+  "version": "3.0.111",
   "main": "./dist/index.js",
   "license": "MIT",
   "private": true,
@@ -17,7 +17,7 @@
     "my-babel-modules": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
-    "react-clocks-hooks": "^3.0.34",
+    "react-clocks-hooks": "^3.0.111",
     "styled-components": "^5.2.1"
   }
 }
