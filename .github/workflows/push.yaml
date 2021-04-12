@@ -1,7 +1,7 @@
 # name of our action
 name: "Push"
 # the event that will trigger the action
-on: push
+# on: push
 
 # what the action will do
 jobs:
