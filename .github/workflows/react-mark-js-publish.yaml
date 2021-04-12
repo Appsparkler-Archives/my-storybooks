@@ -19,12 +19,13 @@ jobs:
         # git remote set-url origin https://$GITHUB_ACTOR:$GH_TOKEN@github.com/appsparkler/my-storybooks
 
       # CHECKOUT AND PULL CURRENT BRANCH
-      - name: Checkout and pull branch
-        run: git checkout "${GITHUB_REF:11}" && git pull
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+       - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GH_TOKEN }}
           ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
+        
       # INSTALL PACKAGES
       - name: Install Packages
         run: |
