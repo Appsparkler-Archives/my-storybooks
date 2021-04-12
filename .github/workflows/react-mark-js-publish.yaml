@@ -45,9 +45,9 @@ jobs:
           git status
           git update-index --assume-unchanged .npmrc
 
-      # - name: Publish package
-      #   run: lerna publish --yes --message 'chore: release new versions'
-      #   env:
-      #     GH_TOKEN: ${{ secrets.GITHUB_PAT }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish package
+        run: lerna publish --yes --message 'chore: release new versions'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
