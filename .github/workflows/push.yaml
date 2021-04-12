@@ -54,6 +54,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} >> .npmrc
+          echo //npm.pkg.github.com/:always-auth=true >> .npmrc
           yarn install
           git status
           git update-index --assume-unchanged .npmrc
