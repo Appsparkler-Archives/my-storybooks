@@ -9,20 +9,20 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
 
     steps:
-      # CONFIGURE GIT USER
-      - name: Configure CI Git User
-        run: |
-          git config --global user.name 'appsparkler'
-          git config --global user.email 'appsparkler@users.noreply.github.com'
-          git remote set-url origin git@github.com:appsparkler/my-storybooks
-
       # CHECKOUT AND PULL CURRENT BRANCH
       - name: Checkout
         uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.GH_TOKEN }}
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # CONFIGURE GIT USER
+      - name: Configure CI Git User
+        run: |
+          git config --global user.name 'appsparkler'
+          git config --global user.email 'appsparkler@users.noreply.github.com'
+          git remote set-url origin git@github.com:appsparkler/my-storybooks
 
       # INSTALL PACKAGES
       - name: Install Packages
