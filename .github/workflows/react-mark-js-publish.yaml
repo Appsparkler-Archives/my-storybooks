@@ -18,7 +18,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           # token: ${{ secrets.GH_TOKEN }}
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
 
       # CONFIGURE GIT USER
       - name: Configure CI Git User
@@ -62,6 +62,11 @@ jobs:
           git status
           git update-index --assume-unchanged .npmrc
 
+      # ADD ssh-key
+      # - name: Add SSH KEY
+      #   run: |
+      #     echo ${}
+
       - name: Publish package
         # run: lerna publish --yes --message 'chore: release new versions'
         run: |
@@ -71,4 +76,4 @@ jobs:
           # GH_TOKEN: ${{ secrets.GH_TOKEN }}
           # GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          ssh-keys: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh-keys: ${{ secrets.GH_SSH_KEY }}
