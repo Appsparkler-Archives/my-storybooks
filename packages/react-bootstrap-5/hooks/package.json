@@ -1,0 +1,17 @@
+{
+  "name": "@react-bootstrap-5/hooks",
+  "version": "3.1.3",
+  "description": "A supporting package for react-bootstrap-5",
+  "main": "index.js",
+  "author": "Aakash Shah",
+  "license": "MIT",
+  "private": true,
+  "peerDependencies": {
+    "lodash": "^4.17.21",
+    "react": "17.0.1"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.21",
+    "react": "17.0.1"
+  }
+}

@@ -1,0 +1,99 @@
+import {Meta, Canvas, Story} from '@storybook/addon-docs/blocks'
+import {linkTo} from '@storybook/addon-links'
+import LinkTo from '@storybook/addon-links/react'
+import {RangesMarker} from "react-mark.js";
+
+<Meta 
+    title="Components/Ranges Marker"  
+    component={RangesMarker} 
+/>
+
+
+# ⚡️ `<RangesMarker />`
+Sometimes you may want to mark text-content based on the
+position in the text content instead of a string.  For ex.
+you would like to mark 5 letters from the 3rd position of text.
+
+## [Stack Blitz Demo ↗](https://stackblitz.com/edit/react-mark-js?file=src/examples/RangesExample/index.js)
+
+export const args = {
+  mark: [
+    {
+      start: 3,
+      length: 5,
+    },
+  ],
+  children: <h1>0123456789</h1>,
+};
+
+## ‣ Basic Example
+In this example, we mark 4 letters starting 
+from the 3rd letters.
+
+<Canvas>
+    <Story name="single-range-marker" args={{
+        ...args,
+        mark: [
+            {
+            start: 3,
+            length: 5,
+            },
+        ]
+    }}>
+        {args => <RangesMarker {...args} />}
+    </Story>
+</Canvas>
+
+
+## ‣ Multiple Ranges Example
+In this example, we mark 5 letters starting 
+from the 3rd letters and 15 letters starting 
+from the 10th letter
+
+<Canvas>
+    <Story name="multiple ranges marker" args={{
+        ...args,
+        mark: [
+            {
+            start: 3,
+            length: 5,
+            },{
+                start: 11,
+                length: 15
+            }
+        ],
+        children: [`0123456789 123456789 123456789 123456789`]
+    }}>
+        {args => <RangesMarker {...args} />}
+    </Story>
+</Canvas>
+
+> 
+
+export const linkFn = linkTo('Options/Mark Options')
+export const style = {cursor: 'pointer'}
+
+## ‣ With Options
+Check <LinkTo kind="Options/Mark Options">this link</LinkTo> for all options.
+
+<Canvas>
+    <Story name="with options" args={{
+        ...args,
+        mark: [
+            {
+            start: 3,
+            length: 5,
+            },{
+            start: 11,
+            length: 15
+            }
+        ],
+        children: [`0123456789 123456789 123456789 123456789`],
+        options: {
+            className: 'custom-marker-1'
+        }
+        
+    }}>
+        {args => <RangesMarker {...args} />}
+    </Story>
+</Canvas>

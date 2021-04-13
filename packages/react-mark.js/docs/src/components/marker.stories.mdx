@@ -1,0 +1,76 @@
+import {Meta, Canvas, Story} from '@storybook/addon-docs/blocks'
+import {Marker} from 'react-mark.js'
+
+<Meta title="Components/Marker" component={Marker} />
+
+# ⚡️ `<Marker />`
+A wrapper component to higlight text-content matching strings.
+
+export const Template = (args) => <Marker {...args} />
+const args = {
+    children: [
+        "Cillum proident eu eiusmod incididunt pariatur. ",
+        "Ullamco qui deserunt ut reprehenderit cupidatat ",
+        "cupidatat nisi non occaecat non commodo. ",
+        "Magna incididunt eu laboris laboris labore. "
+    ],
+    mark: "Ullamco qui deserunt ut reprehenderit"
+}
+
+## [Stack Blitz Demo ↗](https://stackblitz.com/edit/react-mark-js?file=src/examples/MarkerExamples/index.js)
+
+## ‣ Mark A Text String
+
+<Canvas>
+    <Story name="String" args={args}>
+        {args => <Marker {...args} />}
+    </Story>
+</Canvas>
+
+## ‣ Mark Multiple Text Strings
+<Canvas>
+    <Story 
+        name="Multiple Strings" 
+        args={{...args, 
+        mark: ["eiusmod incididunt", "commodo. Magna"]
+    }}>
+        {args => <Marker {...args} />}
+    </Story>
+</Canvas>
+
+## ‣ Configure Wrapper Element
+<Canvas>
+    <Story 
+        name="Section Element Wrapper" 
+        args={{
+            ...args, 
+            as: "section"
+        }}
+    >
+        {args => <Marker {...args} />}
+    </Story>
+</Canvas>
+
+## ‣ With Options
+
+[mark.js](https://markjs.io/) has quite a few options
+to configure marking and un-marking of content. 
+
+<Canvas>
+    <Story 
+        name="With Options" 
+        args={{
+            ...args, 
+            mark: "nisi non occaecat",
+            as: "section",
+            options: {
+                className: 'custom-marker-1',
+            }
+        }}
+    >
+        {args => <Marker {...args} />}
+    </Story>
+</Canvas>
+
+
+

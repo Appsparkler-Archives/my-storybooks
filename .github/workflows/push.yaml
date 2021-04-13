@@ -1,0 +1,72 @@
+# name of our action
+name: "Push"
+# the event that will trigger the action
+# on: push
+
+# what the action will do
+jobs:
+  publish:
+    # the operating system it will run on
+    runs-on: ubuntu-latest
+    # the list of steps that the action will go through
+    steps:
+      # NODE JS SETUP
+      - name: Use Node.js 15.11.0
+        uses: actions/setup-node@v1
+        with:
+          node-version: "15.11.0"
+
+      # CHECKOUT
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GH_TOKEN }}
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # PREPARE REPOSITORY
+      - name: Prepare repository
+        run: git fetch --tags
+
+      # REATTACH HEAD TO HEAD REF
+      - name: reattach HEAD to Head Ref
+        run: git checkout "$(echo ${{ github.head_ref }} | sed -E 's|refs/[a-zA-Z]+/||')"
+        if: github.head_ref != ''
+
+      # REATTACH HEAD TO REF
+      - name: reattach HEAD to Ref
+        run: git checkout "$(echo ${{ github.ref }} | sed -E 's|refs/[a-zA-Z]+/||')"
+        if: github.head_ref == ''
+
+      # CACHE NODE MODULES
+      # - name: Cache node modules
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: node_modules
+      #     key: yarn-deps-${{ hashFiles('yarn.lock') }}
+      #     restore-keys: |
+      #       yarn-deps-${{ hashFiles('yarn.lock') }}
+
+      # CREATE RELEASE
+      - name: Create Release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} >> .npmrc
+          echo //npm.pkg.github.com/:always-auth=true >> .npmrc
+          yarn install
+          git status
+          git update-index --assume-unchanged .npmrc
+          yarn lerna run build --scope @react-mark.js/lib
+          git config --global user.name "appsparkler"
+          git config --global user.email "subs@appsparkler.com"
+          git add .
+          git commit -m "ci: added after build [skip ci]"
+          yarn lerna publish --conventional-commits --no-verify-access -y
+
+      # - uses: chromaui/action@v1
+      #   # options required to the GitHub chromatic action
+      #   with:
+      #     projectToken: ${{ secrets.CHROMATIC_TOKEN }}
+      #     token: ${{ secrets.GITHUB_TOKEN }}

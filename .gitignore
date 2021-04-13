@@ -1,3 +1,5 @@
 node_modules
 storybooks
 .env*
+.eslintcache
+storybook-static

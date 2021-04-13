@@ -1,0 +1,9 @@
+79 error Error: Command failed: git add -- packages/react-mark.js/lib/package.json packages/react-mark.js/react-mark.js/package.json packages/react-mark.js/lib/CHANGELOG.md packages/react-mark.js/react-mark.js/CHANGELOG.md packages/react-mark.js/docs/package.json packages/react-mark.js/docs/CHANGELOG.md CHANGELOG.md lerna.json
+79 error The following paths are ignored by one of your .gitignore files:
+79 error packages/react-mark.js/react-mark.js
+79 error Use -f if you really want to add them.
+79 error
+79 error     at makeError (/Users/aakashshah/Desktop/projects/my-storybooks/node_modules/execa/index.js:174:9)
+79 error     at /Users/aakashshah/Desktop/projects/my-storybooks/node_modules/execa/index.js:278:16
+79 error     at runMicrotasks (<anonymous>)
+79 error     at processTicksAndRejections (node:internal/process/task_queues:94:5)

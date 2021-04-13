@@ -1,5 +1,5 @@
 {
-  "name": "my-storybook",
+  "name": "@appsparkler/my-storybook",
   "version": "1.0.0",
   "license": "MIT",
   "author": "Aakash Shah <subs@appsparkler.com>",
@@ -12,27 +12,48 @@
     "build-storybooks": "yarn clean-storybooks && yarn build-sb-react-redux-firebase-hooks && yarn build-sb-react-mark && yarn build-sb-react-clocks",
     "clean-storybooks": "rimraf storybooks",
     "postinstall": "lerna bootstrap",
-    "sb-react-clocks": "yarn lerna run build && start-storybook -p 2002 -c ./.storybook/react-clocks",
-    "sb-react-mark": "start-storybook -p 2000 -c ./.storybook/react-mark.js",
+    "sb-react-clocks": "yarn lerna run build --scope=react-clocks-hooks && start-storybook -p 2002 -c ./.storybook/react-clocks",
+    "sb-react-mark": "start-storybook -p 2000 -c ./.storybook/react-mark.js/factory",
+    "sb-react-mark-docs": "build-storybook -c ./.storybook/react-mark.js/docs --docs",
     "sb-bs-5": "start-storybook -p 2002 -c ./.storybook/react-bootstrap-5",
     "sb-react-redux-firebase-hooks": "NODE_ENV=react-redux-firebse-hooks:production start-storybook -p 2001 -c ./.storybook/react-redux-firebase-hooks",
     "serve-storybooks": "yarn build-storybooks && serve storybooks",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
-    "@storybook/addon-actions": "^6.2.0-rc.8",
-    "@storybook/addon-essentials": "^6.2.0-rc.8",
-    "@storybook/addon-links": "^6.2.0-rc.8",
-    "@storybook/react": "^6.2.0-rc.8",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@storybook/addon-actions": "^6.2.2",
+    "@storybook/addon-essentials": "^6.2.2",
+    "@storybook/addon-links": "^6.2.2",
+    "@storybook/react": "^6.2.2",
+    "@storybook/theming": "^6.2.2",
     "babel-loader": "^8.2.2",
     "cross-env": "^7.0.3",
+    "eslint": "^7.23.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.23.1",
+    "husky": "^6.0.0",
     "lerna": "^3.22.1",
+    "lint-staged": "^10.5.4",
     "pm2": "^4.5.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "rimraf": "^3.0.2",
     "serve": "^11.3.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --quiet --fix"
+    ],
+    "*.{json,md,html}": [
+      "prettier --write"
+    ],
+    "*.js": "eslint --cache --fix"
   }
 }

@@ -1,0 +1,58 @@
+name: React Mark JS Publish
+
+on: push
+
+jobs:
+  build:
+    # CONDITIONALLY EXECUTE JOB
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+
+    steps:
+      # CHECKOUT AND PULL CURRENT BRANCH
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          # token: ${{ secrets.GH_TOKEN }}
+          # ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # CONFIGURE GIT USER
+      - name: Configure CI Git User
+        run: |
+          git config --global user.name 'appsparkler'
+          git config --global user.email 'appsparkler@users.noreply.github.com'
+          git remote set-url origin https://appsparkler:${GH_TOKEN}@github.com/appsparkler/my-storybooks.git
+
+      # INSTALL PACKAGES
+      - name: Install Packages
+        run: |
+          yarn install --prefer-offline --frozen-lockfile
+          git status
+
+      # NPM AUTHENTICATION
+      - name: Authenticate with Registry
+        run: |
+          yarn logout
+          echo "registry=http://registry.npmjs.org/" >> .npmrc
+          echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # AVOID COMMITTING .npmrc file
+      - name: Avoid committing .npmrc file
+        run: |
+          git status
+          git update-index --assume-unchanged .npmrc
+
+      - name: Publish package
+        # run: lerna publish --yes --message 'chore: release new versions'
+        run: |
+          yarn lerna publish --conventional-commits --no-verify-access -y --message "chore(release): publish %s [skip ci]"
+
+        env:
+          # GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # ssh-keys: ${{ secrets.SSH_PRIVATE_KEY }}

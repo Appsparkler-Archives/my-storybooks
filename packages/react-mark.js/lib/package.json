@@ -1,0 +1,28 @@
+{
+  "name": "@react-mark.js/lib",
+  "version": "3.1.3",
+  "main": "./index.js",
+  "license": "MIT",
+  "module": "./src/index.js",
+  "private": true,
+  "scripts": {
+    "clean": "node scripts/clean",
+    "build": "yarn clean && babel src --out-dir ../react-mark.js"
+  },
+  "peerDependencies": {
+    "mark.js": "^8.11.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1"
+  },
+  "devDependencies": {
+    "globby": "^11.0.3",
+    "mark.js": "^8.11.1",
+    "my-babel-modules": "^1.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1"
+  },
+  "dependencies": {
+    "auto": "^10.24.3",
+    "rimraf": "^3.0.2"
+  }
+}
