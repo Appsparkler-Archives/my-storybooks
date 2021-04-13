@@ -39,16 +39,23 @@ jobs:
           path: |
             node_modules
             */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: |
+            ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-
+            ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
       # INSTALL PACKAGES
       - name: Install Packages
         run: |
           yarn install --prefer-offline --frozen-lockfile
+
+      # COMMIT AND PUSH ANY CHANGES
+      - name: Commit & Push
+        run: |
           git commit -am "chore: committing files after yarn install on CI [skip ci]"
-          git push origin HEAD
+          git push origin ${{ github.head_ref }}
+        env:
+          ssh-keys: ${{ GH_SSH_KEY }}
 
       - name: Run Chromatic
         uses: chromaui/action@v1
