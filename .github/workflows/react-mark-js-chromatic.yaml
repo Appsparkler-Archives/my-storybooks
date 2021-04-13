@@ -1,0 +1,42 @@
+name: CHROMATIC SETUP
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  publish:
+    # SETUP PLATFORM
+    runs-on: ubuntu-latest
+
+    steps:
+      # CHECKOUT AND PULL CURRENT BRANCH
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      # CACHE NODE MODULES
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: |
+            **/node_modules
+          key: |
+            yarn-deps-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn-deps-${{ hashFiles('yarn.lock') }}
+
+      # INSTALL PACKAGES
+      - name: Install Packages
+        run: |
+          yarn install --prefer-offline --frozen-lockfile
+          git status
+
+      - name: Run Chromatic
+        run: |
+          yarn chromatic
+        with:
+          projectToken: ${{ secrets.CHROMATIC_TOKEN }}
+          buildScriptName: build-sb-react-mark
