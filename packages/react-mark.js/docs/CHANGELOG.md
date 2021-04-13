@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.5 (2021-04-13)
+
+### Bug Fixes
+
+- updated GH_SSH_KEY ([54582fb](https://github.com/appsparkler/my-storybooks/commit/54582fbe0ea92b32bbf59db246784a7ebbefadf5))
+
 ## 3.1.4 (2021-04-13)
 
 **Note:** Version bump only for package @react-mark.js/docs
