@@ -55,7 +55,7 @@ jobs:
           git commit -am "chore: committing files after yarn install on CI [skip ci]"
           git push origin ${{ github.head_ref }}
         env:
-          ssh-key: ${{ GH_SSH_KEY }}
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
 
       - name: Run Chromatic
         uses: chromaui/action@v1
