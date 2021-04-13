@@ -36,7 +36,4 @@ jobs:
 
       - name: Run Chromatic
         run: |
-          yarn chromatic
-        with:
-          projectToken: ${{ secrets.CHROMATIC_TOKEN }}
-          buildScriptName: build-sb-react-mark
+          yarn chromatic --project-token ${CHROMATIC_TOKEN} --build-script-name build-sb-react-mark
