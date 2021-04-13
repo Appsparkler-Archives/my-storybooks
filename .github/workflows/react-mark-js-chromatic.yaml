@@ -39,7 +39,7 @@ jobs:
       - name: Install Packages
         run: |
           yarn install --prefer-offline --frozen-lockfile
-          git status
+          git commit -am "chore: committing files after yarn install on CI [skip ci]"
 
       - name: Run Chromatic
         uses: chromaui/action@v1
