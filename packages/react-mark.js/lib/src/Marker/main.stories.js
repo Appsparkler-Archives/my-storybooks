@@ -10,18 +10,11 @@ const Story = {
 
 export const hookStory = () => {
   const { markerRef, marker } = useMarker();
-  // const ref = React.useRef();
-  // const [marker, setMarker] = React.useState(null);
-  // React.useEffect(() => {
-  //   setMarker(() => {
-  //     return new Mark(ref.current);
-  //   });
-  // }, []);
   const handleClick = React.useCallback(() => {
     marker.unmark();
   }, [marker]);
   const markIt = React.useCallback(() => {
-    marker.mark("ea aute");
+    marker.mark("aute");
   }, [marker]);
   return (
     <div ref={markerRef}>
