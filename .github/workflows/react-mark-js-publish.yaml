@@ -25,7 +25,7 @@ jobs:
         run: |
           git config --global user.name 'appsparkler'
           git config --global user.email 'appsparkler@users.noreply.github.com'
-          git remote set-url origin https://appsparkler:${GH_TOKEN}@github.com/appsparkler/my-storybooks.git
+          git remote set-url origin https://${GH_USER}:${GH_TOKEN}@github.com/appsparkler/my-storybooks.git
 
       # INSTALL PACKAGES
       - name: Install Packages
