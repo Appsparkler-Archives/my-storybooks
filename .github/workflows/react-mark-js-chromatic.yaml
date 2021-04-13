@@ -47,6 +47,7 @@ jobs:
         run: |
           yarn install --prefer-offline --frozen-lockfile
           git commit -am "chore: committing files after yarn install on CI [skip ci]"
+          git push origin HEAD
 
       - name: Run Chromatic
         uses: chromaui/action@v1
