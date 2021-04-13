@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn lerna run build",
     "build-sb-react-clocks": "build-storybook -c ./.storybook/react-clocks --output-dir storybooks/react-clocks",
-    "build-sb-react-mark": "build-storybook -c ./.storybook/react-mark.js --output-dir storybooks/react-mark",
+    "build-sb-react-mark": "build-storybook -c ./.storybook/react-mark.js/factory --output-dir storybooks/react-mark",
     "build-sb-react-redux-firebase-hooks": "cross-env NODE_ENV=react-redux-firebse-hooks:production build-storybook -c ./.storybook/react-redux-firebase-hooks --output-dir storybooks/react-redux-firebase-hooks",
     "build-storybooks": "yarn clean-storybooks && yarn build-sb-react-redux-firebase-hooks && yarn build-sb-react-mark && yarn build-sb-react-clocks",
     "clean-storybooks": "rimraf storybooks",
@@ -19,7 +19,8 @@
     "sb-react-redux-firebase-hooks": "NODE_ENV=react-redux-firebse-hooks:production start-storybook -p 2001 -c ./.storybook/react-redux-firebase-hooks",
     "serve-storybooks": "yarn build-storybooks && serve storybooks",
     "storybook": "start-storybook -p 6006",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "chromatic": "chromatic"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
@@ -31,6 +32,7 @@
     "@storybook/react": "^6.2.2",
     "@storybook/theming": "^6.2.2",
     "babel-loader": "^8.2.2",
+    "chromatic": "^5.6.2",
     "cross-env": "^7.0.3",
     "eslint": "^7.23.0",
     "eslint-config-google": "^0.14.0",
