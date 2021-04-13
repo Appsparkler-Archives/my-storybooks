@@ -28,7 +28,7 @@ jobs:
           git remote set-url origin git@github.com:appsparkler/my-storybooks.git
 
       # SETUP NodeJS
-      -name: Setup NodeJS 15.11.0
+      - name: Setup NodeJS 15.11.0
         uses: actions/setup-node@v2
         with:
           node-version: "15.11.0"
