@@ -19,15 +19,15 @@ jobs:
           fetch-depth: 0
 
       # CACHE NODE MODULES
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: |
-            **/node_modules
-          key: |
-            yarn-deps-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            yarn-deps-${{ hashFiles('yarn.lock') }}
+      # - name: Cache node modules
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: |
+      #       node_modules
+      #     key: |
+      #       yarn-deps-${{ hashFiles('yarn.lock') }}
+      #     restore-keys: |
+      #       yarn-deps-${{ hashFiles('yarn.lock') }}
 
       # INSTALL PACKAGES
       - name: Install Packages
@@ -36,7 +36,10 @@ jobs:
           git status
 
       - name: Run Chromatic
-        run: |
-          yarn chromatic --project-token ${CHROMATIC_TOKEN} --build-script-name build-sb-react-mark
-        env:
-          CHROMATIC_TOKEN: ${{ secrets.CHROMATIC_TOKEN}}
+        uses: chromaui/action@v1
+          # Chromatic GitHub Action options
+          with:
+            token: ${{ secrets.GH_TOKEN }}
+            # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+            projectToken: ${{ secrets.CHROMATIC_TOKEN }}
+            buildScriptName: build-sb-react-mark
