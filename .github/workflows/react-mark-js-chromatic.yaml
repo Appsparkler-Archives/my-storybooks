@@ -1,4 +1,4 @@
-name: CHROMATIC SETUP
+name: CHROMATIC WORKFLOW
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  publish:
+  chromatic:
     # SETUP PLATFORM
     runs-on: ubuntu-latest
 
@@ -17,6 +17,17 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+
+      # CACHE NODE MODULES
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: |
+            yarn-deps-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn-deps-${{ hashFiles('yarn.lock') }}
 
       # INSTALL PACKAGES
       - name: Install Packages
