@@ -17,6 +17,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
+          ssh-keys: ${{ GH_SSH_KEY }}
 
       # CONFIGURE GIT USER
       - name: Configure CI Git User
