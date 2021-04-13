@@ -18,6 +18,13 @@ jobs:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
 
+      # CONFIGURE GIT USER
+      - name: Configure CI Git User
+        run: |
+          git config --global user.name '@appsparkler'
+          git config --global user.email 'appsparkler@users.noreply.github.com'
+          git remote set-url origin git@github.com:appsparkler/my-storybooks.git
+
       # SETUP NodeJS
       - name: Setup NodeJS 15.11.0
         uses: actions/setup-node@v2
