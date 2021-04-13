@@ -35,14 +35,15 @@ jobs:
 
       # CACHE NODE MODULES
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: |
-            **/node_modules
+            node_modules
+            */*/node_modules
           key: |
-            yarn-deps-${{ hashFiles('yarn.lock') }}
+            ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            yarn-deps-${{ hashFiles('yarn.lock') }}
+            ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
       # INSTALL PACKAGES
       - name: Install Packages
