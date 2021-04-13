@@ -37,9 +37,9 @@ jobs:
 
       - name: Run Chromatic
         uses: chromaui/action@v1
-          # Chromatic GitHub Action options
-          with:
-            token: ${{ secrets.GH_TOKEN }}
-            # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-            projectToken: ${{ secrets.CHROMATIC_TOKEN }}
-            buildScriptName: build-sb-react-mark
+        # Chromatic GitHub Action options
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_TOKEN }}
+          buildScriptName: build-sb-react-mark
