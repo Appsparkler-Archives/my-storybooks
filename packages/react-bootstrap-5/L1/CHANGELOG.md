@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.6 (2021-04-13)
+
+**Note:** Version bump only for package @react-bootstrap-5/l1
+
 ## 3.1.5 (2021-04-13)
 
 ### Bug Fixes
