@@ -26,4 +26,4 @@ jobs:
       # Lerna
       - name: Lerna
         run: |
-          npx lerna changed --json
+          npx lerna changed --json --loglevel silent --no-progress
