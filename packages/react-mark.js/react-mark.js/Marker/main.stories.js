@@ -30,21 +30,14 @@ var Story = {
 var hookStory = function hookStory() {
   var _useMarker = (0, _useMarker2["default"])(),
       markerRef = _useMarker.markerRef,
-      marker = _useMarker.marker; // const ref = React.useRef();
-  // const [marker, setMarker] = React.useState(null);
-  // React.useEffect(() => {
-  //   setMarker(() => {
-  //     return new Mark(ref.current);
-  //   });
-  // }, []);
-
+      marker = _useMarker.marker;
 
   var handleClick = _react["default"].useCallback(function () {
     marker.unmark();
   }, [marker]);
 
   var markIt = _react["default"].useCallback(function () {
-    marker.mark("ea aute");
+    marker.mark("aute");
   }, [marker]);
 
   return /*#__PURE__*/_react["default"].createElement("div", {

@@ -16,3 +16,14 @@ jobs:
       - name: Git Stuff
         run: |
           git status
+
+      # SETUP NodeJS
+      - name: Setup NodeJS 15.11.0
+        uses: actions/setup-node@v2
+        with:
+          node-version: "15.11.0"
+
+      # Lerna
+      - name: Lerna
+        run: |
+          npx lerna changed --json
