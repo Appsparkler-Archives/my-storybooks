@@ -8,5 +8,8 @@ jobs:
     steps:
       - name: Lets log all context
         run: |
+          echo ${{ github }}
           echo ${{ github.action }}
           echo ${{ github.action_path }}
+          echo ${{ github.actor }}
+          echo ${{ github.base_ref }}
