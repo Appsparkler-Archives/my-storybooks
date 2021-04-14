@@ -6,25 +6,13 @@ jobs:
   log:
     runs-on: ubuntu-latest
     steps:
-      - name: Lets log all context
+      - name: Checkout Action
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          # ssh-key: ${{ secrets.GH_SSH_KEY }}
+
+      - name: Git Stuff
         run: |
-          echo ${{ github }}
-          echo ${{ github.action }}
-          echo ${{ github.action_path }}
-          echo ${{ github.actor }}
-          echo ${{ github.base_ref }}
-          echo ${{ github.event }}
-          echo ${{ github.event_name }}
-          echo ${{ github.event_path }}
-          echo ${{ github.head_ref }}
-          echo ${{ github.job }}
-          echo ${{ github.ref }}
-          echo ${{github.repository}}
-          echo ${{github.repository_owner}}
-          echo ${{ github.run_id }}
-          echo ${{github.run_number}}
-          echo ${{github.sha}}
-          echo ${{github.token}}
-          echo ${{github.workflow}}
-          echo ${{github.workspace}}
           git status
