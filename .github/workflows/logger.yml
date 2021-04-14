@@ -1,0 +1,12 @@
+name: Log Contexts
+
+on: push
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+
+    name: Lets log all context
+    run: |
+      echo ${{ github.action }}
+      echo ${{ github.action_path }}
