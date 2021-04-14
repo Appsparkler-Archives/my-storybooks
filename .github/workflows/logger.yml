@@ -27,3 +27,4 @@ jobs:
           echo ${{github.token}}
           echo ${{github.workflow}}
           echo ${{github.workspace}}
+          git status
