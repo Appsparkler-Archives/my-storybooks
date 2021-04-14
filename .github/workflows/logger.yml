@@ -13,3 +13,17 @@ jobs:
           echo ${{ github.action_path }}
           echo ${{ github.actor }}
           echo ${{ github.base_ref }}
+          echo ${{ github.event }}
+          echo ${{ github.event_name }}
+          echo ${{ github.event_path }}
+          echo ${{ github.head_ref }}
+          echo ${{ github.job }}
+          echo ${{ github.ref }}
+          echo ${{github.repository}}
+          echo ${{github.repository_owner}}
+          echo ${{ github.run_id }}
+          echo ${{github.run_number}}
+          echo ${{github.sha}}
+          echo ${{github.token}}
+          echo ${{github.workflow}}
+          echo ${{github.workspace}}
