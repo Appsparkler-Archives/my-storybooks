@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 3.1.12 (2021-04-13)
+
+**Note:** Version bump only for package @react-mark.js/lib
+
+## 3.1.11 (2021-04-13)
+
+**Note:** Version bump only for package @react-mark.js/lib
+
+## 3.1.10 (2021-04-13)
+
+**Note:** Version bump only for package @react-mark.js/lib
+
 ## 3.1.9 (2021-04-13)
 
 **Note:** Version bump only for package @react-mark.js/lib
