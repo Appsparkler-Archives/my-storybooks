@@ -23,6 +23,14 @@ jobs:
         with:
           node-version: "15.11.0"
 
+      - name: Set ENV Variable
+        run: |
+          node scripts/setting-env-variable
+
+      - name: Echo Env Variable
+        run: |
+          echo $foo
+
       # Lerna
       - name: Lerna
         run: |
