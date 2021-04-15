@@ -9,8 +9,8 @@ jobs:
   commit-and-push:
     # SETUP PLATFORM
     runs-on: ubuntu-latest
-    # if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
-    if: false
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    # if: false
 
     steps:
       # CHECKOUT AND PULL CURRENT BRANCH
@@ -98,9 +98,9 @@ jobs:
             ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
       # INSTALL PACKAGES
-      - name: Install Packages
-        run: |
-          yarn install --prefer-offline --frozen-lockfile
+      # - name: Install Packages
+      #   run: |
+      #     yarn install --prefer-offline --frozen-lockfile
 
       # # COMMIT AND PUSH ANY CHANGES
       # - name: Commit & Push

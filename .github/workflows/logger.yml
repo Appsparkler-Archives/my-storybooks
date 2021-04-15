@@ -5,6 +5,7 @@ on: push
 jobs:
   log:
     runs-on: ubuntu-latest
+    if: false
     steps:
       - name: Checkout Action
         uses: actions/checkout@v2
