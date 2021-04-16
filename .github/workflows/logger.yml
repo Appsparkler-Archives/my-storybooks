@@ -9,6 +9,9 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install
+        run: |
+          yarn install
       - name: Hello world action step
         uses: ./hello-world-action # Uses an action in the root directory
         id: hello
