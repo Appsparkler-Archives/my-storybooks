@@ -1,38 +1,19 @@
-name: Log Contexts
-
-on: push
+on: [push]
 
 jobs:
-  log:
+  hello_world_job:
     runs-on: ubuntu-latest
-    if: false
+    name: A job to say hello
     steps:
-      - name: Checkout Action
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
         uses: actions/checkout@v2
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
+        id: hello
         with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-          # ssh-key: ${{ secrets.GH_SSH_KEY }}
-
-      - name: Git Stuff
-        run: |
-          git status
-
-      # SETUP NodeJS
-      - name: Setup NodeJS 15.11.0
-        uses: actions/setup-node@v2
-        with:
-          node-version: "15.11.0"
-
-      - name: Set ENV Variable
-        run: |
-          node scripts/setting-env-variable
-
-      - name: Echo Env Variable
-        run: |
-          echo $foo
-
-      # Lerna
-      - name: Lerna
-        run: |
-          npx lerna changed --json --loglevel silent --no-progress
+          who-to-greet: "Mona the Octocat"
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
