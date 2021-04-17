@@ -3,7 +3,7 @@
  * @param {String} packageName Package Name
  * @returns Boolean
  */
-exports.hasChanged = (packageName = "") => {
+module.exports = (packageName = "") => {
   const { execSync } = require("child_process");
   const lernaChangedCommand = "npx lerna changed --json";
   const buffer = execSync(lernaChangedCommand);
