@@ -2,6 +2,7 @@ on: [push]
 
 jobs:
   lerna-changed-job:
+    if: false
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:

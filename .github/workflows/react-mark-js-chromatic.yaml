@@ -57,13 +57,13 @@ jobs:
           git diff-index --quiet HEAD || git commit -am "chore: committing files after yarn install on CI [skip ci]" || git push origin ${{ github.head_ref }} --quiet
         env:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
-      
+
       # Has React Mark Changed
       - name: Lerna Changed Action Step
-      uses: ./.github/actions/lerna-changed-action # Uses an action in the root directory
-      id: changed
-      with:
-        package-name: "react-mark.js"
+        uses: ./.github/actions/lerna-changed-action # Uses an action in the root directory
+        id: changed
+        with:
+          package-name: "react-mark.js"
 
       # chromatic:
       #   # SETUP PLATFORM
@@ -117,12 +117,7 @@ jobs:
       #   env:
       #     ssh-key: ${{ secrets.GH_SSH_KEY }}
 
-      - name: Lerna Changed Action Step
-        uses: ./.github/actions/lerna-changed-action # Uses an action in the root directory
-        id: changed
-        with:
-          package-name: "react-mark.js"
-
+      # CHROMATIC
       - name: Run Chromatic
         if: "steps.changed.outputs.changed === true"
         uses: chromaui/action@v1
