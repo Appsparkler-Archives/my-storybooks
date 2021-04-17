@@ -119,7 +119,7 @@ jobs:
 
       # CHROMATIC
       - name: Run Chromatic
-        if: "steps.changed.outputs.changed === true"
+        if: "steps.changed.outputs.changed == true"
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
