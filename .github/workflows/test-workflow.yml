@@ -12,8 +12,8 @@ jobs:
 
       - name: Install Stuff
         run: |
-          npm i -g @actions/core
-          npm i -g @actions/github
+          sudo npm i -g @actions/core
+          sudo npm i -g @actions/github
 
       # - name: Install
       #   run: |
