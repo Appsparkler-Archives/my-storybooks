@@ -1,0 +1,12 @@
+name: "Lerna Changed"
+description: "Return true if files have changed for the given package; else return false"
+inputs:
+  package-name: # id of input
+    description: "Which package?"
+    required: true
+outputs:
+  changed: # id of output
+    description: "True if the package changed; false if not 🙂"
+runs:
+  using: "node12"
+  main: "index.js"

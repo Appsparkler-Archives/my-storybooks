@@ -35,16 +35,16 @@ jobs:
           node-version: "15.11.0"
 
       # CACHE NODE MODULES
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: |
-            ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      # - name: Cache node modules
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: |
+      #       node_modules
+      #       */*/node_modules
+      #     key: |
+      #       ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
       # INSTALL PACKAGES
       - name: Install Packages
@@ -58,44 +58,52 @@ jobs:
         env:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
 
-  chromatic:
-    # SETUP PLATFORM
-    needs: commit-and-push
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
-    steps:
-      # CHECKOUT AND PULL CURRENT BRANCH
-      - name: Checkout
-        uses: actions/checkout@v2
+      # Has React Mark Changed
+      - name: Lerna Changed Action Step
+        uses: ./.github/actions/lerna-changed-action # Uses an action in the root directory
+        id: changed
         with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-          ssh-key: ${{ secrets.GH_SSH_KEY }}
+          package-name: "react-mark.js"
 
-      # CONFIGURE GIT USER
-      - name: Configure CI Git User
-        run: |
-          git config --global user.name '@appsparkler'
-          git config --global user.email 'appsparkler@users.noreply.github.com'
-          git remote set-url origin git@github.com:appsparkler/my-storybooks.git
+      # chromatic:
+      #   # SETUP PLATFORM
+      #   needs: commit-and-push
+      #   runs-on: ubuntu-latest
+      #   if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+      #   steps:
+
+      # CHECKOUT AND PULL CURRENT BRANCH
+      # - name: Checkout
+      #   uses: actions/checkout@v2
+      #   with:
+      #     ref: ${{ github.head_ref }}
+      #     fetch-depth: 0
+      #     ssh-key: ${{ secrets.GH_SSH_KEY }}
+
+      # # CONFIGURE GIT USER
+      # - name: Configure CI Git User
+      #   run: |
+      #     git config --global user.name '@appsparkler'
+      #     git config --global user.email 'appsparkler@users.noreply.github.com'
+      #     git remote set-url origin git@github.com:appsparkler/my-storybooks.git
 
       # SETUP NodeJS
-      - name: Setup NodeJS 15.11.0
-        uses: actions/setup-node@v2
-        with:
-          node-version: "15.11.0"
+      # - name: Setup NodeJS 15.11.0
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: "15.11.0"
 
       # CACHE NODE MODULES
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: |
-            ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      # - name: Cache node modules
+      #   uses: actions/cache@v2
+      #   with:
+      #     path: |
+      #       node_modules
+      #       */*/node_modules
+      #     key: |
+      #       ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
       # INSTALL PACKAGES
       # - name: Install Packages
@@ -109,7 +117,9 @@ jobs:
       #   env:
       #     ssh-key: ${{ secrets.GH_SSH_KEY }}
 
+      # CHROMATIC
       - name: Run Chromatic
+        if: "steps.changed.outputs.changed === true"
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
