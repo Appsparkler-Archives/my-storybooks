@@ -12,8 +12,7 @@ jobs:
 
       - name: Install Stuff
         run: |
-          sudo npm i -g @actions/core
-          sudo npm i -g @actions/github
+          yarn add -D @actions/core @actions/github
 
       # - name: Install
       #   run: |
