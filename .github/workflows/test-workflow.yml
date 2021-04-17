@@ -10,6 +10,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install Stuff
+        run: |
+          npm i -g @actions/core
+          npm i -g @actions/github
+
       # - name: Install
       #   run: |
       #     yarn install
