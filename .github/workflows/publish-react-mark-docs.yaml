@@ -15,7 +15,7 @@ jobs:
           path: appsparkler.github.io
           ssh-key: ${{ secrets.GH_SSH_KEY }}
 
-      - name: CHECKOUT REPOSITORY
+      - name: CHECKOUT my-storybooks
         uses: actions/checkout@v2
         with:
           path: my-storybooks
@@ -24,7 +24,7 @@ jobs:
       - name: TEST COPYING
         run: |
           mv my-storybooks/.storybook appsparkler.github.io/storybook-config
-          ls appsparkler.github.io
+          ls appsparkler.github.io/storybook-config
 
       # - name: INSTALL DEPENDENCIES
       #   run: |
