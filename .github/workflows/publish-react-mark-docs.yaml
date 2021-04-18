@@ -34,12 +34,13 @@ jobs:
 
       - name: PUSH to appsparkler.github.io
         run: |
-          git remote add origin git@github.com:appsparkler/appsparkler.github.io.git
+          git remote add origin https://github.com/appsparkler/appsparkler.github.io.git
           # git remote show origin
           git pull origin master
           git status
         env:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
+          token: ${{ GH_ADMIN_TOKEN }}
 
       # - name: INSTALL DEPENDENCIES
       #   run: |
