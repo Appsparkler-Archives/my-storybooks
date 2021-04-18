@@ -25,6 +25,9 @@ jobs:
         run: |
           mv my-storybooks/.storybook appsparkler.github.io/storybook-config
           ls appsparkler.github.io/storybook-config
+          git remote add origin git@github.com:appsparkler/appsparkler.github.io.git
+          git remote show origin
+          git pull origin master
           git status
 
       # - name: INSTALL DEPENDENCIES
