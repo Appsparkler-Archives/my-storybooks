@@ -4,3 +4,4 @@ storybooks
 .eslintcache
 storybook-static
 /docs
+.npmrc
