@@ -1,8 +1,18 @@
 # React Mark JS
+<small> 🍬 A React wrapper around the popular [mark.js](https://markjs.io) library. </small>
 
-## [Stack Blitz Demo ↗](https://stackblitz.com/edit/react-mark-js?file=src/examples/index.js)
+<img src="https://user-images.githubusercontent.com/12084821/115141060-0c5e3980-a058-11eb-8f6f-ccee78dd3858.png" width="100%" />
 
-> 🍬 A React wrapper around the popular [mark.js](https://markjs.io) library.
+<br />
+
+
+### Contents
+- [Docs ↗](https://www.appsparkler.com/docs/react-mark-js/?path=/docs/introduction--single-string)
+- [Demo ↗](https://stackblitz.com/edit/react-mark-js?file=src/examples/index.js)
+- [Single Page Doc](#single-page-doc)
+
+
+# Single Page Doc 
 
 # ⚡️ Installation
 
@@ -20,6 +30,8 @@ npm install -S mark.js react-mark.js
 ```sh
 yarn add mark.js react-mark.js
 ```
+
+> NOTE: [`mark-js`](https://npmjs.com/package/mark.js) is a peer dependency
 
 # ↘️ Importing Components
 

@@ -1,0 +1,60 @@
+name: Publish React Mark JS Docs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-react-mark-docs:
+    name: "PUBLISH React Mark JS Docs"
+    runs-on: ubuntu-latest
+    if: "contains(${{github.event.commits.*.message}}, 'publish react-mark-js docs')"
+    steps:
+      - name: CHECKOUT appsparkler.github.io
+        uses: actions/checkout@v2
+        with:
+          repository: appsparkler/appsparkler.github.io
+          path: appsparkler.github.io
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
+
+      - name: CHECKOUT my-storybooks
+        uses: actions/checkout@v2
+        with:
+          path: my-storybooks
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
+
+      - name: INSTALL dependencies
+        run: |
+          yarn --cwd my-storybooks
+
+      - name: BUILD React Mark JS Docs
+        run: |
+          yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o ../appsparkler.github.io/docs/react-mark-js
+
+      - name: Initialize Git in appsparkler.github.io
+        run: |
+          cd appsparkler.github.io
+          ls docs
+          ls docs/react-mark-js
+          git init
+
+      - name: Configure CI Git User
+        run: |
+          git config --global user.name '@appsparkler'
+          git config --global user.email 'appsparkler@users.noreply.github.com'
+
+      - name: PUSH to appsparkler.github.io
+        run: |
+          echo $PWD
+          cd appsparkler.github.io
+          # git remote add origin https://github.com/appsparkler/appsparkler.github.io.git
+          git remote show origin
+          git add docs
+          git commit -m "react-mark-js docs" 
+          git push origin master --quiet
+          git diff-index --quiet HEAD || git commit -am "react-mark-js docs" || git push origin master --quiet
+
+        env:
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
+          token: ${{ secrets.GH_ADMIN_TOKEN }}

@@ -3,3 +3,4 @@ storybooks
 .env*
 .eslintcache
 storybook-static
+/docs
