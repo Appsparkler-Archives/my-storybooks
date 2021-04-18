@@ -13,7 +13,7 @@ jobs:
         with:
           repository: appsparkler/appsparkler.github.io
           path: appsparkler.github.io
-          ssh-key: ${{ secrets.GH_SSK_KEY }}
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
 
       - name: CHECKOUT REPOSITORY
         uses: actions/checkout@v2
@@ -25,7 +25,7 @@ jobs:
         run: |
           yarn --cwd my-storybooks
 
-      - name: BUILD DOCS
+      - name: BUILD React Mark JS Docs
         run: |
           yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o docs/react-mark-js
 
@@ -37,4 +37,4 @@ jobs:
       - name: PUSH 2 appsparkler.github.io
         run: |
           cd appsparkler.github.io
-          git push origin HEAD
+          git diff-index --quiet HEAD || git commit -am "react-mark-js docs" || git push origin HEAD --quiet
