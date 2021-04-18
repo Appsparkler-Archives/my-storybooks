@@ -25,6 +25,7 @@ jobs:
         run: |
           mv my-storybooks/.storybook appsparkler.github.io/storybook-config
           ls appsparkler.github.io/storybook-config
+          git status
 
       # - name: INSTALL DEPENDENCIES
       #   run: |
