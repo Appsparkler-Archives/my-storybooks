@@ -8,6 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     if: "contains(${{github.event.commits.*.message}}, 'publish react-mark-js docs')"
     steps:
-      - name: Testing New Workflow
+      - name: CHECKOUT REPOSITORY
+        uses: actions/checkout@v2
+        with:
+          ssh-key: ${{ GH_SSH_KEY }}
+
+      - name: INSTALL DEPENDENCIES
         run: |
-          echo "${{toJSON(github.event)}}"
+          yarn
+
+      - name: BUILD DOCS
+        run: |
+          yarn build-storybook -c .storybook/react-mark.js/docs --docs -o react-mark-js-docs
+
+      - name: CHECK
+        run: |
+          ls react-mark-js-docs
