@@ -13,7 +13,7 @@ jobs:
 
     steps:
       # CHECKOUT AND PULL CURRENT BRANCH
-      - name: Checkout
+      - name: CHECKOUT
         uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
@@ -21,20 +21,20 @@ jobs:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
 
       # CONFIGURE GIT USER
-      - name: Configure CI Git User
+      - name: CONFIGURE CI Git User
         run: |
           git config --global user.name '@appsparkler'
           git config --global user.email 'appsparkler@users.noreply.github.com'
           git remote set-url origin git@github.com:appsparkler/my-storybooks.git
 
       # SETUP NodeJS
-      - name: Setup NodeJS 15.11.0
+      - name: SETUP NodeJS 15.11.0
         uses: actions/setup-node@v2
         with:
           node-version: "15.11.0"
 
       # CACHE NODE MODULES
-      - name: Cache node modules
+      - name: CACHE node modules
         uses: actions/cache@v2
         with:
           path: |
@@ -46,13 +46,13 @@ jobs:
             ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
       # INSTALL PACKAGES
-      - name: Install Packages
+      - name: INSTALL Packages
         run: |
           yarn install --prefer-offline --frozen-lockfile
           git status
 
       # NPM AUTHENTICATION
-      - name: Authenticate with Registry
+      - name: AUTHENTICATE with NPM registry
         run: |
           yarn logout
           echo "registry=http://registry.npmjs.org/" >> .npmrc
@@ -61,18 +61,19 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      # SMOKE TESTS
+      - name: EXECUTE Smoke Tests
+        run: |
+          yarn sb-react-mark --smoke-test
+          yarn sb-react-mark-docs --smoke-test
+
       # AVOID COMMITTING .npmrc file
-      - name: Avoid committing .npmrc file
+      - name: AVOID committing .npmrc file
         run: |
           git status
           git update-index --assume-unchanged .npmrc
 
-      # ADD ssh-key
-      # - name: Add SSH KEY
-      #   run: |
-      #     echo ${}
-
-      - name: Publish package
+      - name: PUBLISH package
         # run: lerna publish --yes --message 'chore: release new versions'
         run: |
           yarn lerna publish --conventional-commits --no-verify-access -y --message "chore(release): publish %s [skip ci]"
