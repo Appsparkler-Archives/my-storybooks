@@ -11,7 +11,7 @@ jobs:
       - name: CHECKOUT REPOSITORY
         uses: actions/checkout@v2
         with:
-          ssh-key: ${{ GH_SSH_KEY }}
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
 
       - name: INSTALL DEPENDENCIES
         run: |
