@@ -37,4 +37,5 @@ jobs:
       - name: PUSH 2 appsparkler.github.io
         run: |
           cd appsparkler.github.io
+          git status
           git diff-index --quiet HEAD || git commit -am "react-mark-js docs" || git push origin HEAD --quiet
