@@ -50,10 +50,10 @@ jobs:
           cd appsparkler.github.io
           # git remote add origin https://github.com/appsparkler/appsparkler.github.io.git
           # git remote show origin
+          git checkout master
           git pull origin master
-          git status
           git add .
-          git diff-index --quiet HEAD || git commit -am "react-mark-js docs" || git push origin HEAD --quiet
+          git diff-index --quiet HEAD || git commit -am "react-mark-js docs" || git push origin master --quiet
 
         env:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
