@@ -6,8 +6,13 @@ jobs:
   publish-react-mark-docs:
     name: "Publish React Mark JS Docs"
     runs-on: ubuntu-latest
-    if: "contains(${{github.event.commits.*.message}}, 'publish react-mark-js docs')"
+    # if: "contains(${{github.event.commits.*.message}}, 'publish react-mark-js docs')"
     steps:
+      - name: CHECKOUT appsparkler.github.io
+        uses: actions/checkout@v2
+          with: 
+            name: appsparkler/appsparkler.github.io
+            GITHUB_WORKSPACE: ${{github.workspaces}}/appsparkler.github.io
       - name: CHECKOUT REPOSITORY
         uses: actions/checkout@v2
         with:
