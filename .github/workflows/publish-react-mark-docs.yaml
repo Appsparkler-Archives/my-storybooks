@@ -1,0 +1,10 @@
+name: Chromatic
+
+on: push
+
+jobs:
+  publish-react-mark-docs:
+    - name: Publish React Mark JS Docs
+      runs-on: ubuntu-latest
+      run: |
+        echo "${{toJSON(github.event)}}"
