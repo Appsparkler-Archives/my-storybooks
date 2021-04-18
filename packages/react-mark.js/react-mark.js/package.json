@@ -1,10 +1,24 @@
 {
   "name": "react-mark.js",
-  "version": "3.1.13",
+  "version": "3.1.14",
   "main": "./index.js",
   "license": "MIT",
   "author": "Aakash Shah <subs@appsparkler.com> (https://www.appsparkler.com)",
-  "keywords": ["react", "marker", "mark.js", "markjs", "mark", "highlight", "highlighter", "search", "text", "keyword", "component", "components", "library"],
+  "keywords": [
+    "react",
+    "marker",
+    "mark.js",
+    "markjs",
+    "mark",
+    "highlight",
+    "highlighter",
+    "search",
+    "text",
+    "keyword",
+    "component",
+    "components",
+    "library"
+  ],
   "devDependencies": {
     "mark.js": "^8.11.1",
     "prop-types": "^15.7.2",
