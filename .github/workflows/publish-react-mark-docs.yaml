@@ -27,7 +27,7 @@ jobs:
 
       - name: BUILD React Mark JS Docs
         run: |
-          yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o docs/react-mark-js
+          yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o ../appsparkler.github.io/docs/react-mark.js
 
       - name: MOVE docs
         run: |
@@ -37,6 +37,8 @@ jobs:
       - name: Initialize Git in appsparkler.github.io
         run: |
           cd appsparkler.github.io
+          ls docs
+          ls docs/react-mark-js
           git init
 
       - name: Configure CI Git User
@@ -49,10 +51,9 @@ jobs:
           echo $PWD
           cd appsparkler.github.io
           # git remote add origin https://github.com/appsparkler/appsparkler.github.io.git
-          # git remote show origin
-          git checkout master
-          git pull origin master
-          git add .
+          git remote show origin
+          git commit -am "react-mark-js docs" 
+          git push origin master --quiet
           git diff-index --quiet HEAD || git commit -am "react-mark-js docs" || git push origin master --quiet
 
         env:
