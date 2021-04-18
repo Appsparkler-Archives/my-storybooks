@@ -1,12 +1,15 @@
 # My Storybooks
 
-A Storybook for component libraries I'm developing.
+A Storybook for React component libraries I develop.
 
 ## Contents
 
 1. [Getting Started](#getting-started)
-1. [react-mark.js Storybook](#react-mark-js-storybook)
-1. [Starting The Storybook](#starting-the-react-markjs-storybook)
+1. [`react-mark.js`](#react-mark-js)
+   1. [Start Storybook](#starting-the-react-markjs-docs-server)
+   1. [Start Docs](#starting-the-react-markjs-docs-server)
+   1. [Build Storybook](#build-the-react-markjs-storybook)
+   1. [Build Docs](#build-the-react-mark-js-docs)
 
 ## Getting Started
 
@@ -19,19 +22,42 @@ git clone https://github.com/appsparkler/my-storybooks.git
 ### Install modules
 
 ```sh
-yarn --prefer-offline
+yarn
 ```
 
 <hr />
 
-## React Mark JS Storybook
+## React Mark JS
 
-### Starting the react-mark.js Storybook
+<img src="https://user-images.githubusercontent.com/12084821/115141060-0c5e3980-a058-11eb-8f6f-ccee78dd3858.png" width="100%"/>
+
+### Starting the `react-mark.js` Storybook Server
 
 ```sh
 yarn sb-react-mark
 ```
 
+### Starting the `react-mark.js` Docs Server
+
+```sh
+yarn sb-react-mark-docs
+```
+
+### Build the `react-mark.js` Storybook
+
+```sh
+yarn build-react-mark
+# outputs to ./storybooks
+```
+
+### Build the `react-mark-js` docs
+
+```sh
+yarn build-sb-react-mark-docs
+# outputs to ./docs
+```
+
+<!--
 ### Building the react-mark.js Storybook
 
 ```sh
@@ -83,3 +109,4 @@ yarn build-storybooks
 ```sh
 yarn serve-storybooks # will build and serve storybooks
 ```
+-->

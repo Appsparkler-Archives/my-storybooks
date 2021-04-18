@@ -3,11 +3,15 @@
   "version": "3.1.13",
   "main": "./index.js",
   "license": "MIT",
+  "author": "Aakash Shah <subs@appsparkler.com> (https://www.appsparkler.com)",
+  "keywords": ["react", "marker", "mark.js", "markjs", "mark", "highlight", "highlighter", "search", "text", "keyword", "component", "components", "library"],
   "devDependencies": {
     "mark.js": "^8.11.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1"
   },
+  "homepage": "https://www.appsparkler.com/docs/react-mark-js/?path=/docs/introduction--single-string",
+  "repository": "https://github.com/appsparkler/my-storybooks",
   "peerDependencies": {
     "mark.js": "^8.11.1",
     "prop-types": "^15.7.2",
