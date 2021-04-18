@@ -12,21 +12,25 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: appsparkler/appsparkler.github.io
-          path: ${{github.workspaces}}/appsparkler.github.io
-
-      - name: CHECKOUT REPOSITORY
-        uses: actions/checkout@v2
-        with:
-          ssh-key: ${{ secrets.GH_SSH_KEY }}
-
-      - name: INSTALL DEPENDENCIES
-        run: |
-          yarn
-
-      - name: BUILD DOCS
-        run: |
-          yarn build-storybook -c .storybook/react-mark.js/docs --docs -o react-mark-js-docs
+          path: ${{github.workspaces}}/../appsparkler.github.io
 
       - name: CHECK
         run: |
-          ls react-mark-js-docs
+          ls
+
+      # - name: CHECKOUT REPOSITORY
+      #   uses: actions/checkout@v2
+      #   with:
+      #     ssh-key: ${{ secrets.GH_SSH_KEY }}
+
+      # - name: INSTALL DEPENDENCIES
+      #   run: |
+      #     yarn
+
+      # - name: BUILD DOCS
+      #   run: |
+      #     yarn build-storybook -c .storybook/react-mark.js/docs --docs -o react-mark-js-docs
+
+      # - name: CHECK
+      #   run: |
+      #     ls react-mark-js-docs
