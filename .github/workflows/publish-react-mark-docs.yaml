@@ -7,7 +7,6 @@ jobs:
     name: "Publish React Mark JS Docs"
     runs-on: ubuntu-latest
     steps:
-      testing-new-workflow:
-        - name: Testing New Workflow
-          run: |
-            echo "${{toJSON(github.event)}}"
+      - name: Testing New Workflow
+        run: |
+          echo "${{toJSON(github.event)}}"
