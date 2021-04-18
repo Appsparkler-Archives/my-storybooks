@@ -13,6 +13,7 @@ jobs:
         with:
           repository: appsparkler/appsparkler.github.io
           path: appsparkler.github.io
+          ssh-key: ${{ secrets.GH_SSK_KEY }}
 
       - name: CHECK
         run: |
