@@ -27,7 +27,7 @@ jobs:
 
       - name: BUILD React Mark JS Docs
         run: |
-          yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o ../appsparkler.github.io/docs/react-mark.js
+          yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o ../appsparkler.github.io/docs/react-mark-js
 
       # - name: MOVE docs
       #   run: |
