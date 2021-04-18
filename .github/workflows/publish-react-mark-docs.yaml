@@ -6,7 +6,7 @@ jobs:
   publish-react-mark-docs:
     name: "Publish React Mark JS Docs"
     runs-on: ubuntu-latest
-    if: contains(github.event.commits.*.message, 'publish')
+    if: "contains(github.event.commits.*.message, 'publish')"
     steps:
       - name: Testing New Workflow
         run: |
