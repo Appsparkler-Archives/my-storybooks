@@ -50,14 +50,8 @@ jobs:
           # git remote show origin
           git pull origin master
           git status
+          git diff-index --quiet HEAD || git commit -am "react-mark-js docs" || git push origin HEAD --quiet
+
         env:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
           token: ${{ secrets.GH_ADMIN_TOKEN }}
-
-      #     ls appsparkler.github.io/docs
-
-      # - name: PUSH 2 appsparkler.github.io
-      #   run: |
-      #     cd appsparkler.github.io
-      #     git status
-      #     git diff-index --quiet HEAD || git commit -am "react-mark-js docs" || git push origin HEAD --quiet
