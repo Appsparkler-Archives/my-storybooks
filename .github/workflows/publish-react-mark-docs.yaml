@@ -24,7 +24,7 @@ jobs:
       - name: TEST COPYING
         run: |
           mv my-storybooks/.storybook appsparkler.github.io/
-
+          ls appsparkler.github.io
       # - name: INSTALL DEPENDENCIES
       #   run: |
       #     yarn --cwd my-storybooks
