@@ -30,6 +30,8 @@ jobs:
           git remote show origin
           git pull origin master
           git status
+        env:
+          ssh-key: ${{secrets.GH_SSH_KEY}}
 
       # - name: INSTALL DEPENDENCIES
       #   run: |
