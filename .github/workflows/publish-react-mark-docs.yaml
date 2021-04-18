@@ -40,7 +40,7 @@ jobs:
           git status
         env:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
-          token: ${{ GH_ADMIN_TOKEN }}
+          token: ${{ secrets.GH_ADMIN_TOKEN }}
 
       # - name: INSTALL DEPENDENCIES
       #   run: |
