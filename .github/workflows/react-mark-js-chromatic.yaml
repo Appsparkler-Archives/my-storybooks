@@ -1,4 +1,4 @@
-name: Chromatic
+name: React Mark JS Chromatic
 
 on:
   pull_request:

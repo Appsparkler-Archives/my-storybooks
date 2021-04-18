@@ -1,4 +1,4 @@
-name: React Mark JS Publish
+name: Publish React Mark JS NPM package
 
 on:
   push:
