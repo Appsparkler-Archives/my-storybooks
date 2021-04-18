@@ -1,12 +1,15 @@
 name: Publish React Mark JS Docs
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   publish-react-mark-docs:
     name: "PUBLISH React Mark JS Docs"
     runs-on: ubuntu-latest
-    # if: "contains(${{github.event.commits.*.message}}, 'publish react-mark-js docs')"
+    if: "contains(${{github.event.commits.*.message}}, 'publish react-mark-js docs')"
     steps:
       - name: CHECKOUT appsparkler.github.io
         uses: actions/checkout@v2
@@ -28,11 +31,6 @@ jobs:
       - name: BUILD React Mark JS Docs
         run: |
           yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o ../appsparkler.github.io/docs/react-mark-js
-
-      # - name: MOVE docs
-      #   run: |
-      #     mkdir appsparkler.github.io/docs
-      #     mv my-storybooks/docs/react-mark-js appsparkler.github.io/docs/
 
       - name: Initialize Git in appsparkler.github.io
         run: |
