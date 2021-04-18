@@ -15,23 +15,26 @@ jobs:
           path: appsparkler.github.io
           ssh-key: ${{ secrets.GH_SSK_KEY }}
 
-      - name: CHECK
+      - name: CHECKOUT REPOSITORY
+        uses: actions/checkout@v2
+        with:
+          path: my-storybooks
+          ssh-key: ${{ secrets.GH_SSH_KEY }}
+
+      - name: INSTALL DEPENDENCIES
         run: |
-          ls appsparkler.github.io
+          yarn --cwd my-storybooks
 
-      # - name: CHECKOUT REPOSITORY
-      #   uses: actions/checkout@v2
-      #   with:
-      #     ssh-key: ${{ secrets.GH_SSH_KEY }}
+      - name: BUILD DOCS
+        run: |
+          yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o docs/react-mark-js
 
-      # - name: INSTALL DEPENDENCIES
-      #   run: |
-      #     yarn
+      - name: COPY DOCS
+        run: |
+          mkdir appsparkler.github.io/docs
+          mv my-storybooks/docs/react-mark-js appsparkler.github.io/docs/
 
-      # - name: BUILD DOCS
-      #   run: |
-      #     yarn build-storybook -c .storybook/react-mark.js/docs --docs -o react-mark-js-docs
-
-      # - name: CHECK
-      #   run: |
-      #     ls react-mark-js-docs
+      - name: PUSH 2 appsparkler.github.io
+        run: |
+          cd appsparkler.github.io
+          git push origin HEAD
