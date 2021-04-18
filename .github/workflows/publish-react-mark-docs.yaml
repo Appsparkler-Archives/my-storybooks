@@ -21,10 +21,22 @@ jobs:
           path: my-storybooks
           ssh-key: ${{ secrets.GH_SSH_KEY }}
 
-      - name: Initialize Git on appsparkler.github.io
+      - name: INSTALL DEPENDENCIES
         run: |
-          mv my-storybooks/.storybook appsparkler.github.io/storybook-config
-          ls appsparkler.github.io/storybook-config
+          yarn --cwd my-storybooks
+
+      - name: BUILD React Mark JS Docs
+        run: |
+          yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o docs/react-mark-js
+
+      - name: MOVE DOCS
+        run: |
+          mkdir appsparkler.github.io/docs
+          mv my-storybooks/docs/react-mark-js appsparkler.github.io/docs/
+
+      - name: Initialize Git in appsparkler.github.io
+        run: |
+          cd appsparkler.github.io
           git init
 
       - name: Configure CI Git User
@@ -42,18 +54,6 @@ jobs:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
           token: ${{ secrets.GH_ADMIN_TOKEN }}
 
-      # - name: INSTALL DEPENDENCIES
-      #   run: |
-      #     yarn --cwd my-storybooks
-
-      # - name: BUILD React Mark JS Docs
-      #   run: |
-      #     yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o docs/react-mark-js
-
-      # - name: COPY DOCS
-      #   run: |
-      #     mkdir appsparkler.github.io/docs
-      #     mv my-storybooks/docs/react-mark-js appsparkler.github.io/docs/
       #     ls appsparkler.github.io/docs
 
       # - name: PUSH 2 appsparkler.github.io
