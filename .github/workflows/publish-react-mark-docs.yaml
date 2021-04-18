@@ -16,7 +16,7 @@ jobs:
 
       - name: CHECK
         run: |
-          ls
+          ls appsparkler.github.io
 
       # - name: CHECKOUT REPOSITORY
       #   uses: actions/checkout@v2
