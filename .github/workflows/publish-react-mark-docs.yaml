@@ -11,8 +11,8 @@ jobs:
       - name: CHECKOUT appsparkler.github.io
         uses: actions/checkout@v2
         with:
-          name: appsparkler/appsparkler.github.io
-          GITHUB_WORKSPACE: ${{github.workspaces}}/appsparkler.github.io
+          repository: appsparkler/appsparkler.github.io
+          path: ${{github.workspaces}}/appsparkler.github.io
 
       - name: CHECKOUT REPOSITORY
         uses: actions/checkout@v2
