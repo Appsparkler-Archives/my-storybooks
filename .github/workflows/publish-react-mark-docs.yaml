@@ -29,10 +29,10 @@ jobs:
         run: |
           yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o ../appsparkler.github.io/docs/react-mark.js
 
-      - name: MOVE docs
-        run: |
-          mkdir appsparkler.github.io/docs
-          mv my-storybooks/docs/react-mark-js appsparkler.github.io/docs/
+      # - name: MOVE docs
+      #   run: |
+      #     mkdir appsparkler.github.io/docs
+      #     mv my-storybooks/docs/react-mark-js appsparkler.github.io/docs/
 
       - name: Initialize Git in appsparkler.github.io
         run: |
