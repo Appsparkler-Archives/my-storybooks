@@ -8,6 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     # if: "contains(${{github.event.commits.*.message}}, 'publish react-mark-js docs')"
     steps:
+      - name: Configure CI Git User
+        run: |
+          git config --global user.name '@appsparkler'
+          git config --global user.email 'appsparkler@users.noreply.github.com'
+          git remote set-url origin git@github.com:appsparkler/my-storybooks.git
+
       - name: CHECKOUT appsparkler.github.io
         uses: actions/checkout@v2
         with:
