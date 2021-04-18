@@ -12,7 +12,6 @@ jobs:
         run: |
           git config --global user.name '@appsparkler'
           git config --global user.email 'appsparkler@users.noreply.github.com'
-          git remote set-url origin git@github.com:appsparkler/my-storybooks.git
 
       - name: CHECKOUT appsparkler.github.io
         uses: actions/checkout@v2
