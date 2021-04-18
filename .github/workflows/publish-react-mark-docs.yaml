@@ -4,7 +4,7 @@ on: push
 
 jobs:
   publish-react-mark-docs:
-    name: "Publish React Mark JS Docs"
+    name: "PUBLISH React Mark JS Docs"
     runs-on: ubuntu-latest
     # if: "contains(${{github.event.commits.*.message}}, 'publish react-mark-js docs')"
     steps:
@@ -21,7 +21,7 @@ jobs:
           path: my-storybooks
           ssh-key: ${{ secrets.GH_SSH_KEY }}
 
-      - name: INSTALL DEPENDENCIES
+      - name: INSTALL dependencies
         run: |
           yarn --cwd my-storybooks
 
@@ -29,7 +29,7 @@ jobs:
         run: |
           yarn --cwd my-storybooks build-storybook -c .storybook/react-mark.js/docs --docs -o docs/react-mark-js
 
-      - name: MOVE DOCS
+      - name: MOVE docs
         run: |
           mkdir appsparkler.github.io/docs
           mv my-storybooks/docs/react-mark-js appsparkler.github.io/docs/
@@ -46,6 +46,8 @@ jobs:
 
       - name: PUSH to appsparkler.github.io
         run: |
+          echo $PWD
+          cd appsparkler.github.io
           git remote add origin https://github.com/appsparkler/appsparkler.github.io.git
           # git remote show origin
           git pull origin master
