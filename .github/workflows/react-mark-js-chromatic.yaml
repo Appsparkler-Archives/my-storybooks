@@ -50,7 +50,7 @@ jobs:
       # PULL
       - name: PULL from main
         run: |
-          git pull origin main
+          git pull origin main --no-rebase
 
       # INSTALL PACKAGES
       - name: Install Packages
