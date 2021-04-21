@@ -52,6 +52,11 @@ jobs:
         run: |
           yarn install --prefer-offline --frozen-lockfile
 
+      # PULL
+      - name: PULL from main
+        run: |
+          git pull origin main
+
       # COMMIT AND PUSH ANY CHANGES
       - name: Commit & Push
         run: |
