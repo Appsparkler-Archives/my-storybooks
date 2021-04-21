@@ -2,5 +2,10 @@
   "npmClient": "yarn",
   "packages": ["packages/**/*"],
   "version": "independent",
-  "conventionalCommits": true
+  "conventionalCommits": true,
+  "command": {
+    "publish": {
+      "ignoreChanges": ["**/node_modules/**", "**/CHANGELOG.md"]
+    }
+  }
 }
