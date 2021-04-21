@@ -51,7 +51,7 @@ jobs:
           # git remote add origin https://github.com/appsparkler/appsparkler.github.io.git
           git remote show origin
           git add docs
-          git commit -m "react-mark-js docs" 
+          git commit -m "react-mark-js docs" --quiet
           git push origin master --quiet
           git diff-index --quiet HEAD || git commit -am "react-mark-js docs" || git push origin master --quiet
 
