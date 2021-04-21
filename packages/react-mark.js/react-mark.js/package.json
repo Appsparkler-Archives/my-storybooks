@@ -19,11 +19,6 @@
     "components",
     "library"
   ],
-  "devDependencies": {
-    "mark.js": "^8.11.1",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1"
-  },
   "homepage": "https://www.appsparkler.com/docs/react-mark-js/?path=/docs/introduction--single-string",
   "repository": "https://github.com/appsparkler/my-storybooks",
   "peerDependencies": {
