@@ -26,5 +26,10 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1"
   },
+  "devDependencies": {
+    "mark.js": "^8.11.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1"
+  },
   "gitHead": "821d88af9d3478c2cbd633b075a36811663c532e"
 }
