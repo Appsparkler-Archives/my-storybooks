@@ -47,15 +47,19 @@ jobs:
       #     restore-keys: |
       #       ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
+      # PULL
+      - name: PULL from main
+        run: |
+          git pull origin main --no-rebase
+
       # INSTALL PACKAGES
       - name: Install Packages
         run: |
           yarn install --prefer-offline --frozen-lockfile
 
-      # PULL
-      - name: PULL from main
+      - name: Git Status
         run: |
-          git pull origin main
+          git status
 
       # COMMIT AND PUSH ANY CHANGES
       - name: Commit & Push
