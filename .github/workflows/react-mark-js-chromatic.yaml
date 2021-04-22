@@ -68,9 +68,9 @@ jobs:
         env:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
 
-       - name: Git Status
-        run: |
-          git status
+      - name: Git Status
+      run: |
+        git status
           
       # Has React Mark Changed
       - name: Lerna Changed Action Step
