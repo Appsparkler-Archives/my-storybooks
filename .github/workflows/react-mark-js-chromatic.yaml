@@ -68,6 +68,10 @@ jobs:
         env:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
 
+       - name: Git Status
+        run: |
+          git status
+          
       # Has React Mark Changed
       - name: Lerna Changed Action Step
         uses: ./.github/actions/lerna-changed-action # Uses an action in the root directory
