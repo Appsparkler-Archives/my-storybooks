@@ -69,12 +69,6 @@ jobs:
           yarn build-sb-react-mark
           yarn build-sb-react-mark-docs
 
-      # AVOID COMMITTING .npmrc file
-      - name: AVOID committing .npmrc file
-        run: |
-          git status
-          git update-index --assume-unchanged .npmrc
-
       - name: PUBLISH package
         # run: lerna publish --yes --message 'chore: release new versions'
         run: |
