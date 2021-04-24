@@ -1,0 +1,16 @@
+name: Testing Push Event
+
+on: 
+  push: "*"
+
+
+jobs:
+  test-job:
+    name: "Testing Conditional Execution"
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, "foo")
+    steps:
+
+      - name: Echo
+        run: |
+          echo "Yes Foo"
