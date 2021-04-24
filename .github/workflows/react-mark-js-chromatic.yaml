@@ -64,9 +64,14 @@ jobs:
       # COMMIT AND PUSH ANY CHANGES
       - name: Commit & Push
         run: |
-          git diff-index --quiet HEAD || git commit -am "chore: committing files after yarn install on CI [skip ci]" --quiet || git push origin ${{ github.head_ref }} --quiet
+          git commit -am "chore: committing files after yarn install on CI [skip ci]" --quiet --allow-empty 
+          git push origin ${{ github.head_ref }} --quiet
         env:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
+
+      - name: Git Status
+        run: |
+          git status
 
       # Has React Mark Changed
       - name: Lerna Changed Action Step
