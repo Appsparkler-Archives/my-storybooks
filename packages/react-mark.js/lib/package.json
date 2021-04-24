@@ -1,6 +1,6 @@
 {
   "name": "@react-mark.js/lib",
-  "version": "3.1.15",
+  "version": "3.1.16",
   "main": "./index.js",
   "license": "MIT",
   "module": "./src/index.js",
