@@ -64,8 +64,7 @@ jobs:
       # COMMIT AND PUSH ANY CHANGES
       - name: Commit & Push
         run: |
-          git add .
-          git commit -m "chore: committing files after yarn install on CI [skip ci]" --quiet --allow-empty 
+          git commit -am "chore: committing files after yarn install on CI [skip ci]" --quiet --allow-empty 
           git push origin ${{ github.head_ref }} --quiet
         env:
           ssh-key: ${{ secrets.GH_SSH_KEY }}
