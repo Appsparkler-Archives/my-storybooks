@@ -1,0 +1,8 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [".eslintrc"],
+            "url": "https://json.schemastore.org/eslintrc.json"
+        }
+    ]
+}
