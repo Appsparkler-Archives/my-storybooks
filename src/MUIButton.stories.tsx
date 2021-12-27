@@ -3,6 +3,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Typography from "@mui/material/Typography";
+import Radio from "@mui/material/Radio";
 import IconButton from "@mui/material/IconButton";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
@@ -23,24 +24,39 @@ export const HowAreYouFeeling = ({ value: $value, onChange }) => {
   const options = React.useMemo(() => ["like", "dislike"], []);
 
   return (
-    <Stack spacing={1} direction="column">
+    <Stack spacing={0} direction="column">
       <Typography variant="h5" component="div" gutterBottom>
         How are you?
       </Typography>
-      <Stack spacing={2} direction="row">
-        {map((value) => (
-          <IconButton
-            size="large"
-            aria-label="delete"
-            color={$value === value ? "primary" : undefined}
-            onClick={() => onChange(value)}
-          >
-            {value === "like" && <ThumbUpIcon />}
-            {value === "dislike" && <ThumbDownIcon />}
-          </IconButton>
+      <Stack spacing={0} direction="row">
+        {map<string, any>((value) => (
+          <Radio
+            key={value}
+            name="feeling"
+            value={value}
+            checked={value === $value}
+            icon={value === "like" ? <ThumbUpIcon /> : <ThumbDownIcon />}
+            checkedIcon={
+              value === "like" ? (
+                <ThumbUpIcon color="primary" />
+              ) : (
+                <ThumbDownIcon color="primary" />
+              )
+            }
+            onChange={(evt) => onChange(evt.target.value)}
+          />
         ))(options)}
       </Stack>
     </Stack>
+  );
+};
+
+export const NeedsList = () => {
+  return (
+    <Radio
+      icon={<ThumbUpIcon />}
+      checkedIcon={<ThumbUpIcon color="primary" />}
+    />
   );
 };
 
@@ -57,6 +73,7 @@ export const Template = () => {
           setState((prevState) => ({ ...prevState, feeling: value }))
         }
       />
+      <Typography variant="h4" children={feeling} />
     </Stack>
   );
 };
