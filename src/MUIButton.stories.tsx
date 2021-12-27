@@ -19,42 +19,44 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-
-export const Template = () => {
-  const [{ options, selectedValue }, setState] = React.useState({
-    selectedValue: undefined,
-    options: [
-      {
-        value: "like",
-      },
-      {
-        value: "dislike",
-      },
-    ],
-  });
+export const HowAreYouFeeling = ({ value: $value, onChange }) => {
+  const options = React.useMemo(() => ["like", "dislike"], []);
 
   return (
     <Stack spacing={1} direction="column">
       <Typography variant="h5" component="div" gutterBottom>
-          How are you feeling right now?
-        </Typography>
-        <Stack spacing={2} direction="row">
-      {map(({ value }) => (
-        <IconButton
-          size="large"
-          aria-label="delete"
-          color={selectedValue === value ? "primary" : undefined}
-          onClick={() =>
-            setState((prevState) => ({
-              ...prevState,
-              selectedValue: value,
-            }))
-          }
-        >
-          <ThumbUpIcon />
-        </IconButton>
-      ))(options)}
+        How are you?
+      </Typography>
+      <Stack spacing={2} direction="row">
+        {map((value) => (
+          <IconButton
+            size="large"
+            aria-label="delete"
+            color={$value === value ? "primary" : undefined}
+            onClick={() => onChange(value)}
+          >
+            {value === "like" && <ThumbUpIcon />}
+            {value === "dislike" && <ThumbDownIcon />}
+          </IconButton>
+        ))(options)}
       </Stack>
+    </Stack>
+  );
+};
+
+export const Template = () => {
+  const [{ feeling }, setState] = React.useState({
+    feeling: undefined,
+  });
+
+  return (
+    <Stack spacing={1} direction="column">
+      <HowAreYouFeeling
+        value={feeling}
+        onChange={(value) =>
+          setState((prevState) => ({ ...prevState, feeling: value }))
+        }
+      />
     </Stack>
   );
 };
