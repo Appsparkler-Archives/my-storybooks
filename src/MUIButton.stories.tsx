@@ -166,6 +166,24 @@ NeedAccordion.args = {
   onChange: console.log,
 };
 
+export const NeedAccordionExample = () => {
+  const [value, setValue] = React.useState({ need: undefined, subNeeds: [] });
+  const handleChange = React.useCallback((updatedNeed) => {
+    setValue(updatedNeed);
+  }, []);
+  return (
+    <NeedAccordion
+      value={value}
+      need="Autonomy"
+      subNeeds={[
+        "Choosing dreams/goals/values",
+        "Choosing plans for fulfilling ones dreams/goals/values",
+      ]}
+      onChange={setValue}
+    />
+  );
+};
+
 export const NeedsAccordion = ({ feeling }) => {
   if (!feeling) return <></>;
   const { metOrUnmet } = React.useMemo(() => {
