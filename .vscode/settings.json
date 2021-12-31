@@ -1,8 +1,13 @@
 {
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.enable": true,
+  "prettier.enable": true,
   "json.schemas": [
     {
       "fileMatch": [".eslintrc"],
       "url": "https://json.schemastore.org/eslintrc.json"
     }
-  ]
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
