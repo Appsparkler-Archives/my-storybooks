@@ -55,7 +55,13 @@ export const HowAreYouFeeling = ({ value: $value, onChange }) => {
   );
 };
 
-export const NeedAccordion = ({ id, need, subNeeds, value, onChange }) => {
+export const NeedAccordion = ({
+  id,
+  need,
+  subNeeds,
+  value = undefined,
+  onChange,
+}) => {
   const isIndeterminate = React.useMemo(() => {
     try {
       return (
@@ -84,26 +90,26 @@ export const NeedAccordion = ({ id, need, subNeeds, value, onChange }) => {
 
   const handleChangeNeed = React.useCallback(
     (evt) => {
-      const { value, checked } = evt.target;
+      const { value: $value, checked } = evt.target;
       onChange({
-        id: evt,
-        need: checked ? value : undefined,
-        subNeeds: checked ? subNeeds : [],
+        ...value,
+        need: checked ? $value : undefined
       });
     },
-    [subNeeds]
+    [subNeeds, value]
   );
 
   const handleChangeSubNeed = React.useCallback<CheckboxProps["onChange"]>(
     (evt, id) => {
+      const { subNeeds = [] } = value || {};
       const { value: $value, checked } = evt.target;
-      debugger;
+      const updatedSubNeeds = !checked
+        ? filter(($subNeed) => $subNeed !== $value)(subNeeds)
+        : [...subNeeds, $value];
       onChange({
         id,
-        need: value?.need,
-        subNeeds: !checked
-          ? filter(($subNeed) => $subNeed !== $value)(value?.subNeeds)
-          : [...value.subNeeds, $value],
+        need,
+        subNeeds: updatedSubNeeds,
       });
     },
     [value, subNeeds]
@@ -165,15 +171,12 @@ NeedAccordion.args = {
     "Choosing dreams/goals/values",
     "Choosing plans for fulfilling ones dreams/goals/values",
   ],
-  value: {
-    need: "Autonomy",
-    subNeeds: ["Choosing dreams/goals/values"],
-  },
+  value: undefined,
   onChange: console.log,
 };
 
-export const NeedAccordionExample = () => {
-  const [value, setValue] = React.useState([]);
+export const SingleNeedAccordionExample = () => {
+  const [value, setValue] = React.useState(null);
   const needsAndSubNeeds = React.useMemo(
     () => [
       {
@@ -196,29 +199,17 @@ export const NeedAccordionExample = () => {
     []
   );
 
-  const handleChange = React.useCallback((updatedNeed) => {
-    setValue((prevState) => {
-      return [
-        ...prevState,
-        ...(some(({ need }) => need === updatedNeed.need)(prevState)
-          ? [updatedNeed]
-          : [{}]),
-      ];
-    });
-  }, []);
-
   return (
-    <>
-      {map<any, any>(({ id, need, subNeeds }) => (
-        <NeedAccordion
-          id={id}
-          value={find(({ need: $need }) => $need === need)(value)}
-          need={need}
-          subNeeds={subNeeds}
-          onChange={handleChange}
-        />
-      ))(needsAndSubNeeds)}
-    </>
+    <NeedAccordion
+      value={value}
+      need={needsAndSubNeeds[0].need}
+      subNeeds={needsAndSubNeeds[0].subNeeds}
+      id={1}
+      onChange={(value) => {
+        alert(JSON.stringify(value));
+        setValue(value);
+      }}
+    />
   );
 };
 
