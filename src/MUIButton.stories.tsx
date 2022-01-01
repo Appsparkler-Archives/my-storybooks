@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Typography from "@mui/material/Typography";
 import Radio from "@mui/material/Radio";
-import Checkbox from "@mui/material/Checkbox";
+import Checkbox, { CheckboxProps } from "@mui/material/Checkbox";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -15,7 +15,8 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import map from "lodash/fp/map";
 import filter from "lodash/fp/filter";
-import { every, some } from "lodash/fp";
+import some from "lodash/fp/some";
+import find from "lodash/fp/find";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -54,7 +55,7 @@ export const HowAreYouFeeling = ({ value: $value, onChange }) => {
   );
 };
 
-export const NeedAccordion = ({ need, subNeeds, value, onChange }) => {
+export const NeedAccordion = ({ id, need, subNeeds, value, onChange }) => {
   const isIndeterminate = React.useMemo(() => {
     try {
       return (
@@ -85,6 +86,7 @@ export const NeedAccordion = ({ need, subNeeds, value, onChange }) => {
     (evt) => {
       const { value, checked } = evt.target;
       onChange({
+        id: evt,
         need: checked ? value : undefined,
         subNeeds: checked ? subNeeds : [],
       });
@@ -92,10 +94,12 @@ export const NeedAccordion = ({ need, subNeeds, value, onChange }) => {
     [subNeeds]
   );
 
-  const handleChangeSubNeed = React.useCallback(
-    (evt) => {
+  const handleChangeSubNeed = React.useCallback<CheckboxProps["onChange"]>(
+    (evt, id) => {
       const { value: $value, checked } = evt.target;
+      debugger;
       onChange({
+        id,
         need: value?.need,
         subNeeds: !checked
           ? filter(($subNeed) => $subNeed !== $value)(value?.subNeeds)
@@ -124,6 +128,7 @@ export const NeedAccordion = ({ need, subNeeds, value, onChange }) => {
               <Checkbox
                 value={need}
                 name="need"
+                data-id={id}
                 indeterminate={isIndeterminate}
                 checked={isChecked}
                 onChange={handleChangeNeed}
@@ -142,7 +147,7 @@ export const NeedAccordion = ({ need, subNeeds, value, onChange }) => {
                 <Checkbox
                   checked={getIsSubNeedChecked(subNeed)}
                   value={subNeed}
-                  onChange={handleChangeSubNeed}
+                  onChange={(evt) => handleChangeSubNeed(evt, id)}
                 />
               }
               label={subNeed}
@@ -154,6 +159,7 @@ export const NeedAccordion = ({ need, subNeeds, value, onChange }) => {
   );
 };
 NeedAccordion.args = {
+  id: 1,
   need: "Autonomy",
   subNeeds: [
     "Choosing dreams/goals/values",
@@ -167,20 +173,52 @@ NeedAccordion.args = {
 };
 
 export const NeedAccordionExample = () => {
-  const [value, setValue] = React.useState({ need: undefined, subNeeds: [] });
+  const [value, setValue] = React.useState([]);
+  const needsAndSubNeeds = React.useMemo(
+    () => [
+      {
+        id: 1,
+        need: "Autonomy",
+        subNeeds: [
+          "Choosing dreams/goals/values",
+          "Choosing plans for fulfilling ones dreams/goals/values",
+        ],
+      },
+      {
+        id: 2,
+        need: "Celebration",
+        subNeeds: [
+          "Celebrating the creation of life and dreams fulfilled",
+          "Celebrating losses: loved ones, dreams, etc. (mourning)",
+        ],
+      },
+    ],
+    []
+  );
+
   const handleChange = React.useCallback((updatedNeed) => {
-    setValue(updatedNeed);
+    setValue((prevState) => {
+      return [
+        ...prevState,
+        ...(some(({ need }) => need === updatedNeed.need)(prevState)
+          ? [updatedNeed]
+          : [{}]),
+      ];
+    });
   }, []);
+
   return (
-    <NeedAccordion
-      value={value}
-      need="Autonomy"
-      subNeeds={[
-        "Choosing dreams/goals/values",
-        "Choosing plans for fulfilling ones dreams/goals/values",
-      ]}
-      onChange={setValue}
-    />
+    <>
+      {map<any, any>(({ id, need, subNeeds }) => (
+        <NeedAccordion
+          id={id}
+          value={find(({ need: $need }) => $need === need)(value)}
+          need={need}
+          subNeeds={subNeeds}
+          onChange={handleChange}
+        />
+      ))(needsAndSubNeeds)}
+    </>
   );
 };
 
