@@ -17,6 +17,7 @@ import map from "lodash/fp/map";
 import filter from "lodash/fp/filter";
 import some from "lodash/fp/some";
 import find from "lodash/fp/find";
+import pipe from "lodash/fp/pipe";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -93,10 +94,45 @@ export const NeedAccordion = ({
       const { value: $value, checked } = evt.target;
       onChange({
         ...value,
-        need: checked ? $value : undefined
+        id,
+        ...(() => {
+          if (checked)
+            return {
+              need,
+              subNeeds,
+            };
+          if (value?.subNeeds?.length === subNeeds.length) {
+            return {
+              need: "",
+              subNeeds: [],
+            };
+          }
+          if (
+            value?.subNeeds?.length > 0 &&
+            value?.subNeeds?.length < subNeeds.length
+          ) {
+            return {
+              need,
+              subNeeds,
+            };
+          }
+          if (value?.subNeeds?.length === 0) {
+            return {
+              need: "",
+              subNeeds: [],
+            };
+          }
+          if (!value.subNeeds) {
+            return {
+              need: "",
+              subNeeds: [],
+            };
+          }
+        })(),
+        // subNeeds: checked ? subNeeds : [],
       });
     },
-    [subNeeds, value]
+    [need, subNeeds, value]
   );
 
   const handleChangeSubNeed = React.useCallback<CheckboxProps["onChange"]>(
@@ -211,6 +247,45 @@ export const SingleNeedAccordionExample = () => {
       }}
     />
   );
+};
+
+export const MulipleNeedsAccordionExample = () => {
+  const [value, setValue] = React.useState([]);
+
+  const needsAndSubNeeds = React.useMemo(
+    () => [
+      {
+        id: 1,
+        need: "Autonomy",
+        subNeeds: ["Autonomy 1", "Autonomy 2"],
+      },
+      {
+        id: 2,
+        need: "Celebration",
+        subNeeds: ["Celebration 1", "Celebration 2"],
+      },
+    ],
+    []
+  );
+
+  const handleChange = React.useCallback(({ id, need, subNeeds }) => {
+    setValue((prevValue) => {
+      return [
+        ...pipe(filter(({ id: $id }) => $id !== id))(prevValue),
+        { id, need, subNeeds },
+      ];
+    });
+  }, []);
+
+  return map(({ id, need, subNeeds }) => (
+    <NeedAccordion
+      id={id}
+      need={need}
+      subNeeds={subNeeds}
+      value={find(({ id: $id, need, subNeed }) => $id === id)(value)}
+      onChange={handleChange}
+    />
+  ))(needsAndSubNeeds);
 };
 
 export const NeedsAccordion = ({ feeling }) => {
