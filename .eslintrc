@@ -6,7 +6,7 @@
       "configFile": "./.eslint.babel-config.js"
     }
   },
-  "extends": ["google", "plugin:react/all", "prettier"],
+  "extends": ["google", "plugin:react/recommended", "prettier"],
   "rules": {},
   "ignorePatterns": ["*.svg"]
 }

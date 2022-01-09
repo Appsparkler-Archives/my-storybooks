@@ -435,7 +435,7 @@ export const Template = () => {
 
   return (
     <Stack spacing={1} direction="column">
-      <pre>{JSON.stringify({ feeling, listOfFeelings }, null, 2)}</pre>
+      <pre>{JSON.stringify({ feeling, listOfFeelings, needs }, null, 2)}</pre>
       <HowAreYouFeeling value={feeling} onChange={handleChangeGeneralFeeling} />
       <FeelingsList
         feeling={feeling}
@@ -446,7 +446,9 @@ export const Template = () => {
         <NeedsAccordion
           metOrUnmet={metOrUnmet}
           value={needs}
-          onChange={console.log}
+          onChange={(value) =>
+            setState((prevState) => ({ ...prevState, needs: value }))
+          }
         />
       )}
     </Stack>
