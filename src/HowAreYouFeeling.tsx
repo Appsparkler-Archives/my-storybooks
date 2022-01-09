@@ -11,15 +11,15 @@ export enum FeelingEnum {
   DISLIKE = "dislike",
 }
 
-export type HowAreYouFeelingProps = {
+export interface HowAreYouFeelingProps {
   value: FeelingEnum;
   onChange: (feeling: FeelingEnum) => void;
-};
+}
 
 export const HowAreYouFeeling: React.FC<HowAreYouFeelingProps> = ({
   value,
   onChange,
-}) => {
+}: HowAreYouFeelingProps) => {
   const handleChange = useCallback<RadioProps["onChange"]>((evt) => {
     onChange(evt.target.value as FeelingEnum);
   }, []);

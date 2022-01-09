@@ -1,4 +1,4 @@
-import { ComponentMeta } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { useCallback, useState } from "react";
 import {
@@ -10,9 +10,9 @@ import {
 export default {
   title: "NVC App",
   component: HowAreYouFeeling,
-};
+} as ComponentMeta<typeof HowAreYouFeeling>;
 
-const Template = () => {
+const Template: ComponentStory<typeof HowAreYouFeeling> = () => {
   const [value, setValue] = useState<FeelingEnum>(undefined);
   const handleChange = useCallback<HowAreYouFeelingProps["onChange"]>(
     (value) => {
