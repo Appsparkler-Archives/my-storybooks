@@ -21,7 +21,7 @@ import pipe from "lodash/fp/pipe";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Example/MUI Button",
+  title: "NVC App",
   component: Button,
 } as ComponentMeta<typeof Button>;
 
@@ -290,67 +290,48 @@ export const MulipleNeedsAccordionExample = () => {
   ))(needsAndSubNeeds);
 };
 
-export const NeedsAccordion = ({ feeling }) => {
-  if (!feeling) return <></>;
-  const { metOrUnmet } = React.useMemo(() => {
+export const NeedsAccordion = ({ feeling, onChange }) => {
+  const { metOrUnmet, needsAndSubNeeds } = React.useMemo(() => {
     return {
       metOrUnmet: feeling === "like" ? "met" : "unmet",
+      needsAndSubNeeds: [
+        {
+          id: 1,
+          need: "Autonomy",
+          subNeeds: [
+            "Choosing dreams/goals/values",
+            "Choosing plans for fulfilling ones dreams/goals/values",
+          ],
+        },
+        {
+          id: 2,
+          need: "Celebration",
+          subNeeds: [
+            "Celebrating the creation of life and dreams fulfilled",
+            "Celebrating losses: loved ones, dreams, etc. (mourning)",
+          ],
+        },
+      ],
     };
   }, [feeling]);
+  const [value, setValue] = React.useState([]);
+
+  if (!feeling) return <></>;
   return (
     <div>
       <Typography variant="h5">
         Which needs was {metOrUnmet} that makes you feel the way you do?
       </Typography>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-          sx={{
-            marginY: 0,
-            ".MuiAccordionSummary-content": {
-              marginY: 0,
-            },
-          }}
-        >
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox defaultChecked />}
-              label="Autonomy"
-            />
-          </FormGroup>
-        </AccordionSummary>
-        <AccordionDetails>
-          <FormGroup sx={{ marginLeft: 4 }}>
-            {map<string, any>((subneed) => (
-              <FormControlLabel
-                key={subneed}
-                control={<Checkbox />}
-                label={subneed}
-              />
-            ))([
-              "Choosing dreams/goals/values",
-              "Choosing plans for fulfilling ones dreams/goals/values",
-            ])}
-          </FormGroup>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>Accordion 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      {map(({ need, subNeeds, id }) => (
+        <NeedAccordion
+          id={id}
+          key={`${need}-${id}`}
+          subNeeds={subNeeds}
+          need={need}
+          value={value}
+          onChange={onChange}
+        />
+      ))(needsAndSubNeeds)}
     </div>
   );
 };
@@ -446,6 +427,7 @@ export const Template = () => {
       listOfFeelings: [], //reset list of feelings
     }));
   }, []);
+
   return (
     <Stack spacing={1} direction="column">
       <pre>{JSON.stringify({ feeling, listOfFeelings }, null, 2)}</pre>
@@ -455,9 +437,9 @@ export const Template = () => {
         listOfFeelings={listOfFeelings}
         onChange={handleChangeFeelings}
       />
-      <NeedsAccordion feeling={feeling} />
+      <NeedsAccordion feeling={feeling} onChange={console.log} />
     </Stack>
   );
 };
 
-export const exampleButton = Template.bind({});
+export const Example = Template.bind({});
