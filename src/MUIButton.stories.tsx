@@ -290,10 +290,9 @@ export const MulipleNeedsAccordionExample = () => {
   ))(needsAndSubNeeds);
 };
 
-export const NeedsAccordion = ({ feeling, onChange }) => {
-  const { metOrUnmet, needsAndSubNeeds } = React.useMemo(() => {
+export const NeedsAccordion = ({ metOrUnmet, value, onChange }) => {
+  const { needsAndSubNeeds } = React.useMemo(() => {
     return {
-      metOrUnmet: feeling === "like" ? "met" : "unmet",
       needsAndSubNeeds: [
         {
           id: 1,
@@ -313,10 +312,8 @@ export const NeedsAccordion = ({ feeling, onChange }) => {
         },
       ],
     };
-  }, [feeling]);
-  const [value, setValue] = React.useState([]);
+  }, []);
 
-  if (!feeling) return <></>;
   return (
     <div>
       <Typography variant="h5">
@@ -408,9 +405,10 @@ export const FeelingsList = ({
 };
 
 export const Template = () => {
-  const [{ feeling, listOfFeelings }, setState] = React.useState({
+  const [{ feeling, listOfFeelings, needs }, setState] = React.useState({
     feeling: undefined,
     listOfFeelings: [],
+    needs: [],
   });
 
   const handleChangeFeelings = React.useCallback((newFeelings) => {
@@ -428,6 +426,13 @@ export const Template = () => {
     }));
   }, []);
 
+  const { metOrUnmet, showNeeds } = React.useMemo(() => {
+    return {
+      showNeeds: Boolean(feeling && listOfFeelings.length),
+      metOrUnmet: feeling === "like" ? "met" : "unmet",
+    };
+  }, [feeling, listOfFeelings]);
+
   return (
     <Stack spacing={1} direction="column">
       <pre>{JSON.stringify({ feeling, listOfFeelings }, null, 2)}</pre>
@@ -437,7 +442,13 @@ export const Template = () => {
         listOfFeelings={listOfFeelings}
         onChange={handleChangeFeelings}
       />
-      <NeedsAccordion feeling={feeling} onChange={console.log} />
+      {showNeeds && (
+        <NeedsAccordion
+          metOrUnmet={metOrUnmet}
+          value={needs}
+          onChange={console.log}
+        />
+      )}
     </Stack>
   );
 };
