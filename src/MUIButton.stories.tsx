@@ -89,9 +89,11 @@ export const NeedAccordion = ({
     [value]
   );
 
-  const handleChangeNeed = React.useCallback(
-    (evt) => {
-      const { value: $value, checked } = evt.target;
+  const handleChangeNeed = React.useCallback<CheckboxProps["onChange"]>(
+    (evt, checked) => {
+      evt.preventDefault();
+      evt.stopPropagation();
+      const { value: $value } = evt.target;
       onChange({
         ...value,
         id,
@@ -99,7 +101,7 @@ export const NeedAccordion = ({
           if (checked)
             return {
               need,
-              subNeeds,
+              subNeeds: value?.subNeeds || [],
             };
           if (value?.subNeeds?.length === subNeeds.length) {
             return {
