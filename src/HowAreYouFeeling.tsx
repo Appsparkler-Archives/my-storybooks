@@ -16,7 +16,7 @@ export interface HowAreYouFeelingProps {
   onChange: (feeling: FeelingEnum) => void;
 }
 
-export const HowAreYouFeeling: React.FC<HowAreYouFeelingProps> = ({
+export const HowAreYouFeeling = ({
   value,
   onChange,
 }: HowAreYouFeelingProps) => {
