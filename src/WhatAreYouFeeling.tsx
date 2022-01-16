@@ -51,6 +51,7 @@ export const WhatAreYouFeeling = ({
         <FormGroup>
           {map<string, any>((feeling) => (
             <FormControlLabel
+              key={feeling}
               label={feeling}
               control={
                 <Checkbox
