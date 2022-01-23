@@ -49,7 +49,7 @@ export const WhatAreYouFeeling = ({
       <Stack>
         <Typography variant="h5" children="What are you feeling?" />
         <FormGroup>
-          {map<string, any>((feeling) => (
+          {map<string, JSX.Element>((feeling) => (
             <FormControlLabel
               key={feeling}
               label={feeling}
