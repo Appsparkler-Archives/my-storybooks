@@ -1,4 +1,4 @@
-import Radio, { RadioProps } from "@mui/material/Radio/Radio";
+import Radio from "@mui/material/Radio";
 import Stack from "@mui/material/Stack/Stack";
 import map from "lodash/fp/map";
 import React, { useCallback } from "react";
@@ -17,7 +17,7 @@ export enum FeelingEnum {
 }
 
 export interface HowAreYouFeelingProps {
-  value: FeelingEnum;
+  value?: FeelingEnum;
   onChange: (feeling: FeelingEnum) => void;
   onClickNext: () => void;
 }
@@ -27,7 +27,9 @@ export const HowAreYouFeeling = ({
   onChange,
   onClickNext = noop,
 }: HowAreYouFeelingProps) => {
-  const handleChange = useCallback<RadioProps["onChange"]>(
+  const handleChange = useCallback<
+    (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void
+  >(
     (evt) => {
       onChange(evt.target.value as FeelingEnum);
     },
