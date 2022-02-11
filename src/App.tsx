@@ -1,4 +1,3 @@
-import Box from "@mui/material/Box";
 import React, { useCallback, useEffect, useState } from "react";
 import {
   FeelingEnum,
@@ -23,6 +22,9 @@ import {
   reduceNeedToNeedStatement,
 } from "./utils";
 import { goodFeelings, needs, notSoGoodFeelings } from "./data";
+import { Container, Typography } from "@mui/material";
+import ChatBubble from "@mui/icons-material/ChatBubble";
+import Favorite from "@mui/icons-material/Favorite";
 
 export type AppState = {
   feeling?: FeelingEnum;
@@ -151,45 +153,49 @@ export const App = () => {
   }, [activeStep, needAndSubNeeds, feelings, feeling]);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 2,
-      }}
-    >
-      <NVCStepper activeStep={activeStep} />
-      {activeStep === ActiveStep.HowAreYouFeeling && (
-        <HowAreYouFeeling
-          onChange={handleChangeFeeling}
-          onClickNext={onClickNextOnHowAreYouFeeling}
-          value={feeling}
-        />
-      )}
-      {activeStep === ActiveStep.WhatAreYouFeeling && (
-        <WhatAreYouFeeling
-          feelings={feelings}
-          onChangeFeelings={onChangeFeelings}
-          onClickNext={onClickNextWhatAreYouFeeling}
-          onClickPrev={onClickPrevWhatAreYouFeeling}
-        />
-      )}
-      {activeStep === ActiveStep.WhyAreYouFeeling && (
-        <NeedAndSubNeeds
-          id="need-and-sub-needs"
-          onChange={handleChangeNeedAndSubneeds}
-          onClickNext={handleOnClickNextNeedAndSubneeds}
-          onClickPrev={handleOnClickPrevNeedAndSubneeds}
-          value={needAndSubNeeds}
-        />
-      )}
-      {activeStep === ActiveStep.CompleteYourStatement && (
-        <CompleteYourStatement
-          onChange={handleChangeStatment}
-          onClickPrev={handleOnClickPrevCompleteYourStatement}
-          value={statement}
-        />
-      )}
-    </Box>
+    <>
+      <Container maxWidth={"xl"}>
+        <Typography align="center" variant="h4">
+          Heartful
+          <Favorite />
+          <ChatBubble />
+          Communication
+        </Typography>
+        <br />
+        <NVCStepper activeStep={activeStep} />
+        <br />
+        {activeStep === ActiveStep.HowAreYouFeeling && (
+          <HowAreYouFeeling
+            onChange={handleChangeFeeling}
+            onClickNext={onClickNextOnHowAreYouFeeling}
+            value={feeling}
+          />
+        )}
+        {activeStep === ActiveStep.WhatAreYouFeeling && (
+          <WhatAreYouFeeling
+            feelings={feelings}
+            onChangeFeelings={onChangeFeelings}
+            onClickNext={onClickNextWhatAreYouFeeling}
+            onClickPrev={onClickPrevWhatAreYouFeeling}
+          />
+        )}
+        {activeStep === ActiveStep.WhyAreYouFeeling && (
+          <NeedAndSubNeeds
+            id="need-and-sub-needs"
+            onChange={handleChangeNeedAndSubneeds}
+            onClickNext={handleOnClickNextNeedAndSubneeds}
+            onClickPrev={handleOnClickPrevNeedAndSubneeds}
+            value={needAndSubNeeds}
+          />
+        )}
+        {activeStep === ActiveStep.CompleteYourStatement && (
+          <CompleteYourStatement
+            onChange={handleChangeStatment}
+            onClickPrev={handleOnClickPrevCompleteYourStatement}
+            value={statement}
+          />
+        )}
+      </Container>
+    </>
   );
 };
