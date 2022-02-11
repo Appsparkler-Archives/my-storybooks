@@ -22,7 +22,7 @@ export const PrevNextAndRefresh = ({
     <IconButton
       type="button"
       aria-label="refresh"
-      size="large"
+      size="medium"
       onClick={onClickRefresh}
       sx={{ alignSelf: "center" }}
     >

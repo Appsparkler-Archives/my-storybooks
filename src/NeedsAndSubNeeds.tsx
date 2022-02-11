@@ -99,6 +99,7 @@ export const NeedAndSubNeeds = ({
         <SectionTitle leftSideChildren={prevNextAndRefresh}>
           What need of yours is met/unmet that makes you feel like that?
         </SectionTitle>
+        <br />
         <Grid container spacing={2}>
           {map<Need, JSX.Element>(({ id, checked, name, subNeeds }) => (
             <Grid item md={4} sm={6} xs={12} maxHeight="400">

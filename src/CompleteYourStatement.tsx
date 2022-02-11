@@ -1,5 +1,5 @@
 import Stack from "@mui/material/Stack/Stack";
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -34,7 +34,11 @@ export const CompleteYourStatement = ({
   );
   useEffect(() => {
     if (textAreaRef.current) {
+      const val = textAreaRef.current.value;
+
       textAreaRef.current.focus();
+      textAreaRef.current.value = "";
+      textAreaRef.current.value = val;
     }
   }, []);
 
@@ -44,24 +48,34 @@ export const CompleteYourStatement = ({
     navigator.clipboard.writeText(textAreaRef.current?.value || "");
   }, []);
 
+  const ctaButtons = useMemo<JSX.Element>(() => {
+    return (
+      <Box display={"flex"} gap={1}>
+        <Button
+          onClick={onClickPrev}
+          type="button"
+          sx={{ alignSelf: "center" }}
+        >
+          PREV
+        </Button>
+        <IconButton
+          size="medium"
+          type="button"
+          aria-label="refresh"
+          onClick={handleClickContentCopy}
+          sx={{ alignSelf: "center" }}
+        >
+          <ContentCopy />
+        </IconButton>
+      </Box>
+    );
+  }, [handleClickContentCopy, onClickPrev]);
+
   return (
     <Card sx={{ background: "#ffb74d" }}>
       <CardContent>
         <Stack direction="column" spacing={0}>
-          <SectionTitle
-            leftSideChildren={
-              <Box>
-                <IconButton
-                  size="large"
-                  type="button"
-                  aria-label="refresh"
-                  onClick={handleClickContentCopy}
-                >
-                  <ContentCopy />
-                </IconButton>
-              </Box>
-            }
-          >
+          <SectionTitle leftSideChildren={ctaButtons}>
             <span>Complete the statement with your observation</span>
           </SectionTitle>
           <TextareaAutosize
@@ -73,12 +87,7 @@ export const CompleteYourStatement = ({
           />
         </Stack>
       </CardContent>
-      <CardActions>
-        <Button onClick={onClickPrev}>PREV</Button>
-        <Button disabled={!value} onClick={onClickNext}>
-          NEXT
-        </Button>
-      </CardActions>
+      <CardActions>{ctaButtons}</CardActions>
     </Card>
   );
 };
