@@ -11,7 +11,8 @@ import {
 import {
   mapToUpdatedNeedsWithCheckedNeed,
   mapToUpdatedNeedsWithSubNeeds,
-  uncheckAllSubNeeds,
+  someNeedsAreChecked,
+  uncheckAllNeedsAndSubNeeds,
 } from "./utils";
 import Card from "@mui/material/Card";
 import {
@@ -27,7 +28,6 @@ import {
   PrevNextAndRefreshProps,
 } from "./PrevNextAndRefresh";
 import { useCallback, useMemo } from "react";
-import { some } from "lodash/fp";
 
 export type Need = {
   id: string;
@@ -74,16 +74,10 @@ export const NeedAndSubNeeds = ({
   const handleClickRefresh = useCallback<
     PrevNextAndRefreshProps["onClickRefresh"]
   >(() => {
-    const uncheckAllNeedsAndSubNeeds = map<Need, Need>((need) => ({
-      ...need,
-      checked: false,
-      subNeeds: uncheckAllSubNeeds(need.subNeeds),
-    }));
     onChange(uncheckAllNeedsAndSubNeeds(value), id);
   }, [id, onChange, value]);
 
   const isNextDisabled = useMemo<boolean>(() => {
-    const someNeedsAreChecked = some<Need>((need) => need.checked);
     return !someNeedsAreChecked(value);
   }, [value]);
 
@@ -108,7 +102,7 @@ export const NeedAndSubNeeds = ({
         <Grid container spacing={2}>
           {map<Need, JSX.Element>(({ id, checked, name, subNeeds }) => (
             <Grid item md={4} sm={6} xs={12} maxHeight="400">
-              <Paper>
+              <Paper sx={{ display: "block", height: "100%" }}>
                 <CardContent>
                   <FormGroup>
                     <FormControlLabel

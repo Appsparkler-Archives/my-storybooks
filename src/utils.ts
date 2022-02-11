@@ -16,6 +16,14 @@ export const uncheckAllFeelings = map<Feeling, Feeling>((feeling) => ({
   checked: false,
 }));
 
+export const uncheckAllNeedsAndSubNeeds = map<Need, Need>((need) => ({
+  ...need,
+  checked: false,
+  subNeeds: uncheckAllSubNeeds(need.subNeeds),
+}));
+
+export const someNeedsAreChecked = some<Need>((need) => need.checked);
+
 export const mapToUpdatedNeedsWithSubNeeds = (
   subNeeds: FormControlLabelItem[],
   needId: string
