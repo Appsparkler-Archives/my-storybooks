@@ -11,7 +11,7 @@ export const SectionTitle = ({
   children,
   leftSideChildren,
 }: SectionTitleProps) => (
-  <Box display={"flex"} justifyContent={"space-between"}>
+  <Box display={"flex"} justifyContent={"space-between"} alignItems={"center"}>
     <Typography component="div" gutterBottom variant="h5">
       {children}
     </Typography>

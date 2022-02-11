@@ -1,4 +1,3 @@
-import * as React from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
@@ -12,10 +11,10 @@ import {
 import {
   mapToUpdatedNeedsWithCheckedNeed,
   mapToUpdatedNeedsWithSubNeeds,
+  uncheckAllSubNeeds,
 } from "./utils";
 import Card from "@mui/material/Card";
 import {
-  Button,
   ButtonProps,
   CardActions,
   CardContent,
@@ -23,6 +22,11 @@ import {
   Typography,
 } from "@mui/material";
 import { SectionTitle } from "./SectionTitle";
+import {
+  PrevNextAndRefresh,
+  PrevNextAndRefreshProps,
+} from "./PrevNextAndRefresh";
+import { useCallback, useMemo } from "react";
 
 export type Need = {
   id: string;
@@ -35,8 +39,8 @@ export interface NeedsAndSubNeedsProps {
   id: string;
   value: Need[];
   onChange: (value: Need[], id: string) => void;
-  onClickPrev: ButtonProps["onClick"];
-  onClickNext: ButtonProps["onClick"];
+  onClickPrev: NonNullable<ButtonProps["onClick"]>;
+  onClickNext: NonNullable<ButtonProps["onClick"]>;
 }
 
 export const NeedAndSubNeeds = ({
@@ -46,7 +50,7 @@ export const NeedAndSubNeeds = ({
   value,
   id,
 }: NeedsAndSubNeedsProps) => {
-  const handleChangeNeed = React.useCallback<
+  const handleChangeNeed = useCallback<
     (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void
   >(
     (evt, checked) => {
@@ -59,17 +63,40 @@ export const NeedAndSubNeeds = ({
     [value, id, onChange]
   );
 
-  const handleChangeSubNeeds = React.useCallback<SubNeedsProps["onChange"]>(
+  const handleChangeSubNeeds = useCallback<SubNeedsProps["onChange"]>(
     (updatedSubNeeds, $id) => {
       onChange(mapToUpdatedNeedsWithSubNeeds(updatedSubNeeds, $id)(value), id);
     },
     [value, id, onChange]
   );
 
+  const handleClickRefresh = useCallback<
+    PrevNextAndRefreshProps["onClickRefresh"]
+  >(() => {
+    const uncheckAllNeedsAndSubNeeds = map<Need, Need>((need) => ({
+      ...need,
+      checked: false,
+      subNeeds: uncheckAllSubNeeds(need.subNeeds),
+    }));
+    onChange(uncheckAllNeedsAndSubNeeds(value), id);
+  }, [id, onChange, value]);
+
+  const prevNextAndRefresh = useMemo(
+    () => (
+      <PrevNextAndRefresh
+        onClickNext={onClickNext}
+        onClickPrev={onClickPrev}
+        onClickRefresh={handleClickRefresh}
+        isNextDisabled={!value}
+      />
+    ),
+    [handleClickRefresh, onClickNext, onClickPrev, value]
+  );
+
   return (
     <Card sx={{ bgcolor: "#ffcc80" }}>
       <CardContent>
-        <SectionTitle>
+        <SectionTitle leftSideChildren={prevNextAndRefresh}>
           What need of yours is met/unmet that makes you feel like that?
         </SectionTitle>
         <Grid container spacing={2}>
@@ -105,12 +132,7 @@ export const NeedAndSubNeeds = ({
           ))(value)}
         </Grid>
       </CardContent>
-      <CardActions>
-        <Button onClick={onClickPrev} type="button">
-          PREV
-        </Button>
-        <Button onClick={onClickNext}>NEXT</Button>
-      </CardActions>
+      <CardActions>{prevNextAndRefresh}</CardActions>
     </Card>
   );
 };
