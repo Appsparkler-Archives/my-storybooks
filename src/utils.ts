@@ -51,6 +51,17 @@ export const hasAtleastOneSubNeedChecked = (subNeeds: FormControlLabelItem[]) =>
   filter<FormControlLabelItem>((subNeed) => subNeed.checked)(subNeeds).length >
   0;
 
+export const getSubNeeds = (
+  checked: boolean,
+  need: Need,
+  $id: string
+): FormControlLabelItem[] => {
+  if ($id !== need.id) return need.subNeeds;
+  if (checked) return need.subNeeds;
+  if (!checked) return uncheckAllSubNeeds(need.subNeeds);
+  return [];
+};
+
 export const mapToUpdatedNeedsWithCheckedNeed = (
   checked: boolean,
   $id: string
@@ -58,12 +69,8 @@ export const mapToUpdatedNeedsWithCheckedNeed = (
   map<Need, Need>((need) => {
     return {
       ...need,
-      // checked: $id === need.id ? checked : need.checked,
-      // subNeeds: (() => {
-      //   if ($id !== need.id) return need.subNeeds;
-      //   if (checked) return need.subNeeds;
-      //   if (!checked) return uncheckAllSubNeeds(need.subNeeds);
-      // })(),
+      checked: $id === need.id ? checked : need.checked,
+      subNeeds: getSubNeeds(checked, need, $id),
     };
   });
 
