@@ -1,7 +1,7 @@
 import * as React from "react";
 import map from "lodash/fp/map";
 import FormControlLabel from "@mui/material/FormControlLabel/FormControlLabel";
-import Checkbox, { CheckboxProps } from "@mui/material/Checkbox/Checkbox";
+import Checkbox from "@mui/material/Checkbox/Checkbox";
 import { mapToRecheckedSubNeedValues as mapToRecheckedValues } from "./utils";
 import Grid, { GridTypeMap } from "@mui/material/Grid";
 

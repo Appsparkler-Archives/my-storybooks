@@ -1,8 +1,6 @@
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import { useCallback, useState } from "react";
-import { needs } from "./data";
 import { SectionTitle, SectionTitleProps } from "./SectionTitle";
 
 export default {
