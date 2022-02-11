@@ -9,6 +9,8 @@ import TextareaAutosize, {
   TextareaAutosizeProps,
 } from "@mui/material/TextareaAutosize";
 import noop from "lodash/fp/noop";
+import { Box, IconButton } from "@mui/material";
+import { ContentCopy } from "@mui/icons-material";
 
 export interface CompleteYourStatementProps {
   value?: string;
@@ -36,11 +38,30 @@ export const CompleteYourStatement = ({
     }
   }, []);
 
+  const handleClickContentCopy = useCallback<
+    NonNullable<ButtonProps["onClick"]>
+  >((evt) => {
+    navigator.clipboard.writeText(textAreaRef.current?.value || "");
+  }, []);
+
   return (
     <Card sx={{ background: "#ffb74d" }}>
       <CardContent>
         <Stack direction="column" spacing={0}>
-          <SectionTitle>
+          <SectionTitle
+            leftSideChildren={
+              <Box>
+                <IconButton
+                  size="large"
+                  type="button"
+                  aria-label="refresh"
+                  onClick={handleClickContentCopy}
+                >
+                  <ContentCopy />
+                </IconButton>
+              </Box>
+            }
+          >
             <span>Complete the statement with your observation</span>
           </SectionTitle>
           <TextareaAutosize
