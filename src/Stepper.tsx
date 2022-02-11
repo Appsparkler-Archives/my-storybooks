@@ -4,9 +4,10 @@ import Stack from "@mui/material/Stack";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import SettingsIcon from "@mui/icons-material/Settings";
-import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import VideoLabelIcon from "@mui/icons-material/VideoLabel";
+import HelpIcon from "@mui/icons-material/Help";
+import GroupAddIcon from "@mui/icons-material/Psychology";
+import VideoLabelIcon from "@mui/icons-material/Favorite";
+import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
@@ -69,10 +70,10 @@ function ColorlibStepIcon({
   className,
 }: StepIconProps) {
   const icons: { [index: string]: React.ReactElement } = {
-    1: <SettingsIcon />,
+    1: <HelpIcon />,
     2: <GroupAddIcon />,
     3: <VideoLabelIcon />,
-    4: <SettingsIcon />,
+    4: <ChatBubbleIcon />,
   };
 
   return (
@@ -86,7 +87,7 @@ function ColorlibStepIcon({
 }
 
 const steps = [
-  "How are you feeling?",
+  "How are you?",
   "What are you feeling?",
   "Which need is met?",
   "Complete your statement",
