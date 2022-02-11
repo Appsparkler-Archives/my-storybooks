@@ -12,7 +12,7 @@ import noop from "lodash/fp/noop";
 
 export interface CompleteYourStatementProps {
   value?: string;
-  onChange: TextareaAutosizeProps["onChange"];
+  onChange: NonNullable<TextareaAutosizeProps["onChange"]>;
   onClickNext?: ButtonProps["onClick"];
   onClickPrev?: ButtonProps["onClick"];
 }
@@ -41,10 +41,7 @@ export const CompleteYourStatement = ({
       <CardContent>
         <Stack direction="column" spacing={0}>
           <SectionTitle>
-            <span>
-              Please write something (for ex. your observation) to complete your
-              statement
-            </span>
+            <span>Complete the statement with your observation</span>
           </SectionTitle>
           <TextareaAutosize
             minRows={4}
