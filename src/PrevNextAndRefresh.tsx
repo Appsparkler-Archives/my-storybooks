@@ -1,15 +1,15 @@
 import IconButton from "@mui/material/IconButton";
 import RefreshIcon from "@mui/icons-material/Refresh";
-import { Box, Button } from "@mui/material";
+import { Box, Button, ButtonProps } from "@mui/material";
 import { FormControlLabelItem } from "./SubNeeds";
 
 export type Feeling = FormControlLabelItem;
 
 export type PrevNextAndRefreshProps = {
   isNextDisabled: boolean;
-  onClickRefresh: () => void;
-  onClickPrev: () => void;
-  onClickNext: () => void;
+  onClickRefresh: NonNullable<ButtonProps["onChange"]>;
+  onClickPrev: NonNullable<ButtonProps["onChange"]>;
+  onClickNext: NonNullable<ButtonProps["onChange"]>;
 };
 
 export const PrevNextAndRefresh = ({
