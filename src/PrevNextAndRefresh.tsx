@@ -8,7 +8,7 @@ export type Feeling = FormControlLabelItem;
 export type PrevNextAndRefreshProps = {
   isNextDisabled: boolean;
   onClickRefresh: NonNullable<ButtonProps["onChange"]>;
-  onClickPrev: NonNullable<ButtonProps["onChange"]>;
+  onClickPrev?: NonNullable<ButtonProps["onChange"]>;
   onClickNext: NonNullable<ButtonProps["onChange"]>;
 };
 
@@ -28,9 +28,11 @@ export const PrevNextAndRefresh = ({
     >
       <RefreshIcon fontSize="inherit" />
     </IconButton>
-    <Button type="button" onClick={onClickPrev} sx={{ alignSelf: "center" }}>
-      PREV
-    </Button>
+    {onClickPrev && (
+      <Button type="button" onClick={onClickPrev} sx={{ alignSelf: "center" }}>
+        PREV
+      </Button>
+    )}
     <Button
       type="button"
       onClick={onClickNext}

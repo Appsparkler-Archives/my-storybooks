@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import Radio from "@mui/material/Radio";
 import Stack from "@mui/material/Stack/Stack";
 import map from "lodash/fp/map";
@@ -7,9 +8,12 @@ import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import noop from "lodash/fp/noop";
 import { SectionTitle } from "./SectionTitle";
+import {
+  PrevNextAndRefresh,
+  PrevNextAndRefreshProps,
+} from "./PrevNextAndRefresh";
 
 export enum FeelingEnum {
   LIKE = "like",
@@ -18,7 +22,7 @@ export enum FeelingEnum {
 
 export interface HowAreYouFeelingProps {
   value?: FeelingEnum;
-  onChange: (feeling: FeelingEnum) => void;
+  onChange: (feeling: FeelingEnum | undefined) => void;
   onClickNext: () => void;
 }
 
@@ -35,15 +39,32 @@ export const HowAreYouFeeling = ({
     },
     [onChange]
   );
+  const handleClickRefresh = useCallback<
+    PrevNextAndRefreshProps["onClickRefresh"]
+  >(() => {
+    onChange(undefined);
+  }, [onChange]);
+
   const options = React.useMemo<FeelingEnum[]>(
     () => [FeelingEnum.LIKE, FeelingEnum.DISLIKE],
     []
+  );
+
+  const prevNextAndRefresh = useMemo(
+    () => (
+      <PrevNextAndRefresh
+        onClickNext={onClickNext}
+        onClickRefresh={handleClickRefresh}
+        isNextDisabled={!value}
+      />
+    ),
+    [handleClickRefresh, onClickNext, value]
   );
   return (
     <Card sx={{ background: "#fff59d" }}>
       <CardContent>
         <Stack direction="column" spacing={0}>
-          <SectionTitle>
+          <SectionTitle leftSideChildren={prevNextAndRefresh}>
             <span>How are you?</span>
           </SectionTitle>
           <Stack direction="row" spacing={0}>
@@ -73,11 +94,7 @@ export const HowAreYouFeeling = ({
           </Stack>
         </Stack>
       </CardContent>
-      <CardActions>
-        <Button disabled={!value} onClick={onClickNext}>
-          Next
-        </Button>
-      </CardActions>
+      <CardActions>{prevNextAndRefresh}</CardActions>
     </Card>
   );
 };
