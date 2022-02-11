@@ -7,20 +7,14 @@ import { Need } from "./NeedsAndSubNeeds";
 import { FormControlLabelItem, SubNeed } from "./SubNeeds";
 import { Feeling } from "./WhatAreYouFeeling";
 
-pipe(
-  (hello, baz) => {
-    return `${hello} world ${baz}`;
-  },
-  () => {
-    return 1;
-  },
-  () => {
-    return { foo: "bar" };
-  },
-  (abc) => {
-    return abc.foo;
-  }
-)({ foo: "bar" }, "baz");
+export const someFeelingsAreChecked = some<Feeling>(
+  (feeling) => feeling.checked
+);
+
+export const uncheckAllFeelings = map<Feeling, Feeling>((feeling) => ({
+  ...feeling,
+  checked: false,
+}));
 
 export const mapToUpdatedNeedsWithSubNeeds = (
   subNeeds: FormControlLabelItem[],

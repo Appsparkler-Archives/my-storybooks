@@ -43,7 +43,7 @@ export const FormControlLabels = ({
             control={
               <Checkbox checked={checked} onChange={handleChange} value={id} />
             }
-            key="id"
+            key={id}
             label={name}
           />
         </Grid>
