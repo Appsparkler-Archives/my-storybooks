@@ -27,6 +27,7 @@ import {
   PrevNextAndRefreshProps,
 } from "./PrevNextAndRefresh";
 import { useCallback, useMemo } from "react";
+import { some } from "lodash/fp";
 
 export type Need = {
   id: string;
@@ -81,16 +82,21 @@ export const NeedAndSubNeeds = ({
     onChange(uncheckAllNeedsAndSubNeeds(value), id);
   }, [id, onChange, value]);
 
+  const isNextDisabled = useMemo<boolean>(() => {
+    const someNeedsAreChecked = some<Need>((need) => need.checked);
+    return !someNeedsAreChecked(value);
+  }, [value]);
+
   const prevNextAndRefresh = useMemo(
     () => (
       <PrevNextAndRefresh
         onClickNext={onClickNext}
         onClickPrev={onClickPrev}
         onClickRefresh={handleClickRefresh}
-        isNextDisabled={!value}
+        isNextDisabled={isNextDisabled}
       />
     ),
-    [handleClickRefresh, onClickNext, onClickPrev, value]
+    [handleClickRefresh, isNextDisabled, onClickNext, onClickPrev]
   );
 
   return (
