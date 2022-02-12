@@ -10,7 +10,7 @@ import TextareaAutosize, {
 import noop from "lodash/fp/noop";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
-import { ContentCopy } from "@mui/icons-material";
+import ContentCopy from "@mui/icons-material/ContentCopy";
 import ArrowBackIos from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 
