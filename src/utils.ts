@@ -158,7 +158,7 @@ export const reduceNeedToNeedStatement = (needs: Need[]) =>
       if (!need.checked) return acc;
       const needStatment = `${need.name}${
         filterChecked(need.subNeeds).length > 0
-          ? `(${pipeSubNeedsObjectToString(need.subNeeds)})`
+          ? ` (${pipeSubNeedsObjectToString(need.subNeeds)})`
           : ""
       }`;
       if (acc === "") {
