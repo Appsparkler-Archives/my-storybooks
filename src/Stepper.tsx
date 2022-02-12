@@ -19,7 +19,7 @@ import { noop } from "lodash/fp";
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
-    top: 22,
+    top: 32,
   },
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
