@@ -163,7 +163,7 @@ export const App = () => {
 
   return (
     <>
-      <Container maxWidth={"xl"}>
+      <Container maxWidth={"xl"} sx={{ padding: 2 }}>
         <Box>
           <Typography
             align="center"
