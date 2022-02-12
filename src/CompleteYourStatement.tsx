@@ -96,7 +96,7 @@ export const CompleteYourStatement = ({
             minRows={4}
             onChange={onChange}
             ref={handleRef}
-            style={{ fontSize: 20, padding: 10 }}
+            style={{ fontSize: 20, padding: 10, backgroundColor: "white" }}
             value={value}
           />
         </Stack>
