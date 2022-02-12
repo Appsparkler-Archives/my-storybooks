@@ -12,6 +12,7 @@ import noop from "lodash/fp/noop";
 import { Box, IconButton } from "@mui/material";
 import { ContentCopy } from "@mui/icons-material";
 import ArrowBackIos from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 
 export interface CompleteYourStatementProps {
   value?: string;
@@ -68,9 +69,16 @@ export const CompleteYourStatement = ({
         >
           <ContentCopy />
         </IconButton>
+        <IconButton
+          onClick={onClickNext}
+          type="button"
+          sx={{ alignSelf: "center" }}
+        >
+          <ArrowForwardIos fontSize="small" />
+        </IconButton>
       </Box>
     );
-  }, [handleClickContentCopy, onClickPrev]);
+  }, [handleClickContentCopy, onClickPrev, onClickNext]);
 
   return (
     <Card
