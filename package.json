@@ -70,5 +70,6 @@
     "@types/lodash": "^4.14.178",
     "uuid": "^8.3.2",
     "webpack": "^5.68.0"
-  }
+  },
+  "homepage": "https://appsparkler.com/apps/hc-app"
 }
