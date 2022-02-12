@@ -11,6 +11,7 @@ import TextareaAutosize, {
 import noop from "lodash/fp/noop";
 import { Box, IconButton } from "@mui/material";
 import { ContentCopy } from "@mui/icons-material";
+import ArrowBackIos from "@mui/icons-material/ArrowBackIos";
 
 export interface CompleteYourStatementProps {
   value?: string;
@@ -51,13 +52,13 @@ export const CompleteYourStatement = ({
   const ctaButtons = useMemo<JSX.Element>(() => {
     return (
       <Box display={"flex"} gap={1}>
-        <Button
+        <IconButton
           onClick={onClickPrev}
           type="button"
           sx={{ alignSelf: "center" }}
         >
-          PREV
-        </Button>
+          <ArrowBackIos fontSize="small" />
+        </IconButton>
         <IconButton
           size="medium"
           type="button"
@@ -73,11 +74,11 @@ export const CompleteYourStatement = ({
 
   return (
     <Card sx={{ background: "#ffb74d" }}>
+      <CardActions sx={{ display: "flex", flexFlow: "row-reverse" }}>
+        {ctaButtons}
+      </CardActions>
       <CardContent>
         <Stack direction="column" spacing={0}>
-          <SectionTitle leftSideChildren={ctaButtons}>
-            <span>Complete the statement with your observation</span>
-          </SectionTitle>
           <TextareaAutosize
             minRows={4}
             onChange={onChange}

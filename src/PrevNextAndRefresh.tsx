@@ -2,6 +2,8 @@ import IconButton from "@mui/material/IconButton";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import { Box, Button, ButtonProps } from "@mui/material";
 import { FormControlLabelItem } from "./SubNeeds";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 export type Feeling = FormControlLabelItem;
 
@@ -19,6 +21,15 @@ export const PrevNextAndRefresh = ({
   onClickNext,
 }: PrevNextAndRefreshProps) => (
   <Box display="flex" gap={1}>
+    {onClickPrev && (
+      <IconButton
+        type="button"
+        onClick={onClickPrev}
+        sx={{ alignSelf: "center" }}
+      >
+        <ArrowBackIosIcon fontSize="small" />
+      </IconButton>
+    )}
     <IconButton
       type="button"
       aria-label="refresh"
@@ -28,19 +39,13 @@ export const PrevNextAndRefresh = ({
     >
       <RefreshIcon fontSize="inherit" />
     </IconButton>
-    {onClickPrev && (
-      <Button type="button" onClick={onClickPrev} sx={{ alignSelf: "center" }}>
-        PREV
-      </Button>
-    )}
-    <Button
+    <IconButton
       type="button"
       onClick={onClickNext}
-      variant="contained"
       sx={{ alignSelf: "center" }}
       disabled={isNextDisabled}
     >
-      NEXT
-    </Button>
+      <ArrowForwardIosIcon fontSize="small" />
+    </IconButton>
   </Box>
 );

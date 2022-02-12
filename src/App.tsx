@@ -22,9 +22,9 @@ import {
   reduceNeedToNeedStatement,
 } from "./utils";
 import { goodFeelings, needs, notSoGoodFeelings } from "./data";
-import { Container, Typography } from "@mui/material";
-import ChatBubble from "@mui/icons-material/ChatBubble";
-import Favorite from "@mui/icons-material/Favorite";
+import { Box, Container, Typography } from "@mui/material";
+import ChatBubble from "@mui/icons-material/ChatBubbleOutline";
+import Favorite from "@mui/icons-material/FavoriteBorder";
 
 export type AppState = {
   feeling?: FeelingEnum;
@@ -155,12 +155,25 @@ export const App = () => {
   return (
     <>
       <Container maxWidth={"xl"}>
-        <Typography align="center" variant="h4">
-          Heartful
-          <Favorite />
-          <ChatBubble />
-          Communication
-        </Typography>
+        <Box>
+          <Typography
+            align="center"
+            variant="h4"
+            sx={{
+              background:
+                "-webkit-linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)",
+              "-webkit-background-clip": "text",
+              "-webkit-text-fill-color": "transparent",
+              fontWeight: "bold",
+              opacity: ".8",
+            }}
+          >
+            Heartful
+            <Favorite />
+            <ChatBubble />
+            Communication
+          </Typography>
+        </Box>
         <br />
         <NVCStepper activeStep={activeStep} />
         <br />
