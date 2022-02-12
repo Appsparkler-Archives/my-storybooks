@@ -5,8 +5,8 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import HelpIcon from "@mui/icons-material/Help";
-import GroupAddIcon from "@mui/icons-material/Psychology";
-import VideoLabelIcon from "@mui/icons-material/Favorite";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import FavouriteIcon from "@mui/icons-material/Favorite";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import StepConnector, {
   stepConnectorClasses,
@@ -75,8 +75,8 @@ function ColorlibStepIcon({
 }: StepIconProps) {
   const icons: { [index: string]: React.ReactElement } = {
     1: <HelpIcon />,
-    2: <GroupAddIcon />,
-    3: <VideoLabelIcon />,
+    2: <FavouriteIcon />,
+    3: <PsychologyIcon />,
     4: <ChatBubbleIcon />,
   };
 
