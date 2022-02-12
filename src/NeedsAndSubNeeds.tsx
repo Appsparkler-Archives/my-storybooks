@@ -15,13 +15,11 @@ import {
   uncheckAllNeedsAndSubNeeds,
 } from "./utils";
 import Card from "@mui/material/Card";
-import {
-  ButtonProps,
-  CardActions,
-  CardContent,
-  Paper,
-  Typography,
-} from "@mui/material";
+import { ButtonProps } from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 import { SectionTitle } from "./SectionTitle";
 import {
   PrevNextAndRefresh,

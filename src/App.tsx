@@ -22,7 +22,9 @@ import {
   reduceNeedToNeedStatement,
 } from "./utils";
 import { goodFeelings, needs, notSoGoodFeelings } from "./data";
-import { Box, Container, Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 import ChatBubble from "@mui/icons-material/ChatBubbleOutline";
 import Favorite from "@mui/icons-material/FavoriteBorder";
 

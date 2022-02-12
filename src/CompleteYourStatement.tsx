@@ -3,13 +3,13 @@ import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button, { ButtonProps } from "@mui/material/Button";
-import { SectionTitle } from "./SectionTitle";
+import { ButtonProps } from "@mui/material/Button";
 import TextareaAutosize, {
   TextareaAutosizeProps,
 } from "@mui/material/TextareaAutosize";
 import noop from "lodash/fp/noop";
-import { Box, IconButton } from "@mui/material";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
 import { ContentCopy } from "@mui/icons-material";
 import ArrowBackIos from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";

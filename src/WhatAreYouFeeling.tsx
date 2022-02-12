@@ -1,7 +1,9 @@
 import { useCallback, useMemo } from "react";
 import { FormControlLabels, SubNeedsProps } from "./SubNeeds";
-import { SectionTitle } from "./SectionTitle";
-import { Card, CardActions, CardContent, IconButtonProps } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import { IconButtonProps } from "@mui/material/IconButton";
 import { FormControlLabelItem } from "./SubNeeds";
 import { someFeelingsAreChecked, uncheckAllFeelings } from "./utils";
 import { PrevNextAndRefresh } from "./PrevNextAndRefresh";
@@ -49,10 +51,10 @@ export const WhatAreYouFeeling = ({
           "linear-gradient( 95deg,rgba(242,113,33, .8) 0%,rgba(233,64,87,.8) 50%,rgba(138,35,135, .8) 100%)",
       }}
     >
+      <CardActions sx={{ flexFlow: "row-reverse" }}>
+        {leftSideChildren}
+      </CardActions>
       <CardContent>
-        <SectionTitle leftSideChildren={leftSideChildren}>
-          What are you feeling?
-        </SectionTitle>
         <FormControlLabels
           gridProps={{
             xs: 6,
@@ -64,6 +66,7 @@ export const WhatAreYouFeeling = ({
           id="what-are-you-feeling"
           onChange={onChangeFeelings}
           value={feelings}
+          whiteCheckboxes
         />
       </CardContent>
       <CardActions>{leftSideChildren}</CardActions>
