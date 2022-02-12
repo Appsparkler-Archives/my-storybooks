@@ -14,7 +14,7 @@ import StepConnector, {
 
 import { StepIconProps } from "@mui/material/StepIcon";
 import Typography, { TypographyProps } from "@mui/material/Typography";
-import { IconButton } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 import { noop } from "lodash/fp";
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({

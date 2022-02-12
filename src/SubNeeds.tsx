@@ -6,7 +6,7 @@ import { mapToRecheckedSubNeedValues as mapToRecheckedValues } from "./utils";
 import Grid, { GridTypeMap } from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import CheckboxIcon from "@mui/icons-material/CheckBox";
-import { CheckBoxOutlineBlank as CheckBoxOutlineBlankIcon } from "@mui/icons-material";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 
 export type SubNeed = FormControlLabelItem;
 
