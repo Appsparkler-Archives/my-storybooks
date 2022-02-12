@@ -90,20 +90,20 @@ function ColorlibStepIcon({
   );
 }
 
-const steps = [
-  "How are you?",
-  "What are you feeling?",
-  "Which need is met?",
-  "Complete your statement",
-];
+export enum NeedStatus {
+  MET = "met",
+  UNMET = "unmet",
+}
 
 export type NVCStepperProps = {
   activeStep: number;
   onClickStep?: (step: any) => void;
+  needStatus?: NeedStatus;
 };
 
 export const NVCStepper = ({
   activeStep = 0,
+  needStatus,
   onClickStep = noop,
 }: NVCStepperProps) => {
   const sx = React.useCallback<
@@ -115,6 +115,16 @@ export const NVCStepper = ({
       };
     },
     [activeStep]
+  );
+
+  const steps = React.useMemo(
+    () => [
+      "How are you?",
+      "What are you feeling?",
+      `Which need is ${needStatus ? needStatus : "__"}?`,
+      "Complete your statement",
+    ],
+    [needStatus]
   );
   return (
     <Stack spacing={4} sx={{ width: "100%" }}>
