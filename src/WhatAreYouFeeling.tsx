@@ -43,7 +43,12 @@ export const WhatAreYouFeeling = ({
     );
   }, [handleClickRefresh, isNextDisabled, onClickNext, onClickPrev]);
   return (
-    <Card sx={{ bgcolor: "#ffe082" }}>
+    <Card
+      sx={{
+        background:
+          "linear-gradient( 95deg,rgba(242,113,33, .8) 0%,rgba(233,64,87,.8) 50%,rgba(138,35,135, .8) 100%)",
+      }}
+    >
       <CardContent>
         <SectionTitle leftSideChildren={leftSideChildren}>
           What are you feeling?
