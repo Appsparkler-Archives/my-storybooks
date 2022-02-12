@@ -14,6 +14,8 @@ import StepConnector, {
 
 import { StepIconProps } from "@mui/material/StepIcon";
 import Typography, { TypographyProps } from "@mui/material/Typography";
+import { IconButton } from "@mui/material";
+import { noop } from "lodash/fp";
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -97,9 +99,13 @@ const steps = [
 
 export type NVCStepperProps = {
   activeStep: number;
+  onClickStep?: (step: any) => void;
 };
 
-export const NVCStepper = ({ activeStep = 0 }: NVCStepperProps) => {
+export const NVCStepper = ({
+  activeStep = 0,
+  onClickStep = noop,
+}: NVCStepperProps) => {
   const sx = React.useCallback<
     (currentStep: number) => NonNullable<TypographyProps["sx"]>
   >(
@@ -119,7 +125,13 @@ export const NVCStepper = ({ activeStep = 0 }: NVCStepperProps) => {
       >
         {steps.map((label, index) => (
           <Step key={label}>
-            <StepLabel StepIconComponent={ColorlibStepIcon}>
+            <StepLabel
+              StepIconComponent={(props) => (
+                <IconButton onClick={() => onClickStep(props)}>
+                  <ColorlibStepIcon {...props} />
+                </IconButton>
+              )}
+            >
               <Typography sx={sx(index)}>{label}</Typography>
             </StepLabel>
           </Step>

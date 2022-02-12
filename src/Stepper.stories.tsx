@@ -6,8 +6,11 @@ export default {
   component: NVCStepper,
 } as ComponentMeta<typeof NVCStepper>;
 
-const Template: ComponentStory<typeof NVCStepper> = ({ activeStep: step }) => {
-  return <NVCStepper activeStep={step} />;
+const Template: ComponentStory<typeof NVCStepper> = ({
+  activeStep: step,
+  onClickStep,
+}) => {
+  return <NVCStepper activeStep={step} onClickStep={onClickStep} />;
 };
 Template.args = {};
 
