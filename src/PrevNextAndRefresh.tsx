@@ -25,28 +25,29 @@ export const PrevNextAndRefresh = ({
     {onClickPrev && (
       <IconButton
         type="button"
+        aria-label="previous"
         onClick={onClickPrev}
         sx={{ alignSelf: "center" }}
       >
-        <ArrowBackIosIcon fontSize="small" />
+        <ArrowBackIosIcon />
       </IconButton>
     )}
     <IconButton
       type="button"
       aria-label="refresh"
-      size="medium"
       onClick={onClickRefresh}
       sx={{ alignSelf: "center" }}
     >
-      <RefreshIcon fontSize="inherit" />
+      <RefreshIcon />
     </IconButton>
     <IconButton
       type="button"
+      aria-label="next"
       onClick={onClickNext}
       sx={{ alignSelf: "center" }}
       disabled={isNextDisabled}
     >
-      <ArrowForwardIosIcon fontSize="small" />
+      <ArrowForwardIosIcon />
     </IconButton>
   </Box>
 );

@@ -1,5 +1,5 @@
 import Stack from "@mui/material/Stack/Stack";
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -13,6 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import ContentCopy from "@mui/icons-material/ContentCopy";
 import ArrowBackIos from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 export interface CompleteYourStatementProps {
   value?: string;
@@ -50,6 +51,10 @@ export const CompleteYourStatement = ({
     navigator.clipboard.writeText(textAreaRef.current?.value || "");
   }, []);
 
+  const whatsAppHref = useMemo(() => {
+    return `https://wa.me/whatsappphonenumber/?text=${encodeURI(value || "")}`;
+  }, [value]);
+
   const ctaButtons = useMemo<JSX.Element>(() => {
     return (
       <Box display={"flex"} gap={1}>
@@ -58,7 +63,7 @@ export const CompleteYourStatement = ({
           type="button"
           sx={{ alignSelf: "center" }}
         >
-          <ArrowBackIos fontSize="small" />
+          <ArrowBackIos />
         </IconButton>
         <IconButton
           size="medium"
@@ -69,16 +74,19 @@ export const CompleteYourStatement = ({
         >
           <ContentCopy />
         </IconButton>
+        <IconButton href={whatsAppHref}>
+          <WhatsAppIcon />
+        </IconButton>
         <IconButton
           onClick={onClickNext}
           type="button"
           sx={{ alignSelf: "center" }}
         >
-          <ArrowForwardIos fontSize="small" />
+          <ArrowForwardIos />
         </IconButton>
       </Box>
     );
-  }, [handleClickContentCopy, onClickPrev, onClickNext]);
+  }, [onClickPrev, handleClickContentCopy, whatsAppHref, onClickNext]);
 
   return (
     <Card
