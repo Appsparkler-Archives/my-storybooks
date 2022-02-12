@@ -20,7 +20,6 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import { SectionTitle } from "./SectionTitle";
 import {
   PrevNextAndRefresh,
   PrevNextAndRefreshProps,
@@ -98,11 +97,10 @@ export const NeedAndSubNeeds = ({
           "linear-gradient( 95deg,rgba(242,113,33, .8) 0%,rgba(233,64,87,.8) 50%,rgba(138,35,135, .8) 100%)",
       }}
     >
+      <CardActions sx={{ flexFlow: "row-reverse" }}>
+        {prevNextAndRefresh}
+      </CardActions>
       <CardContent>
-        <SectionTitle leftSideChildren={prevNextAndRefresh}>
-          What need of yours is met/unmet that makes you feel like that?
-        </SectionTitle>
-        <br />
         <Grid container spacing={2}>
           {map<Need, JSX.Element>(({ id, checked, name, subNeeds }) => (
             <Grid item md={4} sm={6} xs={12} maxHeight="400">
