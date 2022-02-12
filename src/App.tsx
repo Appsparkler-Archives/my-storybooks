@@ -140,6 +140,13 @@ export const App = () => {
     }));
   }, []);
 
+  const handleOnClickNextCompleteYourStatement = useCallback(() => {
+    setState((prevState) => ({
+      ...prevState,
+      activeStep: ActiveStep.HowAreYouFeeling,
+    }));
+  }, []);
+
   useEffect(() => {
     if (activeStep === ActiveStep.CompleteYourStatement) {
       setStatement(
@@ -205,6 +212,7 @@ export const App = () => {
           <CompleteYourStatement
             onChange={handleChangeStatment}
             onClickPrev={handleOnClickPrevCompleteYourStatement}
+            onClickNext={handleOnClickNextCompleteYourStatement}
             value={statement}
           />
         )}
