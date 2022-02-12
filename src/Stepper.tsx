@@ -11,7 +11,9 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector";
+
 import { StepIconProps } from "@mui/material/StepIcon";
+import Typography, { TypographyProps } from "@mui/material/Typography";
 
 const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -98,6 +100,16 @@ export type NVCStepperProps = {
 };
 
 export const NVCStepper = ({ activeStep = 0 }: NVCStepperProps) => {
+  const sx = React.useCallback<
+    (currentStep: number) => NonNullable<TypographyProps["sx"]>
+  >(
+    (currentStep) => {
+      return {
+        fontWeight: currentStep === activeStep ? "bold !important" : "normal",
+      };
+    },
+    [activeStep]
+  );
   return (
     <Stack spacing={4} sx={{ width: "100%" }}>
       <Stepper
@@ -105,9 +117,11 @@ export const NVCStepper = ({ activeStep = 0 }: NVCStepperProps) => {
         alternativeLabel
         connector={<ColorlibConnector />}
       >
-        {steps.map((label) => (
+        {steps.map((label, index) => (
           <Step key={label}>
-            <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>
+            <StepLabel StepIconComponent={ColorlibStepIcon}>
+              <Typography sx={sx(index)}>{label}</Typography>
+            </StepLabel>
           </Step>
         ))}
       </Stepper>
