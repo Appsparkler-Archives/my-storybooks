@@ -95,9 +95,23 @@ export enum NeedStatus {
   UNMET = "unmet",
 }
 
+export enum StepIconEnum {
+  HowAreYou = 1,
+  WhatAreYouFeeling = 2,
+  NeedsAndSubNeeds = 3,
+  CompleteYourStatement = 4,
+}
+
+export type StepInfo = {
+  active: boolean;
+  completed: boolean;
+  error: boolean;
+  icon: StepIconEnum;
+};
+
 export type NVCStepperProps = {
   activeStep: number;
-  onClickStep?: (step: any) => void;
+  onClickStep?: (step: StepInfo) => void;
   needStatus?: NeedStatus;
 };
 

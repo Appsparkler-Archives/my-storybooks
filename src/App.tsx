@@ -4,7 +4,12 @@ import {
   HowAreYouFeeling,
   HowAreYouFeelingProps,
 } from "./HowAreYouFeeling";
-import { NeedStatus, NVCStepper } from "./Stepper";
+import {
+  NeedStatus,
+  NVCStepper,
+  NVCStepperProps,
+  StepIconEnum,
+} from "./Stepper";
 import { FormControlLabelItem, SubNeedsProps } from "./SubNeeds";
 import { WhatAreYouFeeling, WhatAreYouFeelingProps } from "./WhatAreYouFeeling";
 import {
@@ -20,6 +25,8 @@ import {
   filterOutUncheckedNeeds,
   pipeFeelingsToString,
   reduceNeedToNeedStatement,
+  someFeelingsAreChecked,
+  someNeedsAreChecked,
 } from "./utils";
 import { goodFeelings, needs, notSoGoodFeelings } from "./data";
 import Typography from "@mui/material/Typography";
@@ -155,6 +162,53 @@ export const App = () => {
     }));
   }, []);
 
+  const handleClickStep = useCallback<
+    NonNullable<NVCStepperProps["onClickStep"]>
+  >(
+    (step) => {
+      switch (step.icon) {
+        case StepIconEnum.HowAreYou:
+          setState((prevState) => ({
+            ...prevState,
+            activeStep: ActiveStep.HowAreYouFeeling,
+          }));
+          break;
+
+        case StepIconEnum.WhatAreYouFeeling:
+          if (feeling) {
+            setState((prevState) => ({
+              ...prevState,
+              activeStep: ActiveStep.WhatAreYouFeeling,
+            }));
+          }
+          break;
+
+        case StepIconEnum.NeedsAndSubNeeds:
+          if (feeling && someFeelingsAreChecked(feelings)) {
+            setState((prevState) => ({
+              ...prevState,
+              activeStep: ActiveStep.WhyAreYouFeeling,
+            }));
+          }
+          break;
+
+        case StepIconEnum.CompleteYourStatement:
+          if (
+            feelings &&
+            someFeelingsAreChecked(feelings) &&
+            someNeedsAreChecked(needAndSubNeeds)
+          ) {
+            setState((prevState) => ({
+              ...prevState,
+              activeStep: ActiveStep.CompleteYourStatement,
+            }));
+          }
+          break;
+      }
+    },
+    [feeling, feelings, needAndSubNeeds]
+  );
+
   useEffect(() => {
     if (activeStep === ActiveStep.CompleteYourStatement) {
       setStatement(
@@ -190,7 +244,11 @@ export const App = () => {
           </Typography>
         </Box>
         <br />
-        <NVCStepper activeStep={activeStep} needStatus={needStatus} />
+        <NVCStepper
+          activeStep={activeStep}
+          needStatus={needStatus}
+          onClickStep={handleClickStep}
+        />
         <br />
         {activeStep === ActiveStep.HowAreYouFeeling && (
           <HowAreYouFeeling
