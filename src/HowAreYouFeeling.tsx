@@ -9,11 +9,11 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import noop from "lodash/fp/noop";
-import { SectionTitle } from "./SectionTitle";
 import {
   PrevNextAndRefresh,
   PrevNextAndRefreshProps,
 } from "./PrevNextAndRefresh";
+import Box from "@mui/material/Box";
 
 export enum FeelingEnum {
   LIKE = "like",
@@ -71,23 +71,27 @@ export const HowAreYouFeeling = ({
         {prevNextAndRefresh}
       </CardActions>
       <CardContent>
-        <Stack direction="row" spacing={0}>
+        <Stack direction="row" spacing={2}>
           {map<FeelingEnum, JSX.Element>((feeling) => (
             <Radio
               checked={feeling === value}
               checkedIcon={
-                value === FeelingEnum.LIKE ? (
-                  <ThumbUpIcon color="primary" />
-                ) : (
-                  <ThumbDownIcon color="primary" />
-                )
+                <Box sx={{ color: "white" }}>
+                  {value === FeelingEnum.LIKE ? (
+                    <ThumbUpIcon color="inherit" fontSize="large" />
+                  ) : (
+                    <ThumbDownIcon color="inherit" fontSize="large" />
+                  )}
+                </Box>
               }
               icon={
-                feeling === FeelingEnum.LIKE ? (
-                  <ThumbUpIcon fontSize="large" />
-                ) : (
-                  <ThumbDownIcon fontSize="large" />
-                )
+                <Box>
+                  {feeling === FeelingEnum.LIKE ? (
+                    <ThumbUpIcon fontSize="large" />
+                  ) : (
+                    <ThumbDownIcon fontSize="large" />
+                  )}
+                </Box>
               }
               key={feeling}
               name="feeling"
