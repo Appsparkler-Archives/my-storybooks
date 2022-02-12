@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   FeelingEnum,
   HowAreYouFeeling,
   HowAreYouFeelingProps,
 } from "./HowAreYouFeeling";
-import { NVCStepper } from "./Stepper";
+import { NeedStatus, NVCStepper } from "./Stepper";
 import { FormControlLabelItem, SubNeedsProps } from "./SubNeeds";
 import { WhatAreYouFeeling, WhatAreYouFeelingProps } from "./WhatAreYouFeeling";
 import {
@@ -52,6 +52,12 @@ export const App = () => {
     });
   const [statement, setStatement] =
     useState<CompleteYourStatementProps["value"]>();
+
+  const needStatus = useMemo<NeedStatus | undefined>(() => {
+    if (!feeling) return undefined;
+    if (feeling === FeelingEnum.LIKE) return NeedStatus.MET;
+    if (feeling === FeelingEnum.DISLIKE) return NeedStatus.UNMET;
+  }, [feeling]);
 
   const handleChangeFeeling = useCallback<HowAreYouFeelingProps["onChange"]>(
     (feeling) => {
@@ -156,10 +162,10 @@ export const App = () => {
           feelings
         )} because my need for ${reduceNeedToNeedStatement(
           filterOutUncheckedNeeds(needAndSubNeeds)
-        )} are ${feeling === FeelingEnum.LIKE ? "met" : "unmet"} when ....`
+        )} are ${needStatus} when ....`
       );
     }
-  }, [activeStep, needAndSubNeeds, feelings, feeling]);
+  }, [activeStep, needAndSubNeeds, feelings, feeling, needStatus]);
 
   return (
     <>
@@ -184,7 +190,7 @@ export const App = () => {
           </Typography>
         </Box>
         <br />
-        <NVCStepper activeStep={activeStep} />
+        <NVCStepper activeStep={activeStep} needStatus={needStatus} />
         <br />
         {activeStep === ActiveStep.HowAreYouFeeling && (
           <HowAreYouFeeling
