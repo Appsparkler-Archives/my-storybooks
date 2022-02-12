@@ -52,7 +52,7 @@ export const CompleteYourStatement = ({
   }, []);
 
   const whatsAppHref = useMemo(() => {
-    return `https://wa.me/whatsappphonenumber/?text=${encodeURI(value || "")}`;
+    return `https://wa.me/?text=${encodeURI(value || "")}`;
   }, [value]);
 
   const ctaButtons = useMemo<JSX.Element>(() => {
